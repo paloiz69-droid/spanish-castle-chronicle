@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Youtube, MapPin, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
-import { getCastilloBySlug, YOUTUBE_URL } from "@/data/castillos";
+import { getCastilloBySlug, YOUTUBE_URL, type Castillo } from "@/data/castillos";
 
 export const Route = createFileRoute("/castillo/$slug")({
   loader: ({ params }) => {
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/castillo/$slug")({
 });
 
 function Page() {
-  const { castillo } = Route.useLoaderData();
+  const { castillo } = Route.useLoaderData() as { castillo: Castillo };
   const [lightbox, setLightbox] = useState<string | null>(null);
   const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
   const badge = castillo.estado === "ruinas" ? "🏚️ En Ruinas" : "🏰 Conservado";
