@@ -530,6 +530,81 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/KypAtTR1pTk",
   },
+  {
+    slug: "castillo-de-villaviciosa-de-odon",
+    nombre: "Castillo de Villaviciosa de Odón",
+    provincia: "Madrid",
+    comunidad: "Comunidad de Madrid",
+    estado: "conservado",
+    estadoDescripcion: "Restaurado — sede del Archivo Histórico del Ejército del Aire",
+    descripcionBreve:
+      "Fortaleza palaciega del siglo XV reconstruida tras un incendio, hoy archivo militar en plena sierra oeste madrileña.",
+    imagen: heroImg,
+    coordenadas: [40.3572, -3.9028],
+    historia:
+      "El castillo de Villaviciosa de Odón se levantó en el siglo XV sobre una fortificación anterior y perteneció a los condes de Chinchón. Tras varios incendios y reformas, fue restaurado en el siglo XX para albergar el Archivo Histórico del Ejército del Aire, función que conserva en la actualidad.",
+    cronologia: [
+      { anio: "Siglo XV", evento: "Construcción original como fortaleza señorial." },
+      { anio: "Siglo XVII", evento: "Reforma palaciega bajo los condes de Chinchón." },
+      { anio: "1736", evento: "Incendio que destruye gran parte del edificio." },
+      { anio: "Siglo XX", evento: "Restauración y conversión en archivo militar." },
+    ],
+    curiosidades: [
+      "Conserva uno de los archivos aeronáuticos más importantes de España.",
+      "Su silueta domina el casco urbano de Villaviciosa de Odón.",
+    ],
+    youtubeUrl: "https://youtu.be/m_lmeu6ZvMg",
+  },
+  {
+    slug: "castillo-de-magalia",
+    nombre: "Castillo de Magalia",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "conservado",
+    estadoDescripcion: "Restaurado — visitable como centro cultural",
+    descripcionBreve:
+      "Pequeña fortaleza señorial en Las Navas del Marqués, hoy reconvertida en residencia y centro de actividades.",
+    imagen: heroImg,
+    coordenadas: [40.6053, -4.3439],
+    historia:
+      "El castillo-palacio de Magalia, situado en Las Navas del Marqués, fue residencia señorial vinculada a los marqueses de Las Navas. Combinando elementos defensivos con una clara vocación palaciega, ha sido restaurado en distintas fases hasta convertirse en sede cultural y residencia de actividades.",
+    cronologia: [
+      { anio: "Siglo XVI", evento: "Construcción como residencia señorial fortificada." },
+      { anio: "Siglo XIX", evento: "Periodo de abandono y deterioro." },
+      { anio: "Siglo XX", evento: "Restauración integral del conjunto." },
+      { anio: "Actualidad", evento: "Centro cultural y residencia de actividades." },
+    ],
+    curiosidades: [
+      "Su nombre proviene de la antigua denominación romana de la zona.",
+      "Combina arquitectura militar y residencial en un solo conjunto.",
+    ],
+    youtubeUrl: "https://youtu.be/sA92aGowI3E",
+  },
+  {
+    slug: "alcazar-de-segovia",
+    nombre: "Alcázar de Segovia",
+    provincia: "Segovia",
+    comunidad: "Castilla y León",
+    estado: "conservado",
+    estadoDescripcion: "Excelente estado — visitable",
+    descripcionBreve:
+      "El alcázar de los reyes de Castilla, proa de piedra sobre la confluencia del Eresma y el Clamores.",
+    imagen: heroImg,
+    coordenadas: [40.9527, -4.1325],
+    historia:
+      "El Alcázar de Segovia, mencionado por primera vez en el siglo XII, fue residencia favorita de los reyes de Castilla. Aquí fue proclamada reina Isabel la Católica en 1474. Tras un grave incendio en 1862, fue reconstruido en el siglo XIX manteniendo su silueta de proa que lo ha convertido en icono universal.",
+    cronologia: [
+      { anio: "Siglo XII", evento: "Primeras referencias documentales." },
+      { anio: "1474", evento: "Proclamación de Isabel la Católica como reina." },
+      { anio: "1862", evento: "Incendio que destruye gran parte del interior." },
+      { anio: "Siglo XIX-XX", evento: "Reconstrucción y conversión en museo." },
+    ],
+    curiosidades: [
+      "Su silueta inspiró el castillo de Cenicienta de Walt Disney, según la leyenda popular.",
+      "Fue prisión real durante el siglo XVIII.",
+    ],
+    youtubeUrl: "https://youtu.be/NXRMpYMpTGU",
+  },
 ];
 
 export const getCastilloBySlug = (slug: string) =>
