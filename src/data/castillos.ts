@@ -17,6 +17,7 @@ import escalona from "@/assets/castillos/escalona.jpg";
 import penasNegras from "@/assets/castillos/penas-negras.jpg";
 import laMota from "@/assets/castillos/la-mota.jpg";
 import laCoracera from "@/assets/castillos/la-coracera.jpg";
+import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
 
@@ -39,7 +40,7 @@ export interface Castillo {
   historia: string;
   cronologia: CronologiaEvento[];
   curiosidades: string[];
-  youtubeId?: string;
+  youtubeUrl?: string;
   ordenRuinas?: number;
 }
 
@@ -69,6 +70,7 @@ export const CASTILLOS: Castillo[] = [
       "Su perfil al atardecer es uno de los más fotografiados de la sierra oeste madrileña.",
       "La leyenda popular lo asocia con una mora encantada que aún custodia su tesoro.",
     ],
+    youtubeUrl: "https://youtu.be/gLzEM43MoDs",
   },
   {
     slug: "castillo-de-gormaz",
@@ -120,6 +122,7 @@ export const CASTILLOS: Castillo[] = [
       "El cerro sobre el que se asienta es considerado uno de los más perfectos del mundo.",
       "Ortega y Gasset escribió sobre la belleza geométrica del emplazamiento.",
     ],
+    youtubeUrl: "https://youtu.be/41pA4KYrEvo",
   },
   {
     slug: "castillo-de-berlanga-de-duero",
@@ -145,6 +148,7 @@ export const CASTILLOS: Castillo[] = [
       "Uno de los primeros castillos artilleros de la Península.",
       "Sus murallas exteriores rodean toda la villa medieval.",
     ],
+    youtubeUrl: "https://youtu.be/ZAI_rgcgEpg",
   },
   {
     slug: "castillo-de-castrojeriz",
@@ -170,6 +174,7 @@ export const CASTILLOS: Castillo[] = [
       "Punto destacado en la etapa burgalesa del Camino de Santiago.",
       "El terremoto de Lisboa de 1755 derribó parte de sus muros.",
     ],
+    youtubeUrl: "https://youtu.be/8dw4ZnMqFWg",
   },
   {
     slug: "castillo-de-forna",
@@ -195,6 +200,7 @@ export const CASTILLOS: Castillo[] = [
       "Su planta cuadrada con cuatro torres esquineras es única en la zona.",
       "Combina función defensiva y residencial.",
     ],
+    youtubeUrl: "https://youtu.be/4E27yWWQtNI",
   },
 
   // CONSERVADOS
@@ -221,6 +227,7 @@ export const CASTILLOS: Castillo[] = [
       "Diseñado por Juan Guas, arquitecto de los Reyes Católicos.",
       "Sus garitones colgantes son característicos del gótico isabelino.",
     ],
+    youtubeUrl: "https://youtu.be/zNy1cBsX1e0",
   },
   {
     slug: "castillo-de-guadamur",
@@ -245,6 +252,7 @@ export const CASTILLOS: Castillo[] = [
       "Sus garitones cilíndricos coronados son únicos en España.",
       "Hospedó a Juana la Loca tras la muerte de Felipe el Hermoso.",
     ],
+    youtubeUrl: "https://youtu.be/6aH_eW3E0Vw",
   },
   {
     slug: "castillo-de-consuegra",
@@ -269,6 +277,7 @@ export const CASTILLOS: Castillo[] = [
       "Sede histórica del Gran Priorato de San Juan en Castilla.",
       "El conjunto con los molinos es uno de los iconos de La Mancha.",
     ],
+    youtubeUrl: "https://youtu.be/7nbJBSzW4jA",
   },
   {
     slug: "castillo-de-cullera",
@@ -293,6 +302,7 @@ export const CASTILLOS: Castillo[] = [
       "Fue refugio frente a los ataques berberiscos en el siglo XVI.",
       "Integra fortaleza medieval y santuario mariano del XIX.",
     ],
+    youtubeUrl: "https://youtu.be/usZiTAvZjjw",
   },
   {
     slug: "castillo-de-san-servando",
@@ -317,6 +327,7 @@ export const CASTILLOS: Castillo[] = [
       "Ofrece una de las mejores panorámicas del casco histórico de Toledo.",
       "Su silueta es una de las más fotografiadas de la ciudad imperial.",
     ],
+    youtubeUrl: "https://youtu.be/YwB3wFEl1X8",
   },
   {
     slug: "castillo-de-torija",
@@ -341,6 +352,7 @@ export const CASTILLOS: Castillo[] = [
       "Alberga el Museo del Viaje a la Alcarria, único en España.",
       "Su torre del homenaje alcanza casi 20 metros de altura.",
     ],
+    youtubeUrl: "https://youtu.be/VbGrbsamAgo",
   },
   {
     slug: "castillo-de-cuellar",
@@ -365,6 +377,7 @@ export const CASTILLOS: Castillo[] = [
       "Conserva uno de los patios renacentistas más bellos de Castilla.",
       "Integra una muralla medieval que rodea la villa entera.",
     ],
+    youtubeUrl: "https://youtu.be/wfDdpZVHyKw",
   },
   {
     slug: "castillo-de-malpica-de-tajo",
@@ -389,6 +402,7 @@ export const CASTILLOS: Castillo[] = [
       "Es uno de los pocos castillos españoles literalmente abrazados por un río.",
       "Su restauración decimonónica le dio el aire de palacio centroeuropeo.",
     ],
+    youtubeUrl: "https://youtu.be/8TvRRV3Gh4A",
   },
   {
     slug: "castillo-de-maqueda",
@@ -413,6 +427,7 @@ export const CASTILLOS: Castillo[] = [
       "Su muralla almenada es una de las mejor conservadas de la Península.",
       "Sirvió como cuartel de la Guardia Civil durante décadas.",
     ],
+    youtubeUrl: "https://youtu.be/XZMaYGGpWN8",
   },
   {
     slug: "castillo-de-escalona",
@@ -437,6 +452,7 @@ export const CASTILLOS: Castillo[] = [
       "Don Álvaro de Luna celebró aquí fiestas legendarias antes de su ejecución.",
       "Su recinto albergaba uno de los patios palaciegos más lujosos de la Castilla del XV.",
     ],
+    youtubeUrl: "https://youtu.be/7Q-GSTVJ7Cg",
   },
   {
     slug: "castillo-de-penas-negras",
@@ -461,6 +477,7 @@ export const CASTILLOS: Castillo[] = [
       "Su nombre proviene del color oscuro de las rocas sobre las que se asienta.",
       "Forma parte del Centro de Interpretación de los Montes de Toledo.",
     ],
+    youtubeUrl: "https://youtu.be/zwYEQzqEthY",
   },
   {
     slug: "castillo-de-la-mota",
@@ -486,6 +503,7 @@ export const CASTILLOS: Castillo[] = [
       "Es uno de los castillos de ladrillo más grandes de Europa.",
       "Su barrera artillera es una de las primeras del continente.",
     ],
+    youtubeUrl: "https://youtu.be/hP8uMGlfX68",
   },
   {
     slug: "castillo-de-la-coracera",
@@ -510,6 +528,82 @@ export const CASTILLOS: Castillo[] = [
       "Levantado en granito de la sierra de Gredos.",
       "Conserva intacta su torre del homenaje rectangular con torreón cilíndrico adosado.",
     ],
+    youtubeUrl: "https://youtu.be/KypAtTR1pTk",
+  },
+  {
+    slug: "castillo-de-villaviciosa-de-odon",
+    nombre: "Castillo de Villaviciosa de Odón",
+    provincia: "Madrid",
+    comunidad: "Comunidad de Madrid",
+    estado: "conservado",
+    estadoDescripcion: "Restaurado — sede del Archivo Histórico del Ejército del Aire",
+    descripcionBreve:
+      "Fortaleza palaciega del siglo XV reconstruida tras un incendio, hoy archivo militar en plena sierra oeste madrileña.",
+    imagen: heroImg,
+    coordenadas: [40.3572, -3.9028],
+    historia:
+      "El castillo de Villaviciosa de Odón se levantó en el siglo XV sobre una fortificación anterior y perteneció a los condes de Chinchón. Tras varios incendios y reformas, fue restaurado en el siglo XX para albergar el Archivo Histórico del Ejército del Aire, función que conserva en la actualidad.",
+    cronologia: [
+      { anio: "Siglo XV", evento: "Construcción original como fortaleza señorial." },
+      { anio: "Siglo XVII", evento: "Reforma palaciega bajo los condes de Chinchón." },
+      { anio: "1736", evento: "Incendio que destruye gran parte del edificio." },
+      { anio: "Siglo XX", evento: "Restauración y conversión en archivo militar." },
+    ],
+    curiosidades: [
+      "Conserva uno de los archivos aeronáuticos más importantes de España.",
+      "Su silueta domina el casco urbano de Villaviciosa de Odón.",
+    ],
+    youtubeUrl: "https://youtu.be/m_lmeu6ZvMg",
+  },
+  {
+    slug: "castillo-de-magalia",
+    nombre: "Castillo de Magalia",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "conservado",
+    estadoDescripcion: "Restaurado — visitable como centro cultural",
+    descripcionBreve:
+      "Pequeña fortaleza señorial en Las Navas del Marqués, hoy reconvertida en residencia y centro de actividades.",
+    imagen: heroImg,
+    coordenadas: [40.6053, -4.3439],
+    historia:
+      "El castillo-palacio de Magalia, situado en Las Navas del Marqués, fue residencia señorial vinculada a los marqueses de Las Navas. Combinando elementos defensivos con una clara vocación palaciega, ha sido restaurado en distintas fases hasta convertirse en sede cultural y residencia de actividades.",
+    cronologia: [
+      { anio: "Siglo XVI", evento: "Construcción como residencia señorial fortificada." },
+      { anio: "Siglo XIX", evento: "Periodo de abandono y deterioro." },
+      { anio: "Siglo XX", evento: "Restauración integral del conjunto." },
+      { anio: "Actualidad", evento: "Centro cultural y residencia de actividades." },
+    ],
+    curiosidades: [
+      "Su nombre proviene de la antigua denominación romana de la zona.",
+      "Combina arquitectura militar y residencial en un solo conjunto.",
+    ],
+    youtubeUrl: "https://youtu.be/sA92aGowI3E",
+  },
+  {
+    slug: "alcazar-de-segovia",
+    nombre: "Alcázar de Segovia",
+    provincia: "Segovia",
+    comunidad: "Castilla y León",
+    estado: "conservado",
+    estadoDescripcion: "Excelente estado — visitable",
+    descripcionBreve:
+      "El alcázar de los reyes de Castilla, proa de piedra sobre la confluencia del Eresma y el Clamores.",
+    imagen: heroImg,
+    coordenadas: [40.9527, -4.1325],
+    historia:
+      "El Alcázar de Segovia, mencionado por primera vez en el siglo XII, fue residencia favorita de los reyes de Castilla. Aquí fue proclamada reina Isabel la Católica en 1474. Tras un grave incendio en 1862, fue reconstruido en el siglo XIX manteniendo su silueta de proa que lo ha convertido en icono universal.",
+    cronologia: [
+      { anio: "Siglo XII", evento: "Primeras referencias documentales." },
+      { anio: "1474", evento: "Proclamación de Isabel la Católica como reina." },
+      { anio: "1862", evento: "Incendio que destruye gran parte del interior." },
+      { anio: "Siglo XIX-XX", evento: "Reconstrucción y conversión en museo." },
+    ],
+    curiosidades: [
+      "Su silueta inspiró el castillo de Cenicienta de Walt Disney, según la leyenda popular.",
+      "Fue prisión real durante el siglo XVIII.",
+    ],
+    youtubeUrl: "https://youtu.be/NXRMpYMpTGU",
   },
 ];
 
@@ -523,5 +617,3 @@ export const getCastillosEnRuinas = () =>
   CASTILLOS.filter((c) => c.estado === "ruinas").sort(
     (a, b) => (a.ordenRuinas ?? 99) - (b.ordenRuinas ?? 99),
   );
-
-export const YOUTUBE_URL = "https://www.youtube.com/@Kdronazo";

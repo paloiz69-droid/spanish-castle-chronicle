@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Youtube, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { YOUTUBE_URL } from "@/data/castillos";
 
 const navLinks = [
   { to: "/conservados", label: "🏰 Castillos Conservados" },
@@ -29,14 +28,6 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <a
-            href={YOUTUBE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 inline-flex items-center gap-2 rounded-md bg-[var(--youtube)] px-4 py-2 text-sm font-medium text-[var(--youtube-foreground)] shadow-sm transition-transform hover:scale-[1.02]"
-          >
-            <Youtube className="h-4 w-4" /> Ver Canal Kdronazo
-          </a>
         </nav>
         <button
           onClick={() => setOpen((o) => !o)}
@@ -59,14 +50,6 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={YOUTUBE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-[var(--youtube)] px-4 py-3 text-sm font-medium text-[var(--youtube-foreground)]"
-            >
-              <Youtube className="h-4 w-4" /> Ver Canal Kdronazo
-            </a>
           </nav>
         </div>
       )}
