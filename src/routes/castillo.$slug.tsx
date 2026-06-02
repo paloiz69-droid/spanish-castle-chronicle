@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Youtube, MapPin, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
-import { getCastilloBySlug, YOUTUBE_URL, type Castillo } from "@/data/castillos";
+import { getCastilloBySlug, type Castillo } from "@/data/castillos";
 
 export const Route = createFileRoute("/castillo/$slug")({
   loader: ({ params }) => {
@@ -68,6 +68,24 @@ function Page() {
         </div>
       </section>
 
+      {/* Botón de vídeo individual — justo debajo de la fotografía principal */}
+      <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+        {castillo.youtubeUrl ? (
+          <a
+            href={castillo.youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-[var(--youtube)] px-5 py-3 text-sm font-medium text-[var(--youtube-foreground)] shadow-sm transition-transform hover:scale-[1.02]"
+          >
+            <Youtube className="h-4 w-4" /> 📺 Ver vídeo de este castillo
+          </a>
+        ) : (
+          <div className="inline-flex items-center gap-2 rounded-md border border-dashed border-border bg-secondary/40 px-5 py-3 text-sm text-muted-foreground">
+            <Youtube className="h-4 w-4" /> Vídeo próximamente disponible
+          </div>
+        )}
+      </div>
+
       <article className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_280px] lg:px-8">
         <div className="space-y-12">
           <Section title="Historia">
@@ -111,34 +129,6 @@ function Page() {
             </div>
           </Section>
 
-          <Section title="Vídeo del canal">
-            {castillo.youtubeId ? (
-              <div className="aspect-video overflow-hidden rounded-lg border border-border/70">
-                <iframe
-                  className="h-full w-full"
-                  src={`https://www.youtube.com/embed/${castillo.youtubeId}`}
-                  title={`${castillo.nombre} — Kdronazo`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            ) : (
-              <div className="rounded-lg border border-dashed border-border bg-secondary/40 p-8 text-center">
-                <p className="text-sm text-muted-foreground">
-                  Próximamente publicaremos el vídeo aéreo de este castillo en el canal.
-                </p>
-                <a
-                  href={YOUTUBE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 rounded-md bg-[var(--youtube)] px-4 py-2 text-sm font-medium text-[var(--youtube-foreground)]"
-                >
-                  <Youtube className="h-4 w-4" /> Ver Canal Kdronazo
-                </a>
-              </div>
-            )}
-          </Section>
-
           <Section title="Localización">
             <div className="aspect-video overflow-hidden rounded-lg border border-border/70">
               <iframe
@@ -168,14 +158,16 @@ function Page() {
             <p className="mt-2 text-sm text-foreground/85">{castillo.provincia}</p>
             <p className="text-xs text-muted-foreground">{castillo.comunidad}</p>
           </div>
-          <a
-            href={YOUTUBE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl bg-[var(--youtube)] px-4 py-3 text-sm font-medium text-[var(--youtube-foreground)]"
-          >
-            <Youtube className="h-4 w-4" /> Ver Canal Kdronazo
-          </a>
+          {castillo.youtubeUrl && (
+            <a
+              href={castillo.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 rounded-xl bg-[var(--youtube)] px-4 py-3 text-sm font-medium text-[var(--youtube-foreground)]"
+            >
+              <Youtube className="h-4 w-4" /> 📺 Ver vídeo de este castillo
+            </a>
+          )}
         </aside>
       </article>
 
