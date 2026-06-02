@@ -1,12 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { Youtube } from "lucide-react";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 import { PageShell } from "@/components/site/PageShell";
 import { CastilloCard } from "@/components/site/CastilloCard";
 import {
   CASTILLOS,
-  YOUTUBE_URL,
   getCastillosConservados,
   getCastillosEnRuinas,
 } from "@/data/castillos";
@@ -55,14 +53,6 @@ function Index() {
             <Link to="/ruinas" className="rounded-md border border-white/40 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20">
               🏚️ Castillos en Ruinas
             </Link>
-            <a
-              href={YOUTUBE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-[var(--youtube)] px-5 py-3 text-sm font-medium text-[var(--youtube-foreground)] shadow-sm transition-transform hover:scale-[1.02]"
-            >
-              <Youtube className="h-4 w-4" /> Ver Canal Kdronazo
-            </a>
           </div>
         </div>
       </section>
