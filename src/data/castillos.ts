@@ -69,6 +69,7 @@ export const CASTILLOS: Castillo[] = [
       "Su perfil al atardecer es uno de los más fotografiados de la sierra oeste madrileña.",
       "La leyenda popular lo asocia con una mora encantada que aún custodia su tesoro.",
     ],
+    youtubeUrl: "https://youtu.be/gLzEM43MoDs",
   },
   {
     slug: "castillo-de-gormaz",
@@ -120,6 +121,7 @@ export const CASTILLOS: Castillo[] = [
       "El cerro sobre el que se asienta es considerado uno de los más perfectos del mundo.",
       "Ortega y Gasset escribió sobre la belleza geométrica del emplazamiento.",
     ],
+    youtubeUrl: "https://youtu.be/41pA4KYrEvo",
   },
   {
     slug: "castillo-de-berlanga-de-duero",
@@ -145,6 +147,7 @@ export const CASTILLOS: Castillo[] = [
       "Uno de los primeros castillos artilleros de la Península.",
       "Sus murallas exteriores rodean toda la villa medieval.",
     ],
+    youtubeUrl: "https://youtu.be/ZAI_rgcgEpg",
   },
   {
     slug: "castillo-de-castrojeriz",
@@ -170,6 +173,7 @@ export const CASTILLOS: Castillo[] = [
       "Punto destacado en la etapa burgalesa del Camino de Santiago.",
       "El terremoto de Lisboa de 1755 derribó parte de sus muros.",
     ],
+    youtubeUrl: "https://youtu.be/8dw4ZnMqFWg",
   },
   {
     slug: "castillo-de-forna",
@@ -195,6 +199,7 @@ export const CASTILLOS: Castillo[] = [
       "Su planta cuadrada con cuatro torres esquineras es única en la zona.",
       "Combina función defensiva y residencial.",
     ],
+    youtubeUrl: "https://youtu.be/4E27yWWQtNI",
   },
 
   // CONSERVADOS
@@ -221,6 +226,7 @@ export const CASTILLOS: Castillo[] = [
       "Diseñado por Juan Guas, arquitecto de los Reyes Católicos.",
       "Sus garitones colgantes son característicos del gótico isabelino.",
     ],
+    youtubeUrl: "https://youtu.be/zNy1cBsX1e0",
   },
   {
     slug: "castillo-de-guadamur",
@@ -245,6 +251,7 @@ export const CASTILLOS: Castillo[] = [
       "Sus garitones cilíndricos coronados son únicos en España.",
       "Hospedó a Juana la Loca tras la muerte de Felipe el Hermoso.",
     ],
+    youtubeUrl: "https://youtu.be/6aH_eW3E0Vw",
   },
   {
     slug: "castillo-de-consuegra",
@@ -269,6 +276,7 @@ export const CASTILLOS: Castillo[] = [
       "Sede histórica del Gran Priorato de San Juan en Castilla.",
       "El conjunto con los molinos es uno de los iconos de La Mancha.",
     ],
+    youtubeUrl: "https://youtu.be/7nbJBSzW4jA",
   },
   {
     slug: "castillo-de-cullera",
@@ -293,6 +301,7 @@ export const CASTILLOS: Castillo[] = [
       "Fue refugio frente a los ataques berberiscos en el siglo XVI.",
       "Integra fortaleza medieval y santuario mariano del XIX.",
     ],
+    youtubeUrl: "https://youtu.be/usZiTAvZjjw",
   },
   {
     slug: "castillo-de-san-servando",
@@ -317,6 +326,7 @@ export const CASTILLOS: Castillo[] = [
       "Ofrece una de las mejores panorámicas del casco histórico de Toledo.",
       "Su silueta es una de las más fotografiadas de la ciudad imperial.",
     ],
+    youtubeUrl: "https://youtu.be/YwB3wFEl1X8",
   },
   {
     slug: "castillo-de-torija",
@@ -341,6 +351,7 @@ export const CASTILLOS: Castillo[] = [
       "Alberga el Museo del Viaje a la Alcarria, único en España.",
       "Su torre del homenaje alcanza casi 20 metros de altura.",
     ],
+    youtubeUrl: "https://youtu.be/VbGrbsamAgo",
   },
   {
     slug: "castillo-de-cuellar",
@@ -365,6 +376,7 @@ export const CASTILLOS: Castillo[] = [
       "Conserva uno de los patios renacentistas más bellos de Castilla.",
       "Integra una muralla medieval que rodea la villa entera.",
     ],
+    youtubeUrl: "https://youtu.be/wfDdpZVHyKw",
   },
   {
     slug: "castillo-de-malpica-de-tajo",
@@ -389,6 +401,7 @@ export const CASTILLOS: Castillo[] = [
       "Es uno de los pocos castillos españoles literalmente abrazados por un río.",
       "Su restauración decimonónica le dio el aire de palacio centroeuropeo.",
     ],
+    youtubeUrl: "https://youtu.be/8TvRRV3Gh4A",
   },
   {
     slug: "castillo-de-maqueda",
@@ -413,6 +426,7 @@ export const CASTILLOS: Castillo[] = [
       "Su muralla almenada es una de las mejor conservadas de la Península.",
       "Sirvió como cuartel de la Guardia Civil durante décadas.",
     ],
+    youtubeUrl: "https://youtu.be/XZMaYGGpWN8",
   },
   {
     slug: "castillo-de-escalona",
@@ -437,6 +451,7 @@ export const CASTILLOS: Castillo[] = [
       "Don Álvaro de Luna celebró aquí fiestas legendarias antes de su ejecución.",
       "Su recinto albergaba uno de los patios palaciegos más lujosos de la Castilla del XV.",
     ],
+    youtubeUrl: "https://youtu.be/7Q-GSTVJ7Cg",
   },
   {
     slug: "castillo-de-penas-negras",
@@ -461,6 +476,7 @@ export const CASTILLOS: Castillo[] = [
       "Su nombre proviene del color oscuro de las rocas sobre las que se asienta.",
       "Forma parte del Centro de Interpretación de los Montes de Toledo.",
     ],
+    youtubeUrl: "https://youtu.be/zwYEQzqEthY",
   },
   {
     slug: "castillo-de-la-mota",
@@ -486,6 +502,7 @@ export const CASTILLOS: Castillo[] = [
       "Es uno de los castillos de ladrillo más grandes de Europa.",
       "Su barrera artillera es una de las primeras del continente.",
     ],
+    youtubeUrl: "https://youtu.be/hP8uMGlfX68",
   },
   {
     slug: "castillo-de-la-coracera",
@@ -510,6 +527,7 @@ export const CASTILLOS: Castillo[] = [
       "Levantado en granito de la sierra de Gredos.",
       "Conserva intacta su torre del homenaje rectangular con torreón cilíndrico adosado.",
     ],
+    youtubeUrl: "https://youtu.be/KypAtTR1pTk",
   },
 ];
 
@@ -523,5 +541,3 @@ export const getCastillosEnRuinas = () =>
   CASTILLOS.filter((c) => c.estado === "ruinas").sort(
     (a, b) => (a.ordenRuinas ?? 99) - (b.ordenRuinas ?? 99),
   );
-
-export const YOUTUBE_URL = "https://www.youtube.com/@Kdronazo";
