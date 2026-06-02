@@ -17,6 +17,7 @@ import escalona from "@/assets/castillos/escalona.jpg";
 import penasNegras from "@/assets/castillos/penas-negras.jpg";
 import laMota from "@/assets/castillos/la-mota.jpg";
 import laCoracera from "@/assets/castillos/la-coracera.jpg";
+import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
 
