@@ -294,6 +294,223 @@ export const CASTILLOS: Castillo[] = [
       "Integra fortaleza medieval y santuario mariano del XIX.",
     ],
   },
+  {
+    slug: "castillo-de-san-servando",
+    nombre: "Castillo de San Servando",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "conservado",
+    estadoDescripcion: "Restaurado — alberga albergue juvenil",
+    descripcionBreve:
+      "Fortaleza mudéjar a las puertas de Toledo, vigía perpetuo del Tajo frente al Alcázar.",
+    imagen: sanServando,
+    coordenadas: [39.8580, -4.0167],
+    historia:
+      "El castillo de San Servando, de origen visigodo y reconstruido en estilo mudéjar en el siglo XIV, se alza sobre un cerro junto al Tajo, ofreciendo la silueta más reconocible al cruzar el puente de Alcántara. Sirvió como monasterio benedictino, fortaleza templaria y residencia real antes de su uso actual como albergue.",
+    cronologia: [
+      { anio: "Siglo XI", evento: "Primera fortificación cristiana sobre restos visigodos." },
+      { anio: "Siglo XII", evento: "Cedido a la Orden del Temple." },
+      { anio: "Siglo XIV", evento: "Reconstrucción mudéjar bajo Pedro Tenorio." },
+      { anio: "Siglo XX", evento: "Restaurado como albergue juvenil." },
+    ],
+    curiosidades: [
+      "Ofrece una de las mejores panorámicas del casco histórico de Toledo.",
+      "Su silueta es una de las más fotografiadas de la ciudad imperial.",
+    ],
+  },
+  {
+    slug: "castillo-de-torija",
+    nombre: "Castillo de Torija",
+    provincia: "Guadalajara",
+    comunidad: "Castilla-La Mancha",
+    estado: "conservado",
+    estadoDescripcion: "Restaurado — alberga el Museo del Viaje a la Alcarria",
+    descripcionBreve:
+      "Fortaleza templaria de planta cuadrada, hoy sede del museo dedicado al viaje cervantino de Cela.",
+    imagen: torija,
+    coordenadas: [40.7458, -3.0392],
+    historia:
+      "Levantado en el siglo XI por los templarios, el castillo de Torija fue arrasado y reedificado varias veces a lo largo de su historia. Su torre del homenaje, de gran altura, domina el caserío y el paso natural hacia la Alcarria. Hoy alberga el Museo del Viaje a la Alcarria, dedicado a la obra de Camilo José Cela.",
+    cronologia: [
+      { anio: "Siglo XI", evento: "Construcción templaria original." },
+      { anio: "1480", evento: "Reedificación por los Mendoza." },
+      { anio: "1809", evento: "Voladura parcial durante la Guerra de la Independencia." },
+      { anio: "Siglo XX", evento: "Restauración y apertura como museo." },
+    ],
+    curiosidades: [
+      "Alberga el Museo del Viaje a la Alcarria, único en España.",
+      "Su torre del homenaje alcanza casi 20 metros de altura.",
+    ],
+  },
+  {
+    slug: "castillo-de-cuellar",
+    nombre: "Castillo de Cuéllar",
+    provincia: "Segovia",
+    comunidad: "Castilla y León",
+    estado: "conservado",
+    estadoDescripcion: "Excelente estado — visitable",
+    descripcionBreve:
+      "Palacio-fortaleza de los duques de Alburquerque, mezcla de gótico, mudéjar y renacimiento.",
+    imagen: cuellar,
+    coordenadas: [41.4011, -4.3144],
+    historia:
+      "El castillo de Cuéllar es un conjunto monumental que combina elementos góticos, mudéjares y renacentistas. Fue residencia de los duques de Alburquerque y testigo de episodios clave de la historia castellana, incluyendo la estancia de Beltrán de la Cueva, favorito de Enrique IV.",
+    cronologia: [
+      { anio: "Siglo XI", evento: "Primera fortificación tras la repoblación." },
+      { anio: "Siglo XV", evento: "Reforma palaciega por los Alburquerque." },
+      { anio: "Siglo XVI", evento: "Patio renacentista añadido." },
+      { anio: "Actualidad", evento: "Sede del IES Marqués de Lozoya y museo visitable." },
+    ],
+    curiosidades: [
+      "Conserva uno de los patios renacentistas más bellos de Castilla.",
+      "Integra una muralla medieval que rodea la villa entera.",
+    ],
+  },
+  {
+    slug: "castillo-de-malpica-de-tajo",
+    nombre: "Castillo de Malpica de Tajo",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "conservado",
+    estadoDescripcion: "Excelente estado — propiedad privada",
+    descripcionBreve:
+      "Singular fortaleza-palacio de origen árabe sobre el Tajo, con perfil neogótico restaurado.",
+    imagen: malpica,
+    coordenadas: [39.8911, -4.5267],
+    historia:
+      "De origen andalusí, el castillo de Malpica fue conquistado por Alfonso VI y posteriormente reformado como residencia señorial. Su perfil actual, con almenas y ventanales mudéjares, responde a la restauración neogótica del siglo XIX, integrándose espectacularmente con el cauce del río Tajo.",
+    cronologia: [
+      { anio: "Siglo X", evento: "Origen como fortaleza andalusí." },
+      { anio: "Siglo XV", evento: "Propiedad de los Ribera, señores de Malpica." },
+      { anio: "Siglo XIX", evento: "Restauración neogótica." },
+      { anio: "Actualidad", evento: "Propiedad privada de los duques de Arión." },
+    ],
+    curiosidades: [
+      "Es uno de los pocos castillos españoles literalmente abrazados por un río.",
+      "Su restauración decimonónica le dio el aire de palacio centroeuropeo.",
+    ],
+  },
+  {
+    slug: "castillo-de-maqueda",
+    nombre: "Castillo de Maqueda",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "conservado",
+    estadoDescripcion: "Buen estado — restaurado",
+    descripcionBreve:
+      "Fortaleza califal de muralla almenada, una de las más imponentes del valle del Tajo.",
+    imagen: maqueda,
+    coordenadas: [40.0697, -4.3736],
+    historia:
+      "El castillo de Maqueda, de origen califal, fue conquistado por Alfonso VI en el siglo XI y pasó por las manos de la Orden de Calatrava antes de convertirse en señorío de los Cárdenas. Su recinto exterior conserva un imponente lienzo amurallado con torres cilíndricas en las esquinas.",
+    cronologia: [
+      { anio: "Siglo X", evento: "Construcción de la fortaleza califal." },
+      { anio: "1085", evento: "Conquistado por Alfonso VI." },
+      { anio: "Siglo XV", evento: "Reformas bajo los Cárdenas." },
+      { anio: "Siglo XX", evento: "Cuartel de la Guardia Civil hasta su restauración." },
+    ],
+    curiosidades: [
+      "Su muralla almenada es una de las mejor conservadas de la Península.",
+      "Sirvió como cuartel de la Guardia Civil durante décadas.",
+    ],
+  },
+  {
+    slug: "castillo-de-escalona",
+    nombre: "Castillo de Escalona",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    estadoDescripcion: "En ruinas — recinto exterior y torre conservados",
+    descripcionBreve:
+      "Antiguo bastión de Don Álvaro de Luna sobre el río Alberche, escenario de su caída política.",
+    imagen: escalona,
+    coordenadas: [40.1700, -4.4036],
+    historia:
+      "Fortaleza de origen andalusí reconstruida en el siglo XV por Don Álvaro de Luna, condestable de Castilla. Aquí celebró su corte privada antes de su caída en desgracia. El castillo sufrió graves daños durante la Guerra de la Independencia, conservando hoy parte de sus murallas y la torre del homenaje.",
+    cronologia: [
+      { anio: "Siglo X", evento: "Fortaleza andalusí original." },
+      { anio: "Siglo XV", evento: "Reconstrucción palaciega por Don Álvaro de Luna." },
+      { anio: "1809", evento: "Voladura por las tropas francesas." },
+      { anio: "Siglo XXI", evento: "Consolidación parcial de sus restos." },
+    ],
+    curiosidades: [
+      "Don Álvaro de Luna celebró aquí fiestas legendarias antes de su ejecución.",
+      "Su recinto albergaba uno de los patios palaciegos más lujosos de la Castilla del XV.",
+    ],
+  },
+  {
+    slug: "castillo-de-penas-negras",
+    nombre: "Castillo de Peñas Negras",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    estadoDescripcion: "En ruinas — torre del homenaje en restauración",
+    descripcionBreve:
+      "Atalaya rocosa en los Montes de Toledo, suspendida entre la niebla y la Mancha.",
+    imagen: penasNegras,
+    coordenadas: [39.6750, -3.7700],
+    historia:
+      "Levantado en el siglo XII por los almohades sobre un risco de los Montes de Toledo, el castillo de Peñas Negras controlaba el paso entre la Mancha y la meseta. Pasó a manos cristianas tras la batalla de las Navas de Tolosa y fue posesión de la Orden de San Juan junto al cercano castillo de Consuegra.",
+    cronologia: [
+      { anio: "Siglo XII", evento: "Construcción almohade." },
+      { anio: "1212", evento: "Conquista cristiana tras las Navas de Tolosa." },
+      { anio: "Siglo XV", evento: "Abandono progresivo." },
+      { anio: "Siglo XXI", evento: "Trabajos de consolidación arqueológica." },
+    ],
+    curiosidades: [
+      "Su nombre proviene del color oscuro de las rocas sobre las que se asienta.",
+      "Forma parte del Centro de Interpretación de los Montes de Toledo.",
+    ],
+  },
+  {
+    slug: "castillo-de-la-mota",
+    nombre: "Castillo de la Mota",
+    provincia: "Valladolid",
+    comunidad: "Castilla y León",
+    estado: "conservado",
+    estadoDescripcion: "Excelente estado — visitable",
+    descripcionBreve:
+      "Imponente fortaleza de ladrillo mudéjar en Medina del Campo, prisión de César Borgia.",
+    imagen: laMota,
+    coordenadas: [41.3142, -4.9067],
+    historia:
+      "El castillo de la Mota, construido principalmente en ladrillo mudéjar entre los siglos XIV y XV, es uno de los conjuntos militares más impresionantes de Castilla. Perteneció a los Reyes Católicos y sirvió como prisión de Estado, donde estuvo recluido César Borgia, del que se fugó saltando desde la torre del homenaje.",
+    cronologia: [
+      { anio: "Siglo XII", evento: "Primera fortificación de tierra." },
+      { anio: "Siglo XV", evento: "Reconstrucción en ladrillo bajo los Reyes Católicos." },
+      { anio: "1506", evento: "Famosa fuga de César Borgia." },
+      { anio: "Siglo XX", evento: "Restaurado y abierto al público." },
+    ],
+    curiosidades: [
+      "César Borgia escapó descolgándose desde su torre del homenaje.",
+      "Es uno de los castillos de ladrillo más grandes de Europa.",
+      "Su barrera artillera es una de las primeras del continente.",
+    ],
+  },
+  {
+    slug: "castillo-de-la-coracera",
+    nombre: "Castillo de La Coracera",
+    provincia: "Ávila",
+    comunidad: "Castilla y León",
+    estado: "conservado",
+    estadoDescripcion: "Restaurado — visitable",
+    descripcionBreve:
+      "Fortaleza granítica de Don Álvaro de Luna en San Martín de Valdeiglesias, al pie de Gredos.",
+    imagen: laCoracera,
+    coordenadas: [40.3536, -4.4039],
+    historia:
+      "Construido a mediados del siglo XV por Don Álvaro de Luna, condestable de Castilla, el castillo de La Coracera es una de las fortalezas mejor conservadas del sur abulense. Levantado en granito local, fue residencia señorial y centro administrativo de las extensas posesiones del valiido en la zona.",
+    cronologia: [
+      { anio: "Siglo XV", evento: "Construcción por Don Álvaro de Luna." },
+      { anio: "1453", evento: "Pasa a la Corona tras la ejecución de su promotor." },
+      { anio: "Siglo XIX", evento: "Abandono progresivo." },
+      { anio: "Siglo XXI", evento: "Restauración integral y apertura turística." },
+    ],
+    curiosidades: [
+      "Levantado en granito de la sierra de Gredos.",
+      "Conserva intacta su torre del homenaje rectangular con torreón cilíndrico adosado.",
+    ],
+  },
 ];
 
 export const getCastilloBySlug = (slug: string) =>
