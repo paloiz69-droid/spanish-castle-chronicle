@@ -8,6 +8,15 @@ import gormaz from "@/assets/castillos/gormaz.jpg";
 import guadamur from "@/assets/castillos/guadamur.jpg";
 import jadraque from "@/assets/castillos/jadraque.jpg";
 import manzanares from "@/assets/castillos/manzanares.jpg";
+import sanServando from "@/assets/castillos/san-servando.jpg";
+import torija from "@/assets/castillos/torija.jpg";
+import cuellar from "@/assets/castillos/cuellar.jpg";
+import malpica from "@/assets/castillos/malpica.jpg";
+import maqueda from "@/assets/castillos/maqueda.jpg";
+import escalona from "@/assets/castillos/escalona.jpg";
+import penasNegras from "@/assets/castillos/penas-negras.jpg";
+import laMota from "@/assets/castillos/la-mota.jpg";
+import laCoracera from "@/assets/castillos/la-coracera.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
 
