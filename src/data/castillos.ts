@@ -39,7 +39,7 @@ export interface Castillo {
   historia: string;
   cronologia: CronologiaEvento[];
   curiosidades: string[];
-  youtubeId?: string;
+  youtubeUrl?: string;
   ordenRuinas?: number;
 }
 
