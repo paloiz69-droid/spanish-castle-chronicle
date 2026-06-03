@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo-kdronazo.jpeg";
 
 const navLinks = [
   { to: "/conservados", label: "🏰 Castillos Conservados" },
@@ -14,7 +15,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-foreground">
-          <span className="text-2xl">🏰</span>
+          <img src={logo} alt="Logo Kdronazo" className="h-10 w-10 rounded-md object-cover" />
           <span>Kdronazo</span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
