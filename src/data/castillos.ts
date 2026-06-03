@@ -620,3 +620,14 @@ export const getCastillosEnRuinas = () =>
   CASTILLOS.filter((c) => c.estado === "ruinas").sort(
     (a, b) => (a.ordenRuinas ?? 99) - (b.ordenRuinas ?? 99),
   );
+
+/**
+ * Normaliza enlaces youtu.be → youtube.com/watch?v=ID para evitar
+ * problemas de ERR_BLOCKED_BY_RESPONSE y forzar apertura limpia en nueva pestaña.
+ */
+export const toYoutubeWatchUrl = (url?: string): string | undefined => {
+  if (!url) return undefined;
+  const m = url.match(/youtu\.be\/([\w-]+)/);
+  if (m) return `https://www.youtube.com/watch?v=${m[1]}`;
+  return url;
+};
