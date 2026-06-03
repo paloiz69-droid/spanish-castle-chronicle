@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Youtube, MapPin, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
-import { getCastilloBySlug, type Castillo } from "@/data/castillos";
+import { getCastilloBySlug, toYoutubeWatchUrl, type Castillo } from "@/data/castillos";
 
 export const Route = createFileRoute("/castillo/$slug")({
   loader: ({ params }) => {
@@ -47,6 +47,7 @@ function Page() {
   const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
   const badge = castillo.estado === "ruinas" ? "🏚️ En Ruinas" : "🏰 Conservado";
   const backTo = castillo.estado === "ruinas" ? "/ruinas" : "/conservados";
+  const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
 
   return (
     <PageShell>
@@ -70,9 +71,9 @@ function Page() {
 
       {/* Botón de vídeo individual — justo debajo de la fotografía principal */}
       <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
-        {castillo.youtubeUrl ? (
+        {videoUrl ? (
           <a
-            href={castillo.youtubeUrl}
+            href={videoUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-[var(--youtube)] px-5 py-3 text-sm font-medium text-[var(--youtube-foreground)] shadow-sm transition-transform hover:scale-[1.02]"
@@ -158,9 +159,9 @@ function Page() {
             <p className="mt-2 text-sm text-foreground/85">{castillo.provincia}</p>
             <p className="text-xs text-muted-foreground">{castillo.comunidad}</p>
           </div>
-          {castillo.youtubeUrl && (
+          {videoUrl && (
             <a
-              href={castillo.youtubeUrl}
+              href={videoUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-xl bg-[var(--youtube)] px-4 py-3 text-sm font-medium text-[var(--youtube-foreground)]"
