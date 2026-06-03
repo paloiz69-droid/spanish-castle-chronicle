@@ -20,6 +20,11 @@ import laCoracera from "@/assets/castillos/la-coracera.jpg";
 import alcazarSegovia from "@/assets/castillos/alcazar-segovia.jpg";
 import villaviciosaOdon from "@/assets/castillos/villaviciosa-odon.jpg";
 import magalia from "@/assets/castillos/magalia.jpg";
+import monreal from "@/assets/castillos/monreal.jpg";
+import pueblaAlmenara from "@/assets/castillos/puebla-de-almenara.jpg";
+import oreja from "@/assets/castillos/oreja.jpg";
+import lujan from "@/assets/castillos/lujan.jpg";
+import arevalo from "@/assets/castillos/arevalo.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -607,6 +612,131 @@ export const CASTILLOS: Castillo[] = [
       "Fue prisión real durante el siglo XVIII.",
     ],
     youtubeUrl: "https://youtu.be/NXRMpYMpTGU",
+  },
+  // === Nuevas incorporaciones ===
+  {
+    slug: "castillo-de-monreal",
+    nombre: "Castillo de Monreal",
+    provincia: "Cuenca",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    ordenRuinas: 20,
+    estadoDescripcion: "En ruinas — torre cilíndrica y lienzos de muralla en pie sobre cerro testigo",
+    descripcionBreve:
+      "Fortaleza solitaria encaramada en un cerro testigo de la Manchuela, vigía silencioso sobre un paisaje infinito de campos y barrancos.",
+    imagen: monreal,
+    coordenadas: [39.9333, -2.2667],
+    historia:
+      "El castillo de Monreal se alza sobre un espectacular cerro testigo desde el que se domina un amplio territorio manchego. Sus restos conservan parte de la torre cilíndrica y lienzos de muralla de mampostería, testimonio de una fortaleza medieval de origen islámico reaprovechada tras la Reconquista.",
+    cronologia: [
+      { anio: "Siglos X-XI", evento: "Origen andalusí como atalaya defensiva." },
+      { anio: "Siglos XII-XIII", evento: "Reocupación cristiana tras la Reconquista." },
+      { anio: "Siglos XV-XVI", evento: "Abandono progresivo del recinto." },
+      { anio: "Actualidad", evento: "Ruina consolidada visible desde gran distancia." },
+    ],
+    curiosidades: [
+      "Su emplazamiento elevado lo convierte en uno de los miradores naturales más impresionantes de la zona.",
+      "La erosión del cerro ha dejado el castillo casi al borde del acantilado.",
+    ],
+  },
+  {
+    slug: "castillo-de-puebla-de-almenara",
+    nombre: "Castillo de Puebla de Almenara",
+    provincia: "Cuenca",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    ordenRuinas: 21,
+    estadoDescripcion: "En ruinas — torre del homenaje, barbacana y cubos de muralla conservados",
+    descripcionBreve:
+      "Imponente fortaleza señorial de la Orden de Santiago, dominando la llanura conquense con su poderosa torre del homenaje y su recinto amurallado.",
+    imagen: pueblaAlmenara,
+    coordenadas: [39.7833, -2.7167],
+    historia:
+      "El castillo de Puebla de Almenara perteneció a la Orden de Santiago y posteriormente a la familia Pacheco. Su torre del homenaje, de planta cuadrada con cubos circulares en las esquinas, es uno de los mejores ejemplos de arquitectura militar bajomedieval de la provincia de Cuenca.",
+    cronologia: [
+      { anio: "Siglo XIII", evento: "Construcción inicial bajo dominio de la Orden de Santiago." },
+      { anio: "Siglo XV", evento: "Reformas y ampliación bajo los Pacheco, marqueses de Villena." },
+      { anio: "Siglos XVII-XVIII", evento: "Pérdida de función defensiva y abandono." },
+      { anio: "Actualidad", evento: "Bien de Interés Cultural; conserva el alzado completo de su torre." },
+    ],
+    curiosidades: [
+      "Su torre del homenaje conserva la altura original y es visible a kilómetros de distancia.",
+      "La barbacana exterior protege todavía el acceso original a la fortaleza.",
+    ],
+  },
+  {
+    slug: "castillo-de-oreja",
+    nombre: "Castillo de Oreja",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    ordenRuinas: 22,
+    estadoDescripcion: "En ruinas — torre del homenaje en pie sobre los cortados del Tajo",
+    descripcionBreve:
+      "Fortaleza medieval colgada sobre los cortados del río Tajo, llave estratégica entre Toledo y la meseta sur durante la Reconquista.",
+    imagen: oreja,
+    coordenadas: [39.9667, -3.5167],
+    historia:
+      "El castillo de Oreja se asienta sobre un escarpe vertical del río Tajo, en término de Ontígola. De origen musulmán, fue reconquistado en 1139 por Alfonso VII y entregado a la Orden de Santiago, convirtiéndose en una de sus encomiendas más importantes. Su torre del homenaje, de planta cuadrada y mampostería caliza, domina aún el paisaje.",
+    cronologia: [
+      { anio: "Siglos IX-X", evento: "Fortaleza andalusí sobre el Tajo." },
+      { anio: "1139", evento: "Conquista por Alfonso VII." },
+      { anio: "Siglo XII", evento: "Encomienda de la Orden de Santiago." },
+      { anio: "Siglos XVI-XVII", evento: "Abandono tras la despoblación de la villa." },
+    ],
+    curiosidades: [
+      "Junto al castillo existió una villa medieval hoy completamente despoblada.",
+      "Su posición sobre el cortado del Tajo lo hacía prácticamente inexpugnable.",
+    ],
+  },
+  {
+    slug: "castillo-de-lujan",
+    nombre: "Castillo de Luján",
+    provincia: "Guadalajara",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    ordenRuinas: 23,
+    estadoDescripcion: "En ruinas parcialmente restauradas — recinto amurallado con torres y almenas reconstruidas",
+    descripcionBreve:
+      "Fortaleza señorial de la familia Luján, con su característica torre albarrana y un recinto amurallado parcialmente recuperado en el corazón de la Alcarria.",
+    imagen: lujan,
+    coordenadas: [40.7167, -2.9000],
+    historia:
+      "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Alcarria castellana. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
+    cronologia: [
+      { anio: "Siglo XIV", evento: "Construcción por el linaje de los Luján." },
+      { anio: "Siglo XV", evento: "Ampliación con torre albarrana y barbacana." },
+      { anio: "Siglo XIX", evento: "Abandono tras la desamortización." },
+      { anio: "Siglo XXI", evento: "Trabajos de consolidación y restauración parcial." },
+    ],
+    curiosidades: [
+      "Su torre albarrana adelantada con almenas decorativas es uno de los rasgos más distintivos.",
+      "Conserva detalles de ladrillo rojizo sobre la mampostería caliza dorada.",
+    ],
+  },
+  {
+    slug: "castillo-de-arevalo",
+    nombre: "Castillo de Arévalo",
+    provincia: "Ávila",
+    comunidad: "Castilla y León",
+    estado: "conservado",
+    estadoDescripcion: "Conservado y restaurado — sede del Museo del Cereal",
+    descripcionBreve:
+      "Imponente fortaleza mudéjar de planta poligonal en la confluencia de los ríos Adaja y Arevalillo, símbolo histórico de la villa de Arévalo.",
+    imagen: arevalo,
+    coordenadas: [41.0667, -4.7167],
+    historia:
+      "El castillo de Arévalo es una de las grandes fortalezas castellanas, residencia ocasional de monarcas como Isabel la Católica, que pasó parte de su infancia en esta villa. De origen medieval y profundamente reformado en el siglo XV, destaca por su gran torre del homenaje cilíndrica y su recinto poligonal de sillería. Hoy alberga el Museo del Cereal.",
+    cronologia: [
+      { anio: "Siglo XIV", evento: "Construcción de la fortaleza primitiva." },
+      { anio: "Siglo XV", evento: "Reformas mayores; residencia de Isabel la Católica en su infancia." },
+      { anio: "1480", evento: "Aposento real durante los Reyes Católicos." },
+      { anio: "Actualidad", evento: "Restaurado, alberga el Museo del Cereal." },
+    ],
+    curiosidades: [
+      "La reina Isabel la Católica pasó parte de su niñez en este castillo.",
+      "Su torre del homenaje cilíndrica es una de las más grandes y características de Castilla.",
+    ],
   },
 ];
 
