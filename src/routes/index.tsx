@@ -34,14 +34,19 @@ function Index() {
           height={1080}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/55 to-black/85" />
         <div className="relative mx-auto flex min-h-[78vh] max-w-5xl flex-col items-center justify-center px-6 py-24 text-center">
           <span className="mb-4 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.2em] text-white/90 backdrop-blur">
             Patrimonio · Fotografía aérea · Documental
           </span>
-          <h1 className="font-display text-5xl font-semibold text-white sm:text-6xl md:text-7xl">
+          <h1 className="font-display text-5xl font-semibold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] sm:text-6xl md:text-7xl">
             Castillos de España<br />
-            <span className="text-accent">a vista de dron</span>
+            <span
+              className="block text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)]"
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85), 0 0 2px rgba(0,0,0,0.9)" }}
+            >
+              a vista de dron
+            </span>
           </h1>
           <p className="mt-6 max-w-2xl text-base text-white/85 sm:text-lg">
             Una plataforma documental dedicada al patrimonio histórico español. Explora fortalezas conservadas, ruinas legendarias y vídeos aéreos del canal Kdronazo.
