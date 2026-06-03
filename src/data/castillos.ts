@@ -17,6 +17,9 @@ import escalona from "@/assets/castillos/escalona.jpg";
 import penasNegras from "@/assets/castillos/penas-negras.jpg";
 import laMota from "@/assets/castillos/la-mota.jpg";
 import laCoracera from "@/assets/castillos/la-coracera.jpg";
+import alcazarSegovia from "@/assets/castillos/alcazar-segovia.jpg";
+import villaviciosaOdon from "@/assets/castillos/villaviciosa-odon.jpg";
+import magalia from "@/assets/castillos/magalia.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -539,7 +542,7 @@ export const CASTILLOS: Castillo[] = [
     estadoDescripcion: "Restaurado — sede del Archivo Histórico del Ejército del Aire",
     descripcionBreve:
       "Fortaleza palaciega del siglo XV reconstruida tras un incendio, hoy archivo militar en plena sierra oeste madrileña.",
-    imagen: heroImg,
+    imagen: villaviciosaOdon,
     coordenadas: [40.3572, -3.9028],
     historia:
       "El castillo de Villaviciosa de Odón se levantó en el siglo XV sobre una fortificación anterior y perteneció a los condes de Chinchón. Tras varios incendios y reformas, fue restaurado en el siglo XX para albergar el Archivo Histórico del Ejército del Aire, función que conserva en la actualidad.",
@@ -564,7 +567,7 @@ export const CASTILLOS: Castillo[] = [
     estadoDescripcion: "Restaurado — visitable como centro cultural",
     descripcionBreve:
       "Pequeña fortaleza señorial en Las Navas del Marqués, hoy reconvertida en residencia y centro de actividades.",
-    imagen: heroImg,
+    imagen: magalia,
     coordenadas: [40.6053, -4.3439],
     historia:
       "El castillo-palacio de Magalia, situado en Las Navas del Marqués, fue residencia señorial vinculada a los marqueses de Las Navas. Combinando elementos defensivos con una clara vocación palaciega, ha sido restaurado en distintas fases hasta convertirse en sede cultural y residencia de actividades.",
@@ -589,7 +592,7 @@ export const CASTILLOS: Castillo[] = [
     estadoDescripcion: "Excelente estado — visitable",
     descripcionBreve:
       "El alcázar de los reyes de Castilla, proa de piedra sobre la confluencia del Eresma y el Clamores.",
-    imagen: heroImg,
+    imagen: alcazarSegovia,
     coordenadas: [40.9527, -4.1325],
     historia:
       "El Alcázar de Segovia, mencionado por primera vez en el siglo XII, fue residencia favorita de los reyes de Castilla. Aquí fue proclamada reina Isabel la Católica en 1474. Tras un grave incendio en 1862, fue reconstruido en el siglo XIX manteniendo su silueta de proa que lo ha convertido en icono universal.",
@@ -617,3 +620,14 @@ export const getCastillosEnRuinas = () =>
   CASTILLOS.filter((c) => c.estado === "ruinas").sort(
     (a, b) => (a.ordenRuinas ?? 99) - (b.ordenRuinas ?? 99),
   );
+
+/**
+ * Normaliza enlaces youtu.be → youtube.com/watch?v=ID para evitar
+ * problemas de ERR_BLOCKED_BY_RESPONSE y forzar apertura limpia en nueva pestaña.
+ */
+export const toYoutubeWatchUrl = (url?: string): string | undefined => {
+  if (!url) return undefined;
+  const m = url.match(/youtu\.be\/([\w-]+)/);
+  if (m) return `https://www.youtube.com/watch?v=${m[1]}`;
+  return url;
+};
