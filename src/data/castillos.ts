@@ -115,6 +115,7 @@ export const CASTILLOS: Castillo[] = [
       "Su muralla supera los 1.200 metros de perímetro.",
       "El Cid Campeador fue su alcaide.",
     ],
+    youtubeUrl: "https://youtu.be/H-NqnJ-A3j4",
   },
   {
     slug: "castillo-de-jadraque",
