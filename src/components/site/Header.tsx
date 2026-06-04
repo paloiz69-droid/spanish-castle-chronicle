@@ -2,10 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-kdronazo.jpeg";
+import { CATEGORIAS } from "@/data/castillos";
 
 const navLinks = [
-  { to: "/conservados", label: "🏰 Castillos Conservados" },
-  { to: "/ruinas", label: "🏚️ Castillos en Ruinas" },
+  { to: "/categorias", label: "🏛️ Categorías" },
   { to: "/mapa", label: "🗺️ Mapa Interactivo" },
 ] as const;
 
@@ -41,16 +41,23 @@ export function Header() {
       {open && (
         <div className="border-t border-border/60 bg-background md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6">
-            {navLinks.map((l) => (
+            <Link to="/categorias" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm font-semibold text-foreground hover:bg-secondary">
+              🏛️ Categorías
+            </Link>
+            {CATEGORIAS.map((c) => (
               <Link
-                key={l.to}
-                to={l.to}
+                key={c.slug}
+                to="/categoria/$slug"
+                params={{ slug: c.slug }}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary"
+                className="rounded-md px-5 py-2 text-sm text-foreground/90 hover:bg-secondary"
               >
-                {l.label}
+                {c.emoji} {c.label}
               </Link>
             ))}
+            <Link to="/mapa" onClick={() => setOpen(false)} className="mt-1 rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
+              🗺️ Mapa Interactivo
+            </Link>
           </nav>
         </div>
       )}
