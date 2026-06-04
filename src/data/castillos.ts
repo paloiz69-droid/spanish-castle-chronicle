@@ -649,6 +649,7 @@ export const CASTILLOS: Castillo[] = [
       "Su emplazamiento elevado lo convierte en uno de los miradores naturales más impresionantes de la zona.",
       "La erosión del cerro ha dejado el castillo casi al borde del acantilado.",
     ],
+    youtubeUrl: "https://youtu.be/7P04c4Azl6E",
   },
   {
     slug: "castillo-de-puebla-de-almenara",
@@ -674,6 +675,7 @@ export const CASTILLOS: Castillo[] = [
       "Su torre del homenaje conserva la altura original y es visible a kilómetros de distancia.",
       "La barbacana exterior protege todavía el acceso original a la fortaleza.",
     ],
+    youtubeUrl: "https://youtu.be/hZjcS5mdM_c",
   },
   {
     slug: "castillo-de-oreja",
@@ -699,6 +701,7 @@ export const CASTILLOS: Castillo[] = [
       "Junto al castillo existió una villa medieval hoy completamente despoblada.",
       "Su posición sobre el cortado del Tajo lo hacía prácticamente inexpugnable.",
     ],
+    youtubeUrl: "https://youtu.be/marFjxVBPAI",
   },
   {
     slug: "castillo-de-lujan",
@@ -724,6 +727,7 @@ export const CASTILLOS: Castillo[] = [
       "Su torre albarrana adelantada con almenas decorativas es uno de los rasgos más distintivos.",
       "Conserva detalles de ladrillo rojizo sobre la mampostería caliza dorada.",
     ],
+    youtubeUrl: "https://youtu.be/GBiICgN7Nmo",
   },
   {
     slug: "castillo-de-arevalo",
@@ -748,6 +752,7 @@ export const CASTILLOS: Castillo[] = [
       "La reina Isabel la Católica pasó parte de su niñez en este castillo.",
       "Su torre del homenaje cilíndrica es una de las más grandes y características de Castilla.",
     ],
+    youtubeUrl: "https://youtu.be/-xMPweDBtmA",
   },
 ];
 
