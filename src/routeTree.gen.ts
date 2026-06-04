@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CastilloSlugRouteImport } from './routes/castillo.$slug'
 
 const MapaRoute = MapaRouteImport.update({
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CategoriaSlugRoute = CategoriaSlugRouteImport.update({
+  id: '/categoria/$slug',
+  path: '/categoria/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CastilloSlugRoute = CastilloSlugRouteImport.update({
   id: '/castillo/$slug',
   path: '/castillo/$slug',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
   '/castillo/$slug': typeof CastilloSlugRoute
+  '/categoria/$slug': typeof CategoriaSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
   '/castillo/$slug': typeof CastilloSlugRoute
+  '/categoria/$slug': typeof CategoriaSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,25 @@ export interface FileRoutesById {
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
   '/castillo/$slug': typeof CastilloSlugRoute
+  '/categoria/$slug': typeof CategoriaSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/categorias' | '/mapa' | '/castillo/$slug'
+  fullPaths:
+    | '/'
+    | '/categorias'
+    | '/mapa'
+    | '/castillo/$slug'
+    | '/categoria/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/categorias' | '/mapa' | '/castillo/$slug'
-  id: '__root__' | '/' | '/categorias' | '/mapa' | '/castillo/$slug'
+  to: '/' | '/categorias' | '/mapa' | '/castillo/$slug' | '/categoria/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/categorias'
+    | '/mapa'
+    | '/castillo/$slug'
+    | '/categoria/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +87,7 @@ export interface RootRouteChildren {
   CategoriasRoute: typeof CategoriasRoute
   MapaRoute: typeof MapaRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
+  CategoriaSlugRoute: typeof CategoriaSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +113,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/categoria/$slug': {
+      id: '/categoria/$slug'
+      path: '/categoria/$slug'
+      fullPath: '/categoria/$slug'
+      preLoaderRoute: typeof CategoriaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/castillo/$slug': {
       id: '/castillo/$slug'
       path: '/castillo/$slug'
@@ -107,6 +135,7 @@ const rootRouteChildren: RootRouteChildren = {
   CategoriasRoute: CategoriasRoute,
   MapaRoute: MapaRoute,
   CastilloSlugRoute: CastilloSlugRoute,
+  CategoriaSlugRoute: CategoriaSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
