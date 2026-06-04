@@ -39,6 +39,70 @@ import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
 
+export type CategoriaCastillo =
+  | "conservado"
+  | "consolidado"
+  | "semirruina"
+  | "ruina-avanzada"
+  | "ruina-arqueologica";
+
+export interface CategoriaInfo {
+  slug: CategoriaCastillo;
+  emoji: string;
+  label: string;
+  descripcion: string;
+  /** Color hex usado en mapa y badges */
+  color: string;
+  /** Mapa al estado heredado (compatibilidad) */
+  estado: EstadoCastillo;
+}
+
+export const CATEGORIAS: CategoriaInfo[] = [
+  {
+    slug: "conservado",
+    emoji: "🟢",
+    label: "Conservado",
+    descripcion: "Mantiene cubiertas e interiores utilizables.",
+    color: "#22c55e",
+    estado: "conservado",
+  },
+  {
+    slug: "consolidado",
+    emoji: "🔵",
+    label: "Consolidado",
+    descripcion: "Sin uso original, pero estructuralmente estable.",
+    color: "#3b82f6",
+    estado: "conservado",
+  },
+  {
+    slug: "semirruina",
+    emoji: "🟡",
+    label: "Semirruina",
+    descripcion: "Ha perdido techos e interiores, pero conserva gran parte de sus muros.",
+    color: "#eab308",
+    estado: "ruinas",
+  },
+  {
+    slug: "ruina-avanzada",
+    emoji: "🟠",
+    label: "Ruina Avanzada",
+    descripcion: "Presenta grandes derrumbes y pérdida de elementos esenciales.",
+    color: "#f97316",
+    estado: "ruinas",
+  },
+  {
+    slug: "ruina-arqueologica",
+    emoji: "🔴",
+    label: "Ruina Arqueológica",
+    descripcion: "Solo quedan restos parciales, estructuras mínimas o cimientos.",
+    color: "#ef4444",
+    estado: "ruinas",
+  },
+];
+
+export const getCategoriaInfo = (slug: CategoriaCastillo): CategoriaInfo =>
+  CATEGORIAS.find((c) => c.slug === slug) ?? CATEGORIAS[0];
+
 export interface CronologiaEvento {
   anio: string;
   evento: string;
@@ -49,6 +113,7 @@ export interface Castillo {
   nombre: string;
   provincia: string;
   comunidad: string;
+  categoria: CategoriaCastillo;
   estado: EstadoCastillo;
   estadoDescripcion: string;
   descripcionBreve: string;
