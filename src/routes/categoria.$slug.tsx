@@ -5,7 +5,9 @@ import {
   CATEGORIAS,
   getCastillosByCategoria,
   getCategoriaInfo,
+  type Castillo,
   type CategoriaCastillo,
+  type CategoriaInfo,
 } from "@/data/castillos";
 
 const VALID = new Set(CATEGORIAS.map((c) => c.slug));
@@ -39,7 +41,10 @@ export const Route = createFileRoute("/categoria/$slug")({
 });
 
 function Page() {
-  const { cat, castillos } = Route.useLoaderData();
+  const { cat, castillos } = Route.useLoaderData() as {
+    cat: CategoriaInfo;
+    castillos: Castillo[];
+  };
   return (
     <PageShell>
       <section className="border-b border-border/60" style={{ backgroundColor: `${cat.color}15` }}>
