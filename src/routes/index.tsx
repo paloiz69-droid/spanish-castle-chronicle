@@ -1,12 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 import { PageShell } from "@/components/site/PageShell";
 import { CastilloCard } from "@/components/site/CastilloCard";
 import {
   CASTILLOS,
-  getCastillosConservados,
-  getCastillosEnRuinas,
+  CATEGORIAS,
+  countByCategoria,
+  getCastillosByCategoria,
 } from "@/data/castillos";
 
 export const Route = createFileRoute("/")({
@@ -22,8 +22,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const conservados = getCastillosConservados().slice(0, 3);
-  const ruinas = getCastillosEnRuinas().slice(0, 3);
+  const destacados = [
+    ...getCastillosByCategoria("conservado").slice(0, 2),
+    ...getCastillosByCategoria("semirruina").slice(0, 2),
+    ...getCastillosByCategoria("ruina-arqueologica").slice(0, 2),
+  ].slice(0, 6);
   return (
     <PageShell>
       <section className="relative isolate overflow-hidden">
@@ -52,11 +55,11 @@ function Index() {
             Una plataforma documental dedicada al patrimonio histórico español. Explora fortalezas conservadas, ruinas legendarias y vídeos aéreos del canal Kdronazo.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link to="/conservados" className="rounded-md bg-white px-5 py-3 text-sm font-medium text-foreground shadow-sm transition-transform hover:scale-[1.02]">
-              🏰 Ver Castillos Conservados
+            <Link to="/categorias" className="rounded-md bg-white px-5 py-3 text-sm font-medium text-foreground shadow-sm transition-transform hover:scale-[1.02]">
+              🏛️ Ver todas las categorías
             </Link>
-            <Link to="/ruinas" className="rounded-md border border-white/40 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20">
-              🏚️ Castillos en Ruinas
+            <Link to="/mapa" className="rounded-md border border-white/40 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20">
+              🗺️ Mapa Interactivo
             </Link>
           </div>
         </div>
@@ -67,7 +70,7 @@ function Index() {
           {[
             { k: CASTILLOS.length, l: "Castillos catalogados" },
             { k: new Set(CASTILLOS.map((c) => c.provincia)).size, l: "Provincias" },
-            { k: "∞", l: "Plataforma escalable" },
+            { k: CATEGORIAS.length, l: "Categorías de conservación" },
           ].map((s) => (
             <div key={s.l} className="rounded-xl border border-border/70 bg-card p-6 text-center">
               <div className="font-display text-4xl text-primary">{s.k}</div>
@@ -80,26 +83,40 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <h2 className="font-display text-3xl text-foreground sm:text-4xl">🏰 Castillos Conservados</h2>
-            <p className="mt-1 text-sm text-muted-foreground">Fortalezas que el tiempo respetó.</p>
+            <h2 className="font-display text-3xl text-foreground sm:text-4xl">🏛️ Categorías por estado de conservación</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Filtra los castillos por su nivel real de conservación.</p>
           </div>
-          <Link to="/conservados" className="text-sm font-medium text-primary hover:underline">Ver todos →</Link>
+          <Link to="/categorias" className="text-sm font-medium text-primary hover:underline">Ver todas →</Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {conservados.map((c) => <CastilloCard key={c.slug} castillo={c} />)}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {CATEGORIAS.map((c) => (
+            <Link
+              key={c.slug}
+              to="/categoria/$slug"
+              params={{ slug: c.slug }}
+              className="group rounded-xl border border-border/70 bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+            >
+              <span
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-white"
+                style={{ backgroundColor: c.color }}
+              >
+                {c.emoji}
+              </span>
+              <h3 className="mt-3 font-display text-lg text-foreground">{c.label}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{countByCategoria(c.slug)} castillos</p>
+              <p className="mt-2 text-xs leading-snug text-foreground/75">{c.descripcion}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="font-display text-3xl text-foreground sm:text-4xl">🏚️ Castillos en Ruinas</h2>
-            <p className="mt-1 text-sm text-muted-foreground">La memoria de la piedra.</p>
-          </div>
-          <Link to="/ruinas" className="text-sm font-medium text-primary hover:underline">Ver todos →</Link>
+        <div className="mb-8">
+          <h2 className="font-display text-3xl text-foreground sm:text-4xl">📷 Castillos destacados</h2>
+          <p className="mt-1 text-sm text-muted-foreground">Una selección del archivo visual de Kdronazo.</p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {ruinas.map((c) => <CastilloCard key={c.slug} castillo={c} />)}
+          {destacados.map((c) => <CastilloCard key={c.slug} castillo={c} />)}
         </div>
       </section>
     </PageShell>
