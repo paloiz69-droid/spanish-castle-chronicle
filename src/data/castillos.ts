@@ -1128,6 +1128,14 @@ export const getCastillosEnRuinas = () =>
     (a, b) => (a.ordenRuinas ?? 99) - (b.ordenRuinas ?? 99),
   );
 
+export const getCastillosByCategoria = (cat: CategoriaCastillo) =>
+  CASTILLOS.filter((c) => c.categoria === cat).sort((a, b) =>
+    a.nombre.localeCompare(b.nombre, "es"),
+  );
+
+export const countByCategoria = (cat: CategoriaCastillo) =>
+  CASTILLOS.filter((c) => c.categoria === cat).length;
+
 /**
  * Normaliza enlaces youtu.be → youtube.com/watch?v=ID para evitar
  * problemas de ERR_BLOCKED_BY_RESPONSE y forzar apertura limpia en nueva pestaña.
