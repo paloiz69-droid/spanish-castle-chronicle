@@ -754,6 +754,265 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/-xMPweDBtmA",
   },
+  {
+    slug: "castillo-de-villalba",
+    nombre: "Castillo de Villalba",
+    provincia: "Cáceres",
+    comunidad: "Extremadura",
+    estado: "ruinas",
+    ordenRuinas: 25,
+    estadoDescripcion: "En ruinas — lienzos de muralla y restos de torres entre olivares",
+    descripcionBreve:
+      "Restos de una fortaleza extremeña inmersa en un mar de olivos, con poderosos lienzos de tapial que aún desafían el paso del tiempo.",
+    imagen: villalba,
+    coordenadas: [39.1500, -6.3000],
+    historia:
+      "El castillo de Villalba se levantó como fortaleza señorial en la dehesa extremeña. De su conjunto se conservan grandes lienzos de muralla construidos en tapial y mampostería, así como los arranques de varias torres, testimonio de una arquitectura defensiva de gran porte hoy abrazada por el paisaje agrícola.",
+    cronologia: [
+      { anio: "Siglos XIII-XIV", evento: "Construcción como fortaleza señorial." },
+      { anio: "Siglo XV", evento: "Ampliación de murallas y torres." },
+      { anio: "Siglos XVII-XVIII", evento: "Abandono progresivo del recinto." },
+      { anio: "Actualidad", evento: "Ruinas integradas en el paisaje de olivar." },
+    ],
+    curiosidades: [
+      "Sus muros de tapial superan los seis metros de altura en algunos puntos.",
+      "El castillo está rodeado por completo por un olivar centenario.",
+    ],
+    youtubeUrl: "https://youtu.be/GgsJAnvY3Vg",
+  },
+  {
+    slug: "castillo-de-san-silvestre",
+    nombre: "Castillo de San Silvestre",
+    provincia: "Valladolid",
+    comunidad: "Castilla y León",
+    estado: "ruinas",
+    ordenRuinas: 26,
+    estadoDescripcion: "En ruinas parcialmente restauradas — recinto exterior y torres conservadas",
+    descripcionBreve:
+      "Fortaleza castellana de planta poligonal con potentes cubos circulares, alzada solitaria en la llanura cerealista.",
+    imagen: sanSilvestre,
+    coordenadas: [41.5333, -4.7000],
+    historia:
+      "El castillo de San Silvestre destaca por su recinto poligonal reforzado con torres cilíndricas almenadas y una segunda línea defensiva. De origen bajomedieval, fue residencia señorial y plaza fuerte en la frontera interior castellana, conservando hoy gran parte de su perímetro amurallado.",
+    cronologia: [
+      { anio: "Siglo XV", evento: "Construcción del recinto poligonal con cubos." },
+      { anio: "Siglo XVI", evento: "Reformas como residencia señorial." },
+      { anio: "Siglos XVIII-XIX", evento: "Abandono y pérdida de cubiertas." },
+      { anio: "Actualidad", evento: "Consolidación de torres y lienzos exteriores." },
+    ],
+    curiosidades: [
+      "Sus cubos circulares almenados se cuentan entre los más fotogénicos de Castilla al atardecer.",
+      "Conserva una doble línea de muralla, rara en castillos de su tamaño.",
+    ],
+    youtubeUrl: "https://youtu.be/IfAGbWYWf1E",
+  },
+  {
+    slug: "castillo-de-almonacid-de-toledo",
+    nombre: "Castillo de Almonacid de Toledo",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    ordenRuinas: 27,
+    estadoDescripcion: "En ruinas — torre del homenaje y recinto amurallado conservados",
+    descripcionBreve:
+      "Fortaleza medieval encaramada sobre un cerro que domina la llanura toledana, escenario de la batalla de Almonacid de 1809.",
+    imagen: almonacidDeToledo,
+    coordenadas: [39.8333, -3.7833],
+    historia:
+      "De origen andalusí, el castillo de Almonacid de Toledo fue reconquistado por Alfonso VI y entregado a la mitra toledana. Su recinto se organiza en torno a una gran torre del homenaje central rodeada de un anillo amurallado con cubos. Fue parcialmente destruido durante la Guerra de la Independencia, tras la batalla de Almonacid de 1809.",
+    cronologia: [
+      { anio: "Siglos IX-X", evento: "Construcción andalusí original." },
+      { anio: "1085", evento: "Reconquista por Alfonso VI." },
+      { anio: "Siglos XIV-XV", evento: "Reformas bajo el señorío arzobispal de Toledo." },
+      { anio: "1809", evento: "Daños graves durante la batalla de Almonacid." },
+    ],
+    curiosidades: [
+      "Escenario de la batalla de Almonacid (1809), entre tropas francesas y españolas.",
+      "Desde su torre central se domina toda la llanura agrícola del sur de Toledo.",
+    ],
+    youtubeUrl: "https://youtu.be/b1BqbMoEd0c",
+  },
+  {
+    slug: "castillo-de-punoenrostro",
+    nombre: "Castillo de Puñoenrostro",
+    provincia: "Madrid",
+    comunidad: "Comunidad de Madrid",
+    estado: "ruinas",
+    ordenRuinas: 28,
+    estadoDescripcion: "En ruinas — torre del homenaje en pie y recinto amurallado conservado",
+    descripcionBreve:
+      "Imponente torre del homenaje con torreones cilíndricos adosados, vigía castellana sobre la campiña al sur de Madrid.",
+    imagen: punoenrostro,
+    coordenadas: [40.1833, -3.5500],
+    historia:
+      "El castillo de Puñoenrostro, en término de Seseña, fue residencia de los condes de Puñoenrostro, linaje de los Arias Dávila. Su elemento más destacado es la torre del homenaje, de planta cuadrada con torreoncillos cilíndricos en las esquinas, rodeada por un recinto amurallado con cubos.",
+    cronologia: [
+      { anio: "Siglo XV", evento: "Construcción por los Arias Dávila, condes de Puñoenrostro." },
+      { anio: "Siglo XVI", evento: "Reformas como residencia condal." },
+      { anio: "Siglo XIX", evento: "Abandono tras la desamortización." },
+      { anio: "Actualidad", evento: "Ruina consolidada visible desde la autovía A-4." },
+    ],
+    curiosidades: [
+      "Sus torreoncillos cilíndricos en las esquinas de la torre del homenaje son únicos en la zona.",
+      "Es visible a gran distancia desde la autovía de Andalucía.",
+    ],
+    youtubeUrl: "https://youtu.be/VTszsTetkuQ",
+  },
+  {
+    slug: "castillo-de-pioz",
+    nombre: "Castillo de Pioz",
+    provincia: "Guadalajara",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    ordenRuinas: 29,
+    estadoDescripcion: "En ruinas — recinto amurallado con cuatro torreones cilíndricos en pie",
+    descripcionBreve:
+      "Fortaleza atribuida a Juan Guas, con cuatro grandes torreones cilíndricos en las esquinas y muros de sillería caliza dorada.",
+    imagen: pioz,
+    coordenadas: [40.5333, -3.1833],
+    historia:
+      "El castillo de Pioz, en la Alcarria, se atribuye a Juan Guas, arquitecto del gótico isabelino. De planta cuadrada con cuatro grandes torres cilíndricas en las esquinas, fue propiedad del Cardenal Mendoza. Su sillería caliza dorada lo convierte en uno de los castillos más fotografiados de Guadalajara pese a su estado de ruina.",
+    cronologia: [
+      { anio: "Siglo XV", evento: "Construcción atribuida a Juan Guas para el Cardenal Mendoza." },
+      { anio: "Siglo XVI", evento: "Residencia señorial de los Mendoza." },
+      { anio: "Siglos XIX-XX", evento: "Abandono y pérdida de cubiertas." },
+      { anio: "Siglo XXI", evento: "Trabajos puntuales de consolidación." },
+    ],
+    curiosidades: [
+      "Su arquitecto, Juan Guas, también diseñó el castillo de Manzanares el Real.",
+      "Su sillería caliza dorada brilla espectacularmente al sol del atardecer.",
+    ],
+    youtubeUrl: "https://youtu.be/kFPQuG1_D9Y",
+  },
+  {
+    slug: "castillo-de-fuentiduena-de-tajo",
+    nombre: "Castillo de Fuentidueña de Tajo",
+    provincia: "Madrid",
+    comunidad: "Comunidad de Madrid",
+    estado: "ruinas",
+    ordenRuinas: 30,
+    estadoDescripcion: "En ruinas avanzadas — torre del homenaje y restos de tapial conservados",
+    descripcionBreve:
+      "Restos de una fortaleza musulmana sobre un cerro junto al Tajo, llave del paso entre Castilla y la Meseta sur.",
+    imagen: fuentiduenaDeTajo,
+    coordenadas: [40.0833, -3.1500],
+    historia:
+      "El castillo de Fuentidueña de Tajo, de origen andalusí, se erige sobre un cerro estratégico junto al río Tajo. Conserva grandes paños de tapial agujereados por mechinales y los restos de su torre del homenaje. Controló durante siglos el vado y la frontera oriental del antiguo reino de Toledo.",
+    cronologia: [
+      { anio: "Siglos IX-X", evento: "Construcción andalusí." },
+      { anio: "Siglo XII", evento: "Reconquista cristiana y reformas." },
+      { anio: "Siglo XIV", evento: "Encomienda de la Orden de Santiago." },
+      { anio: "Siglos XVII-XVIII", evento: "Abandono progresivo." },
+    ],
+    curiosidades: [
+      "Los mechinales de su tapial atestiguan la técnica constructiva musulmana original.",
+      "Su silueta recortada es uno de los hitos visuales del valle del Tajo madrileño.",
+    ],
+    youtubeUrl: "https://youtu.be/lcyTJLA0KEQ",
+  },
+  {
+    slug: "castillo-de-galve-de-sorbe",
+    nombre: "Castillo de Galve de Sorbe",
+    provincia: "Guadalajara",
+    comunidad: "Castilla-La Mancha",
+    estado: "ruinas",
+    ordenRuinas: 31,
+    estadoDescripcion: "Conservado parcialmente — torre del homenaje y recinto en pie",
+    descripcionBreve:
+      "Fortaleza señorial en plena Sierra Norte de Guadalajara, con poderosa torre del homenaje sobre praderas de alta montaña.",
+    imagen: galveDeSorbe,
+    coordenadas: [41.2333, -3.1833],
+    historia:
+      "El castillo de Galve de Sorbe, situado a más de 1.200 m de altitud en la Sierra de Ayllón, perteneció a los Estúñiga y posteriormente a los duques del Infantado. Su gran torre del homenaje almenada domina un pequeño recinto amurallado, en uno de los entornos paisajísticos más singulares de Castilla.",
+    cronologia: [
+      { anio: "Siglo XIV", evento: "Construcción por el linaje de los Estúñiga." },
+      { anio: "Siglo XV", evento: "Reformas bajo los duques del Infantado." },
+      { anio: "Siglos XVIII-XIX", evento: "Abandono progresivo." },
+      { anio: "Siglo XXI", evento: "Restauración parcial del recinto." },
+    ],
+    curiosidades: [
+      "Es uno de los castillos a mayor altitud de la Comunidad de Castilla-La Mancha.",
+      "Su entorno se cubre de nieve cada invierno, ofreciendo estampas únicas.",
+    ],
+    youtubeUrl: "https://youtu.be/2jQDxxrJc6U",
+  },
+  {
+    slug: "castillo-de-bairen",
+    nombre: "Castillo de Bairén",
+    provincia: "Valencia",
+    comunidad: "Comunidad Valenciana",
+    estado: "ruinas",
+    ordenRuinas: 32,
+    estadoDescripcion: "En ruinas consolidadas — recinto musealizado y visitable",
+    descripcionBreve:
+      "Fortaleza andalusí sobre el monte Montdúver, escenario de la legendaria batalla en la que combatió El Cid en 1097.",
+    imagen: bairen,
+    coordenadas: [38.9750, -0.1833],
+    historia:
+      "El castillo de Bairén, en Gandía, fue una de las fortalezas andalusíes más importantes de la costa valenciana. En 1097 fue escenario de una célebre batalla en la que El Cid Campeador derrotó a las tropas almorávides. Tras la conquista de Jaime I, perdió importancia y fue abandonado, conservándose hoy un amplio recinto musealizado.",
+    cronologia: [
+      { anio: "Siglos X-XI", evento: "Construcción de la fortaleza andalusí." },
+      { anio: "1097", evento: "Batalla de Bairén; victoria de El Cid sobre los almorávides." },
+      { anio: "1240", evento: "Conquista por Jaime I de Aragón." },
+      { anio: "Siglo XXI", evento: "Excavación arqueológica y musealización del conjunto." },
+    ],
+    curiosidades: [
+      "Fue escenario de una victoria de El Cid Campeador en 1097.",
+      "Sus excavaciones han revelado aljibes, hornos y una mezquita interior.",
+    ],
+    youtubeUrl: "https://youtu.be/u4GPaiII7Ec",
+  },
+  {
+    slug: "castillo-de-chinchon",
+    nombre: "Castillo de los Condes (Chinchón)",
+    provincia: "Madrid",
+    comunidad: "Comunidad de Madrid",
+    estado: "conservado",
+    estadoDescripcion: "Conservado — propiedad privada, exteriores visitables",
+    descripcionBreve:
+      "Fortaleza renacentista de los condes de Chinchón, con planta cuadrada, bastiones angulares y foso, junto a los restos del castillo medieval.",
+    imagen: chinchon,
+    coordenadas: [40.1333, -3.4500],
+    historia:
+      "El llamado Castillo Nuevo de Chinchón, o Castillo de los Condes, fue construido en el siglo XVI por los condes de Chinchón como nueva sede señorial tras la destrucción del castillo medieval anterior en la guerra de las Comunidades. De planta cuadrada con bastiones en las esquinas y rodeado por un foso, es un excelente ejemplo de arquitectura militar de transición.",
+    cronologia: [
+      { anio: "1520", evento: "Destrucción del castillo medieval durante las Comunidades." },
+      { anio: "Siglo XVI", evento: "Construcción del nuevo castillo por los condes de Chinchón." },
+      { anio: "1808", evento: "Incendio durante la Guerra de la Independencia." },
+      { anio: "Actualidad", evento: "Propiedad privada; exteriores accesibles." },
+    ],
+    curiosidades: [
+      "Sus bastiones angulares lo convierten en un raro ejemplo de fortificación abaluartada temprana.",
+      "Junto al castillo nuevo perviven aún restos de la torre del antiguo castillo medieval.",
+    ],
+    youtubeUrl: "https://youtu.be/SMaBqz4T-C8",
+  },
+  {
+    slug: "castillo-de-penafiel",
+    nombre: "Castillo de Peñafiel",
+    provincia: "Valladolid",
+    comunidad: "Castilla y León",
+    estado: "conservado",
+    estadoDescripcion: "Excelente estado — sede del Museo Provincial del Vino",
+    descripcionBreve:
+      "Fortaleza alargada en forma de barco sobre un cerro, símbolo de la Ribera del Duero y hoy Museo Provincial del Vino.",
+    imagen: penafiel,
+    coordenadas: [41.6000, -4.1167],
+    historia:
+      "El castillo de Peñafiel, con su característica planta alargada en forma de barco, se extiende a lo largo de más de 200 metros sobre un cerro que domina la villa y la Ribera del Duero. Levantado entre los siglos X y XV, fue residencia de don Juan Manuel, autor de El Conde Lucanor, y hoy alberga el Museo Provincial del Vino.",
+    cronologia: [
+      { anio: "Siglo X", evento: "Primera fortificación condal." },
+      { anio: "Siglo XIV", evento: "Residencia de don Juan Manuel, autor de El Conde Lucanor." },
+      { anio: "Siglo XV", evento: "Reconstrucción definitiva bajo los Téllez-Girón." },
+      { anio: "Actualidad", evento: "Alberga el Museo Provincial del Vino de Valladolid." },
+    ],
+    curiosidades: [
+      "Su planta en forma de barco se extiende más de 200 metros de longitud.",
+      "Don Juan Manuel escribió aquí buena parte de El Conde Lucanor.",
+      "Es el corazón simbólico de la Denominación de Origen Ribera del Duero.",
+    ],
+    youtubeUrl: "https://youtu.be/CJH_bKvXR0g",
+  },
 ];
 
 export const getCastilloBySlug = (slug: string) =>
