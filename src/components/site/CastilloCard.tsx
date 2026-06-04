@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { toYoutubeWatchUrl, type Castillo } from "@/data/castillos";
+import { toYoutubeWatchUrl, getCategoriaInfo, type Castillo } from "@/data/castillos";
 
 export function CastilloCard({ castillo }: { castillo: Castillo }) {
-  const badge = castillo.estado === "ruinas" ? "🏚️ En Ruinas" : "🏰 Conservado";
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
+  const cat = getCategoriaInfo(castillo.categoria);
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]">
       <Link to="/castillo/$slug" params={{ slug: castillo.slug }} className="block aspect-[16/10] overflow-hidden">
@@ -16,8 +16,12 @@ export function CastilloCard({ castillo }: { castillo: Castillo }) {
       </Link>
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-2 flex items-center justify-between gap-2">
-          <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
-            {badge}
+          <span
+            className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold text-white"
+            style={{ backgroundColor: cat.color }}
+            title={cat.descripcion}
+          >
+            {cat.emoji} {cat.label}
           </span>
           <span className="text-xs uppercase tracking-wider text-muted-foreground">{castillo.provincia}</span>
         </div>

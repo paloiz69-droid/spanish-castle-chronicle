@@ -39,6 +39,70 @@ import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
 
+export type CategoriaCastillo =
+  | "conservado"
+  | "consolidado"
+  | "semirruina"
+  | "ruina-avanzada"
+  | "ruina-arqueologica";
+
+export interface CategoriaInfo {
+  slug: CategoriaCastillo;
+  emoji: string;
+  label: string;
+  descripcion: string;
+  /** Color hex usado en mapa y badges */
+  color: string;
+  /** Mapa al estado heredado (compatibilidad) */
+  estado: EstadoCastillo;
+}
+
+export const CATEGORIAS: CategoriaInfo[] = [
+  {
+    slug: "conservado",
+    emoji: "🟢",
+    label: "Conservado",
+    descripcion: "Mantiene cubiertas e interiores utilizables.",
+    color: "#22c55e",
+    estado: "conservado",
+  },
+  {
+    slug: "consolidado",
+    emoji: "🔵",
+    label: "Consolidado",
+    descripcion: "Sin uso original, pero estructuralmente estable.",
+    color: "#3b82f6",
+    estado: "conservado",
+  },
+  {
+    slug: "semirruina",
+    emoji: "🟡",
+    label: "Semirruina",
+    descripcion: "Ha perdido techos e interiores, pero conserva gran parte de sus muros.",
+    color: "#eab308",
+    estado: "ruinas",
+  },
+  {
+    slug: "ruina-avanzada",
+    emoji: "🟠",
+    label: "Ruina Avanzada",
+    descripcion: "Presenta grandes derrumbes y pérdida de elementos esenciales.",
+    color: "#f97316",
+    estado: "ruinas",
+  },
+  {
+    slug: "ruina-arqueologica",
+    emoji: "🔴",
+    label: "Ruina Arqueológica",
+    descripcion: "Solo quedan restos parciales, estructuras mínimas o cimientos.",
+    color: "#ef4444",
+    estado: "ruinas",
+  },
+];
+
+export const getCategoriaInfo = (slug: CategoriaCastillo): CategoriaInfo =>
+  CATEGORIAS.find((c) => c.slug === slug) ?? CATEGORIAS[0];
+
 export interface CronologiaEvento {
   anio: string;
   evento: string;
@@ -49,6 +113,7 @@ export interface Castillo {
   nombre: string;
   provincia: string;
   comunidad: string;
+  categoria: CategoriaCastillo;
   estado: EstadoCastillo;
   estadoDescripcion: string;
   descripcionBreve: string;
@@ -69,6 +134,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Aulencia",
     provincia: "Madrid",
     comunidad: "Comunidad de Madrid",
+    categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 1,
     estadoDescripcion: "En ruinas — torre del homenaje parcialmente en pie",
@@ -95,6 +161,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Gormaz",
     provincia: "Soria",
     comunidad: "Castilla y León",
+    categoria: "semirruina",
     estado: "ruinas",
     ordenRuinas: 2,
     estadoDescripcion: "En ruinas — recinto amurallado conservado en gran extensión",
@@ -122,6 +189,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Jadraque",
     provincia: "Guadalajara",
     comunidad: "Castilla-La Mancha",
+    categoria: "semirruina",
     estado: "ruinas",
     ordenRuinas: 3,
     estadoDescripcion: "En ruinas consolidadas — restaurado parcialmente",
@@ -148,6 +216,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Berlanga de Duero",
     provincia: "Soria",
     comunidad: "Castilla y León",
+    categoria: "semirruina",
     estado: "ruinas",
     ordenRuinas: 4,
     estadoDescripcion: "En ruinas — murallas y torreones bien conservados",
@@ -174,6 +243,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Castrojeriz",
     provincia: "Burgos",
     comunidad: "Castilla y León",
+    categoria: "semirruina",
     estado: "ruinas",
     ordenRuinas: 5,
     estadoDescripcion: "En ruinas — torres y lienzos parcialmente restaurados",
@@ -200,6 +270,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Forna",
     provincia: "Alicante",
     comunidad: "Comunidad Valenciana",
+    categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 6,
     estadoDescripcion: "Conservado en parte — almenas y torres restauradas",
@@ -228,6 +299,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Manzanares el Real",
     provincia: "Madrid",
     comunidad: "Comunidad de Madrid",
+    categoria: "conservado",
     estado: "conservado",
     estadoDescripcion: "Excelente estado — visitable",
     descripcionBreve:
@@ -253,6 +325,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Guadamur",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "conservado",
     estado: "conservado",
     estadoDescripcion: "Excelente estado — propiedad privada visitable",
     descripcionBreve:
@@ -278,6 +351,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Consuegra",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — visitable",
     descripcionBreve:
@@ -303,6 +377,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Cullera",
     provincia: "Valencia",
     comunidad: "Comunidad Valenciana",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — visitable",
     descripcionBreve:
@@ -328,6 +403,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de San Servando",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — alberga albergue juvenil",
     descripcionBreve:
@@ -353,6 +429,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Torija",
     provincia: "Guadalajara",
     comunidad: "Castilla-La Mancha",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — alberga el Museo del Viaje a la Alcarria",
     descripcionBreve:
@@ -378,6 +455,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Cuéllar",
     provincia: "Segovia",
     comunidad: "Castilla y León",
+    categoria: "conservado",
     estado: "conservado",
     estadoDescripcion: "Excelente estado — visitable",
     descripcionBreve:
@@ -403,6 +481,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Malpica de Tajo",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "conservado",
     estado: "conservado",
     estadoDescripcion: "Excelente estado — propiedad privada",
     descripcionBreve:
@@ -428,6 +507,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Maqueda",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Buen estado — restaurado",
     descripcionBreve:
@@ -453,6 +533,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Escalona",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "consolidado",
     estado: "ruinas",
     estadoDescripcion: "En ruinas — recinto exterior y torre conservados",
     descripcionBreve:
@@ -478,6 +559,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Peñas Negras",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "ruina-avanzada",
     estado: "ruinas",
     estadoDescripcion: "En ruinas — torre del homenaje en restauración",
     descripcionBreve:
@@ -503,6 +585,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de la Mota",
     provincia: "Valladolid",
     comunidad: "Castilla y León",
+    categoria: "conservado",
     estado: "conservado",
     estadoDescripcion: "Excelente estado — visitable",
     descripcionBreve:
@@ -529,6 +612,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de La Coracera",
     provincia: "Ávila",
     comunidad: "Castilla y León",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — visitable",
     descripcionBreve:
@@ -554,6 +638,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Villaviciosa de Odón",
     provincia: "Madrid",
     comunidad: "Comunidad de Madrid",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — sede del Archivo Histórico del Ejército del Aire",
     descripcionBreve:
@@ -579,6 +664,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Magalia",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — visitable como centro cultural",
     descripcionBreve:
@@ -604,6 +690,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Alcázar de Segovia",
     provincia: "Segovia",
     comunidad: "Castilla y León",
+    categoria: "conservado",
     estado: "conservado",
     estadoDescripcion: "Excelente estado — visitable",
     descripcionBreve:
@@ -630,6 +717,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Monreal",
     provincia: "Cuenca",
     comunidad: "Castilla-La Mancha",
+    categoria: "ruina-arqueologica",
     estado: "ruinas",
     ordenRuinas: 20,
     estadoDescripcion: "En ruinas — torre cilíndrica y lienzos de muralla en pie sobre cerro testigo",
@@ -656,6 +744,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Puebla de Almenara",
     provincia: "Cuenca",
     comunidad: "Castilla-La Mancha",
+    categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 21,
     estadoDescripcion: "En ruinas — torre del homenaje, barbacana y cubos de muralla conservados",
@@ -682,6 +771,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Oreja",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 22,
     estadoDescripcion: "En ruinas — torre del homenaje en pie sobre los cortados del Tajo",
@@ -708,6 +798,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Luján",
     provincia: "Guadalajara",
     comunidad: "Castilla-La Mancha",
+    categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 23,
     estadoDescripcion: "En ruinas parcialmente restauradas — recinto amurallado con torres y almenas reconstruidas",
@@ -734,6 +825,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Arévalo",
     provincia: "Ávila",
     comunidad: "Castilla y León",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Conservado y restaurado — sede del Museo del Cereal",
     descripcionBreve:
@@ -756,16 +848,17 @@ export const CASTILLOS: Castillo[] = [
   },
   {
     slug: "castillo-de-villalba",
-    nombre: "Castillo de Villalba",
-    provincia: "Cáceres",
-    comunidad: "Extremadura",
+    nombre: "Castillo de Villalba (Cebolla)",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    categoria: "ruina-arqueologica",
     estado: "ruinas",
     ordenRuinas: 25,
     estadoDescripcion: "En ruinas — lienzos de muralla y restos de torres entre olivares",
     descripcionBreve:
       "Restos de una fortaleza extremeña inmersa en un mar de olivos, con poderosos lienzos de tapial que aún desafían el paso del tiempo.",
     imagen: villalba,
-    coordenadas: [39.1500, -6.3000],
+    coordenadas: [39.9617, -4.4467],
     historia:
       "El castillo de Villalba se levantó como fortaleza señorial en la dehesa extremeña. De su conjunto se conservan grandes lienzos de muralla construidos en tapial y mampostería, así como los arranques de varias torres, testimonio de una arquitectura defensiva de gran porte hoy abrazada por el paisaje agrícola.",
     cronologia: [
@@ -785,6 +878,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de San Silvestre",
     provincia: "Valladolid",
     comunidad: "Castilla y León",
+    categoria: "ruina-arqueologica",
     estado: "ruinas",
     ordenRuinas: 26,
     estadoDescripcion: "En ruinas parcialmente restauradas — recinto exterior y torres conservadas",
@@ -811,6 +905,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Almonacid de Toledo",
     provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
+    categoria: "semirruina",
     estado: "ruinas",
     ordenRuinas: 27,
     estadoDescripcion: "En ruinas — torre del homenaje y recinto amurallado conservados",
@@ -837,6 +932,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Puñoenrostro",
     provincia: "Madrid",
     comunidad: "Comunidad de Madrid",
+    categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 28,
     estadoDescripcion: "En ruinas — torre del homenaje en pie y recinto amurallado conservado",
@@ -863,6 +959,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Pioz",
     provincia: "Guadalajara",
     comunidad: "Castilla-La Mancha",
+    categoria: "semirruina",
     estado: "ruinas",
     ordenRuinas: 29,
     estadoDescripcion: "En ruinas — recinto amurallado con cuatro torreones cilíndricos en pie",
@@ -889,6 +986,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Fuentidueña de Tajo",
     provincia: "Madrid",
     comunidad: "Comunidad de Madrid",
+    categoria: "ruina-arqueologica",
     estado: "ruinas",
     ordenRuinas: 30,
     estadoDescripcion: "En ruinas avanzadas — torre del homenaje y restos de tapial conservados",
@@ -915,6 +1013,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Galve de Sorbe",
     provincia: "Guadalajara",
     comunidad: "Castilla-La Mancha",
+    categoria: "consolidado",
     estado: "ruinas",
     ordenRuinas: 31,
     estadoDescripcion: "Conservado parcialmente — torre del homenaje y recinto en pie",
@@ -941,6 +1040,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Bairén",
     provincia: "Valencia",
     comunidad: "Comunidad Valenciana",
+    categoria: "semirruina",
     estado: "ruinas",
     ordenRuinas: 32,
     estadoDescripcion: "En ruinas consolidadas — recinto musealizado y visitable",
@@ -967,6 +1067,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de los Condes (Chinchón)",
     provincia: "Madrid",
     comunidad: "Comunidad de Madrid",
+    categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Conservado — propiedad privada, exteriores visitables",
     descripcionBreve:
@@ -992,6 +1093,7 @@ export const CASTILLOS: Castillo[] = [
     nombre: "Castillo de Peñafiel",
     provincia: "Valladolid",
     comunidad: "Castilla y León",
+    categoria: "conservado",
     estado: "conservado",
     estadoDescripcion: "Excelente estado — sede del Museo Provincial del Vino",
     descripcionBreve:
@@ -1025,6 +1127,14 @@ export const getCastillosEnRuinas = () =>
   CASTILLOS.filter((c) => c.estado === "ruinas").sort(
     (a, b) => (a.ordenRuinas ?? 99) - (b.ordenRuinas ?? 99),
   );
+
+export const getCastillosByCategoria = (cat: CategoriaCastillo) =>
+  CASTILLOS.filter((c) => c.categoria === cat).sort((a, b) =>
+    a.nombre.localeCompare(b.nombre, "es"),
+  );
+
+export const countByCategoria = (cat: CategoriaCastillo) =>
+  CASTILLOS.filter((c) => c.categoria === cat).length;
 
 /**
  * Normaliza enlaces youtu.be → youtube.com/watch?v=ID para evitar

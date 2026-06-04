@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Youtube, MapPin, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
-import { getCastilloBySlug, toYoutubeWatchUrl, type Castillo } from "@/data/castillos";
+import { getCastilloBySlug, getCategoriaInfo, toYoutubeWatchUrl, type Castillo } from "@/data/castillos";
 
 export const Route = createFileRoute("/castillo/$slug")({
   loader: ({ params }) => {
@@ -45,8 +45,7 @@ function Page() {
   const { castillo } = Route.useLoaderData() as { castillo: Castillo };
   const [lightbox, setLightbox] = useState<string | null>(null);
   const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
-  const badge = castillo.estado === "ruinas" ? "🏚️ En Ruinas" : "🏰 Conservado";
-  const backTo = castillo.estado === "ruinas" ? "/ruinas" : "/conservados";
+  const cat = getCategoriaInfo(castillo.categoria);
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
 
   return (
@@ -55,11 +54,20 @@ function Page() {
         <img src={castillo.imagen} alt={castillo.nombre} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/85" />
         <div className="relative mx-auto flex h-full max-w-5xl flex-col justify-end px-4 pb-12 sm:px-6 lg:px-8">
-          <Link to={backTo} className="mb-4 inline-flex w-fit items-center gap-1 text-sm text-white/80 hover:text-white">
+          <Link
+            to="/categoria/$slug"
+            params={{ slug: castillo.categoria }}
+            className="mb-4 inline-flex w-fit items-center gap-1 text-sm text-white/80 hover:text-white"
+          >
             <ArrowLeft className="h-4 w-4" /> Volver
           </Link>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur">{badge}</span>
+            <span
+              className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold text-white"
+              style={{ backgroundColor: cat.color }}
+            >
+              {cat.emoji} {cat.label}
+            </span>
             <span className="inline-flex items-center gap-1 text-xs text-white/85">
               <MapPin className="h-3 w-3" /> {castillo.provincia}, {castillo.comunidad}
             </span>
@@ -152,7 +160,16 @@ function Page() {
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-xl border border-border/70 bg-card p-5">
             <h3 className="font-display text-lg">Estado de conservación</h3>
-            <p className="mt-2 text-sm text-foreground/85">{castillo.estadoDescripcion}</p>
+            <p className="mt-2 flex items-center gap-2">
+              <span
+                className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold text-white"
+                style={{ backgroundColor: cat.color }}
+              >
+                {cat.emoji} {cat.label}
+              </span>
+            </p>
+            <p className="mt-2 text-xs italic text-muted-foreground">{cat.descripcion}</p>
+            <p className="mt-3 text-sm text-foreground/85">{castillo.estadoDescripcion}</p>
           </div>
           <div className="rounded-xl border border-border/70 bg-card p-5">
             <h3 className="font-display text-lg">Ubicación</h3>

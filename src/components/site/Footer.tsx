@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
+import { CATEGORIAS } from "@/data/castillos";
 
 export function Footer() {
   return (
     <footer className="border-t border-border/60 bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div>
           <h3 className="font-display text-xl text-foreground">🏰 Kdronazo</h3>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -11,10 +12,21 @@ export function Footer() {
           </p>
         </div>
         <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Categorías</h4>
+          <ul className="mt-3 space-y-2 text-sm">
+            {CATEGORIAS.map((c) => (
+              <li key={c.slug}>
+                <Link to="/categoria/$slug" params={{ slug: c.slug }} className="text-muted-foreground hover:text-foreground">
+                  {c.emoji} {c.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Explorar</h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><Link to="/conservados" className="text-muted-foreground hover:text-foreground">🏰 Castillos Conservados</Link></li>
-            <li><Link to="/ruinas" className="text-muted-foreground hover:text-foreground">🏚️ Castillos en Ruinas</Link></li>
+            <li><Link to="/categorias" className="text-muted-foreground hover:text-foreground">🏛️ Todas las categorías</Link></li>
             <li><Link to="/mapa" className="text-muted-foreground hover:text-foreground">🗺️ Mapa Interactivo</Link></li>
           </ul>
         </div>
