@@ -25,6 +25,16 @@ import pueblaAlmenara from "@/assets/castillos/puebla-de-almenara.jpg";
 import oreja from "@/assets/castillos/oreja.jpg";
 import lujan from "@/assets/castillos/lujan.jpg";
 import arevalo from "@/assets/castillos/arevalo.jpg";
+import sanSilvestre from "@/assets/castillos/san-silvestre.jpg";
+import villalba from "@/assets/castillos/villalba.jpg";
+import penafiel from "@/assets/castillos/penafiel.jpg";
+import galveDeSorbe from "@/assets/castillos/galve-de-sorbe.jpg";
+import almonacidDeToledo from "@/assets/castillos/almonacid-de-toledo.jpg";
+import punoenrostro from "@/assets/castillos/punoenrostro.jpg";
+import fuentiduenaDeTajo from "@/assets/castillos/fuentiduena-de-tajo.jpg";
+import bairen from "@/assets/castillos/bairen.jpg";
+import pioz from "@/assets/castillos/pioz.jpg";
+import chinchon from "@/assets/castillos/chinchon.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
