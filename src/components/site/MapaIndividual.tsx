@@ -27,6 +27,10 @@ export function MapaIndividual({ castillo }: { castillo: Castillo }) {
       <Marker
         position={castillo.coordenadas}
         icon={makeIcon(cat.color, cat.emoji)}
+        eventHandlers={{
+          mouseover: (e) => e.target.openPopup(),
+          mouseout: (e) => e.target.closePopup(),
+        }}
       >
         <Popup>
           <div style={{ width: 220 }}>
