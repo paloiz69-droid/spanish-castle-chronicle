@@ -1,8 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Youtube, MapPin, ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { getCastilloBySlug, getCategoriaInfo, toYoutubeWatchUrl, type Castillo } from "@/data/castillos";
+
+const MapaIndividual = lazy(() =>
+  import("@/components/site/MapaIndividual").then((m) => ({ default: m.MapaIndividual })),
+);
 
 export const Route = createFileRoute("/castillo/$slug")({
   loader: ({ params }) => {
@@ -140,11 +144,9 @@ function Page() {
 
           <Section title="Localización">
             <div className="aspect-video overflow-hidden rounded-lg border border-border/70">
-              <iframe
-                className="h-full w-full"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${castillo.coordenadas[1] - 0.05}%2C${castillo.coordenadas[0] - 0.03}%2C${castillo.coordenadas[1] + 0.05}%2C${castillo.coordenadas[0] + 0.03}&layer=mapnik&marker=${castillo.coordenadas[0]}%2C${castillo.coordenadas[1]}`}
-                title={`Mapa de ${castillo.nombre}`}
-              />
+              <Suspense fallback={<div className="h-full w-full animate-pulse bg-secondary" />}>
+                <MapaIndividual castillo={castillo} />
+              </Suspense>
             </div>
             <a
               href={`https://www.openstreetmap.org/?mlat=${castillo.coordenadas[0]}&mlon=${castillo.coordenadas[1]}#map=14/${castillo.coordenadas[0]}/${castillo.coordenadas[1]}`}
