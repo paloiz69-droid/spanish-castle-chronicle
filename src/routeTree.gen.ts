@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RecomendarRouteImport } from './routes/recomendar'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CastilloSlugRouteImport } from './routes/castillo.$slug'
 
+const RecomendarRoute = RecomendarRouteImport.update({
+  id: '/recomendar',
+  path: '/recomendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MapaRoute = MapaRouteImport.update({
   id: '/mapa',
   path: '/mapa',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
+  '/recomendar': typeof RecomendarRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
+  '/recomendar': typeof RecomendarRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
+  '/recomendar': typeof RecomendarRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
@@ -69,15 +78,23 @@ export interface FileRouteTypes {
     | '/'
     | '/categorias'
     | '/mapa'
+    | '/recomendar'
     | '/castillo/$slug'
     | '/categoria/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/categorias' | '/mapa' | '/castillo/$slug' | '/categoria/$slug'
+  to:
+    | '/'
+    | '/categorias'
+    | '/mapa'
+    | '/recomendar'
+    | '/castillo/$slug'
+    | '/categoria/$slug'
   id:
     | '__root__'
     | '/'
     | '/categorias'
     | '/mapa'
+    | '/recomendar'
     | '/castillo/$slug'
     | '/categoria/$slug'
   fileRoutesById: FileRoutesById
@@ -86,12 +103,20 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CategoriasRoute: typeof CategoriasRoute
   MapaRoute: typeof MapaRoute
+  RecomendarRoute: typeof RecomendarRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/recomendar': {
+      id: '/recomendar'
+      path: '/recomendar'
+      fullPath: '/recomendar'
+      preLoaderRoute: typeof RecomendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mapa': {
       id: '/mapa'
       path: '/mapa'
@@ -134,19 +159,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CategoriasRoute: CategoriasRoute,
   MapaRoute: MapaRoute,
+  RecomendarRoute: RecomendarRoute,
   CastilloSlugRoute: CastilloSlugRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
