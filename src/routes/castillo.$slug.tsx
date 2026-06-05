@@ -1,8 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Youtube, MapPin, ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { getCastilloBySlug, getCategoriaInfo, toYoutubeWatchUrl, type Castillo } from "@/data/castillos";
+
+const MapaIndividual = lazy(() =>
+  import("@/components/site/MapaIndividual").then((m) => ({ default: m.MapaIndividual })),
+);
 
 export const Route = createFileRoute("/castillo/$slug")({
   loader: ({ params }) => {
