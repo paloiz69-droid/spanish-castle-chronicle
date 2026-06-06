@@ -1,8 +1,15 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Youtube, MapPin, ArrowLeft } from "lucide-react";
+import { Youtube, MapPin, ArrowLeft, Navigation } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
-import { getCastilloBySlug, getCategoriaInfo, toYoutubeWatchUrl, type Castillo } from "@/data/castillos";
+import {
+  getCastilloBySlug,
+  getCategoriaInfo,
+  toYoutubeWatchUrl,
+  esCastilloNuevo,
+  getDireccionesUrl,
+  type Castillo,
+} from "@/data/castillos";
 
 const MapaIndividual = lazy(() =>
   import("@/components/site/MapaIndividual").then((m) => ({ default: m.MapaIndividual })),
@@ -51,6 +58,8 @@ function Page() {
   const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
   const cat = getCategoriaInfo(castillo.categoria);
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
+  const nuevo = esCastilloNuevo(castillo);
+  const direccionesUrl = getDireccionesUrl(castillo);
 
   return (
     <PageShell>
@@ -72,6 +81,11 @@ function Page() {
             >
               {cat.emoji} {cat.label}
             </span>
+            {nuevo && (
+              <span className="badge-nuevo inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs">
+                🆕 NUEVO
+              </span>
+            )}
             <span className="inline-flex items-center gap-1 text-xs text-white/85">
               <MapPin className="h-3 w-3" /> {castillo.provincia}, {castillo.comunidad}
             </span>
@@ -81,8 +95,8 @@ function Page() {
         </div>
       </section>
 
-      {/* Botón de vídeo individual — justo debajo de la fotografía principal */}
-      <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+      {/* Acciones principales — justo debajo de la fotografía */}
+      <div className="mx-auto flex max-w-6xl flex-wrap gap-3 px-4 pt-8 sm:px-6 lg:px-8">
         {videoUrl ? (
           <a
             href={videoUrl}
@@ -97,6 +111,14 @@ function Page() {
             <Youtube className="h-4 w-4" /> Vídeo próximamente disponible
           </div>
         )}
+        <a
+          href={direccionesUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-transform hover:scale-[1.02]"
+        >
+          <Navigation className="h-4 w-4" /> 📍 Cómo llegar
+        </a>
       </div>
 
       <article className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_280px] lg:px-8">
@@ -177,6 +199,14 @@ function Page() {
             <h3 className="font-display text-lg">Ubicación</h3>
             <p className="mt-2 text-sm text-foreground/85">{castillo.provincia}</p>
             <p className="text-xs text-muted-foreground">{castillo.comunidad}</p>
+            <a
+              href={direccionesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
+            >
+              <Navigation className="h-4 w-4" /> 📍 Cómo llegar
+            </a>
           </div>
           {videoUrl && (
             <a
