@@ -157,14 +157,54 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
               </select>
             </label>
           </div>
-          {filtrosActivos > 0 && (
-            <button
-              type="button"
-              onClick={() => { setProvincia(""); setCategoria(""); }}
-              className="mt-3 text-xs text-primary hover:underline"
-            >
-              Limpiar filtros
-            </button>
+          <div className="mt-3 flex items-center justify-between">
+            {filtrosActivos > 0 ? (
+              <button
+                type="button"
+                onClick={() => { setProvincia(""); setCategoria(""); }}
+                className="text-xs text-primary hover:underline"
+              >
+                Limpiar filtros
+              </button>
+            ) : <span />}
+            <span className="text-xs text-muted-foreground">
+              {results.length} resultado{results.length === 1 ? "" : "s"}
+            </span>
+          </div>
+          {(q.trim().length > 0 || filtrosActivos > 0) && (
+            <div className="mt-2 max-h-72 overflow-auto border-t border-border pt-2">
+              {results.length === 0 ? (
+                <div className="px-1 py-3 text-sm text-muted-foreground">Sin resultados con los criterios seleccionados.</div>
+              ) : (
+                <ul className="space-y-1">
+                  {results.map((c) => {
+                    const cat = getCategoriaInfo(c.categoria);
+                    return (
+                      <li key={c.slug}>
+                        <Link
+                          to="/castillo/$slug"
+                          params={{ slug: c.slug }}
+                          onClick={() => { setOpen(false); setShowFilters(false); }}
+                          className="flex items-center gap-3 rounded px-2 py-1.5 text-sm hover:bg-accent/60"
+                        >
+                          <img src={c.imagen} alt="" className="h-8 w-8 flex-shrink-0 rounded object-cover" />
+                          <div className="min-w-0 flex-1">
+                            <div className="truncate font-medium">{c.nombre}</div>
+                            <div className="truncate text-xs text-muted-foreground">{c.provincia}</div>
+                          </div>
+                          <span
+                            className="ml-2 hidden whitespace-nowrap rounded-full px-2 py-0.5 text-[10px] font-medium text-white sm:inline"
+                            style={{ backgroundColor: cat.color }}
+                          >
+                            {cat.emoji}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
           )}
         </div>
       )}
