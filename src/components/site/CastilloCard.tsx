@@ -1,18 +1,24 @@
 import { Link } from "@tanstack/react-router";
-import { toYoutubeWatchUrl, getCategoriaInfo, type Castillo } from "@/data/castillos";
+import { toYoutubeWatchUrl, getCategoriaInfo, esCastilloNuevo, type Castillo } from "@/data/castillos";
 
 export function CastilloCard({ castillo }: { castillo: Castillo }) {
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
   const cat = getCategoriaInfo(castillo.categoria);
+  const nuevo = esCastilloNuevo(castillo);
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]">
-      <Link to="/castillo/$slug" params={{ slug: castillo.slug }} className="block aspect-[16/10] overflow-hidden">
+      <Link to="/castillo/$slug" params={{ slug: castillo.slug }} className="relative block aspect-[16/10] overflow-hidden">
         <img
           src={castillo.imagen}
           alt={castillo.nombre}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
+        {nuevo && (
+          <span className="badge-nuevo absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px]">
+            🆕 NUEVO
+          </span>
+        )}
       </Link>
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-2 flex items-center justify-between gap-2">
