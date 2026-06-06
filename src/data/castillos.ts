@@ -612,15 +612,15 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-la-coracera",
     nombre: "Castillo de La Coracera",
-    provincia: "Ávila",
-    comunidad: "Castilla y León",
+    provincia: "Madrid",
+    comunidad: "Comunidad de Madrid",
     categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — visitable",
     descripcionBreve:
       "Fortaleza granítica de Don Álvaro de Luna en San Martín de Valdeiglesias, al pie de Gredos.",
     imagen: laCoracera,
-    coordenadas: [40.3536, -4.4039],
+    coordenadas: [40.3514, -4.4047],
     historia:
       "Construido a mediados del siglo XV por Don Álvaro de Luna, condestable de Castilla, el castillo de La Coracera es una de las fortalezas mejor conservadas del sur abulense. Levantado en granito local, fue residencia señorial y centro administrativo de las extensas posesiones del valiido en la zona.",
     cronologia: [
@@ -664,15 +664,15 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-magalia",
     nombre: "Castillo de Magalia",
-    provincia: "Toledo",
-    comunidad: "Castilla-La Mancha",
+    provincia: "Ávila",
+    comunidad: "Castilla y León",
     categoria: "consolidado",
     estado: "conservado",
     estadoDescripcion: "Restaurado — visitable como centro cultural",
     descripcionBreve:
       "Pequeña fortaleza señorial en Las Navas del Marqués, hoy reconvertida en residencia y centro de actividades.",
     imagen: magalia,
-    coordenadas: [40.6053, -4.3439],
+    coordenadas: [40.5961, -4.3486],
     historia:
       "El castillo-palacio de Magalia, situado en Las Navas del Marqués, fue residencia señorial vinculada a los marqueses de Las Navas. Combinando elementos defensivos con una clara vocación palaciega, ha sido restaurado en distintas fases hasta convertirse en sede cultural y residencia de actividades.",
     cronologia: [
@@ -717,16 +717,16 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-monreal",
     nombre: "Castillo de Monreal",
-    provincia: "Cuenca",
+    provincia: "Toledo",
     comunidad: "Castilla-La Mancha",
     categoria: "ruina-arqueologica",
     estado: "ruinas",
     ordenRuinas: 20,
     estadoDescripcion: "En ruinas — torre cilíndrica y lienzos de muralla en pie sobre cerro testigo",
     descripcionBreve:
-      "Fortaleza solitaria encaramada en un cerro testigo de la Manchuela, vigía silencioso sobre un paisaje infinito de campos y barrancos.",
+      "Fortaleza solitaria encaramada en un cerro testigo en término de Dosbarrios (Toledo), vigía silencioso sobre la llanura manchega.",
     imagen: monreal,
-    coordenadas: [39.9333, -2.2667],
+    coordenadas: [39.8836, -3.4836],
     historia:
       "El castillo de Monreal se alza sobre un espectacular cerro testigo desde el que se domina un amplio territorio manchego. Sus restos conservan parte de la torre cilíndrica y lienzos de muralla de mampostería, testimonio de una fortaleza medieval de origen islámico reaprovechada tras la Reconquista.",
     cronologia: [
@@ -780,7 +780,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza medieval colgada sobre los cortados del río Tajo, llave estratégica entre Toledo y la meseta sur durante la Reconquista.",
     imagen: oreja,
-    coordenadas: [39.9667, -3.5167],
+    coordenadas: [39.9869, -3.5642],
     historia:
       "El castillo de Oreja se asienta sobre un escarpe vertical del río Tajo, en término de Ontígola. De origen musulmán, fue reconquistado en 1139 por Alfonso VII y entregado a la Orden de Santiago, convirtiéndose en una de sus encomiendas más importantes. Su torre del homenaje, de planta cuadrada y mampostería caliza, domina aún el paisaje.",
     cronologia: [
@@ -805,9 +805,9 @@ export const CASTILLOS: Castillo[] = [
     ordenRuinas: 23,
     estadoDescripcion: "En ruinas parcialmente restauradas — recinto amurallado con torres y almenas reconstruidas",
     descripcionBreve:
-      "Fortaleza señorial de la familia Luján, con su característica torre albarrana y un recinto amurallado parcialmente recuperado en el corazón de la Alcarria.",
+      "Fortaleza señorial de la familia Luján en el despoblado de Luján (Cifuentes, Guadalajara), con su característica torre albarrana en plena Alcarria.",
     imagen: lujan,
-    coordenadas: [40.7167, -2.9000],
+    coordenadas: [40.7889, -2.6231],
     historia:
       "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Alcarria castellana. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
     cronologia: [
@@ -878,16 +878,16 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-san-silvestre",
     nombre: "Castillo de San Silvestre",
-    provincia: "Valladolid",
-    comunidad: "Castilla y León",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
     categoria: "ruina-arqueologica",
     estado: "ruinas",
     ordenRuinas: 26,
     estadoDescripcion: "En ruinas parcialmente restauradas — recinto exterior y torres conservadas",
     descripcionBreve:
-      "Fortaleza castellana de planta poligonal con potentes cubos circulares, alzada solitaria en la llanura cerealista.",
+      "Fortaleza castellana en el despoblado de San Silvestre (término municipal de Toledo), con cubos circulares almenados sobre la llanura.",
     imagen: sanSilvestre,
-    coordenadas: [41.5333, -4.7000],
+    coordenadas: [39.8217, -4.0506],
     historia:
       "El castillo de San Silvestre destaca por su recinto poligonal reforzado con torres cilíndricas almenadas y una segunda línea defensiva. De origen bajomedieval, fue residencia señorial y plaza fuerte en la frontera interior castellana, conservando hoy gran parte de su perímetro amurallado.",
     cronologia: [
@@ -1049,7 +1049,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza andalusí sobre el monte Montdúver, escenario de la legendaria batalla en la que combatió El Cid en 1097.",
     imagen: bairen,
-    coordenadas: [38.9750, -0.1833],
+    coordenadas: [38.9939, -0.1614],
     historia:
       "El castillo de Bairén, en Gandía, fue una de las fortalezas andalusíes más importantes de la costa valenciana. En 1097 fue escenario de una célebre batalla en la que El Cid Campeador derrotó a las tropas almorávides. Tras la conquista de Jaime I, perdió importancia y fue abandonado, conservándose hoy un amplio recinto musealizado.",
     cronologia: [
