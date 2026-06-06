@@ -1148,3 +1148,33 @@ export const toYoutubeWatchUrl = (url?: string): string | undefined => {
   if (m) return `https://www.youtube.com/watch?v=${m[1]}`;
   return url;
 };
+
+/**
+ * Devuelve true si el castillo se publicó hace menos de 20 días.
+ * Sólo los castillos con fechaPublicacion definida pueden considerarse "nuevos".
+ */
+export const NUEVO_DIAS = 20;
+export const esCastilloNuevo = (c: Castillo): boolean => {
+  if (!c.fechaPublicacion) return false;
+  const d = new Date(c.fechaPublicacion);
+  if (Number.isNaN(d.getTime())) return false;
+  const ahora = Date.now();
+  const diff = (ahora - d.getTime()) / (1000 * 60 * 60 * 24);
+  return diff >= 0 && diff <= NUEVO_DIAS;
+};
+
+/** Lista única y ordenada de provincias presentes en el catálogo. */
+export const getProvincias = (): string[] =>
+  Array.from(new Set(CASTILLOS.map((c) => c.provincia))).sort((a, b) =>
+    a.localeCompare(b, "es"),
+  );
+
+/**
+ * URL de Google Maps para indicaciones desde la ubicación actual del usuario
+ * hasta las coordenadas exactas del castillo. Funciona en móvil, tablet y
+ * ordenador y se abre en una nueva pestaña.
+ */
+export const getDireccionesUrl = (c: Castillo): string => {
+  const [lat, lng] = c.coordenadas;
+  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
+};
