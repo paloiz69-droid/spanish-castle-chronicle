@@ -125,6 +125,8 @@ export interface Castillo {
   curiosidades: string[];
   youtubeUrl?: string;
   ordenRuinas?: number;
+  /** Fecha de incorporación (YYYY-MM-DD). Si está presente y han pasado <20 días, se muestra la etiqueta NUEVO. */
+  fechaPublicacion?: string;
 }
 
 export const CASTILLOS: Castillo[] = [
