@@ -28,7 +28,7 @@ function Index() {
     ...getCastillosByCategoria("ruina-arqueologica").slice(0, 2),
   ].slice(0, 6);
   return (
-    <PageShell>
+    <PageShell interior={false}>
       <section className="relative isolate overflow-hidden">
         <img
           src={heroImg}
