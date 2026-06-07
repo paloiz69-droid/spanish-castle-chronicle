@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Youtube, MapPin, ArrowLeft, Navigation } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
+import { CastillosCercanos } from "@/components/site/CastillosCercanos";
 import {
   getCastilloBySlug,
   getCategoriaInfo,
@@ -179,6 +180,8 @@ function Page() {
               Ver en mapa ampliado →
             </a>
           </Section>
+
+          <CastillosCercanos castillo={castillo} />
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
