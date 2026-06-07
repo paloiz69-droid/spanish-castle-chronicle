@@ -9,6 +9,7 @@ import {
   getProvincias,
   type CategoriaCastillo,
 } from "@/data/castillos";
+import { trackSearch } from "@/lib/analytics";
 
 function DropdownPortal({
   anchorRef,
@@ -105,6 +106,15 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
   const provincias = useMemo(() => getProvincias(), []);
   const filtrosActivos = (provincia ? 1 : 0) + (categoria ? 1 : 0);
   const hayDropdown = (q.trim().length > 0 || filtrosActivos > 0) && open;
+
+  useEffect(() => {
+    const term = q.trim();
+    if (term.length < 2) return;
+    const id = window.setTimeout(() => {
+      trackSearch(term, results.length);
+    }, 800);
+    return () => window.clearTimeout(id);
+  }, [q, results.length]);
 
   function go(slug: string) {
     setOpen(false);
