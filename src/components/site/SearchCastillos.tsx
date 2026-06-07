@@ -128,7 +128,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
       </div>
 
       {showFilters && (
-        <div className="absolute left-0 right-0 top-full z-[60] mt-2 rounded-md border border-border bg-popover p-3 shadow-lg">
+        <div className="absolute left-0 right-0 top-full z-[1100] mt-2 rounded-md border border-border bg-popover p-3 shadow-lg">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">
               Provincia
@@ -210,7 +210,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
       )}
 
       {hayDropdown && !showFilters && (
-        <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-lg">
+        <div className="absolute left-0 right-0 top-full z-[1100] mt-2 overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-lg">
           {results.length === 0 ? (
             <div className="px-3 py-4 text-sm text-muted-foreground">
               Sin resultados{q ? ` para “${q}”` : ""}.
