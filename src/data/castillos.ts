@@ -143,7 +143,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza medieval sobre el valle del río Aulencia, testigo solitario de las tierras altas de Villanueva de la Cañada.",
     imagen: aulencia,
-    coordenadas: [40.4515, -3.9920],
+    coordenadas: [40.443894, -3.9553],
     historia:
       "El castillo de Aulencia, también conocido como castillo de la Mora, se alza sobre un cerro dominando el valle del río que le da nombre. Sus orígenes se remontan a la repoblación medieval, sirviendo como punto de vigilancia en la frontera del reino.",
     cronologia: [
@@ -170,7 +170,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "La mayor fortaleza califal de Europa, una muralla interminable suspendida sobre el Duero.",
     imagen: gormaz,
-    coordenadas: [41.5083, -3.0042],
+    coordenadas: [41.493436, -3.0081],
     historia:
       "Erigido en el siglo X por el califato de Córdoba, el castillo de Gormaz fue la mayor fortaleza de su tiempo en Europa. Con más de 1.200 metros de perímetro amurallado, controlaba el paso del Duero y la frontera entre al-Ándalus y los reinos cristianos.",
     cronologia: [
@@ -198,7 +198,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "El llamado «Castillo del Cid» se alza sobre un cerro perfecto, dominando la vega del Henares.",
     imagen: jadraque,
-    coordenadas: [40.9239, -2.9242],
+    coordenadas: [40.918142, -2.934553],
     historia:
       "Conocido popularmente como el Castillo del Cid, esta fortaleza se levanta sobre una colina de forma cónica casi perfecta. Pasó por manos musulmanas, cristianas y nobiliarias, llegando a pertenecer al Cardenal Mendoza.",
     cronologia: [
@@ -225,7 +225,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza renacentista con doble recinto amurallado abrazando la villa medieval.",
     imagen: berlanga,
-    coordenadas: [41.4708, -2.8569],
+    coordenadas: [41.464969, -2.856825],
     historia:
       "El castillo de Berlanga de Duero combina una fortaleza medieval con un recinto artillero renacentista, uno de los primeros de España adaptados al uso de la pólvora. Perteneció a los Tovar y posteriormente a los condes de Berlanga.",
     cronologia: [
@@ -252,7 +252,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Atalaya del Camino de Santiago, vigía de la Tierra de Campos sobre un cerro testigo.",
     imagen: castrojeriz,
-    coordenadas: [42.2900, -4.1369],
+    coordenadas: [42.291644, -4.136056],
     historia:
       "Levantado sobre un antiguo castro celtíbero y posterior fortaleza romana, el castillo de Castrojeriz domina el Camino de Santiago francés. Fue refugio de reyes y nobles castellanos durante la Edad Media.",
     cronologia: [
@@ -279,7 +279,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza palacio de origen árabe en el corazón de la Marina Alta valenciana.",
     imagen: forna,
-    coordenadas: [38.8086, -0.0758],
+    coordenadas: [38.87225, -0.170867],
     historia:
       "El castillo de Forna es una rara muestra de fortaleza-palacio de planta cuadrada con torres en sus esquinas. Construido sobre origen andalusí, fue reformado tras la conquista cristiana en el siglo XIII.",
     cronologia: [
@@ -307,7 +307,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Joya del gótico militar castellano, palacio-fortaleza de los Mendoza al pie de La Pedriza.",
     imagen: manzanares,
-    coordenadas: [40.7269, -3.8628],
+    coordenadas: [40.727172, -3.862008],
     historia:
       "Construido en 1475 por orden de Diego Hurtado de Mendoza, este castillo-palacio combina la solidez defensiva con la elegancia residencial. Es uno de los castillos mejor conservados de la Comunidad de Madrid.",
     cronologia: [
@@ -333,7 +333,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza señorial del siglo XV, una de las más bellas y completas de Castilla.",
     imagen: guadamur,
-    coordenadas: [39.8047, -4.1486],
+    coordenadas: [39.810278, -4.146364],
     historia:
       "Construido en el siglo XV por Pedro López de Ayala, primer conde de Fuensalida, el castillo de Guadamur es un magnífico ejemplo de fortaleza-palacio señorial. Hospedó a reyes como Isabel la Católica y Juana la Loca.",
     cronologia: [
@@ -359,7 +359,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza de la Orden de San Juan, dominando la llanura manchega junto a los míticos molinos.",
     imagen: consuegra,
-    coordenadas: [39.4581, -3.6086],
+    coordenadas: [39.453142, -3.608194],
     historia:
       "Conocido como Castillo de la Muela, esta fortaleza fue entregada a la Orden de San Juan en el siglo XII. Domina la llanura manchega y forma uno de los conjuntos paisajísticos más reconocibles de España junto a los molinos de viento de Consuegra.",
     cronologia: [
@@ -385,7 +385,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza andalusí sobre el monte de las Raboses, vigilando la desembocadura del Júcar.",
     imagen: cullera,
-    coordenadas: [39.1647, -0.2519],
+    coordenadas: [39.166017, -0.24995],
     historia:
       "De origen califal, el castillo de Cullera domina la desembocadura del río Júcar y el Mediterráneo. Su recinto amurallado integra el santuario de la Virgen del Castillo, fusionando fortaleza medieval y patrimonio religioso.",
     cronologia: [
@@ -411,7 +411,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza mudéjar a las puertas de Toledo, vigía perpetuo del Tajo frente al Alcázar.",
     imagen: sanServando,
-    coordenadas: [39.8580, -4.0167],
+    coordenadas: [39.860417, -4.0156],
     historia:
       "El castillo de San Servando, de origen visigodo y reconstruido en estilo mudéjar en el siglo XIV, se alza sobre un cerro junto al Tajo, ofreciendo la silueta más reconocible al cruzar el puente de Alcántara. Sirvió como monasterio benedictino, fortaleza templaria y residencia real antes de su uso actual como albergue.",
     cronologia: [
@@ -437,7 +437,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza templaria de planta cuadrada, hoy sede del museo dedicado al viaje cervantino de Cela.",
     imagen: torija,
-    coordenadas: [40.7458, -3.0392],
+    coordenadas: [40.743181, -3.03155],
     historia:
       "Levantado en el siglo XI por los templarios, el castillo de Torija fue arrasado y reedificado varias veces a lo largo de su historia. Su torre del homenaje, de gran altura, domina el caserío y el paso natural hacia la Alcarria. Hoy alberga el Museo del Viaje a la Alcarria, dedicado a la obra de Camilo José Cela.",
     cronologia: [
@@ -463,7 +463,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Palacio-fortaleza de los duques de Alburquerque, mezcla de gótico, mudéjar y renacimiento.",
     imagen: cuellar,
-    coordenadas: [41.4011, -4.3144],
+    coordenadas: [41.400958, -4.320008],
     historia:
       "El castillo de Cuéllar es un conjunto monumental que combina elementos góticos, mudéjares y renacentistas. Fue residencia de los duques de Alburquerque y testigo de episodios clave de la historia castellana, incluyendo la estancia de Beltrán de la Cueva, favorito de Enrique IV.",
     cronologia: [
@@ -489,7 +489,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Singular fortaleza-palacio de origen árabe sobre el Tajo, con perfil neogótico restaurado.",
     imagen: malpica,
-    coordenadas: [39.8911, -4.5267],
+    coordenadas: [39.896044, -4.545083],
     historia:
       "De origen andalusí, el castillo de Malpica fue conquistado por Alfonso VI y posteriormente reformado como residencia señorial. Su perfil actual, con almenas y ventanales mudéjares, responde a la restauración neogótica del siglo XIX, integrándose espectacularmente con el cauce del río Tajo.",
     cronologia: [
@@ -515,7 +515,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza califal de muralla almenada, una de las más imponentes del valle del Tajo.",
     imagen: maqueda,
-    coordenadas: [40.0697, -4.3736],
+    coordenadas: [40.064728, -4.369233],
     historia:
       "El castillo de Maqueda, de origen califal, fue conquistado por Alfonso VI en el siglo XI y pasó por las manos de la Orden de Calatrava antes de convertirse en señorío de los Cárdenas. Su recinto exterior conserva un imponente lienzo amurallado con torres cilíndricas en las esquinas.",
     cronologia: [
@@ -541,7 +541,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Antiguo bastión de Don Álvaro de Luna sobre el río Alberche, escenario de su caída política.",
     imagen: escalona,
-    coordenadas: [40.1700, -4.4036],
+    coordenadas: [40.166303, -4.401725],
     historia:
       "Fortaleza de origen andalusí reconstruida en el siglo XV por Don Álvaro de Luna, condestable de Castilla. Aquí celebró su corte privada antes de su caída en desgracia. El castillo sufrió graves daños durante la Guerra de la Independencia, conservando hoy parte de sus murallas y la torre del homenaje.",
     cronologia: [
@@ -567,7 +567,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Atalaya rocosa en los Montes de Toledo, suspendida entre la niebla y la Mancha.",
     imagen: penasNegras,
-    coordenadas: [39.6750, -3.7700],
+    coordenadas: [39.682183, -3.730817],
     historia:
       "Levantado en el siglo XII por los almohades sobre un risco de los Montes de Toledo, el castillo de Peñas Negras controlaba el paso entre la Mancha y la meseta. Pasó a manos cristianas tras la batalla de las Navas de Tolosa y fue posesión de la Orden de San Juan junto al cercano castillo de Consuegra.",
     cronologia: [
@@ -593,7 +593,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza de ladrillo mudéjar en Medina del Campo, prisión de César Borgia.",
     imagen: laMota,
-    coordenadas: [41.3142, -4.9067],
+    coordenadas: [41.309069, -4.908319],
     historia:
       "El castillo de la Mota, construido principalmente en ladrillo mudéjar entre los siglos XIV y XV, es uno de los conjuntos militares más impresionantes de Castilla. Perteneció a los Reyes Católicos y sirvió como prisión de Estado, donde estuvo recluido César Borgia, del que se fugó saltando desde la torre del homenaje.",
     cronologia: [
@@ -620,7 +620,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza granítica de Don Álvaro de Luna en San Martín de Valdeiglesias, al pie de Gredos.",
     imagen: laCoracera,
-    coordenadas: [40.3514, -4.4047],
+    coordenadas: [40.36275, -4.401475],
     historia:
       "Construido a mediados del siglo XV por Don Álvaro de Luna, condestable de Castilla, el castillo de La Coracera es una de las fortalezas mejor conservadas del sur abulense. Levantado en granito local, fue residencia señorial y centro administrativo de las extensas posesiones del valiido en la zona.",
     cronologia: [
@@ -646,7 +646,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza palaciega del siglo XV reconstruida tras un incendio, hoy archivo militar en plena sierra oeste madrileña.",
     imagen: villaviciosaOdon,
-    coordenadas: [40.3572, -3.9028],
+    coordenadas: [40.357392, -3.896422],
     historia:
       "El castillo de Villaviciosa de Odón se levantó en el siglo XV sobre una fortificación anterior y perteneció a los condes de Chinchón. Tras varios incendios y reformas, fue restaurado en el siglo XX para albergar el Archivo Histórico del Ejército del Aire, función que conserva en la actualidad.",
     cronologia: [
@@ -672,7 +672,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Pequeña fortaleza señorial en Las Navas del Marqués, hoy reconvertida en residencia y centro de actividades.",
     imagen: magalia,
-    coordenadas: [40.5961, -4.3486],
+    coordenadas: [40.603589, -4.325614],
     historia:
       "El castillo-palacio de Magalia, situado en Las Navas del Marqués, fue residencia señorial vinculada a los marqueses de Las Navas. Combinando elementos defensivos con una clara vocación palaciega, ha sido restaurado en distintas fases hasta convertirse en sede cultural y residencia de actividades.",
     cronologia: [
@@ -698,7 +698,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "El alcázar de los reyes de Castilla, proa de piedra sobre la confluencia del Eresma y el Clamores.",
     imagen: alcazarSegovia,
-    coordenadas: [40.9527, -4.1325],
+    coordenadas: [40.952419, -4.132347],
     historia:
       "El Alcázar de Segovia, mencionado por primera vez en el siglo XII, fue residencia favorita de los reyes de Castilla. Aquí fue proclamada reina Isabel la Católica en 1474. Tras un grave incendio en 1862, fue reconstruido en el siglo XIX manteniendo su silueta de proa que lo ha convertido en icono universal.",
     cronologia: [
@@ -726,7 +726,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza solitaria encaramada en un cerro testigo en término de Dosbarrios (Toledo), vigía silencioso sobre la llanura manchega.",
     imagen: monreal,
-    coordenadas: [39.8836, -3.4836],
+    coordenadas: [39.828047, -3.545575],
     historia:
       "El castillo de Monreal se alza sobre un espectacular cerro testigo desde el que se domina un amplio territorio manchego. Sus restos conservan parte de la torre cilíndrica y lienzos de muralla de mampostería, testimonio de una fortaleza medieval de origen islámico reaprovechada tras la Reconquista.",
     cronologia: [
@@ -753,7 +753,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza señorial de la Orden de Santiago, dominando la llanura conquense con su poderosa torre del homenaje y su recinto amurallado.",
     imagen: pueblaAlmenara,
-    coordenadas: [39.7833, -2.7167],
+    coordenadas: [39.791114, -2.842111],
     historia:
       "El castillo de Puebla de Almenara perteneció a la Orden de Santiago y posteriormente a la familia Pacheco. Su torre del homenaje, de planta cuadrada con cubos circulares en las esquinas, es uno de los mejores ejemplos de arquitectura militar bajomedieval de la provincia de Cuenca.",
     cronologia: [
@@ -780,7 +780,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza medieval colgada sobre los cortados del río Tajo, llave estratégica entre Toledo y la meseta sur durante la Reconquista.",
     imagen: oreja,
-    coordenadas: [39.9869, -3.5642],
+    coordenadas: [40.039083, -3.498369],
     historia:
       "El castillo de Oreja se asienta sobre un escarpe vertical del río Tajo, en término de Ontígola. De origen musulmán, fue reconquistado en 1139 por Alfonso VII y entregado a la Orden de Santiago, convirtiéndose en una de sus encomiendas más importantes. Su torre del homenaje, de planta cuadrada y mampostería caliza, domina aún el paisaje.",
     cronologia: [
@@ -807,7 +807,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza señorial de la familia Luján en el despoblado de Luján (Cifuentes, Guadalajara), con su característica torre albarrana en plena Alcarria.",
     imagen: lujan,
-    coordenadas: [40.7889, -2.6231],
+    coordenadas: [39.889328, -2.776794],
     historia:
       "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Alcarria castellana. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
     cronologia: [
@@ -833,7 +833,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza mudéjar de planta poligonal en la confluencia de los ríos Adaja y Arevalillo, símbolo histórico de la villa de Arévalo.",
     imagen: arevalo,
-    coordenadas: [41.0667, -4.7167],
+    coordenadas: [41.069672, -4.720714],
     historia:
       "El castillo de Arévalo es una de las grandes fortalezas castellanas, residencia ocasional de monarcas como Isabel la Católica, que pasó parte de su infancia en esta villa. De origen medieval y profundamente reformado en el siglo XV, destaca por su gran torre del homenaje cilíndrica y su recinto poligonal de sillería. Hoy alberga el Museo del Cereal.",
     cronologia: [
@@ -860,7 +860,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Restos de una fortaleza extremeña inmersa en un mar de olivos, con poderosos lienzos de tapial que aún desafían el paso del tiempo.",
     imagen: villalba,
-    coordenadas: [39.9617, -4.4467],
+    coordenadas: [39.912106, -4.537592],
     historia:
       "El castillo de Villalba se levantó como fortaleza señorial en la dehesa extremeña. De su conjunto se conservan grandes lienzos de muralla construidos en tapial y mampostería, así como los arranques de varias torres, testimonio de una arquitectura defensiva de gran porte hoy abrazada por el paisaje agrícola.",
     cronologia: [
@@ -887,7 +887,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza castellana en el despoblado de San Silvestre (término municipal de Toledo), con cubos circulares almenados sobre la llanura.",
     imagen: sanSilvestre,
-    coordenadas: [39.8217, -4.0506],
+    coordenadas: [40.068083, -4.305439],
     historia:
       "El castillo de San Silvestre destaca por su recinto poligonal reforzado con torres cilíndricas almenadas y una segunda línea defensiva. De origen bajomedieval, fue residencia señorial y plaza fuerte en la frontera interior castellana, conservando hoy gran parte de su perímetro amurallado.",
     cronologia: [
@@ -914,7 +914,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza medieval encaramada sobre un cerro que domina la llanura toledana, escenario de la batalla de Almonacid de 1809.",
     imagen: almonacidDeToledo,
-    coordenadas: [39.8333, -3.7833],
+    coordenadas: [39.748736, -3.851814],
     historia:
       "De origen andalusí, el castillo de Almonacid de Toledo fue reconquistado por Alfonso VI y entregado a la mitra toledana. Su recinto se organiza en torno a una gran torre del homenaje central rodeada de un anillo amurallado con cubos. Fue parcialmente destruido durante la Guerra de la Independencia, tras la batalla de Almonacid de 1809.",
     cronologia: [
@@ -941,7 +941,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente torre del homenaje con torreones cilíndricos adosados, vigía castellana sobre la campiña al sur de Madrid.",
     imagen: punoenrostro,
-    coordenadas: [40.1833, -3.5500],
+    coordenadas: [40.105872, -3.707317],
     historia:
       "El castillo de Puñoenrostro, en término de Seseña, fue residencia de los condes de Puñoenrostro, linaje de los Arias Dávila. Su elemento más destacado es la torre del homenaje, de planta cuadrada con torreoncillos cilíndricos en las esquinas, rodeada por un recinto amurallado con cubos.",
     cronologia: [
@@ -968,7 +968,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza atribuida a Juan Guas, con cuatro grandes torreones cilíndricos en las esquinas y muros de sillería caliza dorada.",
     imagen: pioz,
-    coordenadas: [40.5333, -3.1833],
+    coordenadas: [40.463567, -3.172744],
     historia:
       "El castillo de Pioz, en la Alcarria, se atribuye a Juan Guas, arquitecto del gótico isabelino. De planta cuadrada con cuatro grandes torres cilíndricas en las esquinas, fue propiedad del Cardenal Mendoza. Su sillería caliza dorada lo convierte en uno de los castillos más fotografiados de Guadalajara pese a su estado de ruina.",
     cronologia: [
@@ -995,7 +995,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Restos de una fortaleza musulmana sobre un cerro junto al Tajo, llave del paso entre Castilla y la Meseta sur.",
     imagen: fuentiduenaDeTajo,
-    coordenadas: [40.0833, -3.1500],
+    coordenadas: [40.121831, -3.163164],
     historia:
       "El castillo de Fuentidueña de Tajo, de origen andalusí, se erige sobre un cerro estratégico junto al río Tajo. Conserva grandes paños de tapial agujereados por mechinales y los restos de su torre del homenaje. Controló durante siglos el vado y la frontera oriental del antiguo reino de Toledo.",
     cronologia: [
@@ -1022,7 +1022,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza señorial en plena Sierra Norte de Guadalajara, con poderosa torre del homenaje sobre praderas de alta montaña.",
     imagen: galveDeSorbe,
-    coordenadas: [41.2333, -3.1833],
+    coordenadas: [41.226983, -3.186208],
     historia:
       "El castillo de Galve de Sorbe, situado a más de 1.200 m de altitud en la Sierra de Ayllón, perteneció a los Estúñiga y posteriormente a los duques del Infantado. Su gran torre del homenaje almenada domina un pequeño recinto amurallado, en uno de los entornos paisajísticos más singulares de Castilla.",
     cronologia: [
@@ -1049,7 +1049,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza andalusí sobre el monte Montdúver, escenario de la legendaria batalla en la que combatió El Cid en 1097.",
     imagen: bairen,
-    coordenadas: [38.9939, -0.1614],
+    coordenadas: [38.995506, -0.185931],
     historia:
       "El castillo de Bairén, en Gandía, fue una de las fortalezas andalusíes más importantes de la costa valenciana. En 1097 fue escenario de una célebre batalla en la que El Cid Campeador derrotó a las tropas almorávides. Tras la conquista de Jaime I, perdió importancia y fue abandonado, conservándose hoy un amplio recinto musealizado.",
     cronologia: [
@@ -1075,7 +1075,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza renacentista de los condes de Chinchón, con planta cuadrada, bastiones angulares y foso, junto a los restos del castillo medieval.",
     imagen: chinchon,
-    coordenadas: [40.1333, -3.4500],
+    coordenadas: [40.136353, -3.424247],
     historia:
       "El llamado Castillo Nuevo de Chinchón, o Castillo de los Condes, fue construido en el siglo XVI por los condes de Chinchón como nueva sede señorial tras la destrucción del castillo medieval anterior en la guerra de las Comunidades. De planta cuadrada con bastiones en las esquinas y rodeado por un foso, es un excelente ejemplo de arquitectura militar de transición.",
     cronologia: [
@@ -1101,7 +1101,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza alargada en forma de barco sobre un cerro, símbolo de la Ribera del Duero y hoy Museo Provincial del Vino.",
     imagen: penafiel,
-    coordenadas: [41.6000, -4.1167],
+    coordenadas: [41.596783, -4.114247],
     historia:
       "El castillo de Peñafiel, con su característica planta alargada en forma de barco, se extiende a lo largo de más de 200 metros sobre un cerro que domina la villa y la Ribera del Duero. Levantado entre los siglos X y XV, fue residencia de don Juan Manuel, autor de El Conde Lucanor, y hoy alberga el Museo Provincial del Vino.",
     cronologia: [
