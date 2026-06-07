@@ -1,4 +1,5 @@
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef, useState, useEffect, useLayoutEffect, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Search, X, SlidersHorizontal } from "lucide-react";
 import {
@@ -9,6 +10,48 @@ import {
   type CategoriaCastillo,
 } from "@/data/castillos";
 
+function DropdownPortal({
+  anchorRef,
+  children,
+}: {
+  anchorRef: React.RefObject<HTMLElement | null>;
+  children: ReactNode;
+}) {
+  const [rect, setRect] = useState<{ left: number; top: number; width: number } | null>(null);
+
+  useLayoutEffect(() => {
+    function update() {
+      const el = anchorRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      setRect({ left: r.left, top: r.bottom + 8, width: r.width });
+    }
+    update();
+    window.addEventListener("resize", update);
+    window.addEventListener("scroll", update, true);
+    return () => {
+      window.removeEventListener("resize", update);
+      window.removeEventListener("scroll", update, true);
+    };
+  }, [anchorRef]);
+
+  if (typeof document === "undefined" || !rect) return null;
+  return createPortal(
+    <div
+      style={{
+        position: "fixed",
+        left: rect.left,
+        top: rect.top,
+        width: rect.width,
+        zIndex: 2147483000,
+      }}
+    >
+      {children}
+    </div>,
+    document.body,
+  );
+}
+
 export function SearchCastillos({ compact = false }: { compact?: boolean }) {
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
@@ -17,14 +60,17 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
   const [provincia, setProvincia] = useState<string>("");
   const [categoria, setCategoria] = useState<CategoriaCastillo | "">("");
   const wrapRef = useRef<HTMLDivElement>(null);
+  const anchorRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     function onDown(e: MouseEvent) {
-      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
-        setOpen(false);
-        setShowFilters(false);
-      }
+      const t = e.target as Node;
+      if (wrapRef.current?.contains(t)) return;
+      const portal = document.getElementById("kd-search-portal-marker");
+      if (portal?.contains(t)) return;
+      setOpen(false);
+      setShowFilters(false);
     }
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
@@ -68,7 +114,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
 
   return (
     <div ref={wrapRef} className={`relative ${compact ? "w-full" : "w-full max-w-md"}`}>
-      <div className="relative flex items-center gap-1">
+      <div ref={anchorRef} className="relative flex items-center gap-1">
         <div className="relative flex-1">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <input
@@ -128,7 +174,8 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
       </div>
 
       {showFilters && (
-        <div className="absolute left-0 right-0 top-full z-[1100] mt-2 rounded-md border border-border bg-popover p-3 shadow-lg">
+        <DropdownPortal anchorRef={anchorRef}>
+        <div id="kd-search-portal-marker" className="rounded-md border border-border bg-popover p-3 shadow-lg">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">
               Provincia
@@ -207,10 +254,12 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
             </div>
           )}
         </div>
+        </DropdownPortal>
       )}
 
       {hayDropdown && !showFilters && (
-        <div className="absolute left-0 right-0 top-full z-[1100] mt-2 overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-lg">
+        <DropdownPortal anchorRef={anchorRef}>
+        <div id="kd-search-portal-marker" className="overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-lg">
           {results.length === 0 ? (
             <div className="px-3 py-4 text-sm text-muted-foreground">
               Sin resultados{q ? ` para “${q}”` : ""}.
@@ -248,6 +297,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
             </ul>
           )}
         </div>
+        </DropdownPortal>
       )}
     </div>
   );
