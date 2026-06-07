@@ -14,7 +14,7 @@ function DropdownPortal({
   anchorRef,
   children,
 }: {
-  anchorRef: React.RefObject<HTMLElement>;
+  anchorRef: React.RefObject<HTMLElement | null>;
   children: ReactNode;
 }) {
   const [rect, setRect] = useState<{ left: number; top: number; width: number } | null>(null);
