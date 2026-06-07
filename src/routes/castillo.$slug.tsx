@@ -171,7 +171,7 @@ function Page() {
               </Suspense>
             </div>
             <a
-              href={`https://www.openstreetmap.org/?mlat=${castillo.coordenadas[0]}&mlon=${castillo.coordenadas[1]}#map=14/${castillo.coordenadas[0]}/${castillo.coordenadas[1]}`}
+              href={`https://www.google.com/maps?q=${castillo.coordenadas[0]},${castillo.coordenadas[1]}&z=15`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block text-sm text-primary hover:underline"
