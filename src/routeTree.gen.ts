@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RecomendarRouteImport } from './routes/recomendar'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as CategoriasRouteImport } from './routes/categorias'
@@ -16,6 +17,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CastilloSlugRouteImport } from './routes/castillo.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecomendarRoute = RecomendarRouteImport.update({
   id: '/recomendar',
   path: '/recomendar',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
   '/recomendar': typeof RecomendarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
   '/recomendar': typeof RecomendarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/categorias': typeof CategoriasRoute
   '/mapa': typeof MapaRoute
   '/recomendar': typeof RecomendarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/mapa'
     | '/recomendar'
+    | '/sitemap.xml'
     | '/castillo/$slug'
     | '/categoria/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/mapa'
     | '/recomendar'
+    | '/sitemap.xml'
     | '/castillo/$slug'
     | '/categoria/$slug'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/mapa'
     | '/recomendar'
+    | '/sitemap.xml'
     | '/castillo/$slug'
     | '/categoria/$slug'
   fileRoutesById: FileRoutesById
@@ -104,12 +116,20 @@ export interface RootRouteChildren {
   CategoriasRoute: typeof CategoriasRoute
   MapaRoute: typeof MapaRoute
   RecomendarRoute: typeof RecomendarRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recomendar': {
       id: '/recomendar'
       path: '/recomendar'
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   CategoriasRoute: CategoriasRoute,
   MapaRoute: MapaRoute,
   RecomendarRoute: RecomendarRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   CastilloSlugRoute: CastilloSlugRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
 }
