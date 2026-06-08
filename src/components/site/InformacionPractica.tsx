@@ -1,9 +1,8 @@
-import { MapPin, Navigation, Info } from "lucide-react";
+import { MapPin, Info } from "lucide-react";
 import {
   getAccesoInfo,
   getPrecioInfo,
   getAparcamientoInfo,
-  getDireccionesUrl,
   NOTA_DRONES,
   type Castillo,
 } from "@/data/castillos";
@@ -40,7 +39,6 @@ export function InformacionPractica({ castillo }: { castillo: Castillo }) {
   const acceso = getAccesoInfo(castillo.acceso);
   const precio = getPrecioInfo(castillo.precio);
   const aparcamiento = getAparcamientoInfo(castillo.aparcamiento);
-  const direccionesUrl = getDireccionesUrl(castillo);
   const [lat, lng] = castillo.coordenadas;
 
   const tieneAlgo =
@@ -96,14 +94,6 @@ export function InformacionPractica({ castillo }: { castillo: Castillo }) {
           <p className="mt-1 font-mono text-sm text-foreground/85">
             {lat.toFixed(6)}, {lng.toFixed(6)}
           </p>
-          <a
-            href={direccionesUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-2 rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
-          >
-            <Navigation className="h-4 w-4" /> Cómo llegar en Google Maps
-          </a>
         </div>
 
         {castillo.comoLlegar && (
