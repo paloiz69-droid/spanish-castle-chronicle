@@ -110,7 +110,6 @@ function Index() {
           ))}
         </div>
       </section>
-      </div>
 
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-8">
@@ -121,6 +120,7 @@ function Index() {
           {destacados.map((c) => <CastilloCard key={c.slug} castillo={c} />)}
         </div>
       </section>
+      </div>
     </PageShell>
   );
 }
