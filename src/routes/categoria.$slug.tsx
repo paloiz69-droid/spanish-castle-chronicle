@@ -19,7 +19,7 @@ export const Route = createFileRoute("/categoria/$slug")({
     const castillos = getCastillosByCategoria(cat.slug);
     return { cat, castillos };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: loaderData
       ? [
           { title: `${loaderData.cat.emoji} ${loaderData.cat.label} — Castillos · Kdronazo` },
@@ -28,6 +28,7 @@ export const Route = createFileRoute("/categoria/$slug")({
           { property: "og:description", content: loaderData.cat.descripcion },
         ]
       : [],
+    links: [{ rel: "canonical", href: `https://kdronazo.com/categoria/${params.slug}` }],
   }),
   component: Page,
   notFoundComponent: () => (

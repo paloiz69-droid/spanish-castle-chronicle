@@ -15,6 +15,7 @@ export const Route = createFileRoute("/mapa")({
       { property: "og:title", content: "Mapa Interactivo — Kdronazo" },
       { property: "og:description", content: "Explora los castillos de España sobre un mapa interactivo." },
     ],
+    links: [{ rel: "canonical", href: "https://kdronazo.com/mapa" }],
   }),
   component: Page,
 });
