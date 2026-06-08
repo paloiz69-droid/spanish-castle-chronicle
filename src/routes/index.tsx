@@ -65,22 +65,23 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 sm:grid-cols-3">
-          {[
-            { k: CASTILLOS.length, l: "Castillos catalogados" },
-            { k: new Set(CASTILLOS.map((c) => c.provincia)).size, l: "Provincias" },
-            { k: CATEGORIAS.length, l: "Categorías de conservación" },
-          ].map((s) => (
-            <div key={s.l} className="rounded-xl border border-border/70 bg-card p-6 text-center">
-              <div className="font-display text-4xl text-primary">{s.k}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <div className="kd-stone-section">
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              { k: CASTILLOS.length, l: "Castillos catalogados" },
+              { k: new Set(CASTILLOS.map((c) => c.provincia)).size, l: "Provincias" },
+              { k: CATEGORIAS.length, l: "Categorías de conservación" },
+            ].map((s) => (
+              <div key={s.l} className="rounded-xl border border-border/70 bg-card p-6 text-center">
+                <div className="font-display text-4xl text-primary">{s.k}</div>
+                <div className="mt-1 text-sm text-muted-foreground">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <h2 className="font-display text-3xl text-foreground sm:text-4xl">🏛️ Categorías por estado de conservación</h2>
