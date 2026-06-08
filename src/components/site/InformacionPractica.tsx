@@ -39,7 +39,6 @@ export function InformacionPractica({ castillo }: { castillo: Castillo }) {
   const acceso = getAccesoInfo(castillo.acceso);
   const precio = getPrecioInfo(castillo.precio);
   const aparcamiento = getAparcamientoInfo(castillo.aparcamiento);
-  const direccionesUrl = getDireccionesUrl(castillo);
   const [lat, lng] = castillo.coordenadas;
 
   const tieneAlgo =
