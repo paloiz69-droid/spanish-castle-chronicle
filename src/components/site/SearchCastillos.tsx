@@ -5,9 +5,13 @@ import { Search, X, SlidersHorizontal } from "lucide-react";
 import {
   CASTILLOS,
   CATEGORIAS,
+  ACCESOS,
+  PRECIOS,
   getCategoriaInfo,
   getProvincias,
   type CategoriaCastillo,
+  type TipoAcceso,
+  type TipoPrecio,
 } from "@/data/castillos";
 import { trackSearch } from "@/lib/analytics";
 
@@ -60,6 +64,8 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
   const [showFilters, setShowFilters] = useState(false);
   const [provincia, setProvincia] = useState<string>("");
   const [categoria, setCategoria] = useState<CategoriaCastillo | "">("");
+  const [acceso, setAcceso] = useState<TipoAcceso | "">("");
+  const [precio, setPrecio] = useState<TipoPrecio | "">("");
   const wrapRef = useRef<HTMLDivElement>(null);
   const anchorRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -82,11 +88,14 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
 
   const results = useMemo(() => {
     const term = norm(q.trim());
-    const hayFiltros = provincia !== "" || categoria !== "";
+    const hayFiltros =
+      provincia !== "" || categoria !== "" || acceso !== "" || precio !== "";
     if (!term && !hayFiltros) return [];
     return CASTILLOS.filter((c) => {
       if (provincia && c.provincia !== provincia) return false;
       if (categoria && c.categoria !== categoria) return false;
+      if (acceso && c.acceso !== acceso) return false;
+      if (precio && c.precio !== precio) return false;
       if (!term) return true;
       const cat = getCategoriaInfo(c.categoria);
       const hay = [
@@ -101,10 +110,14 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
         .join(" | ");
       return hay.includes(term);
     }).slice(0, 12);
-  }, [q, provincia, categoria]);
+  }, [q, provincia, categoria, acceso, precio]);
 
   const provincias = useMemo(() => getProvincias(), []);
-  const filtrosActivos = (provincia ? 1 : 0) + (categoria ? 1 : 0);
+  const filtrosActivos =
+    (provincia ? 1 : 0) +
+    (categoria ? 1 : 0) +
+    (acceso ? 1 : 0) +
+    (precio ? 1 : 0);
   const hayDropdown = (q.trim().length > 0 || filtrosActivos > 0) && open;
 
   useEffect(() => {
@@ -213,12 +226,38 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
                 ))}
               </select>
             </label>
+            <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">
+              Tipo de acceso
+              <select
+                value={acceso}
+                onChange={(e) => { setAcceso(e.target.value as TipoAcceso | ""); setOpen(true); }}
+                className="h-9 rounded-md border border-input bg-background px-2 text-sm text-foreground"
+              >
+                <option value="">Todos</option>
+                {ACCESOS.map((a) => (
+                  <option key={a.slug} value={a.slug}>{a.emoji} {a.label}</option>
+                ))}
+              </select>
+            </label>
+            <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">
+              Precio
+              <select
+                value={precio}
+                onChange={(e) => { setPrecio(e.target.value as TipoPrecio | ""); setOpen(true); }}
+                className="h-9 rounded-md border border-input bg-background px-2 text-sm text-foreground"
+              >
+                <option value="">Todos</option>
+                {PRECIOS.map((p) => (
+                  <option key={p.slug} value={p.slug}>{p.emoji} {p.label}</option>
+                ))}
+              </select>
+            </label>
           </div>
           <div className="mt-3 flex items-center justify-between">
             {filtrosActivos > 0 ? (
               <button
                 type="button"
-                onClick={() => { setProvincia(""); setCategoria(""); }}
+                onClick={() => { setProvincia(""); setCategoria(""); setAcceso(""); setPrecio(""); }}
                 className="text-xs text-primary hover:underline"
               >
                 Limpiar filtros

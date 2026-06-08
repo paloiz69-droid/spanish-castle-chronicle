@@ -103,6 +103,106 @@ export const CATEGORIAS: CategoriaInfo[] = [
 export const getCategoriaInfo = (slug: CategoriaCastillo): CategoriaInfo =>
   CATEGORIAS.find((c) => c.slug === slug) ?? CATEGORIAS[0];
 
+// =====================================================================
+// Información práctica para la visita (campos opcionales, ampliables)
+// =====================================================================
+
+export type TipoAcceso = "interior" | "exterior" | "restringido";
+export type TipoPrecio = "gratuito" | "de-pago" | "no-visitable";
+export type TipoAparcamiento = "disponible" | "limitado" | "no-disponible";
+
+export interface OpcionInfo<T extends string> {
+  slug: T;
+  emoji: string;
+  label: string;
+  descripcion: string;
+  /** Color hex para el distintivo visual */
+  color: string;
+}
+
+export const ACCESOS: OpcionInfo<TipoAcceso>[] = [
+  {
+    slug: "interior",
+    emoji: "🟢",
+    label: "Entrada interior",
+    descripcion: "Es posible acceder al interior del recinto.",
+    color: "#22c55e",
+  },
+  {
+    slug: "exterior",
+    emoji: "🟡",
+    label: "Solo exterior / periferia",
+    descripcion: "Únicamente puede visitarse el exterior o la periferia.",
+    color: "#eab308",
+  },
+  {
+    slug: "restringido",
+    emoji: "🔴",
+    label: "Acceso restringido",
+    descripcion: "Acceso limitado, prohibido o sujeto a permisos especiales.",
+    color: "#ef4444",
+  },
+];
+
+export const PRECIOS: OpcionInfo<TipoPrecio>[] = [
+  {
+    slug: "gratuito",
+    emoji: "🆓",
+    label: "Gratuito",
+    descripcion: "Visita gratuita.",
+    color: "#22c55e",
+  },
+  {
+    slug: "de-pago",
+    emoji: "💶",
+    label: "De pago",
+    descripcion: "Requiere entrada de pago.",
+    color: "#3b82f6",
+  },
+  {
+    slug: "no-visitable",
+    emoji: "🚫",
+    label: "No visitable",
+    descripcion: "Actualmente no es visitable.",
+    color: "#6b7280",
+  },
+];
+
+export const APARCAMIENTOS: OpcionInfo<TipoAparcamiento>[] = [
+  {
+    slug: "disponible",
+    emoji: "🅿️",
+    label: "Disponible",
+    descripcion: "Hay aparcamiento disponible cerca del castillo.",
+    color: "#22c55e",
+  },
+  {
+    slug: "limitado",
+    emoji: "🅿️",
+    label: "Limitado",
+    descripcion: "Aparcamiento limitado o reducido.",
+    color: "#eab308",
+  },
+  {
+    slug: "no-disponible",
+    emoji: "🚳",
+    label: "No disponible",
+    descripcion: "Sin aparcamiento próximo.",
+    color: "#ef4444",
+  },
+];
+
+export const getAccesoInfo = (slug?: TipoAcceso) =>
+  slug ? ACCESOS.find((a) => a.slug === slug) : undefined;
+export const getPrecioInfo = (slug?: TipoPrecio) =>
+  slug ? PRECIOS.find((p) => p.slug === slug) : undefined;
+export const getAparcamientoInfo = (slug?: TipoAparcamiento) =>
+  slug ? APARCAMIENTOS.find((p) => p.slug === slug) : undefined;
+
+/** Nota informativa estándar sobre el uso de drones. */
+export const NOTA_DRONES =
+  "Las condiciones para el vuelo de drones pueden cambiar con el tiempo. Consulte siempre la normativa vigente y las restricciones aplicables antes de realizar cualquier operación aérea.";
+
 export interface CronologiaEvento {
   anio: string;
   evento: string;
@@ -127,6 +227,19 @@ export interface Castillo {
   ordenRuinas?: number;
   /** Fecha de incorporación (YYYY-MM-DD). Si está presente y han pasado <20 días, se muestra la etiqueta NUEVO. */
   fechaPublicacion?: string;
+  // === Información práctica para la visita (todos los campos opcionales) ===
+  /** Tipo de acceso al castillo. */
+  acceso?: TipoAcceso;
+  /** Coste de la visita. */
+  precio?: TipoPrecio;
+  /** Disponibilidad de aparcamiento. */
+  aparcamiento?: TipoAparcamiento;
+  /** Texto libre con indicaciones de cómo llegar. */
+  comoLlegar?: string;
+  /** Notas prácticas adicionales (horarios, recomendaciones, etc.). */
+  infoPractica?: string;
+  /** Nota específica del castillo sobre el vuelo de drones (opcional). */
+  notaDrones?: string;
 }
 
 export const CASTILLOS: Castillo[] = [
