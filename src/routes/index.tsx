@@ -110,6 +110,7 @@ function Index() {
           ))}
         </div>
       </section>
+      </div>
 
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-8">
