@@ -1,9 +1,8 @@
-import { MapPin, Navigation, Info } from "lucide-react";
+import { MapPin, Info } from "lucide-react";
 import {
   getAccesoInfo,
   getPrecioInfo,
   getAparcamientoInfo,
-  getDireccionesUrl,
   NOTA_DRONES,
   type Castillo,
 } from "@/data/castillos";
