@@ -15,6 +15,7 @@ export function MapaIndividual({ castillo }: { castillo: Castillo }) {
   const cat = getCategoriaInfo(castillo.categoria);
   return (
     <MapContainer
+      key={castillo.slug}
       center={castillo.coordenadas}
       zoom={14}
       scrollWheelZoom
