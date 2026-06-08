@@ -753,7 +753,7 @@ export const CASTILLOS: Castillo[] = [
     imagen: laMota,
     coordenadas: [41.309069, -4.908319],
     acceso: "interior",
-    precio: "de-pago",
+    precio: "gratuito",
     historia:
       "El castillo de la Mota, construido principalmente en ladrillo mudéjar entre los siglos XIV y XV, es uno de los conjuntos militares más impresionantes de Castilla. Perteneció a los Reyes Católicos y sirvió como prisión de Estado, donde estuvo recluido César Borgia, del que se fugó saltando desde la torre del homenaje.",
     cronologia: [
