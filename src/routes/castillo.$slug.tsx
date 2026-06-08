@@ -3,6 +3,7 @@ import { Youtube, MapPin, ArrowLeft, Navigation } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { CastillosCercanos } from "@/components/site/CastillosCercanos";
+import { InformacionPractica } from "@/components/site/InformacionPractica";
 import {
   getCastilloBySlug,
   getCategoriaInfo,
@@ -181,6 +182,8 @@ function Page() {
               Ver en mapa ampliado →
             </a>
           </Section>
+
+          <InformacionPractica castillo={castillo} />
 
           <CastillosCercanos castillo={castillo} />
         </div>
