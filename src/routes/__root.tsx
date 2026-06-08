@@ -82,10 +82,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Kdronazo — Castillos de España a vista de dron" },
       { name: "description", content: "Explora los castillos de España a través de fotografía aérea, fichas históricas y vídeos del canal Kdronazo." },
       { name: "author", content: "Kdronazo" },
-      { property: "og:title", content: "Kdronazo — Castillos de España" },
-      { property: "og:description", content: "Fotografía aérea y patrimonio histórico de los castillos de España." },
+      { property: "og:title", content: "Kdronazo — Castillos de España a vista de dron" },
+      { property: "og:description", content: "Explora los castillos de España a través de fotografía aérea, fichas históricas y vídeos del canal Kdronazo." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Kdronazo — Castillos de España a vista de dron" },
+      { name: "twitter:description", content: "Explora los castillos de España a través de fotografía aérea, fichas históricas y vídeos del canal Kdronazo." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ad55d4ac-d5ab-44b1-8f9c-1060d33ea6bc" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ad55d4ac-d5ab-44b1-8f9c-1060d33ea6bc" },
     ],
     links: [
       {
