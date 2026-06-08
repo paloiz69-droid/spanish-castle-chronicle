@@ -17,6 +17,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Kdronazo — Castillos de España" },
       { property: "og:description", content: "Explora castillos conservados y en ruinas a través de fotografía aérea y fichas históricas." },
     ],
+    links: [{ rel: "canonical", href: "https://kdronazo.com/" }],
   }),
   component: Index,
 });

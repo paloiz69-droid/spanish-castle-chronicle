@@ -22,7 +22,7 @@ export const Route = createFileRoute("/castillo/$slug")({
     if (!castillo) throw notFound();
     return { castillo };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: loaderData
       ? [
           { title: `${loaderData.castillo.nombre} — Kdronazo` },
@@ -33,6 +33,7 @@ export const Route = createFileRoute("/castillo/$slug")({
           { property: "twitter:image", content: loaderData.castillo.imagen },
         ]
       : [],
+    links: [{ rel: "canonical", href: `https://kdronazo.com/castillo/${params.slug}` }],
   }),
   component: Page,
   notFoundComponent: () => (
