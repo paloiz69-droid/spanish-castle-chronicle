@@ -7,7 +7,7 @@ export function CastilloCard({ castillo }: { castillo: Castillo }) {
   const cat = getCategoriaInfo(castillo.categoria);
   const nuevo = esCastilloNuevo(castillo);
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]">
       <Link to="/castillo/$slug" params={{ slug: castillo.slug }} className="relative block aspect-[16/10] overflow-hidden">
         <img
           src={castillo.imagen}

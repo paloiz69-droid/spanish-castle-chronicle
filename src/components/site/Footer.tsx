@@ -28,9 +28,16 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             <li><Link to="/categorias" className="text-muted-foreground hover:text-foreground">🏛️ Todas las categorías</Link></li>
             <li><Link to="/mapa" className="text-muted-foreground hover:text-foreground">🗺️ Mapa Interactivo</Link></li>
+            <li><Link to="/favoritos" className="text-muted-foreground hover:text-foreground">❤️ Mis favoritos</Link></li>
             <li><Link to="/recomendar" className="text-muted-foreground hover:text-foreground">🏰 Recomienda un castillo</Link></li>
           </ul>
         </div>
+      </div>
+      <div className="border-t border-border/60 bg-secondary/30">
+        <p className="mx-auto max-w-5xl px-4 py-5 text-center text-xs leading-relaxed text-muted-foreground sm:text-sm">
+          Todos los castillos, fotografías y material visual mostrados en esta web han sido
+          visitados, fotografiados y documentados personalmente por <span className="font-semibold text-foreground">Kdronazo</span>.
+        </p>
       </div>
       <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} Kdronazo · Castillos de España a vista de dron
