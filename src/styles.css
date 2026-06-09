@@ -213,3 +213,18 @@
   position: relative;
   z-index: 1;
 }
+
+/* Animaciones suaves de entrada */
+@keyframes kdFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes kdFadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.kd-fade-in { animation: kdFadeIn 0.9s ease-out both; }
+.kd-fade-in-up { animation: kdFadeInUp 0.9s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .kd-fade-in, .kd-fade-in-up { animation: none; }
+}
