@@ -3,36 +3,63 @@ import { useEffect, useSyncExternalStore } from "react";
 const KEY = "kdronazo:favoritos:v1";
 const EVENT = "kdronazo:favoritos:change";
 
-function read(): string[] {
-  if (typeof window === "undefined") return [];
+const EMPTY: string[] = [];
+let cache: string[] = EMPTY;
+let cacheLoaded = false;
+
+function load(): string[] {
+  if (typeof window === "undefined") return EMPTY;
   try {
     const raw = window.localStorage.getItem(KEY);
-    if (!raw) return [];
+    if (!raw) return EMPTY;
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed.filter((s) => typeof s === "string") : [];
+    return Array.isArray(parsed) ? parsed.filter((s) => typeof s === "string") : EMPTY;
   } catch {
-    return [];
+    return EMPTY;
   }
+}
+
+function read(): string[] {
+  if (!cacheLoaded) {
+    cache = load();
+    cacheLoaded = true;
+  }
+  return cache;
+}
+
+function refresh() {
+  cache = load();
+  cacheLoaded = true;
+}
+
+function readServer(): string[] {
+  return EMPTY;
 }
 
 function write(slugs: string[]) {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(KEY, JSON.stringify(slugs));
+  cache = slugs;
+  cacheLoaded = true;
   window.dispatchEvent(new Event(EVENT));
 }
 
 function subscribe(cb: () => void) {
   if (typeof window === "undefined") return () => {};
-  window.addEventListener(EVENT, cb);
-  window.addEventListener("storage", cb);
+  const handler = () => {
+    refresh();
+    cb();
+  };
+  window.addEventListener(EVENT, handler);
+  window.addEventListener("storage", handler);
   return () => {
-    window.removeEventListener(EVENT, cb);
-    window.removeEventListener("storage", cb);
+    window.removeEventListener(EVENT, handler);
+    window.removeEventListener("storage", handler);
   };
 }
 
 export function useFavorites() {
-  const slugs = useSyncExternalStore(subscribe, read, () => []);
+  const slugs = useSyncExternalStore(subscribe, read, readServer);
   return slugs;
 }
 
