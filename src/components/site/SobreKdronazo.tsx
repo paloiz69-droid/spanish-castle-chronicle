@@ -22,9 +22,6 @@ export function SobreKdronazo() {
               loading="lazy"
               className="h-full w-full object-cover"
             />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-xs text-white/90 sm:text-sm">
-              Pablo, creador de Kdronazo, durante una jornada de trabajo de campo.
-            </figcaption>
           </figure>
 
           <div className="kd-fade-in-up space-y-5">
