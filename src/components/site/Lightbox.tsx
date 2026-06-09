@@ -52,7 +52,7 @@ export function Lightbox({ images, initialIndex, alt, onClose }: Props) {
           onClose();
         }}
         aria-label="Cerrar"
-        className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+        className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
       >
         <X className="h-5 w-5" />
       </button>
