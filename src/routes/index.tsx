@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 import { PageShell } from "@/components/site/PageShell";
 import { CastilloCard } from "@/components/site/CastilloCard";
+import { SobreKdronazo } from "@/components/site/SobreKdronazo";
 import {
   CASTILLOS,
   CATEGORIAS,
@@ -65,6 +66,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <SobreKdronazo />
 
       <div className="kd-stone-section">
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
