@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Youtube, Instagram } from "lucide-react";
+import { Menu, X, Youtube, Instagram, Heart } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-kdronazo.jpeg";
 import { CATEGORIAS } from "@/data/castillos";
@@ -8,6 +8,7 @@ import { SearchCastillos } from "./SearchCastillos";
 const navLinks = [
   { to: "/categorias", label: "🏛️ Categorías" },
   { to: "/mapa", label: "🗺️ Mapa Interactivo" },
+  { to: "/favoritos", label: "❤️ Favoritos" },
   { to: "/recomendar", label: "🏰 Recomendar" },
 ] as const;
 
@@ -104,6 +105,9 @@ export function Header() {
             ))}
             <Link to="/mapa" onClick={() => setOpen(false)} className="mt-1 rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
               🗺️ Mapa Interactivo
+            </Link>
+            <Link to="/favoritos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
+              <Heart className="mr-1 inline h-4 w-4" /> Mis favoritos
             </Link>
             <Link to="/recomendar" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm font-semibold text-foreground hover:bg-secondary">
               🏰 Recomienda un castillo

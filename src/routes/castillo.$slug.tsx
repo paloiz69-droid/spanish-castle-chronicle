@@ -4,6 +4,8 @@ import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { CastillosCercanos } from "@/components/site/CastillosCercanos";
 import { InformacionPractica } from "@/components/site/InformacionPractica";
+import { FavoriteButton } from "@/components/site/FavoriteButton";
+import { Lightbox } from "@/components/site/Lightbox";
 import {
   getCastilloBySlug,
   getCategoriaInfo,
@@ -57,7 +59,7 @@ export const Route = createFileRoute("/castillo/$slug")({
 
 function Page() {
   const { castillo } = Route.useLoaderData() as { castillo: Castillo };
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
   const cat = getCategoriaInfo(castillo.categoria);
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
@@ -69,6 +71,13 @@ function Page() {
       <section className="relative isolate h-[60vh] min-h-[420px] overflow-hidden">
         <img src={castillo.imagen} alt={castillo.nombre} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/85" />
+        <span
+          aria-hidden
+          className="pointer-events-none absolute bottom-3 right-3 select-none rounded bg-black/40 px-2 py-1 text-xs font-medium tracking-wide text-white/90 backdrop-blur-[2px]"
+          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.6)" }}
+        >
+          © Kdronazo
+        </span>
         <div className="relative mx-auto flex h-full max-w-5xl flex-col justify-end px-4 pb-12 sm:px-6 lg:px-8">
           <Link
             to="/categoria/$slug"
@@ -98,8 +107,12 @@ function Page() {
         </div>
       </section>
 
+      <p className="mx-auto max-w-6xl px-4 pt-6 text-center text-xs italic text-muted-foreground sm:px-6 sm:text-sm lg:px-8">
+        📸 Fotografía original realizada por Kdronazo durante la visita al castillo.
+      </p>
+
       {/* Acciones principales — justo debajo de la fotografía */}
-      <div className="mx-auto flex max-w-6xl flex-wrap gap-3 px-4 pt-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-wrap gap-3 px-4 pt-6 sm:px-6 lg:px-8">
         {videoUrl ? (
           <a
             href={videoUrl}
@@ -122,7 +135,13 @@ function Page() {
         >
           <Navigation className="h-4 w-4" /> 📍 Cómo llegar
         </a>
+        <FavoriteButton variant="pill" slug={castillo.slug} nombre={castillo.nombre} />
       </div>
+      {videoUrl && (
+        <p className="mx-auto max-w-6xl px-4 pt-2 text-xs italic text-muted-foreground sm:px-6 lg:px-8">
+          🎬 Vídeo grabado y producido por Kdronazo.
+        </p>
+      )}
 
       <article className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_280px] lg:px-8">
         <div className="space-y-12">
@@ -158,13 +177,24 @@ function Page() {
               {galeria.map((src, i) => (
                 <button
                   key={i}
-                  onClick={() => setLightbox(src)}
-                  className="group block aspect-[16/10] overflow-hidden rounded-lg border border-border/70"
+                  onClick={() => setLightboxIndex(i)}
+                  className="group relative block aspect-[16/10] overflow-hidden rounded-lg border border-border/70"
+                  aria-label={`Ampliar imagen ${i + 1} de ${castillo.nombre}`}
                 >
                   <img src={src} alt={`${castillo.nombre} ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute bottom-1.5 right-2 select-none rounded bg-black/30 px-1.5 py-0.5 text-[10px] font-medium tracking-wide text-white/90 backdrop-blur-[2px]"
+                    style={{ textShadow: "0 1px 2px rgba(0,0,0,0.6)" }}
+                  >
+                    © Kdronazo
+                  </span>
                 </button>
               ))}
             </div>
+            <p className="mt-3 text-xs italic text-muted-foreground">
+              Pulsa cualquier fotografía para ampliarla. Usa las flechas o desliza para navegar.
+            </p>
           </Section>
 
           <Section title="Localización">
@@ -228,14 +258,13 @@ function Page() {
         </aside>
       </article>
 
-      {lightbox && (
-        <button
-          onClick={() => setLightbox(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-6"
-          aria-label="Cerrar imagen"
-        >
-          <img src={lightbox} alt="" className="max-h-full max-w-full object-contain" />
-        </button>
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={galeria}
+          initialIndex={lightboxIndex}
+          alt={castillo.nombre}
+          onClose={() => setLightboxIndex(null)}
+        />
       )}
     </PageShell>
   );
