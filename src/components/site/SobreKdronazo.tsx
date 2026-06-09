@@ -1,4 +1,4 @@
-import sobreImg from "@/assets/sobre-kdronazo.png.asset.json";
+import sobreImg from "@/assets/sobre-kdronazo.png";
 
 const indicadores = [
   { emoji: "🏰", label: "Castillos visitados personalmente" },
@@ -17,7 +17,7 @@ export function SobreKdronazo() {
         <article className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <figure className="kd-fade-in relative overflow-hidden rounded-2xl border border-border/70 shadow-[var(--shadow-elegant)]">
             <img
-              src={sobreImg.url}
+              src={sobreImg}
               alt="Pablo, creador de Kdronazo, junto a su trípode y dron DJI documentando un castillo en ruinas al atardecer"
               loading="lazy"
               className="h-full w-full object-cover"
