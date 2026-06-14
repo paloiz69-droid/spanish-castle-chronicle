@@ -122,11 +122,7 @@ function Page() {
           >
             <Youtube className="h-4 w-4" /> 📺 Ver vídeo de este castillo
           </a>
-        ) : (
-          <div className="inline-flex items-center gap-2 rounded-md border border-dashed border-border bg-secondary/40 px-5 py-3 text-sm text-muted-foreground">
-            <Youtube className="h-4 w-4" /> Vídeo próximamente disponible
-          </div>
-        )}
+        ) : null}
         <a
           href={direccionesUrl}
           target="_blank"
