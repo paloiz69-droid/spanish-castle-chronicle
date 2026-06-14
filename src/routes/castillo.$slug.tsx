@@ -168,6 +168,43 @@ function Page() {
             </ul>
           </Section>
 
+          {!videoUrl && (
+            <Section title="Vídeo del Castillo">
+              <div className="overflow-hidden rounded-xl border border-border/70 bg-gradient-to-br from-card to-secondary/40 p-6 sm:p-8">
+                <div className="flex flex-col items-start gap-4">
+                  <span
+                    aria-hidden
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--youtube)]/10 text-2xl"
+                  >
+                    🎬
+                  </span>
+                  <h3 className="font-display text-xl text-foreground sm:text-2xl">
+                    Vídeo en preparación
+                  </h3>
+                  <div className="space-y-3 text-sm leading-relaxed text-foreground/85 sm:text-base">
+                    <p>
+                      Actualmente estoy trabajando en el documental de este castillo
+                      para el canal de YouTube Kdronazo.
+                    </p>
+                    <p>
+                      Mientras tanto, puedes explorar la información histórica y las
+                      fotografías de esta ficha.
+                    </p>
+                    <p>Suscríbete al canal para no perderte el estreno.</p>
+                  </div>
+                  <a
+                    href="https://www.youtube.com/@Kdronazo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-2 rounded-md bg-[var(--youtube)] px-5 py-3 text-sm font-medium text-[var(--youtube-foreground)] shadow-sm transition-transform hover:scale-[1.02]"
+                  >
+                    <Youtube className="h-4 w-4" /> Ver canal de YouTube
+                  </a>
+                </div>
+              </div>
+            </Section>
+          )}
+
           <Section title="Galería fotográfica">
             <div className="grid gap-4 sm:grid-cols-2">
               {galeria.map((src, i) => (
