@@ -1330,6 +1330,43 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/CJH_bKvXR0g",
   },
+  {
+    slug: "castillo-de-busot",
+    nombre: "Castillo de Busot",
+    provincia: "Alicante",
+    comunidad: "Comunidad Valenciana",
+    categoria: "semirruina",
+    estado: "ruinas",
+    ordenRuinas: 99,
+    estadoDescripcion:
+      "Semirruina — muros y torreones consolidados sobre el cerro que domina la villa",
+    descripcionBreve:
+      "Fortaleza de origen almohade alzada sobre un cerro rocoso que domina la villa de Busot y la vega alicantina, con amplias vistas hasta el Mediterráneo.",
+    imagen: busot,
+    coordenadas: [38.5083, -0.4128],
+    acceso: "interior",
+    precio: "gratuito",
+    aparcamiento: "limitado",
+    comoLlegar:
+      "Acceso peatonal desde el casco urbano de Busot a través de un camino empedrado que asciende hasta el recinto amurallado.",
+    infoPractica:
+      "Recinto al aire libre de acceso libre. Se recomienda calzado cómodo y precaución en zonas no protegidas.",
+    historia:
+      "El castillo de Busot, levantado en época almohade entre los siglos XII y XIII, se alza sobre un cerro rocoso que controla el paso natural entre la costa alicantina y el interior. Tras la conquista cristiana pasó por manos de distintos señoríos y formó parte de la línea defensiva del Reino de Valencia frente a los ataques berberiscos. Hoy conserva gran parte de su recinto amurallado, torreones y restos de aljibe, recientemente consolidados.",
+    cronologia: [
+      { anio: "Siglos XII-XIII", evento: "Construcción de la fortaleza en época almohade." },
+      { anio: "Siglo XIII", evento: "Conquista cristiana e integración en el Reino de Valencia." },
+      { anio: "Siglos XVI-XVII", evento: "Función defensiva frente a las incursiones berberiscas en la costa." },
+      { anio: "Siglo XX", evento: "Abandono y deterioro progresivo del recinto." },
+      { anio: "Actualidad", evento: "Consolidación de muros y torreones, visitable libremente." },
+    ],
+    curiosidades: [
+      "Desde su recinto se divisan las salinas de Agost, el skyline de Alicante y el mar Mediterráneo.",
+      "Forma parte de la red de fortalezas de origen andalusí del interior alicantino.",
+      "El cerro sobre el que se asienta ha sido habitado desde época ibérica.",
+    ],
+    fechaPublicacion: "2026-06-14",
+  },
 ];
 
 export const getCastilloBySlug = (slug: string) =>
