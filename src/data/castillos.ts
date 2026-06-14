@@ -1343,7 +1343,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza de origen almohade alzada sobre un cerro rocoso que domina la villa de Busot y la vega alicantina, con amplias vistas hasta el Mediterráneo.",
     imagen: busot,
-    coordenadas: [38.5083, -0.4128],
+    coordenadas: [38.485158, -0.417050],
     acceso: "interior",
     precio: "gratuito",
     aparcamiento: "limitado",
