@@ -35,6 +35,7 @@ import fuentiduenaDeTajo from "@/assets/castillos/fuentiduena-de-tajo.jpg";
 import bairen from "@/assets/castillos/bairen.jpg";
 import pioz from "@/assets/castillos/pioz.jpg";
 import chinchon from "@/assets/castillos/chinchon.jpg";
+import busot from "@/assets/castillos/busot.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
