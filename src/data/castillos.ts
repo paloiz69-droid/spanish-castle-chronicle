@@ -47,7 +47,7 @@ import laMota3 from "@/assets/castillos/la-mota-3.jpg";
 import caudilla1 from "@/assets/castillos/caudilla-1.jpg";
 import caudilla2 from "@/assets/castillos/caudilla-2.jpg";
 import manzanares2 from "@/assets/castillos/manzanares-2.jpg";
-import penafiel2 from "@/assets/castillos/penafiel-2.jpg";
+import atienza1 from "@/assets/castillos/atienza-1.jpg";
 import penasNegras2 from "@/assets/castillos/penas-negras-2.jpg";
 import penasNegras3 from "@/assets/castillos/penas-negras-3.jpg";
 import pueblaAlmenara2 from "@/assets/castillos/puebla-de-almenara-2.jpg";
@@ -1335,7 +1335,6 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza alargada en forma de barco sobre un cerro, símbolo de la Ribera del Duero y hoy Museo Provincial del Vino.",
     imagen: penafiel,
-    galeria: [penafiel, penafiel2],
     coordenadas: [41.596783, -4.114247],
     acceso: "interior",
     precio: "de-pago",
@@ -1428,6 +1427,45 @@ export const CASTILLOS: Castillo[] = [
       "Desde el cerro se divisan otras fortalezas toledanas como Maqueda, Barcience y Caudilla en un mismo horizonte.",
     ],
     youtubeUrl: "https://youtu.be/xAZK2mlpLYk",
+    fechaPublicacion: "2026-06-20",
+  },
+  {
+    slug: "castillo-de-atienza",
+    nombre: "Castillo de Atienza",
+    provincia: "Guadalajara",
+    comunidad: "Castilla-La Mancha",
+    categoria: "semirruina",
+    estado: "ruinas",
+    ordenRuinas: 101,
+    estadoDescripcion:
+      "Semirruina — torre del homenaje y restos del recinto sobre el peñón calizo",
+    descripcionBreve:
+      "Imponente fortaleza medieval encaramada sobre un peñón calizo que domina la villa serrana de Atienza, en el norte de Guadalajara.",
+    imagen: atienza1,
+    galeria: [atienza1],
+    coordenadas: [41.196389, -2.871667],
+    acceso: "exterior",
+    precio: "gratuito",
+    aparcamiento: "disponible",
+    comoLlegar:
+      "Acceso a pie desde el casco histórico de Atienza por un sendero empedrado que asciende hasta el peñón coronado por la torre del homenaje.",
+    infoPractica:
+      "Recinto al aire libre de acceso libre. Subida exigente por terreno irregular: calzado de montaña recomendado y precaución en zonas sin protección.",
+    historia:
+      "El castillo de Atienza se alza sobre un espectacular peñón calizo que domina la villa medieval del mismo nombre, en la Sierra Norte de Guadalajara. De origen celtíbero y romano, fue plaza fuerte musulmana y, tras la conquista cristiana, una de las llaves del reino de Castilla en la frontera con los reinos taifas y, más tarde, con Aragón. Aquí se refugió el joven Alfonso VIII tras ser rescatado por los arrieros atencinos, hecho que dio origen a la célebre Caballada que cada año recorre la villa. De su recinto se conservan la torre del homenaje, restos de murallas y aljibes.",
+    cronologia: [
+      { anio: "Época celtíbera y romana", evento: "Primer asentamiento fortificado en el peñón." },
+      { anio: "Siglos IX-XI", evento: "Plaza fuerte musulmana en la frontera del Duero." },
+      { anio: "1085", evento: "Conquista cristiana por Alfonso VI tras la toma de Toledo." },
+      { anio: "1162", evento: "Rescate del niño Alfonso VIII por los arrieros de Atienza, origen de La Caballada." },
+      { anio: "Siglos XIV-XV", evento: "Refuerzo del recinto y papel estratégico frente a Aragón." },
+      { anio: "Actualidad", evento: "Restos visitables libremente sobre el peñón que domina la villa." },
+    ],
+    curiosidades: [
+      "La Caballada de Atienza, declarada de Interés Turístico, conmemora desde 1162 el rescate del rey Alfonso VIII por los arrieros de la villa.",
+      "El peñón calizo sobre el que se asienta es un mirador natural de toda la Sierra Norte de Guadalajara.",
+      "Atienza conserva uno de los conjuntos medievales mejor preservados de Castilla, con varias iglesias románicas a los pies del castillo.",
+    ],
     fechaPublicacion: "2026-06-20",
   },
 ];
