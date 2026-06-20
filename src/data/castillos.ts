@@ -505,6 +505,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza de la Orden de San Juan, dominando la llanura manchega junto a los míticos molinos.",
     imagen: consuegra,
+    galeria: [consuegra, consuegra2],
     coordenadas: [39.453142, -3.608194],
     acceso: "interior",
     precio: "de-pago",
