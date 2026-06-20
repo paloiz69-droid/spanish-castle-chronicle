@@ -880,6 +880,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "El alcázar de los reyes de Castilla, proa de piedra sobre la confluencia del Eresma y el Clamores.",
     imagen: alcazarSegovia,
+    galeria: [alcazarSegovia, alcazarSegovia2, alcazarSegovia3],
     coordenadas: [40.952419, -4.132347],
     acceso: "interior",
     precio: "de-pago",
