@@ -1443,7 +1443,7 @@ export const CASTILLOS: Castillo[] = [
       "Imponente fortaleza medieval encaramada sobre un peñón calizo que domina la villa serrana de Atienza, en el norte de Guadalajara.",
     imagen: atienza1,
     galeria: [atienza1],
-    coordenadas: [41.196389, -2.871667],
+    coordenadas: [41.200303, -2.874139],
     acceso: "exterior",
     precio: "gratuito",
     aparcamiento: "disponible",
