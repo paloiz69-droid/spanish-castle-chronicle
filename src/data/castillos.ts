@@ -46,6 +46,11 @@ import laMota2 from "@/assets/castillos/la-mota-2.jpg";
 import laMota3 from "@/assets/castillos/la-mota-3.jpg";
 import caudilla1 from "@/assets/castillos/caudilla-1.jpg";
 import caudilla2 from "@/assets/castillos/caudilla-2.jpg";
+import manzanares2 from "@/assets/castillos/manzanares-2.jpg";
+import penafiel2 from "@/assets/castillos/penafiel-2.jpg";
+import penasNegras2 from "@/assets/castillos/penas-negras-2.jpg";
+import penasNegras3 from "@/assets/castillos/penas-negras-3.jpg";
+import pueblaAlmenara2 from "@/assets/castillos/puebla-de-almenara-2.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -448,6 +453,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Joya del gótico militar castellano, palacio-fortaleza de los Mendoza al pie de La Pedriza.",
     imagen: manzanares,
+    galeria: [manzanares, manzanares2],
     coordenadas: [40.727172, -3.862008],
     acceso: "restringido",
     precio: "no-visitable",
@@ -736,6 +742,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Atalaya rocosa en los Montes de Toledo, suspendida entre la niebla y la Mancha.",
     imagen: penasNegras,
+    galeria: [penasNegras, penasNegras2, penasNegras3],
     coordenadas: [39.682183, -3.730817],
     acceso: "interior",
     precio: "gratuito",
@@ -941,6 +948,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza señorial de la Orden de Santiago, dominando la llanura conquense con su poderosa torre del homenaje y su recinto amurallado.",
     imagen: pueblaAlmenara,
+    galeria: [pueblaAlmenara, pueblaAlmenara2],
     coordenadas: [39.791114, -2.842111],
     acceso: "exterior",
     precio: "gratuito",
@@ -1327,6 +1335,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza alargada en forma de barco sobre un cerro, símbolo de la Ribera del Duero y hoy Museo Provincial del Vino.",
     imagen: penafiel,
+    galeria: [penafiel, penafiel2],
     coordenadas: [41.596783, -4.114247],
     acceso: "interior",
     precio: "de-pago",
