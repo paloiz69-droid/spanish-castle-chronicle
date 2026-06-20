@@ -1405,7 +1405,7 @@ export const CASTILLOS: Castillo[] = [
       "Restos de fortaleza señorial en el despoblado de Caudilla, junto a la iglesia parroquial en ruinas, en la comarca de Torrijos.",
     imagen: caudilla1,
     galeria: [caudilla1, caudilla2],
-    coordenadas: [40.0225, -4.2697],
+    coordenadas: [40.017139, -4.300253],
     acceso: "exterior",
     precio: "gratuito",
     aparcamiento: "limitado",
