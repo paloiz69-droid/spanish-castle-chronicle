@@ -36,6 +36,16 @@ import bairen from "@/assets/castillos/bairen.jpg";
 import pioz from "@/assets/castillos/pioz.jpg";
 import chinchon from "@/assets/castillos/chinchon.jpg";
 import busot from "@/assets/castillos/busot.jpg";
+import alcazarSegovia2 from "@/assets/castillos/alcazar-segovia-2.jpg";
+import alcazarSegovia3 from "@/assets/castillos/alcazar-segovia-3.jpg";
+import consuegra2 from "@/assets/castillos/consuegra-2.jpg";
+import cullera2 from "@/assets/castillos/cullera-2.jpg";
+import escalona2 from "@/assets/castillos/escalona-2.jpg";
+import laAdrada2 from "@/assets/castillos/la-adrada-2.jpg";
+import laMota2 from "@/assets/castillos/la-mota-2.jpg";
+import laMota3 from "@/assets/castillos/la-mota-3.jpg";
+import caudilla1 from "@/assets/castillos/caudilla-1.jpg";
+import caudilla2 from "@/assets/castillos/caudilla-2.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -495,6 +505,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza de la Orden de San Juan, dominando la llanura manchega junto a los míticos molinos.",
     imagen: consuegra,
+    galeria: [consuegra, consuegra2],
     coordenadas: [39.453142, -3.608194],
     acceso: "interior",
     precio: "de-pago",
@@ -523,6 +534,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza andalusí sobre el monte de las Raboses, vigilando la desembocadura del Júcar.",
     imagen: cullera,
+    galeria: [cullera, cullera2],
     coordenadas: [39.166017, -0.24995],
     acceso: "interior",
     precio: "de-pago",
@@ -694,6 +706,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Antiguo bastión de Don Álvaro de Luna sobre el río Alberche, escenario de su caída política.",
     imagen: escalona,
+    galeria: [escalona, escalona2],
     coordenadas: [40.166303, -4.401725],
     acceso: "exterior",
     precio: "gratuito",
@@ -752,6 +765,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza de ladrillo mudéjar en Medina del Campo, prisión de César Borgia.",
     imagen: laMota,
+    galeria: [laMota, laMota2, laMota3],
     coordenadas: [41.309069, -4.908319],
     acceso: "interior",
     precio: "gratuito",
@@ -866,6 +880,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "El alcázar de los reyes de Castilla, proa de piedra sobre la confluencia del Eresma y el Clamores.",
     imagen: alcazarSegovia,
+    galeria: [alcazarSegovia, alcazarSegovia2, alcazarSegovia3],
     coordenadas: [40.952419, -4.132347],
     acceso: "interior",
     precio: "de-pago",
@@ -1366,6 +1381,45 @@ export const CASTILLOS: Castillo[] = [
       "El cerro sobre el que se asienta ha sido habitado desde época ibérica.",
     ],
     fechaPublicacion: "2026-06-14",
+  },
+  {
+    slug: "castillo-de-caudilla",
+    nombre: "Castillo de Caudilla",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    categoria: "ruina-avanzada",
+    estado: "ruinas",
+    ordenRuinas: 100,
+    estadoDescripcion:
+      "Ruina avanzada — torre del homenaje semiderruida en el despoblado de Caudilla",
+    descripcionBreve:
+      "Restos de fortaleza señorial en el despoblado de Caudilla, junto a la iglesia parroquial en ruinas, en la comarca de Torrijos.",
+    imagen: caudilla1,
+    galeria: [caudilla1, caudilla2],
+    coordenadas: [40.0225, -4.2697],
+    acceso: "exterior",
+    precio: "gratuito",
+    aparcamiento: "limitado",
+    comoLlegar:
+      "Acceso por camino rural desde la carretera CM-4009, a las afueras de Caudilla (Toledo). Aparcamiento informal junto a la iglesia del despoblado.",
+    infoPractica:
+      "Recinto al aire libre de acceso libre. Estructura inestable: extremar la precaución y no acceder al interior de la torre. Calzado cómodo recomendado.",
+    historia:
+      "El castillo de Caudilla se alza en el despoblado del mismo nombre, en la comarca de Torrijos, formando un conjunto único junto a la iglesia parroquial en ruinas. Construido en el siglo XV por la familia Rivadeneira como residencia señorial fortificada, sustituyó a una fortaleza anterior de origen medieval. Tras siglos de abandono progresivo del lugar, hoy solo se conservan grandes lienzos de la torre del homenaje, atravesada por un característico arco de derrumbe que enmarca la cercana iglesia.",
+    cronologia: [
+      { anio: "Siglos XIII-XIV", evento: "Primera fortaleza medieval en el lugar." },
+      { anio: "Siglo XV", evento: "Construcción de la torre y palacio señorial por los Rivadeneira." },
+      { anio: "Siglos XVII-XVIII", evento: "Despoblación progresiva del lugar de Caudilla." },
+      { anio: "Siglos XIX-XX", evento: "Abandono total y colapso parcial de la torre del homenaje." },
+      { anio: "Actualidad", evento: "Restos visitables libremente junto a la iglesia en ruinas." },
+    ],
+    curiosidades: [
+      "El gran arco abierto en la torre del homenaje, producto de un derrumbe, enmarca de forma natural la torre de la iglesia parroquial.",
+      "Forma parte del característico paisaje de despoblados de la comarca de Torrijos.",
+      "Desde el cerro se divisan otras fortalezas toledanas como Maqueda, Barcience y Caudilla en un mismo horizonte.",
+    ],
+    youtubeUrl: "https://youtu.be/xAZK2mlpLYk",
+    fechaPublicacion: "2026-06-20",
   },
 ];
 
