@@ -706,6 +706,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Antiguo bastión de Don Álvaro de Luna sobre el río Alberche, escenario de su caída política.",
     imagen: escalona,
+    galeria: [escalona, escalona2],
     coordenadas: [40.166303, -4.401725],
     acceso: "exterior",
     precio: "gratuito",
@@ -764,6 +765,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza de ladrillo mudéjar en Medina del Campo, prisión de César Borgia.",
     imagen: laMota,
+    galeria: [laMota, laMota2, laMota3],
     coordenadas: [41.309069, -4.908319],
     acceso: "interior",
     precio: "gratuito",
