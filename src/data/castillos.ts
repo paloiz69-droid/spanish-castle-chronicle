@@ -534,6 +534,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza andalusí sobre el monte de las Raboses, vigilando la desembocadura del Júcar.",
     imagen: cullera,
+    galeria: [cullera, cullera2],
     coordenadas: [39.166017, -0.24995],
     acceso: "interior",
     precio: "de-pago",
