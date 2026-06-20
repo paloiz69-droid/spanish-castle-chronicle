@@ -1466,6 +1466,7 @@ export const CASTILLOS: Castillo[] = [
       "El peñón calizo sobre el que se asienta es un mirador natural de toda la Sierra Norte de Guadalajara.",
       "Atienza conserva uno de los conjuntos medievales mejor preservados de Castilla, con varias iglesias románicas a los pies del castillo.",
     ],
+    youtubeUrl: "https://youtu.be/m0MSjETjhc8",
     fechaPublicacion: "2026-06-20",
   },
 ];
