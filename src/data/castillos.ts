@@ -1443,7 +1443,7 @@ export const CASTILLOS: Castillo[] = [
       "Imponente fortaleza medieval encaramada sobre un peñón calizo que domina la villa serrana de Atienza, en el norte de Guadalajara.",
     imagen: atienza1,
     galeria: [atienza1],
-    coordenadas: [41.196389, -2.871667],
+    coordenadas: [41.200303, -2.874139],
     acceso: "exterior",
     precio: "gratuito",
     aparcamiento: "disponible",
@@ -1466,6 +1466,7 @@ export const CASTILLOS: Castillo[] = [
       "El peñón calizo sobre el que se asienta es un mirador natural de toda la Sierra Norte de Guadalajara.",
       "Atienza conserva uno de los conjuntos medievales mejor preservados de Castilla, con varias iglesias románicas a los pies del castillo.",
     ],
+    youtubeUrl: "https://youtu.be/m0MSjETjhc8",
     fechaPublicacion: "2026-06-20",
   },
 ];
