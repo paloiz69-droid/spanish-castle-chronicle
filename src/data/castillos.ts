@@ -1382,6 +1382,45 @@ export const CASTILLOS: Castillo[] = [
     ],
     fechaPublicacion: "2026-06-14",
   },
+  {
+    slug: "castillo-de-caudilla",
+    nombre: "Castillo de Caudilla",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    categoria: "ruina-avanzada",
+    estado: "ruinas",
+    ordenRuinas: 100,
+    estadoDescripcion:
+      "Ruina avanzada — torre del homenaje semiderruida en el despoblado de Caudilla",
+    descripcionBreve:
+      "Restos de fortaleza señorial en el despoblado de Caudilla, junto a la iglesia parroquial en ruinas, en la comarca de Torrijos.",
+    imagen: caudilla1,
+    galeria: [caudilla1, caudilla2],
+    coordenadas: [40.0225, -4.2697],
+    acceso: "exterior",
+    precio: "gratuito",
+    aparcamiento: "limitado",
+    comoLlegar:
+      "Acceso por camino rural desde la carretera CM-4009, a las afueras de Caudilla (Toledo). Aparcamiento informal junto a la iglesia del despoblado.",
+    infoPractica:
+      "Recinto al aire libre de acceso libre. Estructura inestable: extremar la precaución y no acceder al interior de la torre. Calzado cómodo recomendado.",
+    historia:
+      "El castillo de Caudilla se alza en el despoblado del mismo nombre, en la comarca de Torrijos, formando un conjunto único junto a la iglesia parroquial en ruinas. Construido en el siglo XV por la familia Rivadeneira como residencia señorial fortificada, sustituyó a una fortaleza anterior de origen medieval. Tras siglos de abandono progresivo del lugar, hoy solo se conservan grandes lienzos de la torre del homenaje, atravesada por un característico arco de derrumbe que enmarca la cercana iglesia.",
+    cronologia: [
+      { anio: "Siglos XIII-XIV", evento: "Primera fortaleza medieval en el lugar." },
+      { anio: "Siglo XV", evento: "Construcción de la torre y palacio señorial por los Rivadeneira." },
+      { anio: "Siglos XVII-XVIII", evento: "Despoblación progresiva del lugar de Caudilla." },
+      { anio: "Siglos XIX-XX", evento: "Abandono total y colapso parcial de la torre del homenaje." },
+      { anio: "Actualidad", evento: "Restos visitables libremente junto a la iglesia en ruinas." },
+    ],
+    curiosidades: [
+      "El gran arco abierto en la torre del homenaje, producto de un derrumbe, enmarca de forma natural la torre de la iglesia parroquial.",
+      "Forma parte del característico paisaje de despoblados de la comarca de Torrijos.",
+      "Desde el cerro se divisan otras fortalezas toledanas como Maqueda, Barcience y Caudilla en un mismo horizonte.",
+    ],
+    youtubeUrl: "https://youtu.be/xAZK2mlpLYk",
+    fechaPublicacion: "2026-06-20",
+  },
 ];
 
 export const getCastilloBySlug = (slug: string) =>
