@@ -51,6 +51,10 @@ import atienza1 from "@/assets/castillos/atienza-1.jpg";
 import penasNegras2 from "@/assets/castillos/penas-negras-2.jpg";
 import penasNegras3 from "@/assets/castillos/penas-negras-3.jpg";
 import pueblaAlmenara2 from "@/assets/castillos/puebla-de-almenara-2.jpg";
+import loarre from "@/assets/castillos/loarre.jpg";
+import loarre2 from "@/assets/castillos/loarre-2.jpg";
+import casarrubiosDelMonte from "@/assets/castillos/casarrubios-del-monte.jpg";
+import casarrubiosDelMonte2 from "@/assets/castillos/casarrubios-del-monte-2.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -1468,6 +1472,84 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/m0MSjETjhc8",
     fechaPublicacion: "2026-06-20",
+  },
+  {
+    slug: "castillo-de-loarre",
+    nombre: "Castillo de Loarre",
+    provincia: "Huesca",
+    comunidad: "Aragón",
+    categoria: "conservado",
+    estado: "conservado",
+    estadoDescripcion:
+      "Conservado — fortaleza románica del siglo XI con torres, iglesia y dependencias intactas",
+    descripcionBreve:
+      "Considerado el conjunto románico militar mejor conservado de Europa, se alza sobre una mole rocosa frente a la Hoya de Huesca.",
+    imagen: loarre,
+    galeria: [loarre, loarre2],
+    coordenadas: [42.325656, -0.612422],
+    acceso: "interior",
+    precio: "de-pago",
+    aparcamiento: "disponible",
+    comoLlegar:
+      "Acceso por carretera desde la localidad de Loarre (HU-V-3611), con aparcamiento habilitado junto al recinto monumental.",
+    infoPractica:
+      "Visita interior con entrada de pago. Recomendable reservar en temporada alta. Centro de interpretación y visitas guiadas disponibles.",
+    historia:
+      "Levantado a mediados del siglo XI por orden de Sancho III el Mayor y, sobre todo, de Sancho Ramírez de Aragón, el castillo de Loarre nació como bastión avanzado del reino de Aragón frente a la taifa musulmana de Huesca. Sancho Ramírez transformó la primitiva fortaleza en un complejo monástico-militar, fundando en su interior una comunidad de canónigos agustinos y erigiendo la espectacular iglesia románica de San Pedro, joya del arte del siglo XI. Tras la conquista de Huesca en 1096, el castillo perdió su valor fronterizo y fue conservándose casi intacto al quedar al margen de los grandes conflictos posteriores. Su excelente estado lo ha convertido en escenario de películas como El reino de los cielos de Ridley Scott.",
+    cronologia: [
+      { anio: "Siglo XI (h. 1020)", evento: "Primera fortaleza promovida por Sancho III el Mayor." },
+      { anio: "1071-1094", evento: "Sancho Ramírez de Aragón reforma el castillo y funda la canónica agustina." },
+      { anio: "1096", evento: "Tras la conquista de Huesca, pierde valor fronterizo y se preserva sin grandes reformas." },
+      { anio: "1906", evento: "Declarado Monumento Nacional." },
+      { anio: "2005", evento: "Rodaje de El reino de los cielos de Ridley Scott en sus muros." },
+      { anio: "Actualidad", evento: "Bien de Interés Cultural y uno de los castillos románicos mejor conservados de Europa." },
+    ],
+    curiosidades: [
+      "Está considerado el castillo románico mejor conservado de Europa.",
+      "Su iglesia de San Pedro, dentro del recinto, es una obra maestra del románico aragonés del siglo XI.",
+      "Sirvió de escenario principal del filme El reino de los cielos (2005) de Ridley Scott.",
+    ],
+    youtubeUrl: "https://youtu.be/wk2Cv3v6xiE",
+    fechaPublicacion: "2026-06-23",
+  },
+  {
+    slug: "castillo-de-casarrubios-del-monte",
+    nombre: "Castillo de Casarrubios del Monte",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    categoria: "ruina-avanzada",
+    estado: "ruinas",
+    ordenRuinas: 102,
+    estadoDescripcion:
+      "Ruina avanzada — lienzos de muralla y torreones de mampostería y ladrillo en pie",
+    descripcionBreve:
+      "Antigua fortaleza señorial de los Chacón en el corazón de la Sagra toledana, con potentes lienzos de mampostería y ladrillo.",
+    imagen: casarrubiosDelMonte,
+    galeria: [casarrubiosDelMonte, casarrubiosDelMonte2],
+    coordenadas: [40.187364, -4.037569],
+    acceso: "exterior",
+    precio: "gratuito",
+    aparcamiento: "disponible",
+    comoLlegar:
+      "Situado en el casco urbano de Casarrubios del Monte (Toledo), a pocos minutos de la A-5. Acceso libre por el exterior, junto a la plaza principal.",
+    infoPractica:
+      "Castillo cercado y en proceso de consolidación. Solo es posible recorrer su perímetro exterior.",
+    historia:
+      "El castillo de Casarrubios del Monte se levantó en el siglo XV como residencia fortificada de los Chacón, linaje muy ligado a los Reyes Católicos: don Gonzalo Chacón fue mayordomo mayor de Isabel la Católica y contador mayor de Castilla. La fortaleza, construida en mampostería con verdugadas y torreones de ladrillo de tradición mudéjar, formó parte del señorío de Casarrubios y Arroyomolinos. Tras siglos de abandono y derrumbes parciales, hoy se conservan dos potentes torreones cilíndricos en los extremos y un largo lienzo de muralla que dominan el caserío. En los últimos años ha sido objeto de trabajos de consolidación y excavación arqueológica.",
+      cronologia: [
+        { anio: "Siglo XV", evento: "Construcción del castillo como residencia señorial de los Chacón." },
+        { anio: "Finales del siglo XV", evento: "Vinculación al entorno de los Reyes Católicos a través de Gonzalo Chacón." },
+        { anio: "Siglos XVII-XVIII", evento: "Abandono progresivo y deterioro de las dependencias interiores." },
+        { anio: "Siglos XIX-XX", evento: "Derrumbes parciales que dejan al descubierto la estructura actual." },
+        { anio: "Siglo XXI", evento: "Intervenciones arqueológicas y de consolidación de los lienzos en pie." },
+      ],
+    curiosidades: [
+      "Su fábrica combina mampostería y verdugadas de ladrillo en una factura cercana al gótico mudéjar toledano.",
+      "Está estrechamente ligado a Gonzalo Chacón, mayordomo mayor de Isabel la Católica.",
+      "Los dos grandes torreones cilíndricos en los extremos son su silueta más reconocible desde el pueblo.",
+    ],
+    youtubeUrl: "https://youtu.be/N3xzFE4re2Q",
+    fechaPublicacion: "2026-06-23",
   },
 ];
 
