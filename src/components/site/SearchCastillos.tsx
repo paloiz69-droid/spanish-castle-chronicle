@@ -9,6 +9,7 @@ import {
   PRECIOS,
   getCategoriaInfo,
   getProvincias,
+  getComunidadesConCastillos,
   type CategoriaCastillo,
   type TipoAcceso,
   type TipoPrecio,
@@ -62,6 +63,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const [showFilters, setShowFilters] = useState(false);
+  const [comunidad, setComunidad] = useState<string>("");
   const [provincia, setProvincia] = useState<string>("");
   const [categoria, setCategoria] = useState<CategoriaCastillo | "">("");
   const [acceso, setAcceso] = useState<TipoAcceso | "">("");
@@ -89,9 +91,10 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
   const results = useMemo(() => {
     const term = norm(q.trim());
     const hayFiltros =
-      provincia !== "" || categoria !== "" || acceso !== "" || precio !== "";
+      comunidad !== "" || provincia !== "" || categoria !== "" || acceso !== "" || precio !== "";
     if (!term && !hayFiltros) return [];
     return CASTILLOS.filter((c) => {
+      if (comunidad && c.comunidad !== comunidad) return false;
       if (provincia && c.provincia !== provincia) return false;
       if (categoria && c.categoria !== categoria) return false;
       if (acceso && c.acceso !== acceso) return false;
@@ -110,10 +113,12 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
         .join(" | ");
       return hay.includes(term);
     }).slice(0, 12);
-  }, [q, provincia, categoria, acceso, precio]);
+  }, [q, comunidad, provincia, categoria, acceso, precio]);
 
   const provincias = useMemo(() => getProvincias(), []);
+  const comunidades = useMemo(() => getComunidadesConCastillos(), []);
   const filtrosActivos =
+    (comunidad ? 1 : 0) +
     (provincia ? 1 : 0) +
     (categoria ? 1 : 0) +
     (acceso ? 1 : 0) +
@@ -201,6 +206,19 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
         <div id="kd-search-portal-marker" className="rounded-md border border-border bg-popover p-3 shadow-lg">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">
+              Comunidad autónoma
+              <select
+                value={comunidad}
+                onChange={(e) => { setComunidad(e.target.value); setOpen(true); }}
+                className="h-9 rounded-md border border-input bg-background px-2 text-sm text-foreground"
+              >
+                <option value="">Todas</option>
+                {comunidades.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </label>
+            <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">
               Provincia
               <select
                 value={provincia}
@@ -257,7 +275,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
             {filtrosActivos > 0 ? (
               <button
                 type="button"
-                onClick={() => { setProvincia(""); setCategoria(""); setAcceso(""); setPrecio(""); }}
+                onClick={() => { setComunidad(""); setProvincia(""); setCategoria(""); setAcceso(""); setPrecio(""); }}
                 className="text-xs text-primary hover:underline"
               >
                 Limpiar filtros
