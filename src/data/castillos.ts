@@ -53,6 +53,7 @@ import penasNegras3 from "@/assets/castillos/penas-negras-3.jpg";
 import pueblaAlmenara2 from "@/assets/castillos/puebla-de-almenara-2.jpg";
 import loarre from "@/assets/castillos/loarre.jpg";
 import loarre2 from "@/assets/castillos/loarre-2.jpg";
+import loarre3 from "@/assets/castillos/loarre-3.jpg";
 import casarrubiosDelMonte from "@/assets/castillos/casarrubios-del-monte.jpg";
 import casarrubiosDelMonte2 from "@/assets/castillos/casarrubios-del-monte-2.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
@@ -1485,7 +1486,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Considerado el conjunto románico militar mejor conservado de Europa, se alza sobre una mole rocosa frente a la Hoya de Huesca.",
     imagen: loarre,
-    galeria: [loarre, loarre2],
+    galeria: [loarre2, loarre3],
     coordenadas: [42.325656, -0.612422],
     acceso: "interior",
     precio: "de-pago",
@@ -1525,7 +1526,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Antigua fortaleza señorial de los Chacón en el corazón de la Sagra toledana, con potentes lienzos de mampostería y ladrillo.",
     imagen: casarrubiosDelMonte,
-    galeria: [casarrubiosDelMonte, casarrubiosDelMonte2],
+    galeria: [casarrubiosDelMonte2],
     coordenadas: [40.187364, -4.037569],
     acceso: "exterior",
     precio: "gratuito",
