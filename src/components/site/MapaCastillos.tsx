@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
-import { CASTILLOS, CATEGORIAS, getCategoriaInfo, type CategoriaCastillo } from "@/data/castillos";
+import { CASTILLOS, CATEGORIAS, getCategoriaInfo, getComunidadesConCastillos, type CategoriaCastillo } from "@/data/castillos";
 import { Link } from "@tanstack/react-router";
 
 const makeIcon = (color: string, emoji: string) =>
@@ -17,6 +17,8 @@ export function MapaCastillos() {
   const [activas, setActivas] = useState<Set<CategoriaCastillo>>(
     new Set(CATEGORIAS.map((c) => c.slug)),
   );
+  const [comunidad, setComunidad] = useState<string>("");
+  const comunidades = useMemo(() => getComunidadesConCastillos(), []);
   const toggle = (slug: CategoriaCastillo) =>
     setActivas((prev) => {
       const n = new Set(prev);
@@ -25,8 +27,11 @@ export function MapaCastillos() {
       return n;
     });
   const visibles = useMemo(
-    () => CASTILLOS.filter((c) => activas.has(c.categoria)),
-    [activas],
+    () =>
+      CASTILLOS.filter(
+        (c) => activas.has(c.categoria) && (!comunidad || c.comunidad === comunidad),
+      ),
+    [activas, comunidad],
   );
   return (
     <div className="space-y-4">
@@ -52,6 +57,22 @@ export function MapaCastillos() {
             </button>
           );
         })}
+        <label className="ml-auto flex items-center gap-2 text-xs font-medium text-muted-foreground">
+          <span className="uppercase tracking-wider">Comunidad:</span>
+          <select
+            value={comunidad}
+            onChange={(e) => setComunidad(e.target.value)}
+            className="h-8 rounded-md border border-input bg-background px-2 text-xs text-foreground"
+          >
+            <option value="">Todas</option>
+            {comunidades.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+        <span className="text-xs text-muted-foreground">
+          {visibles.length} resultado{visibles.length === 1 ? "" : "s"}
+        </span>
       </div>
       <div className="h-[70vh] w-full overflow-hidden rounded-xl border border-border/70 shadow-[var(--shadow-elegant)]">
       <MapContainer
