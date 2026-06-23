@@ -56,6 +56,8 @@ import loarre2 from "@/assets/castillos/loarre-2.jpg";
 import loarre3 from "@/assets/castillos/loarre-3.jpg";
 import casarrubiosDelMonte from "@/assets/castillos/casarrubios-del-monte.jpg";
 import casarrubiosDelMonte2 from "@/assets/castillos/casarrubios-del-monte-2.jpg";
+import batres from "@/assets/castillos/batres.jpg";
+import batres2 from "@/assets/castillos/batres-2.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
