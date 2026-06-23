@@ -1644,6 +1644,42 @@ export const getProvincias = (): string[] =>
   );
 
 /**
+ * Lista oficial de las 17 comunidades autónomas de España, utilizada para
+ * los filtros y páginas SEO por comunidad.
+ */
+export const COMUNIDADES_AUTONOMAS: readonly string[] = [
+  "Andalucía",
+  "Aragón",
+  "Principado de Asturias",
+  "Illes Balears",
+  "Canarias",
+  "Cantabria",
+  "Castilla-La Mancha",
+  "Castilla y León",
+  "Cataluña",
+  "Comunidad Valenciana",
+  "Extremadura",
+  "Galicia",
+  "Comunidad de Madrid",
+  "Región de Murcia",
+  "Comunidad Foral de Navarra",
+  "País Vasco",
+  "La Rioja",
+] as const;
+
+/** Comunidades autónomas con al menos un castillo en el catálogo. */
+export const getComunidadesConCastillos = (): string[] =>
+  Array.from(new Set(CASTILLOS.map((c) => c.comunidad))).sort((a, b) =>
+    a.localeCompare(b, "es"),
+  );
+
+/** Devuelve los castillos pertenecientes a una comunidad autónoma. */
+export const getCastillosByComunidad = (comunidad: string) =>
+  CASTILLOS.filter((c) => c.comunidad === comunidad).sort((a, b) =>
+    a.nombre.localeCompare(b.nombre, "es"),
+  );
+
+/**
  * URL de Google Maps para indicaciones desde la ubicación actual del usuario
  * hasta las coordenadas exactas del castillo. Funciona en móvil, tablet y
  * ordenador y se abre en una nueva pestaña.
