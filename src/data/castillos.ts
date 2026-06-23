@@ -1554,6 +1554,43 @@ export const CASTILLOS: Castillo[] = [
     youtubeUrl: "https://youtu.be/N3xzFE4re2Q",
     fechaPublicacion: "2026-06-23",
   },
+  {
+    slug: "castillo-de-batres",
+    nombre: "Castillo de Batres",
+    provincia: "Madrid",
+    comunidad: "Comunidad de Madrid",
+    categoria: "conservado",
+    estado: "conservado",
+    estadoDescripcion: "Conservado y restaurado — torre del homenaje, lienzos y jardines en buen estado",
+    descripcionBreve:
+      "Fortaleza-palacio del siglo XV vinculada al poeta Garcilaso de la Vega, alzada sobre un cerro al sur de Madrid.",
+    imagen: batres,
+    galeria: [batres2],
+    coordenadas: [40.210794, -3.923358],
+    acceso: "restringido",
+    precio: "no-visitable",
+    aparcamiento: "limitado",
+    comoLlegar:
+      "Situado en el municipio de Batres (Madrid), al sur de la región, próximo a la A-5 y a la M-404. Acceso por carretera local hasta el casco urbano; la finca es de propiedad privada y solo es visitable su exterior.",
+    infoPractica:
+      "Propiedad privada. La visita al interior está sujeta a autorización; el entorno puede recorrerse desde el camino perimetral.",
+    historia:
+      "El castillo de Batres es una fortaleza-palacio de origen bajomedieval levantada en el siglo XV sobre un cerro que domina el valle del arroyo Guatén, en el extremo sur de la actual Comunidad de Madrid. Su torre del homenaje, cuadrada y almenada, y los lienzos de muralla con torreones angulares responden a un esquema de residencia señorial fortificada característico de la nobleza castellana del cuatrocientos. La finca estuvo vinculada al linaje de los Laso de la Vega y se asocia tradicionalmente a la figura del poeta Garcilaso de la Vega, cuya familia poseyó el señorío. Reformado en distintas épocas, conserva la imagen romántica del castillo recuperado en el siglo XIX y comienzos del XX, con sus jardines, estanques y arboleda histórica que lo convirtieron en uno de los conjuntos más singulares del sur madrileño.",
+    cronologia: [
+      { anio: "Siglo XV", evento: "Construcción del castillo-palacio como residencia señorial de los Laso de la Vega." },
+      { anio: "Siglo XVI", evento: "Vinculación al entorno del poeta Garcilaso de la Vega y consolidación del señorío de Batres." },
+      { anio: "Siglos XVII-XVIII", evento: "Sucesivas transformaciones interiores y deterioro parcial del conjunto." },
+      { anio: "Siglos XIX-XX", evento: "Restauración romántica que recupera la torre, las almenas y los jardines históricos." },
+      { anio: "1970", evento: "Declarado Monumento Histórico-Artístico." },
+      { anio: "Actualidad", evento: "Propiedad privada en buen estado de conservación, no visitable libremente en su interior." },
+    ],
+    curiosidades: [
+      "Está ligado por tradición al poeta Garcilaso de la Vega, cuya familia fue señora de Batres.",
+      "La torre del homenaje, de planta cuadrada y coronada por almenas, es uno de los hitos más reconocibles del sur madrileño.",
+      "Su entorno cuenta con jardines históricos, estanque y arboleda que forman parte del conjunto protegido.",
+    ],
+    fechaPublicacion: "2026-06-23",
+  },
 ];
 
 export const getCastilloBySlug = (slug: string) =>
