@@ -1589,6 +1589,7 @@ export const CASTILLOS: Castillo[] = [
       "La torre del homenaje, de planta cuadrada y coronada por almenas, es uno de los hitos más reconocibles del sur madrileño.",
       "Su entorno cuenta con jardines históricos, estanque y arboleda que forman parte del conjunto protegido.",
     ],
+    youtubeUrl: "https://youtu.be/8yLAXmbPq5o",
     fechaPublicacion: "2026-06-23",
   },
 ];
