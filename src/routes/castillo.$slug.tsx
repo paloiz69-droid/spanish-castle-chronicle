@@ -48,14 +48,19 @@ export const Route = createFileRoute("/castillo/$slug")({
       </div>
     </PageShell>
   ),
-  errorComponent: ({ error }) => (
-    <PageShell>
-      <div className="mx-auto max-w-2xl px-4 py-24 text-center">
-        <h1 className="font-display text-3xl">No se pudo cargar la ficha</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
-      </div>
-    </PageShell>
-  ),
+  errorComponent: ({ error }) => {
+    if (typeof console !== "undefined") console.error("castillo route error", error);
+    return (
+      <PageShell>
+        <div className="mx-auto max-w-2xl px-4 py-24 text-center">
+          <h1 className="font-display text-3xl">No se pudo cargar la ficha</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Ha ocurrido un error inesperado. Inténtalo de nuevo.
+          </p>
+        </div>
+      </PageShell>
+    );
+  },
 });
 
 function Page() {
