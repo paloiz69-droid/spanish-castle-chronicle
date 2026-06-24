@@ -6,6 +6,7 @@ import { CastillosCercanos } from "@/components/site/CastillosCercanos";
 import { InformacionPractica } from "@/components/site/InformacionPractica";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
+import { VotacionCastillo } from "@/components/site/VotacionCastillo";
 import {
   getCastilloBySlug,
   getCategoriaInfo,
@@ -244,6 +245,10 @@ function Page() {
             >
               Ver en mapa ampliado →
             </a>
+          </Section>
+
+          <Section title="¿Has visitado este castillo?">
+            <VotacionCastillo slug={castillo.slug} />
           </Section>
 
           <InformacionPractica castillo={castillo} />
