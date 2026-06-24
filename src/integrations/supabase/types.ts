@@ -14,7 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      castillo_votos: {
+        Row: {
+          castillo_slug: string
+          created_at: string
+          id: string
+          opcion: string
+          updated_at: string
+          voter_id: string
+        }
+        Insert: {
+          castillo_slug: string
+          created_at?: string
+          id?: string
+          opcion: string
+          updated_at?: string
+          voter_id: string
+        }
+        Update: {
+          castillo_slug?: string
+          created_at?: string
+          id?: string
+          opcion?: string
+          updated_at?: string
+          voter_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
