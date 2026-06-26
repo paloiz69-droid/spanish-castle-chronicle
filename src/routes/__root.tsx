@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { GA_MEASUREMENT_ID, trackPageview } from "../lib/analytics";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useRouterState } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -130,6 +131,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Analytics />
+        <SpeedInsights />
         <Scripts />
       </body>
     </html>
