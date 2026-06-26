@@ -131,6 +131,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Analytics />
+        <SpeedInsights />
         <Scripts />
       </body>
     </html>
