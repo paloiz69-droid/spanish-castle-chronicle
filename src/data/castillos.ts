@@ -460,7 +460,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Joya del gótico militar castellano, palacio-fortaleza de los Mendoza al pie de La Pedriza.",
     imagen: manzanares,
-    galeria: [manzanares, manzanares2],
+    galeria: [manzanares2],
     coordenadas: [40.727172, -3.862008],
     acceso: "restringido",
     precio: "no-visitable",
@@ -518,7 +518,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza de la Orden de San Juan, dominando la llanura manchega junto a los míticos molinos.",
     imagen: consuegra,
-    galeria: [consuegra, consuegra2],
+    galeria: [consuegra2],
     coordenadas: [39.453142, -3.608194],
     acceso: "interior",
     precio: "de-pago",
@@ -547,7 +547,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza andalusí sobre el monte de las Raboses, vigilando la desembocadura del Júcar.",
     imagen: cullera,
-    galeria: [cullera, cullera2],
+    galeria: [cullera2],
     coordenadas: [39.166017, -0.24995],
     acceso: "interior",
     precio: "de-pago",
@@ -719,7 +719,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Antiguo bastión de Don Álvaro de Luna sobre el río Alberche, escenario de su caída política.",
     imagen: escalona,
-    galeria: [escalona, escalona2],
+    galeria: [escalona2],
     coordenadas: [40.166303, -4.401725],
     acceso: "exterior",
     precio: "gratuito",
@@ -749,7 +749,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Atalaya rocosa en los Montes de Toledo, suspendida entre la niebla y la Mancha.",
     imagen: penasNegras,
-    galeria: [penasNegras, penasNegras2, penasNegras3],
+    galeria: [penasNegras2, penasNegras3],
     coordenadas: [39.682183, -3.730817],
     acceso: "interior",
     precio: "gratuito",
@@ -779,7 +779,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza de ladrillo mudéjar en Medina del Campo, prisión de César Borgia.",
     imagen: laMota,
-    galeria: [laMota, laMota2, laMota3],
+    galeria: [laMota2, laMota3],
     coordenadas: [41.309069, -4.908319],
     acceso: "interior",
     precio: "gratuito",
@@ -894,7 +894,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "El alcázar de los reyes de Castilla, proa de piedra sobre la confluencia del Eresma y el Clamores.",
     imagen: alcazarSegovia,
-    galeria: [alcazarSegovia, alcazarSegovia2, alcazarSegovia3],
+    galeria: [alcazarSegovia2, alcazarSegovia3],
     coordenadas: [40.952419, -4.132347],
     acceso: "interior",
     precio: "de-pago",
@@ -955,7 +955,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza señorial de la Orden de Santiago, dominando la llanura conquense con su poderosa torre del homenaje y su recinto amurallado.",
     imagen: pueblaAlmenara,
-    galeria: [pueblaAlmenara, pueblaAlmenara2],
+    galeria: [pueblaAlmenara2],
     coordenadas: [39.791114, -2.842111],
     acceso: "exterior",
     precio: "gratuito",
@@ -1410,7 +1410,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Restos de fortaleza señorial en el despoblado de Caudilla, junto a la iglesia parroquial en ruinas, en la comarca de Torrijos.",
     imagen: caudilla1,
-    galeria: [caudilla1, caudilla2],
+    galeria: [caudilla2],
     coordenadas: [40.017139, -4.300253],
     acceso: "exterior",
     precio: "gratuito",
@@ -1449,7 +1449,6 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza medieval encaramada sobre un peñón calizo que domina la villa serrana de Atienza, en el norte de Guadalajara.",
     imagen: atienza1,
-    galeria: [atienza1],
     coordenadas: [41.200303, -2.874139],
     acceso: "exterior",
     precio: "gratuito",
