@@ -310,6 +310,26 @@ export interface InformacionVisita {
   recomendaciones?: string;
 }
 
+/** Dato de contacto oficial verificado con su fuente. */
+export interface ContactoTelefono {
+  valor: string;
+  /** Etiqueta opcional: "Oficina de Turismo", "Castillo", "Ayuntamiento"… */
+  tipo?: string;
+}
+
+export interface ContactoOficial {
+  telefono?: ContactoTelefono;
+  telefonoSecundario?: ContactoTelefono;
+  email?: string;
+  webOficial?: string;
+  reservasUrl?: string;
+  horarioAtencion?: string;
+  /** Entidad gestora (Ayuntamiento, Fundación, Patronato…). */
+  gestor?: string;
+  /** Nota libre opcional. */
+  notas?: string;
+}
+
 export const CASTILLOS: Castillo[] = [
   // RUINAS — orden definido por el usuario
   {
