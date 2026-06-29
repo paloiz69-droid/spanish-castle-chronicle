@@ -265,6 +265,8 @@ export interface Castillo {
   notaDrones?: string;
   // === Información para la visita (sección ampliada, todos opcionales) ===
   visita?: InformacionVisita;
+  // === Información y contacto oficial (solo si existen fuentes oficiales verificadas) ===
+  contactoOficial?: ContactoOficial;
 }
 
 export interface ServiciosVisita {
@@ -308,6 +310,26 @@ export interface InformacionVisita {
   recomendaciones?: string;
 }
 
+/** Dato de contacto oficial verificado con su fuente. */
+export interface ContactoTelefono {
+  valor: string;
+  /** Etiqueta opcional: "Oficina de Turismo", "Castillo", "Ayuntamiento"… */
+  tipo?: string;
+}
+
+export interface ContactoOficial {
+  telefono?: ContactoTelefono;
+  telefonoSecundario?: ContactoTelefono;
+  email?: string;
+  webOficial?: string;
+  reservasUrl?: string;
+  horarioAtencion?: string;
+  /** Entidad gestora (Ayuntamiento, Fundación, Patronato…). */
+  gestor?: string;
+  /** Nota libre opcional. */
+  notas?: string;
+}
+
 export const CASTILLOS: Castillo[] = [
   // RUINAS — orden definido por el usuario
   {
@@ -339,6 +361,15 @@ export const CASTILLOS: Castillo[] = [
       "La leyenda popular lo asocia con una mora encantada que aún custodia su tesoro.",
     ],
     youtubeUrl: "https://youtu.be/gLzEM43MoDs",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 91 815 88 00",
+        tipo: "Ayuntamiento",
+      },
+      webOficial: "https://www.ayto-villacanada.es/",
+      gestor: "Ayuntamiento de Villanueva de la Cañada",
+      notas: "Ruinas de acceso libre; no existe oficina de turismo específica para el castillo.",
+    },
   },
   {
     slug: "castillo-de-gormaz",
@@ -400,6 +431,17 @@ export const CASTILLOS: Castillo[] = [
       "Ortega y Gasset escribió sobre la belleza geométrica del emplazamiento.",
     ],
     youtubeUrl: "https://youtu.be/41pA4KYrEvo",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 949 89 00 00",
+        tipo: "Ayuntamiento",
+      },
+      email: "informacion@jadraque.es",
+      webOficial: "https://jadraque.es/turismo/",
+      horarioAtencion: "Lunes a viernes, 9:00–14:30",
+      gestor: "Ayuntamiento de Jadraque",
+      notas: "Visita exterior libre.",
+    },
   },
   {
     slug: "castillo-de-berlanga-de-duero",
@@ -429,6 +471,16 @@ export const CASTILLOS: Castillo[] = [
       "Sus murallas exteriores rodean toda la villa medieval.",
     ],
     youtubeUrl: "https://youtu.be/ZAI_rgcgEpg",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 975 343 433",
+        tipo: "Oficina de Turismo",
+      },
+      email: "turismo@berlangadeduero.es",
+      webOficial: "http://www.berlangadeduero.es/castillo-0",
+      horarioAtencion: "Verano: L–J 10:30–14:00 y 17:00–20:00 · V–D 10:00–14:00 y 17:00–20:00. Resto del año: todos los días 10:00–14:00 y 15:30–18:30.",
+      gestor: "Ayuntamiento de Berlanga de Duero",
+    },
   },
   {
     slug: "castillo-de-castrojeriz",
@@ -459,6 +511,17 @@ export const CASTILLOS: Castillo[] = [
       "El terremoto de Lisboa de 1755 derribó parte de sus muros.",
     ],
     youtubeUrl: "https://youtu.be/8dw4ZnMqFWg",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 947 378 588",
+        tipo: "Oficina de Turismo",
+      },
+      email: "ayto@castrojeriz.es",
+      webOficial: "https://castrojeriz.es/castrojeriz/turismo/oficina-de-turismo",
+      horarioAtencion: "Jueves a domingo y festivos, 10:00–14:00 y 15:00–18:00",
+      gestor: "Ayuntamiento de Castrojeriz",
+      notas: "Ruinas de acceso libre en el cerro.",
+    },
   },
   {
     slug: "castillo-de-forna",
@@ -489,6 +552,11 @@ export const CASTILLOS: Castillo[] = [
       "Combina función defensiva y residencial.",
     ],
     youtubeUrl: "https://youtu.be/4E27yWWQtNI",
+    contactoOficial: {
+      webOficial: "https://atzubia.org/",
+      gestor: "Ajuntament de l'Atzúbia",
+      notas: "Cerrado por reformas. No se ha encontrado teléfono ni email oficial específico del castillo.",
+    },
   },
 
   // CONSERVADOS
@@ -521,6 +589,17 @@ export const CASTILLOS: Castillo[] = [
       "Sus garitones colgantes son característicos del gótico isabelino.",
     ],
     youtubeUrl: "https://youtu.be/zNy1cBsX1e0",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 91 853 00 09",
+        tipo: "Ayuntamiento",
+      },
+      email: "atencionvecinal@manzanareselreal.es",
+      webOficial: "https://manzanareselreal.org/es/",
+      horarioAtencion: "Oficina de turismo: J–V 9:30–14:30 · S–D y festivos 9:00–15:00",
+      gestor: "Ayuntamiento de Manzanares el Real",
+      notas: "El castillo es propiedad de la Casa Ducal del Infantado y está actualmente cerrado al público hasta nueva licencia.",
+    },
   },
   {
     slug: "castillo-de-guadamur",
@@ -549,6 +628,22 @@ export const CASTILLOS: Castillo[] = [
       "Hospedó a Juana la Loca tras la muerte de Felipe el Hermoso.",
     ],
     youtubeUrl: "https://youtu.be/6aH_eW3E0Vw",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 29 15 60",
+        tipo: "Castillo",
+      },
+      telefonoSecundario: {
+        valor: "+34 683 198 503",
+        tipo: "Castillo",
+      },
+      email: "info@castillodeguadamur.com",
+      webOficial: "https://castillodeguadamur.com/",
+      reservasUrl: "https://castillodeguadamur.com/contacto",
+      horarioAtencion: "L–Mi 09:00–14:00 (reservas). Visita guiada: 90 min.",
+      gestor: "Propiedad privada — visitas gestionadas por el Ayuntamiento de Guadamur",
+      notas: "Entradas obligatoriamente a través de la web oficial / Ayuntamiento.",
+    },
   },
   {
     slug: "castillo-de-consuegra",
@@ -578,6 +673,18 @@ export const CASTILLOS: Castillo[] = [
       "El conjunto con los molinos es uno de los iconos de La Mancha.",
     ],
     youtubeUrl: "https://youtu.be/7nbJBSzW4jA",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 48 01 85",
+        tipo: "Ayuntamiento",
+      },
+      telefonoSecundario: {
+        valor: "+34 925 47 91 30",
+        tipo: "Información",
+      },
+      webOficial: "https://consuegra.es/",
+      gestor: "Ayuntamiento de Consuegra",
+    },
   },
   {
     slug: "castillo-de-cullera",
@@ -607,6 +714,15 @@ export const CASTILLOS: Castillo[] = [
       "Integra fortaleza medieval y santuario mariano del XIX.",
     ],
     youtubeUrl: "https://youtu.be/usZiTAvZjjw",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 96 172 00 00",
+        tipo: "Ayuntamiento",
+      },
+      webOficial: "https://visit-cullera.es/guia/castillo-de-cullera/",
+      reservasUrl: "https://www.spainheritagenetwork.com/castillos/tarifas/castillo-de-cullera",
+      gestor: "Ayuntamiento de Cullera",
+    },
   },
   {
     slug: "castillo-de-san-servando",
@@ -636,6 +752,15 @@ export const CASTILLOS: Castillo[] = [
       "Su silueta es una de las más fotografiadas de la ciudad imperial.",
     ],
     youtubeUrl: "https://youtu.be/YwB3wFEl1X8",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 22 45 54",
+        tipo: "Albergue / Castillo",
+      },
+      webOficial: "https://juventud.castillalamancha.es/red-albergues-juveniles/albergue-juvenil-castillo-de-san-servando-toledo",
+      gestor: "Dirección General de Juventud y Deportes (JCCM) — Albergue Juvenil",
+      notas: "Funciona como albergue juvenil gestionado por la Junta de Comunidades de Castilla-La Mancha.",
+    },
   },
   {
     slug: "castillo-de-torija",
@@ -664,6 +789,12 @@ export const CASTILLOS: Castillo[] = [
       "Su torre del homenaje alcanza casi 20 metros de altura.",
     ],
     youtubeUrl: "https://youtu.be/VbGrbsamAgo",
+    contactoOficial: {
+      webOficial: "https://www.dguadalajara.es/web/guest/citug",
+      horarioAtencion: "Ma–V 10:00–14:00 y 16:00–19:00 · Sáb 10:00–20:00 · Dom y festivos 10:00–15:00",
+      gestor: "Diputación Provincial de Guadalajara (CITUG)",
+      notas: "Centro de Interpretación Turística (CITUG).",
+    },
   },
   {
     slug: "castillo-de-cuellar",
@@ -692,6 +823,20 @@ export const CASTILLOS: Castillo[] = [
       "Integra una muralla medieval que rodea la villa entera.",
     ],
     youtubeUrl: "https://youtu.be/wfDdpZVHyKw",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 921 142 203",
+        tipo: "Oficina de Turismo",
+      },
+      telefonoSecundario: {
+        valor: "+34 621 195 820",
+        tipo: "Oficina de Turismo",
+      },
+      email: "turismo@aytocuellar.es",
+      webOficial: "https://www.cuellar.es/castillo-de-los-duques-de-alburquerque/",
+      gestor: "Ayuntamiento de Cuéllar",
+      notas: "La Oficina de Turismo se ubica en el propio castillo (C/ Palacio, s/n).",
+    },
   },
   {
     slug: "castillo-de-malpica-de-tajo",
@@ -721,6 +866,11 @@ export const CASTILLOS: Castillo[] = [
       "Su restauración decimonónica le dio el aire de palacio centroeuropeo.",
     ],
     youtubeUrl: "https://youtu.be/8TvRRV3Gh4A",
+    contactoOficial: {
+      webOficial: "https://malpicadetajo.es/",
+      gestor: "Ayuntamiento de Malpica de Tajo",
+      notas: "El castillo es propiedad privada (Casa de Alba). No se ha encontrado contacto oficial para visitas.",
+    },
   },
   {
     slug: "castillo-de-maqueda",
@@ -750,6 +900,16 @@ export const CASTILLOS: Castillo[] = [
       "Sirvió como cuartel de la Guardia Civil durante décadas.",
     ],
     youtubeUrl: "https://youtu.be/XZMaYGGpWN8",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 790 001",
+        tipo: "Ayuntamiento",
+      },
+      email: "maqueda.ayuntamiento@gmail.com",
+      webOficial: "https://maqueda.es/",
+      horarioAtencion: "L–V 9:00–14:00",
+      gestor: "Ayuntamiento de Maqueda",
+    },
   },
   {
     slug: "castillo-de-escalona",
@@ -780,6 +940,12 @@ export const CASTILLOS: Castillo[] = [
       "Su recinto albergaba uno de los patios palaciegos más lujosos de la Castilla del XV.",
     ],
     youtubeUrl: "https://youtu.be/7Q-GSTVJ7Cg",
+    contactoOficial: {
+      webOficial: "https://www.escalonaturismo.com/",
+      reservasUrl: "https://bandoticket.com/es/events/visita-guiada-castillo-de-escalona",
+      gestor: "Ayuntamiento de Escalona",
+      notas: "Visitas guiadas temporalmente cerradas según la web oficial; reservas a través de Bandoticket.",
+    },
   },
   {
     slug: "castillo-de-penas-negras",
@@ -810,6 +976,11 @@ export const CASTILLOS: Castillo[] = [
       "Forma parte del Centro de Interpretación de los Montes de Toledo.",
     ],
     youtubeUrl: "https://youtu.be/zwYEQzqEthY",
+    contactoOficial: {
+      email: "turismo@mora.es",
+      webOficial: "https://www.mora.es/areas/turismo/lugares_interes/castillo",
+      gestor: "Ayuntamiento de Mora",
+    },
   },
   {
     slug: "castillo-de-la-mota",
@@ -840,6 +1011,13 @@ export const CASTILLOS: Castillo[] = [
       "Su barrera artillera es una de las primeras del continente.",
     ],
     youtubeUrl: "https://youtu.be/hP8uMGlfX68",
+    contactoOficial: {
+      email: "info@astermagonia.com",
+      webOficial: "https://www.castillodelamota.es/",
+      reservasUrl: "https://www.castillodelamota.es/contacto-y-reservas/",
+      gestor: "Astermagonia S.L.L. (gestión privada del monumento, propiedad de la Junta de Castilla y León)",
+      notas: "Entradas individuales online a través de la web oficial.",
+    },
   },
   {
     slug: "castillo-de-la-coracera",
@@ -869,6 +1047,16 @@ export const CASTILLOS: Castillo[] = [
       "Conserva intacta su torre del homenaje rectangular con torreón cilíndrico adosado.",
     ],
     youtubeUrl: "https://youtu.be/KypAtTR1pTk",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 670 640 313",
+        tipo: "Oficina de Turismo",
+      },
+      webOficial: "https://www.castillodelacoracera.com/",
+      horarioAtencion: "Atención fines de semana",
+      gestor: "Fundación Castillo de la Coracera",
+      notas: "Cierre indicado en la web oficial; consultar antes de planificar la visita.",
+    },
   },
   {
     slug: "castillo-de-villaviciosa-de-odon",
@@ -897,6 +1085,15 @@ export const CASTILLOS: Castillo[] = [
       "Su silueta domina el casco urbano de Villaviciosa de Odón.",
     ],
     youtubeUrl: "https://youtu.be/m_lmeu6ZvMg",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 916 169 616",
+        tipo: "Oficina de Turismo",
+      },
+      email: "turismo@v-odon.es",
+      webOficial: "https://www.villaviciosadeodon.es/",
+      gestor: "Ayuntamiento de Villaviciosa de Odón",
+    },
   },
   {
     slug: "castillo-de-magalia",
@@ -925,6 +1122,12 @@ export const CASTILLOS: Castillo[] = [
       "Combina arquitectura militar y residencial en un solo conjunto.",
     ],
     youtubeUrl: "https://youtu.be/sA92aGowI3E",
+    contactoOficial: {
+      webOficial: "https://magalia.inaem.gob.es/",
+      reservasUrl: "https://lasnavasdelmarques.es/venta-entradas",
+      horarioAtencion: "Sep–Jun: sábados 12:30 · Jul–Ago: jueves a domingo 11:00 (visitas guiadas)",
+      gestor: "INAEM — Ministerio de Cultura · Visitas guiadas por la Oficina de Turismo de Las Navas del Marqués",
+    },
   },
   {
     slug: "alcazar-de-segovia",
@@ -954,6 +1157,16 @@ export const CASTILLOS: Castillo[] = [
       "Fue prisión real durante el siglo XVIII.",
     ],
     youtubeUrl: "https://youtu.be/NXRMpYMpTGU",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 921 210 515",
+        tipo: "Castillo",
+      },
+      email: "atencionalcliente@alcazardesegovia.com",
+      webOficial: "https://alcazardesegovia.com/",
+      reservasUrl: "https://alcazardesegovia.com/",
+      gestor: "Patronato del Alcázar de Segovia",
+    },
   },
   // === Nuevas incorporaciones ===
   {
@@ -985,6 +1198,15 @@ export const CASTILLOS: Castillo[] = [
       "La erosión del cerro ha dejado el castillo casi al borde del acantilado.",
     ],
     youtubeUrl: "https://youtu.be/7P04c4Azl6E",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 137 111",
+        tipo: "Ayuntamiento",
+      },
+      webOficial: "https://dosbarrios.com/",
+      gestor: "Ayuntamiento de Dosbarrios",
+      notas: "Ruinas de acceso libre.",
+    },
   },
   {
     slug: "castillo-de-puebla-de-almenara",
@@ -1016,6 +1238,14 @@ export const CASTILLOS: Castillo[] = [
       "La barbacana exterior protege todavía el acceso original a la fortaleza.",
     ],
     youtubeUrl: "https://youtu.be/hZjcS5mdM_c",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 969 131 201",
+        tipo: "Ayuntamiento",
+      },
+      webOficial: "https://www.puebladealmenara.eu/",
+      gestor: "Ayuntamiento de Puebla de Almenara",
+    },
   },
   {
     slug: "castillo-de-oreja",
@@ -1046,6 +1276,15 @@ export const CASTILLOS: Castillo[] = [
       "Su posición sobre el cortado del Tajo lo hacía prácticamente inexpugnable.",
     ],
     youtubeUrl: "https://youtu.be/marFjxVBPAI",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 14 20 41",
+        tipo: "Ayuntamiento",
+      },
+      webOficial: "https://ontigola.es/",
+      gestor: "Ayuntamiento de Ontígola",
+      notas: "Ruinas en término municipal de Ontígola. Acceso libre.",
+    },
   },
   {
     slug: "castillo-de-lujan",
@@ -1076,6 +1315,19 @@ export const CASTILLOS: Castillo[] = [
       "Conserva detalles de ladrillo rojizo sobre la mampostería caliza dorada.",
     ],
     youtubeUrl: "https://youtu.be/GBiICgN7Nmo",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 949 810 833",
+        tipo: "Oficina de Turismo",
+      },
+      telefonoSecundario: {
+        valor: "+34 949 810 001",
+        tipo: "Ayuntamiento",
+      },
+      email: "turismo@cifuentes.es",
+      webOficial: "https://cifuentes.es/",
+      gestor: "Ayuntamiento de Cifuentes",
+    },
   },
   {
     slug: "castillo-de-arevalo",
@@ -1104,6 +1356,15 @@ export const CASTILLOS: Castillo[] = [
       "Su torre del homenaje cilíndrica es una de las más grandes y características de Castilla.",
     ],
     youtubeUrl: "https://youtu.be/-xMPweDBtmA",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 920 301 380",
+        tipo: "Oficina de Turismo",
+      },
+      webOficial: "https://arevalo.es/turismo/que-ver-y-hacer/monumentos/castillo-de-arevalo-2/",
+      horarioAtencion: "Oct–May: S, D y festivos 11:00–18:00 · Jun–Sep: V, S, D y festivos 11:00–20:00",
+      gestor: "Ayuntamiento de Arévalo",
+    },
   },
   {
     slug: "castillo-de-villalba",
@@ -1134,6 +1395,17 @@ export const CASTILLOS: Castillo[] = [
       "El castillo está rodeado por completo por un olivar centenario.",
     ],
     youtubeUrl: "https://youtu.be/GgsJAnvY3Vg",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 866 002",
+        tipo: "Ayuntamiento",
+      },
+      email: "info@ayuntamientodecebolla.com",
+      webOficial: "https://www.ayuntamientodecebolla.com/conocer-cebolla-monumentos-castillo-de-villalba.htm",
+      horarioAtencion: "L–V 8:00–15:00 · atención al público 9:00–14:00",
+      gestor: "Ayuntamiento de Cebolla",
+      notas: "Ruinas de acceso libre.",
+    },
   },
   {
     slug: "castillo-de-san-silvestre",
@@ -1164,6 +1436,16 @@ export const CASTILLOS: Castillo[] = [
       "Conserva una doble línea de muralla, rara en castillos de su tamaño.",
     ],
     youtubeUrl: "https://youtu.be/IfAGbWYWf1E",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 790 001",
+        tipo: "Ayuntamiento",
+      },
+      email: "maqueda.ayuntamiento@gmail.com",
+      webOficial: "https://maqueda.es/",
+      gestor: "Ayuntamiento de Maqueda",
+      notas: "El castillo se halla en el término municipal de Maqueda. Ruinas de acceso libre.",
+    },
   },
   {
     slug: "castillo-de-almonacid-de-toledo",
@@ -1224,6 +1506,16 @@ export const CASTILLOS: Castillo[] = [
       "Es visible a gran distancia desde la autovía de Andalucía.",
     ],
     youtubeUrl: "https://youtu.be/VTszsTetkuQ",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 91 895 70 05",
+        tipo: "Ayuntamiento",
+      },
+      email: "info@ayto-sesena.org",
+      webOficial: "https://ayto-sesena.org/",
+      gestor: "Ayuntamiento de Seseña",
+      notas: "Ruinas en propiedad privada (Condes de Puñoenrostro). El Ayuntamiento organiza eventos culturales en el recinto.",
+    },
   },
   {
     slug: "castillo-de-pioz",
@@ -1254,6 +1546,15 @@ export const CASTILLOS: Castillo[] = [
       "Su sillería caliza dorada brilla espectacularmente al sol del atardecer.",
     ],
     youtubeUrl: "https://youtu.be/kFPQuG1_D9Y",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 949 272 076",
+        tipo: "Ayuntamiento",
+      },
+      webOficial: "https://aytopioz.com/castillo-de-pioz/",
+      gestor: "Ayuntamiento de Pioz",
+      notas: "Castillo-palacio en propiedad privada.",
+    },
   },
   {
     slug: "castillo-de-fuentiduena-de-tajo",
@@ -1284,6 +1585,15 @@ export const CASTILLOS: Castillo[] = [
       "Su silueta recortada es uno de los hitos visuales del valle del Tajo madrileño.",
     ],
     youtubeUrl: "https://youtu.be/lcyTJLA0KEQ",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 918 728 368",
+        tipo: "Ayuntamiento",
+      },
+      webOficial: "https://www.fuentiduenadetajo.org/",
+      gestor: "Ayuntamiento de Fuentidueña de Tajo",
+      notas: "Ruinas de acceso libre.",
+    },
   },
   {
     slug: "castillo-de-galve-de-sorbe",
@@ -1314,6 +1624,11 @@ export const CASTILLOS: Castillo[] = [
       "Su entorno se cubre de nieve cada invierno, ofreciendo estampas únicas.",
     ],
     youtubeUrl: "https://youtu.be/2jQDxxrJc6U",
+    contactoOficial: {
+      email: "ayuntamiento@galvedesorbe.es",
+      webOficial: "https://galvedesorbe.es/",
+      gestor: "Ayuntamiento de Galve de Sorbe",
+    },
   },
   {
     slug: "castillo-de-bairen",
@@ -1344,6 +1659,16 @@ export const CASTILLOS: Castillo[] = [
       "Sus excavaciones han revelado aljibes, hornos y una mezquita interior.",
     ],
     youtubeUrl: "https://youtu.be/u4GPaiII7Ec",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 96 295 95 40",
+        tipo: "Castillo",
+      },
+      webOficial: "https://www.visitgandia.com/poi/138/6/4491/folder/asc/castell-de-bairen.html",
+      reservasUrl: "https://www.visitgandia.com/pag/4812/reservas-visitas-al-patrimonio-de-gandia.html",
+      horarioAtencion: "Sábados a las 10:00 (visitas guiadas)",
+      gestor: "Ayuntamiento de Gandía — Departamento de Arqueología y Patrimonio",
+    },
   },
   {
     slug: "castillo-de-chinchon",
@@ -1373,6 +1698,15 @@ export const CASTILLOS: Castillo[] = [
       "Junto al castillo nuevo perviven aún restos de la torre del antiguo castillo medieval.",
     ],
     youtubeUrl: "https://youtu.be/SMaBqz4T-C8",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 91 893 53 23",
+        tipo: "Oficina de Turismo",
+      },
+      webOficial: "https://www.ciudad-chinchon.com/turismo/index.php",
+      gestor: "Ayuntamiento de Chinchón",
+      notas: "El castillo es propiedad privada y no abre al público de forma regular.",
+    },
   },
   {
     slug: "castillo-de-penafiel",
@@ -1402,6 +1736,15 @@ export const CASTILLOS: Castillo[] = [
       "Es el corazón simbólico de la Denominación de Origen Ribera del Duero.",
     ],
     youtubeUrl: "https://youtu.be/CJH_bKvXR0g",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 983 881 199",
+        tipo: "Castillo / Museo del Vino",
+      },
+      webOficial: "https://penafiel.es/turismopenafiel/castillo.php",
+      gestor: "Diputación Provincial de Valladolid · Fundación Provincial del Vino de Valladolid",
+      notas: "El castillo alberga el Museo Provincial del Vino.",
+    },
   },
   {
     slug: "castillo-de-busot",
@@ -1439,6 +1782,11 @@ export const CASTILLOS: Castillo[] = [
       "El cerro sobre el que se asienta ha sido habitado desde época ibérica.",
     ],
     fechaPublicacion: "2026-06-14",
+    contactoOficial: {
+      webOficial: "https://busot.es/",
+      gestor: "Ayuntamiento de Busot",
+      notas: "Ruinas de acceso libre. No se ha encontrado teléfono ni email específico del castillo en la web oficial.",
+    },
   },
   {
     slug: "castillo-de-caudilla",
@@ -1478,6 +1826,16 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/xAZK2mlpLYk",
     fechaPublicacion: "2026-06-20",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 925 742 151",
+        tipo: "Ayuntamiento",
+      },
+      email: "aytocarmena@outlook.es",
+      webOficial: "https://ayuntamientocarmena.com/",
+      gestor: "Ayuntamiento de Carmena",
+      notas: "Castillo de Rivadeneyra / Caudilla en propiedad privada.",
+    },
   },
   {
     slug: "castillo-de-atienza",
@@ -1517,6 +1875,16 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/m0MSjETjhc8",
     fechaPublicacion: "2026-06-20",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 949 399 001",
+        tipo: "Ayuntamiento",
+      },
+      email: "aytoatien@hotmail.com",
+      webOficial: "https://turismoatienza.es/",
+      horarioAtencion: "L–J 8:30–14:00",
+      gestor: "Ayuntamiento de Atienza",
+    },
   },
   {
     slug: "castillo-de-loarre",
@@ -1556,6 +1924,17 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/wk2Cv3v6xiE",
     fechaPublicacion: "2026-06-23",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 974 94 21 80",
+        tipo: "Castillo",
+      },
+      email: "info@castillo-loarre.es",
+      webOficial: "https://castillo-loarre.es/",
+      reservasUrl: "https://castillo-loarre.es/",
+      gestor: "Gestión propia del Castillo de Loarre",
+      notas: "Web declarada como única oficial para la compra de entradas.",
+    },
   },
   {
     slug: "castillo-de-casarrubios-del-monte",
@@ -1595,6 +1974,16 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/N3xzFE4re2Q",
     fechaPublicacion: "2026-06-23",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 91 817 20 07",
+        tipo: "Ayuntamiento",
+      },
+      email: "ayuntamiento@casarrubiosdelmonte.es",
+      webOficial: "https://casarrubiosdelmonte.es/",
+      horarioAtencion: "L–V 9:00–14:00",
+      gestor: "Ayuntamiento de Casarrubios del Monte",
+    },
   },
   {
     slug: "castillo-de-batres",
@@ -1633,6 +2022,20 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/8yLAXmbPq5o",
     fechaPublicacion: "2026-06-23",
+    contactoOficial: {
+      telefono: {
+        valor: "+34 91 812 06 85",
+        tipo: "Ayuntamiento",
+      },
+      telefonoSecundario: {
+        valor: "+34 686 314 206",
+        tipo: "Castillo (eventos)",
+      },
+      email: "info@castillodebatres.es",
+      webOficial: "https://castillodebatres.es/",
+      horarioAtencion: "Ayuntamiento L–V 9:00–14:00",
+      gestor: "Ayuntamiento de Batres (visitas culturales) · Castillo de Batres (eventos privados)",
+    },
   },
 ];
 
