@@ -21,14 +21,18 @@ import {
   Backpack,
   ShieldAlert,
   Toilet,
-  Info,
+  Info as InfoIcon,
   Trees,
   Utensils,
   Droplet,
   Tent,
   BookOpen,
 } from "lucide-react";
-import type { Castillo, InformacionVisita as Info, ServiciosVisita } from "@/data/castillos";
+import type {
+  Castillo,
+  InformacionVisita as VisitaInfo,
+  ServiciosVisita,
+} from "@/data/castillos";
 import { getDireccionesUrl } from "@/data/castillos";
 
 function Field({
@@ -82,7 +86,7 @@ const SERVICIOS_META: {
   { key: "restauranteCercano", label: "Restaurante cercano", icon: Utensils },
   { key: "fuenteAgua", label: "Fuente de agua", icon: Droplet },
   { key: "zonaPicnic", label: "Zona de picnic", icon: Tent },
-  { key: "puntoInformacion", label: "Punto de información", icon: Info },
+  { key: "puntoInformacion", label: "Punto de información", icon: InfoIcon },
 ];
 
 function siNo(v?: boolean) {
@@ -90,7 +94,7 @@ function siNo(v?: boolean) {
 }
 
 export function InformacionVisita({ castillo }: { castillo: Castillo }) {
-  const v: Info | undefined = castillo.visita;
+  const v: VisitaInfo | undefined = castillo.visita;
   if (!v) return null;
 
   const hasContacto = v.telefono || v.email || v.webOficial || v.gestor;
