@@ -265,6 +265,8 @@ export interface Castillo {
   notaDrones?: string;
   // === Información para la visita (sección ampliada, todos opcionales) ===
   visita?: InformacionVisita;
+  // === Información y contacto oficial (solo si existen fuentes oficiales verificadas) ===
+  contactoOficial?: ContactoOficial;
 }
 
 export interface ServiciosVisita {
