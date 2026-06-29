@@ -4,6 +4,7 @@ import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { CastillosCercanos } from "@/components/site/CastillosCercanos";
 import { InformacionPractica } from "@/components/site/InformacionPractica";
+import { InformacionVisita } from "@/components/site/InformacionVisita";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
 import { VotacionCastillo } from "@/components/site/VotacionCastillo";
@@ -257,6 +258,8 @@ function Page() {
           </Section>
 
           <InformacionPractica castillo={castillo} />
+
+          <InformacionVisita castillo={castillo} />
 
           <CastillosCercanos castillo={castillo} />
         </div>
