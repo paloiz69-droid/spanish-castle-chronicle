@@ -263,6 +263,49 @@ export interface Castillo {
   infoPractica?: string;
   /** Nota específica del castillo sobre el vuelo de drones (opcional). */
   notaDrones?: string;
+  // === Información para la visita (sección ampliada, todos opcionales) ===
+  visita?: InformacionVisita;
+}
+
+export interface ServiciosVisita {
+  aparcamiento?: boolean;
+  aseos?: boolean;
+  centroInterpretacion?: boolean;
+  areaRecreativa?: boolean;
+  restauranteCercano?: boolean;
+  fuenteAgua?: boolean;
+  zonaPicnic?: boolean;
+  puntoInformacion?: boolean;
+}
+
+export interface InformacionVisita {
+  // Contacto
+  telefono?: string;
+  email?: string;
+  webOficial?: string;
+  gestor?: string;
+  // Turística
+  horario?: string;
+  diasCierre?: string;
+  precioEntrada?: string;
+  visitasGuiadas?: boolean;
+  reservaPrevia?: boolean;
+  // Localización
+  direccion?: string;
+  municipio?: string;
+  // Accesibilidad
+  accesoCoche?: string;
+  parking?: string;
+  movilidadReducida?: string;
+  dificultad?: "baja" | "media" | "alta";
+  tiempoDesdeParking?: string;
+  // Servicios
+  servicios?: ServiciosVisita;
+  // Práctica
+  mejorEpoca?: string;
+  duracionVisita?: string;
+  queLlevar?: string;
+  recomendaciones?: string;
 }
 
 export const CASTILLOS: Castillo[] = [
