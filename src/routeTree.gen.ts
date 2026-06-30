@@ -11,16 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RecomendarRouteImport } from './routes/recomendar'
-import { Route as RankingCastillosRouteImport } from './routes/ranking-castillos'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as FavoritosRouteImport } from './routes/favoritos'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as RankingSlugRouteImport } from './routes/ranking.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CastilloSlugRouteImport } from './routes/castillo.$slug'
-import { Route as AdminEstadisticasRouteImport } from './routes/admin.estadisticas'
-import { Route as ApiPublicVisitaRouteImport } from './routes/api/public/visita'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -30,11 +26,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RecomendarRoute = RecomendarRouteImport.update({
   id: '/recomendar',
   path: '/recomendar',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RankingCastillosRoute = RankingCastillosRouteImport.update({
-  id: '/ranking-castillos',
-  path: '/ranking-castillos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MapaRoute = MapaRouteImport.update({
@@ -57,11 +48,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RankingSlugRoute = RankingSlugRouteImport.update({
-  id: '/ranking/$slug',
-  path: '/ranking/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CategoriaSlugRoute = CategoriaSlugRouteImport.update({
   id: '/categoria/$slug',
   path: '/categoria/$slug',
@@ -72,44 +58,26 @@ const CastilloSlugRoute = CastilloSlugRouteImport.update({
   path: '/castillo/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminEstadisticasRoute = AdminEstadisticasRouteImport.update({
-  id: '/admin/estadisticas',
-  path: '/admin/estadisticas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicVisitaRoute = ApiPublicVisitaRouteImport.update({
-  id: '/api/public/visita',
-  path: '/api/public/visita',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
-  '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/admin/estadisticas': typeof AdminEstadisticasRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
-  '/ranking/$slug': typeof RankingSlugRoute
-  '/api/public/visita': typeof ApiPublicVisitaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
-  '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/admin/estadisticas': typeof AdminEstadisticasRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
-  '/ranking/$slug': typeof RankingSlugRoute
-  '/api/public/visita': typeof ApiPublicVisitaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -117,14 +85,10 @@ export interface FileRoutesById {
   '/categorias': typeof CategoriasRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
-  '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/admin/estadisticas': typeof AdminEstadisticasRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
-  '/ranking/$slug': typeof RankingSlugRoute
-  '/api/public/visita': typeof ApiPublicVisitaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -133,42 +97,30 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/favoritos'
     | '/mapa'
-    | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
-    | '/admin/estadisticas'
     | '/castillo/$slug'
     | '/categoria/$slug'
-    | '/ranking/$slug'
-    | '/api/public/visita'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/categorias'
     | '/favoritos'
     | '/mapa'
-    | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
-    | '/admin/estadisticas'
     | '/castillo/$slug'
     | '/categoria/$slug'
-    | '/ranking/$slug'
-    | '/api/public/visita'
   id:
     | '__root__'
     | '/'
     | '/categorias'
     | '/favoritos'
     | '/mapa'
-    | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
-    | '/admin/estadisticas'
     | '/castillo/$slug'
     | '/categoria/$slug'
-    | '/ranking/$slug'
-    | '/api/public/visita'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -176,14 +128,10 @@ export interface RootRouteChildren {
   CategoriasRoute: typeof CategoriasRoute
   FavoritosRoute: typeof FavoritosRoute
   MapaRoute: typeof MapaRoute
-  RankingCastillosRoute: typeof RankingCastillosRoute
   RecomendarRoute: typeof RecomendarRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  AdminEstadisticasRoute: typeof AdminEstadisticasRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
-  RankingSlugRoute: typeof RankingSlugRoute
-  ApiPublicVisitaRoute: typeof ApiPublicVisitaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -200,13 +148,6 @@ declare module '@tanstack/react-router' {
       path: '/recomendar'
       fullPath: '/recomendar'
       preLoaderRoute: typeof RecomendarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ranking-castillos': {
-      id: '/ranking-castillos'
-      path: '/ranking-castillos'
-      fullPath: '/ranking-castillos'
-      preLoaderRoute: typeof RankingCastillosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mapa': {
@@ -237,13 +178,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ranking/$slug': {
-      id: '/ranking/$slug'
-      path: '/ranking/$slug'
-      fullPath: '/ranking/$slug'
-      preLoaderRoute: typeof RankingSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/categoria/$slug': {
       id: '/categoria/$slug'
       path: '/categoria/$slug'
@@ -258,20 +192,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CastilloSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/estadisticas': {
-      id: '/admin/estadisticas'
-      path: '/admin/estadisticas'
-      fullPath: '/admin/estadisticas'
-      preLoaderRoute: typeof AdminEstadisticasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/visita': {
-      id: '/api/public/visita'
-      path: '/api/public/visita'
-      fullPath: '/api/public/visita'
-      preLoaderRoute: typeof ApiPublicVisitaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -280,25 +200,11 @@ const rootRouteChildren: RootRouteChildren = {
   CategoriasRoute: CategoriasRoute,
   FavoritosRoute: FavoritosRoute,
   MapaRoute: MapaRoute,
-  RankingCastillosRoute: RankingCastillosRoute,
   RecomendarRoute: RecomendarRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  AdminEstadisticasRoute: AdminEstadisticasRoute,
   CastilloSlugRoute: CastilloSlugRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
-  RankingSlugRoute: RankingSlugRoute,
-  ApiPublicVisitaRoute: ApiPublicVisitaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

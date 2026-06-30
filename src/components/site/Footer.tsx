@@ -41,14 +41,6 @@ export function Footer() {
       </div>
       <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
         <div>© {new Date().getFullYear()} Kdronazo · Castillos de España a vista de dron</div>
-        <div className="mt-3">
-          <Link
-            to="/admin/estadisticas"
-            className="inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/60 px-3 py-1.5 text-[11px] font-medium text-muted-foreground transition hover:text-foreground hover:border-border"
-          >
-            🔒 Acceso estadísticas
-          </Link>
-        </div>
       </div>
     </footer>
   );
