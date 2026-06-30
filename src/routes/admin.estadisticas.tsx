@@ -64,6 +64,22 @@ function AdminPage() {
     }
   }
 
+  const nombres = useMemo(() => new Map(CASTILLOS.map((c) => [c.slug, c.nombre])), []);
+  const rankingOrd = useMemo(
+    () => (data ? [...data.ranking].sort((a, b) => Number(b.total) - Number(a.total)) : []),
+    [data],
+  );
+  const menosConsultados = useMemo(() => {
+    if (!data) return [] as Array<{ slug: string; nombre: string; total: number }>;
+    const conDatos = new Map(data.ranking.map((r) => [r.castillo_slug, r]));
+    return CASTILLOS.map((c) => ({
+      slug: c.slug,
+      nombre: c.nombre,
+      total: Number(conDatos.get(c.slug)?.total ?? 0),
+    })).sort((a, b) => a.total - b.total);
+  }, [data]);
+  const maxVisitas = Math.max(1, ...(data?.timeseries.map((t) => Number(t.visitas)) ?? [1]));
+
   if (!authed) {
     return (
       <PageShell>
@@ -91,23 +107,6 @@ function AdminPage() {
       </PageShell>
     );
   }
-
-  const nombres = new Map(CASTILLOS.map((c) => [c.slug, c.nombre]));
-  const rankingOrd = useMemo(
-    () => (data ? [...data.ranking].sort((a, b) => b.total - a.total) : []),
-    [data],
-  );
-  const menosConsultados = useMemo(() => {
-    if (!data) return [];
-    const conDatos = new Map(data.ranking.map((r) => [r.castillo_slug, r]));
-    return CASTILLOS.map((c) => ({
-      slug: c.slug,
-      nombre: c.nombre,
-      total: conDatos.get(c.slug)?.total ?? 0,
-    })).sort((a, b) => a.total - b.total);
-  }, [data]);
-
-  const maxVisitas = Math.max(1, ...(data?.timeseries.map((t) => t.visitas) ?? [1]));
 
   return (
     <PageShell>
