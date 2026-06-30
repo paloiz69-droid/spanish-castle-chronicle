@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { CASTILLOS, CATEGORIAS } from "@/data/castillos";
+import { slugifyRegion } from "@/lib/visit-utils";
 
 const BASE_URL = "https://kdronazo.com";
 
@@ -18,11 +19,22 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/categorias", changefreq: "weekly", priority: "0.9" },
           { path: "/mapa", changefreq: "weekly", priority: "0.8" },
+          { path: "/ranking-castillos", changefreq: "daily", priority: "0.9" },
           { path: "/recomendar", changefreq: "monthly", priority: "0.5" },
           ...CATEGORIAS.map((c) => ({
             path: `/categoria/${c.slug}`,
             changefreq: "weekly" as const,
             priority: "0.7",
+          })),
+          ...Array.from(new Set(CASTILLOS.map((c) => slugifyRegion(c.comunidad)))).map((s) => ({
+            path: `/ranking/${s}`,
+            changefreq: "daily" as const,
+            priority: "0.7",
+          })),
+          ...Array.from(new Set(CASTILLOS.map((c) => slugifyRegion(c.provincia)))).map((s) => ({
+            path: `/ranking/${s}`,
+            changefreq: "daily" as const,
+            priority: "0.6",
           })),
           ...CASTILLOS.map((c) => ({
             path: `/castillo/${c.slug}`,
