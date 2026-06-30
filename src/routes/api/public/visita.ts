@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { createClient } from "@supabase/supabase-js";
 import { detectDispositivo, detectNavegador } from "@/lib/visit-utils";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -30,10 +29,8 @@ export const Route = createFileRoute("/api/public/visita")({
             request.headers.get("x-vercel-ip-country") ||
             null;
 
-          const supabase = createClient(
-            process.env.SUPABASE_URL!,
-            process.env.SUPABASE_PUBLISHABLE_KEY!,
-            { auth: { storage: undefined, persistSession: false, autoRefreshToken: false } },
+          const { supabaseAdmin: supabase } = await import(
+            "@/integrations/supabase/client.server"
           );
 
           const { data: reciente } = await supabase.rpc("castillo_visita_reciente" as never, {
