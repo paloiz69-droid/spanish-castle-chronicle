@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      castillo_visitas: {
+        Row: {
+          castillo_slug: string
+          created_at: string
+          dispositivo: string | null
+          id: string
+          navegador: string | null
+          pais: string | null
+          visitor_id: string
+        }
+        Insert: {
+          castillo_slug: string
+          created_at?: string
+          dispositivo?: string | null
+          id?: string
+          navegador?: string | null
+          pais?: string | null
+          visitor_id: string
+        }
+        Update: {
+          castillo_slug?: string
+          created_at?: string
+          dispositivo?: string | null
+          id?: string
+          navegador?: string | null
+          pais?: string | null
+          visitor_id?: string
+        }
+        Relationships: []
+      }
       castillo_votos: {
         Row: {
           castillo_slug: string
@@ -46,7 +76,37 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      castillo_admin_timeseries: {
+        Args: { p_days?: number }
+        Returns: {
+          dia: string
+          unicos: number
+          visitas: number
+        }[]
+      }
+      castillo_ranking: {
+        Args: never
+        Returns: {
+          castillo_slug: string
+          prev30: number
+          total: number
+          ult30: number
+          unicos: number
+        }[]
+      }
+      castillo_stats: {
+        Args: { p_slug: string }
+        Returns: {
+          prev30: number
+          total: number
+          ult30: number
+          unicos: number
+        }[]
+      }
+      castillo_visita_reciente: {
+        Args: { p_minutes?: number; p_slug: string; p_visitor: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
