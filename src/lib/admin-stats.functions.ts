@@ -26,7 +26,7 @@ export const fetchAdminStats = createServerFn({ method: "POST" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const dias = Math.min(Math.max(data.dias ?? 90, 7), 365);
 
-    const [{ data: serie }, { data: ranking }, { data: total }, { data: unicos }] = await Promise.all([
+    const [{ data: serie }, { data: ranking }, totalRes, { data: unicos }] = await Promise.all([
       supabaseAdmin.rpc("castillo_admin_timeseries" as never, { p_days: dias } as never),
       supabaseAdmin.rpc("castillo_ranking" as never),
       supabaseAdmin.from("castillo_visitas" as never).select("id", { count: "exact", head: true }),
@@ -46,7 +46,7 @@ export const fetchAdminStats = createServerFn({ method: "POST" })
         prev30: number;
         unicos: number;
       }>,
-      totalVisitas: (total as unknown as { count: number })?.count ?? 0,
+      totalVisitas: totalRes.count ?? 0,
       totalUnicos: unicosCount,
     };
   });
