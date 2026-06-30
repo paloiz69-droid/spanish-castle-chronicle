@@ -33,11 +33,10 @@ export const Route = createFileRoute("/api/public/visita")({
             "@/integrations/supabase/client.server"
           );
 
-          const { data: reciente } = await supabase.rpc("castillo_visita_reciente" as never, {
-            p_slug: slug,
-            p_visitor: visitorId,
-            p_minutes: 30,
-          });
+          const { data: reciente } = await supabase.rpc(
+            "castillo_visita_reciente" as never,
+            { p_slug: slug, p_visitor: visitorId, p_minutes: 30 } as never,
+          );
 
           if (reciente === true) {
             return new Response(JSON.stringify({ skipped: "recent" }), {
