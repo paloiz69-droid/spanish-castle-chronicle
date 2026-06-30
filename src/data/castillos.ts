@@ -330,6 +330,148 @@ export interface ContactoOficial {
   notas?: string;
 }
 
+// ============================================================
+// Información para vuelo con dron — RD 517/2024, art. 40
+// ============================================================
+
+export type EntornoUrbano = "no-urbano" | "limitrofe" | "urbano" | "no-concluyente";
+
+export interface VueloDronInfo {
+  /** Clasificación del entorno conforme al análisis del art. 40 RD 517/2024. */
+  entorno: EntornoUrbano;
+  /** Breve justificación: qué criterios del art. 40 se cumplen o no. */
+  justificacion: string;
+  /** Notas adicionales opcionales (zonas UAS conocidas, proximidad a aeródromos, etc.). */
+  notas?: string;
+}
+
+export interface EntornoUrbanoInfo {
+  slug: EntornoUrbano;
+  label: string;
+  emoji: string;
+  color: string;
+  descripcion: string;
+}
+
+export const ENTORNOS_DRON: EntornoUrbanoInfo[] = [
+  {
+    slug: "no-urbano",
+    label: "Entorno no urbano",
+    emoji: "🟢",
+    color: "#16a34a",
+    descripcion:
+      "El análisis del art. 40 RD 517/2024 permite concluir que el castillo no se encuentra en un entorno urbano.",
+  },
+  {
+    slug: "limitrofe",
+    label: "Entorno limítrofe o dudoso",
+    emoji: "🟡",
+    color: "#ca8a04",
+    descripcion:
+      "Se recomienda realizar una comprobación adicional sobre el terreno antes del vuelo.",
+  },
+  {
+    slug: "urbano",
+    label: "Entorno urbano",
+    emoji: "🔴",
+    color: "#dc2626",
+    descripcion:
+      "El análisis del art. 40 RD 517/2024 indica que el castillo se encuentra en un entorno urbano.",
+  },
+  {
+    slug: "no-concluyente",
+    label: "Clasificación no concluyente",
+    emoji: "⚪",
+    color: "#64748b",
+    descripcion:
+      "No es posible emitir una clasificación concluyente solo con cartografía. Verificar in situ.",
+  },
+];
+
+export const getEntornoDronInfo = (slug?: EntornoUrbano) =>
+  ENTORNOS_DRON.find((e) => e.slug === slug);
+
+export const AVISO_LEGAL_DRON =
+  "Esta información tiene carácter exclusivamente orientativo. Antes de realizar cualquier vuelo con dron, el piloto es el único responsable de comprobar la normativa vigente, las restricciones del espacio aéreo, las zonas geográficas UAS, las limitaciones temporales y cualquier requisito administrativo aplicable.";
+
+// ============================================================
+// Acceso al castillo
+// ============================================================
+
+export type FacilidadAcceso = "facil" | "moderado" | "exigente";
+
+export type TipoTerreno =
+  | "asfalto"
+  | "pista-tierra"
+  | "sendero"
+  | "pedregoso"
+  | "escaleras"
+  | "pendiente-pronunciada";
+
+export interface AccesoCastilloInfo {
+  facilidad: FacilidadAcceso;
+  cocheHastaEntrada?: boolean;
+  aparcamientoCercano?: boolean;
+  caminataMinutos?: string;
+  distanciaAPie?: string;
+  dificultadDescripcion?: string;
+  terreno?: TipoTerreno[];
+  aptoMayores?: boolean;
+  aptoFamilias?: boolean;
+  aptoMovilidadReducida?: boolean;
+  restricciones?: string;
+  calzadoRecomendado?: string;
+  mejorAparcamiento?: string;
+  coordenadasAparcamiento?: [number, number];
+  advertencias?: string;
+}
+
+export interface FacilidadAccesoInfo {
+  slug: FacilidadAcceso;
+  label: string;
+  emoji: string;
+  color: string;
+  descripcion: string;
+}
+
+export const FACILIDADES_ACCESO: FacilidadAccesoInfo[] = [
+  {
+    slug: "facil",
+    label: "Acceso fácil",
+    emoji: "🟢",
+    color: "#16a34a",
+    descripcion: "Se llega prácticamente en coche hasta el castillo. Caminata inferior a 5 minutos.",
+  },
+  {
+    slug: "moderado",
+    label: "Acceso moderado",
+    emoji: "🟡",
+    color: "#ca8a04",
+    descripcion:
+      "Es necesario caminar entre 5 y 20 minutos, con posible pendiente moderada o camino irregular.",
+  },
+  {
+    slug: "exigente",
+    label: "Acceso exigente",
+    emoji: "🔴",
+    color: "#dc2626",
+    descripcion:
+      "Caminata superior a 20 minutos, con pendientes importantes o sendero complicado.",
+  },
+];
+
+export const getFacilidadAccesoInfo = (slug?: FacilidadAcceso) =>
+  FACILIDADES_ACCESO.find((f) => f.slug === slug);
+
+export const TERRENOS_LABEL: Record<TipoTerreno, string> = {
+  asfalto: "Asfalto",
+  "pista-tierra": "Pista de tierra",
+  sendero: "Sendero",
+  pedregoso: "Camino pedregoso",
+  escaleras: "Escaleras",
+  "pendiente-pronunciada": "Pendiente pronunciada",
+};
+
 export const CASTILLOS: Castillo[] = [
   // RUINAS — orden definido por el usuario
   {

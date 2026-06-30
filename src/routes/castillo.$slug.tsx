@@ -6,6 +6,8 @@ import { CastillosCercanos } from "@/components/site/CastillosCercanos";
 import { InformacionPractica } from "@/components/site/InformacionPractica";
 import { InformacionVisita } from "@/components/site/InformacionVisita";
 import { InformacionContacto } from "@/components/site/InformacionContacto";
+import { InformacionDron } from "@/components/site/InformacionDron";
+import { AccesoCastillo } from "@/components/site/AccesoCastillo";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
 import { VotacionCastillo } from "@/components/site/VotacionCastillo";
@@ -218,6 +220,10 @@ function Page() {
           <InformacionVisita castillo={castillo} />
 
           <InformacionContacto castillo={castillo} />
+
+          <AccesoCastillo castillo={castillo} />
+
+          <InformacionDron castillo={castillo} />
 
           <Section title="Galería fotográfica">
             <div className="grid gap-4 sm:grid-cols-2">
