@@ -16,6 +16,7 @@ import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as FavoritosRouteImport } from './routes/favoritos'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RankingSlugRouteImport } from './routes/ranking.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CastilloSlugRouteImport } from './routes/castillo.$slug'
 import { Route as ApiPublicVisitaRouteImport } from './routes/api/public/visita'
@@ -55,6 +56,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RankingSlugRoute = RankingSlugRouteImport.update({
+  id: '/ranking/$slug',
+  path: '/ranking/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategoriaSlugRoute = CategoriaSlugRouteImport.update({
   id: '/categoria/$slug',
   path: '/categoria/$slug',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
+  '/ranking/$slug': typeof RankingSlugRoute
   '/api/public/visita': typeof ApiPublicVisitaRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
+  '/ranking/$slug': typeof RankingSlugRoute
   '/api/public/visita': typeof ApiPublicVisitaRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
+  '/ranking/$slug': typeof RankingSlugRoute
   '/api/public/visita': typeof ApiPublicVisitaRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/castillo/$slug'
     | '/categoria/$slug'
+    | '/ranking/$slug'
     | '/api/public/visita'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/castillo/$slug'
     | '/categoria/$slug'
+    | '/ranking/$slug'
     | '/api/public/visita'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/castillo/$slug'
     | '/categoria/$slug'
+    | '/ranking/$slug'
     | '/api/public/visita'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +169,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
+  RankingSlugRoute: typeof RankingSlugRoute
   ApiPublicVisitaRoute: typeof ApiPublicVisitaRoute
 }
 
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ranking/$slug': {
+      id: '/ranking/$slug'
+      path: '/ranking/$slug'
+      fullPath: '/ranking/$slug'
+      preLoaderRoute: typeof RankingSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/categoria/$slug': {
       id: '/categoria/$slug'
       path: '/categoria/$slug'
@@ -245,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   CastilloSlugRoute: CastilloSlugRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
+  RankingSlugRoute: RankingSlugRoute,
   ApiPublicVisitaRoute: ApiPublicVisitaRoute,
 }
 export const routeTree = rootRouteImport
