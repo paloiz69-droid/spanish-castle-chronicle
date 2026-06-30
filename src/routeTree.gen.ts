@@ -19,6 +19,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as RankingSlugRouteImport } from './routes/ranking.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CastilloSlugRouteImport } from './routes/castillo.$slug'
+import { Route as AdminEstadisticasRouteImport } from './routes/admin.estadisticas'
 import { Route as ApiPublicVisitaRouteImport } from './routes/api/public/visita'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -71,6 +72,11 @@ const CastilloSlugRoute = CastilloSlugRouteImport.update({
   path: '/castillo/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminEstadisticasRoute = AdminEstadisticasRouteImport.update({
+  id: '/admin/estadisticas',
+  path: '/admin/estadisticas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicVisitaRoute = ApiPublicVisitaRouteImport.update({
   id: '/api/public/visita',
   path: '/api/public/visita',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/estadisticas': typeof AdminEstadisticasRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/ranking/$slug': typeof RankingSlugRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/estadisticas': typeof AdminEstadisticasRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/ranking/$slug': typeof RankingSlugRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/estadisticas': typeof AdminEstadisticasRoute
   '/castillo/$slug': typeof CastilloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/ranking/$slug': typeof RankingSlugRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
+    | '/admin/estadisticas'
     | '/castillo/$slug'
     | '/categoria/$slug'
     | '/ranking/$slug'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
+    | '/admin/estadisticas'
     | '/castillo/$slug'
     | '/categoria/$slug'
     | '/ranking/$slug'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
+    | '/admin/estadisticas'
     | '/castillo/$slug'
     | '/categoria/$slug'
     | '/ranking/$slug'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   RankingCastillosRoute: typeof RankingCastillosRoute
   RecomendarRoute: typeof RecomendarRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminEstadisticasRoute: typeof AdminEstadisticasRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
   RankingSlugRoute: typeof RankingSlugRoute
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CastilloSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/estadisticas': {
+      id: '/admin/estadisticas'
+      path: '/admin/estadisticas'
+      fullPath: '/admin/estadisticas'
+      preLoaderRoute: typeof AdminEstadisticasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/visita': {
       id: '/api/public/visita'
       path: '/api/public/visita'
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   RankingCastillosRoute: RankingCastillosRoute,
   RecomendarRoute: RecomendarRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminEstadisticasRoute: AdminEstadisticasRoute,
   CastilloSlugRoute: CastilloSlugRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
   RankingSlugRoute: RankingSlugRoute,

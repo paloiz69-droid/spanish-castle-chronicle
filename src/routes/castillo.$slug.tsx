@@ -11,6 +11,8 @@ import { AccesoCastillo } from "@/components/site/AccesoCastillo";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
 import { VotacionCastillo } from "@/components/site/VotacionCastillo";
+import { EstadisticasCastillo } from "@/components/site/EstadisticasCastillo";
+import { useVisitTracker } from "@/hooks/useVisitTracker";
 import {
   getCastilloBySlug,
   getCategoriaInfo,
@@ -69,6 +71,7 @@ export const Route = createFileRoute("/castillo/$slug")({
 
 function Page() {
   const { castillo } = Route.useLoaderData() as { castillo: Castillo };
+  useVisitTracker(castillo.slug);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
   const cat = getCategoriaInfo(castillo.categoria);
@@ -269,6 +272,8 @@ function Page() {
           <Section title="¿Has visitado este castillo?">
             <VotacionCastillo slug={castillo.slug} />
           </Section>
+
+          <EstadisticasCastillo slug={castillo.slug} />
 
           <CastillosCercanos castillo={castillo} />
         </div>

@@ -8,6 +8,7 @@ import { SearchCastillos } from "./SearchCastillos";
 const navLinks = [
   { to: "/categorias", label: "🏛️ Categorías" },
   { to: "/mapa", label: "🗺️ Mapa Interactivo" },
+  { to: "/ranking-castillos", label: "🏆 Ranking" },
   { to: "/favoritos", label: "❤️ Favoritos" },
   { to: "/recomendar", label: "🏰 Recomendar" },
 ] as const;
