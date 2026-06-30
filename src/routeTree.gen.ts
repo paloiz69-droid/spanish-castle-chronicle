@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RecomendarRouteImport } from './routes/recomendar'
+import { Route as RankingCastillosRouteImport } from './routes/ranking-castillos'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as FavoritosRouteImport } from './routes/favoritos'
 import { Route as CategoriasRouteImport } from './routes/categorias'
@@ -27,6 +28,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RecomendarRoute = RecomendarRouteImport.update({
   id: '/recomendar',
   path: '/recomendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankingCastillosRoute = RankingCastillosRouteImport.update({
+  id: '/ranking-castillos',
+  path: '/ranking-castillos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MapaRoute = MapaRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/categorias': typeof CategoriasRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
+  '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/categorias': typeof CategoriasRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
+  '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/categorias': typeof CategoriasRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
+  '/ranking-castillos': typeof RankingCastillosRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/favoritos'
     | '/mapa'
+    | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
     | '/castillo/$slug'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/favoritos'
     | '/mapa'
+    | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
     | '/castillo/$slug'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/favoritos'
     | '/mapa'
+    | '/ranking-castillos'
     | '/recomendar'
     | '/sitemap.xml'
     | '/castillo/$slug'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   CategoriasRoute: typeof CategoriasRoute
   FavoritosRoute: typeof FavoritosRoute
   MapaRoute: typeof MapaRoute
+  RankingCastillosRoute: typeof RankingCastillosRoute
   RecomendarRoute: typeof RecomendarRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/recomendar'
       fullPath: '/recomendar'
       preLoaderRoute: typeof RecomendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranking-castillos': {
+      id: '/ranking-castillos'
+      path: '/ranking-castillos'
+      fullPath: '/ranking-castillos'
+      preLoaderRoute: typeof RankingCastillosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mapa': {
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   CategoriasRoute: CategoriasRoute,
   FavoritosRoute: FavoritosRoute,
   MapaRoute: MapaRoute,
+  RankingCastillosRoute: RankingCastillosRoute,
   RecomendarRoute: RecomendarRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   CastilloSlugRoute: CastilloSlugRoute,
