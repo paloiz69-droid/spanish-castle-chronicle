@@ -1,44 +1,29 @@
 import { supabase } from "@/integrations/supabase/client";
+import {
+  getStatsCastilloFn,
+  getRankingFn,
+  type CastilloStats,
+  type RankingRow,
+} from "@/lib/visitas-stats.functions";
 
-export interface CastilloStats {
-  total: number;
-  ult30: number;
-  prev30: number;
-  unicos: number;
-}
+export type { CastilloStats, RankingRow };
 
-export interface RankingRow {
-  castillo_slug: string;
-  total: number;
-  ult30: number;
-  prev30: number;
-  unicos: number;
-}
-
+// Stats and rankings are now proxied through trusted server functions
+// (the underlying SECURITY DEFINER RPCs are no longer callable by anon/authenticated).
 export async function fetchStatsCastillo(slug: string): Promise<CastilloStats> {
-  const { data, error } = await supabase.rpc("castillo_stats" as never, { p_slug: slug } as never);
-  if (error || !data || !(data as unknown[]).length) {
+  try {
+    return await getStatsCastilloFn({ data: { slug } });
+  } catch {
     return { total: 0, ult30: 0, prev30: 0, unicos: 0 };
   }
-  const row = (data as CastilloStats[])[0];
-  return {
-    total: Number(row.total) || 0,
-    ult30: Number(row.ult30) || 0,
-    prev30: Number(row.prev30) || 0,
-    unicos: Number(row.unicos) || 0,
-  };
 }
 
 export async function fetchRanking(): Promise<RankingRow[]> {
-  const { data, error } = await supabase.rpc("castillo_ranking" as never);
-  if (error || !data) return [];
-  return (data as RankingRow[]).map((r) => ({
-    castillo_slug: r.castillo_slug,
-    total: Number(r.total) || 0,
-    ult30: Number(r.ult30) || 0,
-    prev30: Number(r.prev30) || 0,
-    unicos: Number(r.unicos) || 0,
-  }));
+  try {
+    return await getRankingFn();
+  } catch {
+    return [];
+  }
 }
 
 /** Cuenta los votos "visitado" y "pendiente" para un castillo. */
