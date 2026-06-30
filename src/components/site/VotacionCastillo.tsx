@@ -26,13 +26,8 @@ export function VotacionCastillo({ slug }: { slug: string }) {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState<Opcion | null>(null);
 
-  useEffect(() => {
-    const id = getVoterId();
-    setVoterId(id);
-    let cancelado = false;
-
-    (async () => {
-      const [{ data: todos }, { data: mio }] = await Promise.all([
+  async function fetchCounts(id: string) {
+    const [{ data: todos }, { data: mio }] = await Promise.all([
         supabase
           .from("castillo_votos")
           .select("opcion")
@@ -43,25 +38,35 @@ export function VotacionCastillo({ slug }: { slug: string }) {
           .eq("castillo_slug", slug)
           .eq("voter_id", id)
           .maybeSingle(),
-      ]);
-      if (cancelado) return;
+    ]);
       if (todos) {
         setVisitado(todos.filter((v) => v.opcion === "visitado").length);
         setPendiente(todos.filter((v) => v.opcion === "pendiente").length);
       }
       if (mio?.opcion === "visitado" || mio?.opcion === "pendiente") {
         setMiVoto(mio.opcion as Opcion);
+    } else {
+      setMiVoto(null);
       }
+  }
+
+  useEffect(() => {
+    const id = getVoterId();
+    setVoterId(id);
+    let cancelado = false;
+    (async () => {
+      await fetchCounts(id);
+      if (cancelado) return;
       setLoading(false);
     })();
-
     return () => {
       cancelado = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   async function votar(opcion: Opcion) {
-    if (!voterId || submitting) return;
+    if (!voterId || submitting || loading) return;
     setSubmitting(opcion);
     const anterior = miVoto;
 
@@ -92,6 +97,9 @@ export function VotacionCastillo({ slug }: { slug: string }) {
         setPendiente((n) => Math.max(0, n - (anterior === "pendiente" ? 0 : 1)));
         if (anterior === "visitado") setVisitado((n) => n + 1);
       }
+    } else {
+      // Resync con la base de datos para evitar desajustes
+      await fetchCounts(voterId);
     }
     setSubmitting(null);
   }
