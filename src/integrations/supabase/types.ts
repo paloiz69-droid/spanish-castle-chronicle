@@ -14,33 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      castillo_votos: {
-        Row: {
-          castillo_slug: string
-          created_at: string
-          id: string
-          opcion: string
-          updated_at: string
-          voter_id: string
-        }
-        Insert: {
-          castillo_slug: string
-          created_at?: string
-          id?: string
-          opcion: string
-          updated_at?: string
-          voter_id: string
-        }
-        Update: {
-          castillo_slug?: string
-          created_at?: string
-          id?: string
-          opcion?: string
-          updated_at?: string
-          voter_id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
