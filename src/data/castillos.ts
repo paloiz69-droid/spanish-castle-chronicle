@@ -1923,6 +1923,7 @@ export const CASTILLOS: Castillo[] = [
       "Forma parte de la red de fortalezas de origen andalusí del interior alicantino.",
       "El cerro sobre el que se asienta ha sido habitado desde época ibérica.",
     ],
+    youtubeUrl: "https://youtu.be/Q7jne0C38uU",
     fechaPublicacion: "2026-06-14",
     contactoOficial: {
       webOficial: "https://busot.es/",
