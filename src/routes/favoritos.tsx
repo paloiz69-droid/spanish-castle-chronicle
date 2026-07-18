@@ -21,7 +21,7 @@ export const Route = createFileRoute("/favoritos")({
         content: "Tu colección personal de castillos guardados en Kdronazo.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://kdronazo.com/favoritos" }],
+    links: [{ rel: "canonical", href: "https://www.kdronazo.com/favoritos" }],
   }),
   component: Page,
 });

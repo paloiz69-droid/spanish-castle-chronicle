@@ -9,7 +9,7 @@ export const Route = createFileRoute("/recomendar")({
       { title: "Recomienda un castillo — Kdronazo" },
       { name: "description", content: "Propón un castillo para futuros reportajes aéreos del canal Kdronazo." },
     ],
-    links: [{ rel: "canonical", href: "https://kdronazo.com/recomendar" }],
+    links: [{ rel: "canonical", href: "https://www.kdronazo.com/recomendar" }],
   }),
   component: RecomendarPage,
 });
