@@ -28,7 +28,7 @@ export const Route = createFileRoute("/categoria/$slug")({
           { property: "og:description", content: loaderData.cat.descripcion },
         ]
       : [],
-    links: [{ rel: "canonical", href: `https://kdronazo.com/categoria/${params.slug}` }],
+    links: [{ rel: "canonical", href: `https://www.kdronazo.com/categoria/${params.slug}` }],
   }),
   component: Page,
   notFoundComponent: () => (

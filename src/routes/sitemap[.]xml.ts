@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { CASTILLOS, CATEGORIAS } from "@/data/castillos";
 
-const BASE_URL = "https://kdronazo.com";
+const BASE_URL = "https://www.kdronazo.com";
 
 interface SitemapEntry {
   path: string;

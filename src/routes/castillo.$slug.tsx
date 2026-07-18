@@ -40,7 +40,7 @@ export const Route = createFileRoute("/castillo/$slug")({
           { property: "twitter:image", content: loaderData.castillo.imagen },
         ]
       : [],
-    links: [{ rel: "canonical", href: `https://kdronazo.com/castillo/${params.slug}` }],
+    links: [{ rel: "canonical", href: `https://www.kdronazo.com/castillo/${params.slug}` }],
   }),
   component: Page,
   notFoundComponent: () => (

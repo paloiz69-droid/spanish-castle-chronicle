@@ -10,7 +10,7 @@ export const Route = createFileRoute("/categorias")({
       { property: "og:title", content: "Categorías de Castillos — Kdronazo" },
       { property: "og:description", content: "Explora los castillos de España por su nivel real de conservación." },
     ],
-    links: [{ rel: "canonical", href: "https://kdronazo.com/categorias" }],
+    links: [{ rel: "canonical", href: "https://www.kdronazo.com/categorias" }],
   }),
   component: Page,
 });
