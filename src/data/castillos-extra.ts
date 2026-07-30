@@ -135,6 +135,11 @@ export const VUELO_DRON_POR_SLUG: Record<string, VueloDronInfo> = {
     justificacion:
       "Castillo-palacio en finca rústica, separado del núcleo urbano de Batres.",
   },
+  "castillo-de-orgaz": {
+    entorno: "urbano",
+    justificacion:
+      "Palacio-fortaleza integrado en el casco histórico de Orgaz, con viviendas, plazas y calles a todo su alrededor: cumple el criterio de entorno urbano del art. 40 RD 517/2024.",
+  },
 
   // ===== CONSERVADOS / VISITABLES =====
   "castillo-de-manzanares-el-real": {
