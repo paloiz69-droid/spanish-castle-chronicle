@@ -58,6 +58,10 @@ import casarrubiosDelMonte from "@/assets/castillos/casarrubios-del-monte.jpg";
 import casarrubiosDelMonte2 from "@/assets/castillos/casarrubios-del-monte-2.jpg";
 import batres from "@/assets/castillos/batres.jpg";
 import batres2 from "@/assets/castillos/batres-2.jpg";
+import orgaz from "@/assets/castillos/orgaz.jpg";
+import orgaz2 from "@/assets/castillos/orgaz-2.jpg";
+import orgaz3 from "@/assets/castillos/orgaz-3.jpg";
+import orgaz4 from "@/assets/castillos/orgaz-4.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -2179,6 +2183,44 @@ export const CASTILLOS: Castillo[] = [
       horarioAtencion: "Ayuntamiento L–V 9:00–14:00",
       gestor: "Ayuntamiento de Batres (visitas culturales) · Castillo de Batres (eventos privados)",
     },
+  },
+  {
+    slug: "castillo-de-orgaz",
+    nombre: "Castillo de Orgaz",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
+    categoria: "conservado",
+    estado: "conservado",
+    estadoDescripcion:
+      "Conservado y restaurado — recinto cuadrangular con torres, adarve almenado y patio interior en buen estado",
+    descripcionBreve:
+      "Palacio-fortaleza del siglo XIV de los señores de Orgaz, integrado en el casco histórico de la villa toledana.",
+    imagen: orgaz,
+    galeria: [orgaz2, orgaz3, orgaz4],
+    coordenadas: [39.647877, -3.87774],
+    acceso: "exterior",
+    precio: "gratuito",
+    aparcamiento: "disponible",
+    comoLlegar:
+      "Situado en el centro de la villa de Orgaz (Toledo), junto a la plaza del castillo. Acceso desde la N-401 Toledo–Ciudad Real; aparcamiento en las calles y plazas del entorno inmediato.",
+    infoPractica:
+      "El exterior del recinto puede recorrerse libremente durante todo el año. El interior se abre en visitas concertadas y durante actividades culturales organizadas por el Ayuntamiento.",
+    historia:
+      "El castillo de Orgaz es un palacio-fortaleza levantado en el siglo XIV por los señores de Orgaz, linaje ligado a la ciudad de Toledo y conocido por don Gonzalo Ruiz de Toledo, el célebre señor de Orgaz inmortalizado por El Greco. Presenta planta cuadrangular con torres en los ángulos —la del homenaje de mayor porte— y lienzos coronados por adarve almenado, con un patio interior porticado que revela su doble condición de residencia señorial y edificio defensivo. Su fábrica de mampostería y sillería fue reformada en los siglos XV y XVI, cuando el conjunto se adaptó a las necesidades palaciegas de la nobleza castellana. Tras siglos de usos diversos, las intervenciones contemporáneas han consolidado muros, cubiertas y almenado, devolviendo al monumento su perfil histórico en el corazón del casco urbano de la villa.",
+    cronologia: [
+      { anio: "Siglo XIV", evento: "Construcción del palacio-fortaleza por los señores de Orgaz." },
+      { anio: "Siglo XV", evento: "Refuerzo de torres y lienzos dentro del proceso de señorialización del conjunto." },
+      { anio: "Siglo XVI", evento: "Reformas de carácter palaciego en el patio y las dependencias interiores." },
+      { anio: "Siglos XVIII-XIX", evento: "Usos civiles diversos y pérdida parcial de elementos originales." },
+      { anio: "Siglos XX-XXI", evento: "Restauraciones que consolidan muros, cubiertas y almenado." },
+      { anio: "Actualidad", evento: "Conjunto conservado en el casco histórico, visitable en su exterior y en actividades concertadas." },
+    ],
+    curiosidades: [
+      "El señorío está vinculado a don Gonzalo Ruiz de Toledo, protagonista de 'El entierro del señor de Orgaz' de El Greco.",
+      "Es uno de los pocos castillos castellanos que conserva su patio porticado integrado en la trama urbana.",
+      "Desde el adarve se domina toda la villa y la llanura de los Montes de Toledo al sur.",
+    ],
+    fechaPublicacion: "2026-07-30",
   },
 ];
 
