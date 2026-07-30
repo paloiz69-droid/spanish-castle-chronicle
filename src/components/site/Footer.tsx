@@ -28,6 +28,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             <li><Link to="/categorias" className="text-muted-foreground hover:text-foreground">🏛️ Todas las categorías</Link></li>
             <li><Link to="/mapa" className="text-muted-foreground hover:text-foreground">🗺️ Mapa Interactivo</Link></li>
+            <li><Link to="/crea-tu-ruta" className="text-muted-foreground hover:text-foreground">🧭 Crea tu ruta</Link></li>
             <li><Link to="/favoritos" className="text-muted-foreground hover:text-foreground">❤️ Mis favoritos</Link></li>
             <li><Link to="/recomendar" className="text-muted-foreground hover:text-foreground">🏰 Recomienda un castillo</Link></li>
           </ul>
