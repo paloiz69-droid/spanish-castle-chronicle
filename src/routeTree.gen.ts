@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CategoriasRouteImport } from './routes/categorias'
+import { Route as CreaTuRutaRouteImport } from './routes/crea-tu-ruta'
 import { Route as FavoritosRouteImport } from './routes/favoritos'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as RecomendarRouteImport } from './routes/recomendar'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const CategoriasRoute = CategoriasRouteImport.update({
   id: '/categorias',
   path: '/categorias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreaTuRutaRoute = CreaTuRutaRouteImport.update({
+  id: '/crea-tu-ruta',
+  path: '/crea-tu-ruta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FavoritosRoute = FavoritosRouteImport.update({
@@ -62,6 +68,7 @@ const CategoriaSlugRoute = CategoriaSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
+  '/crea-tu-ruta': typeof CreaTuRutaRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
   '/recomendar': typeof RecomendarRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
+  '/crea-tu-ruta': typeof CreaTuRutaRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
   '/recomendar': typeof RecomendarRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/categorias': typeof CategoriasRoute
+  '/crea-tu-ruta': typeof CreaTuRutaRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
   '/recomendar': typeof RecomendarRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/categorias'
+    | '/crea-tu-ruta'
     | '/favoritos'
     | '/mapa'
     | '/recomendar'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/categorias'
+    | '/crea-tu-ruta'
     | '/favoritos'
     | '/mapa'
     | '/recomendar'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/categorias'
+    | '/crea-tu-ruta'
     | '/favoritos'
     | '/mapa'
     | '/recomendar'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CategoriasRoute: typeof CategoriasRoute
+  CreaTuRutaRoute: typeof CreaTuRutaRoute
   FavoritosRoute: typeof FavoritosRoute
   MapaRoute: typeof MapaRoute
   RecomendarRoute: typeof RecomendarRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/categorias'
       fullPath: '/categorias'
       preLoaderRoute: typeof CategoriasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crea-tu-ruta': {
+      id: '/crea-tu-ruta'
+      path: '/crea-tu-ruta'
+      fullPath: '/crea-tu-ruta'
+      preLoaderRoute: typeof CreaTuRutaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/favoritos': {
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CategoriasRoute: CategoriasRoute,
+  CreaTuRutaRoute: CreaTuRutaRoute,
   FavoritosRoute: FavoritosRoute,
   MapaRoute: MapaRoute,
   RecomendarRoute: RecomendarRoute,
@@ -208,13 +229,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
