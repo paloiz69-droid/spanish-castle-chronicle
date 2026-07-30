@@ -8,6 +8,7 @@ import { SearchCastillos } from "./SearchCastillos";
 const navLinks = [
   { to: "/categorias", label: "🏛️ Categorías" },
   { to: "/mapa", label: "🗺️ Mapa Interactivo" },
+  { to: "/crea-tu-ruta", label: "🧭 Crea tu ruta" },
   { to: "/favoritos", label: "❤️ Favoritos" },
   { to: "/recomendar", label: "🏰 Recomendar" },
 ] as const;
@@ -105,6 +106,9 @@ export function Header() {
             ))}
             <Link to="/mapa" onClick={() => setOpen(false)} className="mt-1 rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
               🗺️ Mapa Interactivo
+            </Link>
+            <Link to="/crea-tu-ruta" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
+              🧭 Crea tu ruta
             </Link>
             <Link to="/favoritos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
               <Heart className="mr-1 inline h-4 w-4" /> Mis favoritos
