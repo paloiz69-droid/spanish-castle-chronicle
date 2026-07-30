@@ -670,6 +670,16 @@ export const ACCESO_POR_SLUG: Record<string, AccesoCastilloInfo> = {
     aptoFamilias: true,
     restricciones: "Propiedad privada: visita exterior únicamente.",
   },
+  "castillo-de-orgaz": {
+    facilidad: "facil",
+    cocheHastaEntrada: true,
+    aparcamientoCercano: true,
+    caminataMinutos: "< 5 min",
+    terreno: ["asfalto"],
+    aptoMayores: true,
+    aptoFamilias: true,
+    restricciones: "Interior visitable solo en visitas concertadas o actividades culturales.",
+  },
 };
 
 export const getVueloDronInfo = (slug: string): VueloDronInfo | undefined =>
