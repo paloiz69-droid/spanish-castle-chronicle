@@ -58,6 +58,10 @@ import casarrubiosDelMonte from "@/assets/castillos/casarrubios-del-monte.jpg";
 import casarrubiosDelMonte2 from "@/assets/castillos/casarrubios-del-monte-2.jpg";
 import batres from "@/assets/castillos/batres.jpg";
 import batres2 from "@/assets/castillos/batres-2.jpg";
+import orgaz from "@/assets/castillos/orgaz.jpg";
+import orgaz2 from "@/assets/castillos/orgaz-2.jpg";
+import orgaz3 from "@/assets/castillos/orgaz-3.jpg";
+import orgaz4 from "@/assets/castillos/orgaz-4.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
