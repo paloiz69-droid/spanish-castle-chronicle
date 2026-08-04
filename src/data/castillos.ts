@@ -2198,6 +2198,7 @@ export const CASTILLOS: Castillo[] = [
     imagen: orgaz,
     galeria: [orgaz2, orgaz3, orgaz4],
     coordenadas: [39.647877, -3.87774],
+    youtubeUrl: "https://youtu.be/DBUKFMI2hOM",
     acceso: "exterior",
     precio: "gratuito",
     aparcamiento: "disponible",
