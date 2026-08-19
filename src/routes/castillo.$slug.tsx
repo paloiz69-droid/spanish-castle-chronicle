@@ -191,7 +191,7 @@ function Page() {
 
       <article className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_280px] lg:px-8">
         <div className="space-y-12">
-          <Section title="Historia">
+          <Section title={`Historia del ${castillo.nombre}`}>
             <p className="text-base leading-relaxed text-foreground/85">{castillo.historia}</p>
           </Section>
 
