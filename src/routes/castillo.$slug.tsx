@@ -255,9 +255,114 @@ function Page() {
             </Section>
           )}
 
-          <InformacionPractica castillo={castillo} />
+          {/* Cómo llegar */}
+          <Section title={`Cómo llegar al ${castillo.nombre}`}>
+            {castillo.comoLlegar && (
+              <p className="whitespace-pre-line text-base leading-relaxed text-foreground/85">
+                {castillo.comoLlegar}
+              </p>
+            )}
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-border/70 bg-card p-3">
+                <div className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  <MapPin className="h-3 w-3" /> Coordenadas GPS
+                </div>
+                <div className="mt-0.5 font-mono text-sm text-foreground/90">
+                  {lat.toFixed(6)}, {lng.toFixed(6)}
+                </div>
+              </div>
+              <div className="rounded-lg border border-border/70 bg-card p-3">
+                <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Provincia
+                </div>
+                <div className="mt-0.5 text-sm text-foreground/90">
+                  {castillo.provincia}, {castillo.comunidad}
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href={direccionesUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-transform hover:scale-[1.02]"
+              >
+                <Navigation className="h-4 w-4" /> 📍 Cómo llegar en Google Maps
+              </a>
+              <a
+                href={`https://www.google.com/maps?q=${lat},${lng}&z=15`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-primary/40 bg-background px-5 py-3 text-sm font-medium text-primary shadow-sm transition-transform hover:scale-[1.02]"
+              >
+                <MapPin className="h-4 w-4" /> Ver en el mapa
+              </a>
+            </div>
+          </Section>
 
-          <InformacionVisita castillo={castillo} />
+          {/* ¿Se puede visitar? */}
+          <Section title={`¿Se puede visitar el ${castillo.nombre}?`}>
+            <div className="space-y-4">
+              {(acceso || precio || aparcamiento) && (
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {acceso && (
+                    <div className="flex items-start gap-3 rounded-lg border border-border/70 bg-card p-3">
+                      <span
+                        aria-hidden
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-base text-white"
+                        style={{ backgroundColor: acceso.color }}
+                      >
+                        {acceso.emoji}
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">{acceso.label}</div>
+                        <div className="text-xs text-muted-foreground">{acceso.descripcion}</div>
+                      </div>
+                    </div>
+                  )}
+                  {precio && (
+                    <div className="flex items-start gap-3 rounded-lg border border-border/70 bg-card p-3">
+                      <span
+                        aria-hidden
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-base text-white"
+                        style={{ backgroundColor: precio.color }}
+                      >
+                        {precio.emoji}
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">{precio.label}</div>
+                        <div className="text-xs text-muted-foreground">{precio.descripcion}</div>
+                      </div>
+                    </div>
+                  )}
+                  {aparcamiento && (
+                    <div className="flex items-start gap-3 rounded-lg border border-border/70 bg-card p-3">
+                      <span
+                        aria-hidden
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-base text-white"
+                        style={{ backgroundColor: aparcamiento.color }}
+                      >
+                        {aparcamiento.emoji}
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">
+                          Aparcamiento: {aparcamiento.label}
+                        </div>
+                        <div className="text-xs text-muted-foreground">{aparcamiento.descripcion}</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+              {castillo.infoPractica && (
+                <p className="text-base leading-relaxed text-foreground/85">{castillo.infoPractica}</p>
+              )}
+              <div className="flex items-start gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground/85">
+                <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600" />
+                <p>{castillo.notaDrones ?? NOTA_DRONES}</p>
+              </div>
+            </div>
+          </Section>
 
           <InformacionContacto castillo={castillo} />
 
@@ -265,7 +370,10 @@ function Page() {
 
           <InformacionDron castillo={castillo} />
 
-          <Section title="Galería fotográfica">
+          <InformacionVisita castillo={castillo} />
+
+          {/* Galería y localización */}
+          <Section title="Galería y localización">
             <div className="grid gap-4 sm:grid-cols-2">
               {galeria.map((src, i) => (
                 <button
@@ -288,16 +396,13 @@ function Page() {
             <p className="mt-3 text-xs italic text-muted-foreground">
               Pulsa cualquier fotografía para ampliarla. Usa las flechas o desliza para navegar.
             </p>
-          </Section>
-
-          <Section title="Localización">
-            <div className="aspect-video overflow-hidden rounded-lg border border-border/70">
+            <div className="mt-6 aspect-video overflow-hidden rounded-lg border border-border/70">
               <Suspense fallback={<div className="h-full w-full animate-pulse bg-secondary" />}>
                 <MapaIndividual castillo={castillo} />
               </Suspense>
             </div>
             <a
-              href={`https://www.google.com/maps?q=${castillo.coordenadas[0]},${castillo.coordenadas[1]}&z=15`}
+              href={`https://www.google.com/maps?q=${lat},${lng}&z=15`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block text-sm text-primary hover:underline"
