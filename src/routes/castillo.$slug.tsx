@@ -1,9 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Youtube, MapPin, ArrowLeft, Navigation } from "lucide-react";
+import { Youtube, MapPin, ArrowLeft, Navigation, Info } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { CastillosCercanos } from "@/components/site/CastillosCercanos";
-import { InformacionPractica } from "@/components/site/InformacionPractica";
 import { InformacionVisita } from "@/components/site/InformacionVisita";
 import { InformacionContacto } from "@/components/site/InformacionContacto";
 import { InformacionDron } from "@/components/site/InformacionDron";
@@ -11,8 +10,13 @@ import { AccesoCastillo } from "@/components/site/AccesoCastillo";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
 import {
+  CASTILLOS,
   getCastilloBySlug,
   getCategoriaInfo,
+  getAccesoInfo,
+  getPrecioInfo,
+  getAparcamientoInfo,
+  NOTA_DRONES,
   toYoutubeWatchUrl,
   esCastilloNuevo,
   getDireccionesUrl,
@@ -29,19 +33,49 @@ export const Route = createFileRoute("/castillo/$slug")({
     if (!castillo) throw notFound();
     return { castillo };
   },
-  head: ({ loaderData, params }) => ({
-    meta: loaderData
-      ? [
-          { title: `${loaderData.castillo.nombre} — Kdronazo` },
-          { name: "description", content: loaderData.castillo.descripcionBreve },
-          { property: "og:title", content: `${loaderData.castillo.nombre} — Kdronazo` },
-          { property: "og:description", content: loaderData.castillo.descripcionBreve },
-          { property: "og:image", content: loaderData.castillo.imagen },
-          { property: "twitter:image", content: loaderData.castillo.imagen },
-        ]
-      : [],
-    links: [{ rel: "canonical", href: `https://www.kdronazo.com/castillo/${params.slug}` }],
-  }),
+  head: ({ loaderData, params }) => {
+    if (!loaderData) return { meta: [], links: [] };
+    const c = loaderData.castillo;
+    const url = `https://www.kdronazo.com/castillo/${params.slug}`;
+    const title = `${c.nombre}: cómo llegar, historia y visita`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: c.descripcionBreve },
+        { property: "og:title", content: title },
+        { property: "og:description", content: c.descripcionBreve },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "article" },
+        { property: "og:image", content: c.imagen },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: c.imagen },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristAttraction",
+            name: c.nombre,
+            description: c.descripcionBreve,
+            image: c.imagen,
+            url,
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: c.coordenadas[0],
+              longitude: c.coordenadas[1],
+            },
+            address: {
+              "@type": "PostalAddress",
+              addressRegion: c.comunidad,
+              addressLocality: c.provincia,
+            },
+          }),
+        },
+      ],
+    };
+  },
   component: Page,
   notFoundComponent: () => (
     <PageShell>
@@ -74,6 +108,13 @@ function Page() {
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
   const nuevo = esCastilloNuevo(castillo);
   const direccionesUrl = getDireccionesUrl(castillo);
+  const acceso = getAccesoInfo(castillo.acceso);
+  const precio = getPrecioInfo(castillo.precio);
+  const aparcamiento = getAparcamientoInfo(castillo.aparcamiento);
+  const [lat, lng] = castillo.coordenadas;
+  const otrosMadrid = CASTILLOS.filter(
+    (c) => c.comunidad === castillo.comunidad && c.slug !== castillo.slug,
+  ).slice(0, 6);
 
   return (
     <PageShell>
@@ -150,7 +191,7 @@ function Page() {
 
       <article className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_280px] lg:px-8">
         <div className="space-y-12">
-          <Section title="Historia">
+          <Section title={`Historia del ${castillo.nombre}`}>
             <p className="text-base leading-relaxed text-foreground/85">{castillo.historia}</p>
           </Section>
 
@@ -214,9 +255,114 @@ function Page() {
             </Section>
           )}
 
-          <InformacionPractica castillo={castillo} />
+          {/* Cómo llegar */}
+          <Section title={`Cómo llegar al ${castillo.nombre}`}>
+            {castillo.comoLlegar && (
+              <p className="whitespace-pre-line text-base leading-relaxed text-foreground/85">
+                {castillo.comoLlegar}
+              </p>
+            )}
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-border/70 bg-card p-3">
+                <div className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  <MapPin className="h-3 w-3" /> Coordenadas GPS
+                </div>
+                <div className="mt-0.5 font-mono text-sm text-foreground/90">
+                  {lat.toFixed(6)}, {lng.toFixed(6)}
+                </div>
+              </div>
+              <div className="rounded-lg border border-border/70 bg-card p-3">
+                <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Provincia
+                </div>
+                <div className="mt-0.5 text-sm text-foreground/90">
+                  {castillo.provincia}, {castillo.comunidad}
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href={direccionesUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-transform hover:scale-[1.02]"
+              >
+                <Navigation className="h-4 w-4" /> 📍 Cómo llegar en Google Maps
+              </a>
+              <a
+                href={`https://www.google.com/maps?q=${lat},${lng}&z=15`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-primary/40 bg-background px-5 py-3 text-sm font-medium text-primary shadow-sm transition-transform hover:scale-[1.02]"
+              >
+                <MapPin className="h-4 w-4" /> Ver en el mapa
+              </a>
+            </div>
+          </Section>
 
-          <InformacionVisita castillo={castillo} />
+          {/* ¿Se puede visitar? */}
+          <Section title={`¿Se puede visitar el ${castillo.nombre}?`}>
+            <div className="space-y-4">
+              {(acceso || precio || aparcamiento) && (
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {acceso && (
+                    <div className="flex items-start gap-3 rounded-lg border border-border/70 bg-card p-3">
+                      <span
+                        aria-hidden
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-base text-white"
+                        style={{ backgroundColor: acceso.color }}
+                      >
+                        {acceso.emoji}
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">{acceso.label}</div>
+                        <div className="text-xs text-muted-foreground">{acceso.descripcion}</div>
+                      </div>
+                    </div>
+                  )}
+                  {precio && (
+                    <div className="flex items-start gap-3 rounded-lg border border-border/70 bg-card p-3">
+                      <span
+                        aria-hidden
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-base text-white"
+                        style={{ backgroundColor: precio.color }}
+                      >
+                        {precio.emoji}
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">{precio.label}</div>
+                        <div className="text-xs text-muted-foreground">{precio.descripcion}</div>
+                      </div>
+                    </div>
+                  )}
+                  {aparcamiento && (
+                    <div className="flex items-start gap-3 rounded-lg border border-border/70 bg-card p-3">
+                      <span
+                        aria-hidden
+                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-base text-white"
+                        style={{ backgroundColor: aparcamiento.color }}
+                      >
+                        {aparcamiento.emoji}
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">
+                          Aparcamiento: {aparcamiento.label}
+                        </div>
+                        <div className="text-xs text-muted-foreground">{aparcamiento.descripcion}</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+              {castillo.infoPractica && (
+                <p className="text-base leading-relaxed text-foreground/85">{castillo.infoPractica}</p>
+              )}
+              <div className="flex items-start gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground/85">
+                <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600" />
+                <p>{castillo.notaDrones ?? NOTA_DRONES}</p>
+              </div>
+            </div>
+          </Section>
 
           <InformacionContacto castillo={castillo} />
 
@@ -224,7 +370,10 @@ function Page() {
 
           <InformacionDron castillo={castillo} />
 
-          <Section title="Galería fotográfica">
+          <InformacionVisita castillo={castillo} />
+
+          {/* Galería y localización */}
+          <Section title="Galería y localización">
             <div className="grid gap-4 sm:grid-cols-2">
               {galeria.map((src, i) => (
                 <button
@@ -247,16 +396,13 @@ function Page() {
             <p className="mt-3 text-xs italic text-muted-foreground">
               Pulsa cualquier fotografía para ampliarla. Usa las flechas o desliza para navegar.
             </p>
-          </Section>
-
-          <Section title="Localización">
-            <div className="aspect-video overflow-hidden rounded-lg border border-border/70">
+            <div className="mt-6 aspect-video overflow-hidden rounded-lg border border-border/70">
               <Suspense fallback={<div className="h-full w-full animate-pulse bg-secondary" />}>
                 <MapaIndividual castillo={castillo} />
               </Suspense>
             </div>
             <a
-              href={`https://www.google.com/maps?q=${castillo.coordenadas[0]},${castillo.coordenadas[1]}&z=15`}
+              href={`https://www.google.com/maps?q=${lat},${lng}&z=15`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block text-sm text-primary hover:underline"
@@ -264,6 +410,37 @@ function Page() {
               Ver en mapa ampliado →
             </a>
           </Section>
+
+          {otrosMadrid.length > 0 && (
+            <Section title={`Otros castillos de ${castillo.comunidad}`}>
+              <p className="text-sm text-foreground/85">
+                Descubre más fortalezas de la Comunidad de {castillo.comunidad}:
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {otrosMadrid.map((c) => (
+                  <Link
+                    key={c.slug}
+                    to="/castillo/$slug"
+                    params={{ slug: c.slug }}
+                    className="group flex items-center gap-3 rounded-lg border border-border/70 bg-card p-3 transition-colors hover:border-primary/40"
+                  >
+                    <img
+                      src={c.imagen}
+                      alt={c.nombre}
+                      loading="lazy"
+                      className="h-12 w-16 flex-shrink-0 rounded object-cover"
+                    />
+                    <div className="min-w-0">
+                      <div className="truncate text-sm font-medium text-foreground group-hover:text-primary">
+                        {c.nombre}
+                      </div>
+                      <div className="truncate text-xs text-muted-foreground">{c.provincia}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </Section>
+          )}
 
           <CastillosCercanos castillo={castillo} />
         </div>

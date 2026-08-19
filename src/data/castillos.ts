@@ -2141,7 +2141,7 @@ export const CASTILLOS: Castillo[] = [
     estado: "conservado",
     estadoDescripcion: "Conservado y restaurado — torre del homenaje, lienzos y jardines en buen estado",
     descripcionBreve:
-      "Fortaleza-palacio del siglo XV vinculada al poeta Garcilaso de la Vega, alzada sobre un cerro al sur de Madrid.",
+      "Castillo de Batres, también llamado Palacio de Batres: fortaleza del siglo XV de Garcilaso de la Vega al sur de Madrid. Cómo llegar y visitarlo.",
     imagen: batres,
     galeria: [batres2],
     coordenadas: [40.210794, -3.923358],
@@ -2153,7 +2153,7 @@ export const CASTILLOS: Castillo[] = [
     infoPractica:
       "Propiedad privada. La visita al interior está sujeta a autorización; el entorno puede recorrerse desde el camino perimetral.",
     historia:
-      "El castillo de Batres es una fortaleza-palacio de origen bajomedieval levantada en el siglo XV sobre un cerro que domina el valle del arroyo Guatén, en el extremo sur de la actual Comunidad de Madrid. Su torre del homenaje, cuadrada y almenada, y los lienzos de muralla con torreones angulares responden a un esquema de residencia señorial fortificada característico de la nobleza castellana del cuatrocientos. La finca estuvo vinculada al linaje de los Laso de la Vega y se asocia tradicionalmente a la figura del poeta Garcilaso de la Vega, cuya familia poseyó el señorío. Reformado en distintas épocas, conserva la imagen romántica del castillo recuperado en el siglo XIX y comienzos del XX, con sus jardines, estanques y arboleda histórica que lo convirtieron en uno de los conjuntos más singulares del sur madrileño.",
+      "El castillo de Batres —conocido también como Palacio de Batres por su carácter de residencia señorial fortificada— es una fortaleza-palacio de origen bajomedieval levantada en el siglo XV sobre un cerro que domina el valle del arroyo Guatén, en el extremo sur de la actual Comunidad de Madrid. Su torre del homenaje, cuadrada y almenada, y los lienzos de muralla con torreones angulares responden a un esquema de residencia señorial fortificada característico de la nobleza castellana del cuatrocientos. La finca estuvo vinculada al linaje de los Laso de la Vega y se asocia tradicionalmente a la figura del poeta Garcilaso de la Vega, cuya familia poseyó el señorío. Reformado en distintas épocas, conserva la imagen romántica del castillo recuperado en el siglo XIX y comienzos del XX, con sus jardines, estanques y arboleda histórica que lo convirtieron en uno de los conjuntos más singulares del sur madrileño.",
     cronologia: [
       { anio: "Siglo XV", evento: "Construcción del castillo-palacio como residencia señorial de los Laso de la Vega." },
       { anio: "Siglo XVI", evento: "Vinculación al entorno del poeta Garcilaso de la Vega y consolidación del señorío de Batres." },
