@@ -411,6 +411,37 @@ function Page() {
             </a>
           </Section>
 
+          {otrosMadrid.length > 0 && (
+            <Section title={`Otros castillos de ${castillo.comunidad}`}>
+              <p className="text-sm text-foreground/85">
+                Descubre más fortalezas de la Comunidad de {castillo.comunidad}:
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {otrosMadrid.map((c) => (
+                  <Link
+                    key={c.slug}
+                    to="/castillo/$slug"
+                    params={{ slug: c.slug }}
+                    className="group flex items-center gap-3 rounded-lg border border-border/70 bg-card p-3 transition-colors hover:border-primary/40"
+                  >
+                    <img
+                      src={c.imagen}
+                      alt={c.nombre}
+                      loading="lazy"
+                      className="h-12 w-16 flex-shrink-0 rounded object-cover"
+                    />
+                    <div className="min-w-0">
+                      <div className="truncate text-sm font-medium text-foreground group-hover:text-primary">
+                        {c.nombre}
+                      </div>
+                      <div className="truncate text-xs text-muted-foreground">{c.provincia}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </Section>
+          )}
+
           <CastillosCercanos castillo={castillo} />
         </div>
 
