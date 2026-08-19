@@ -29,19 +29,49 @@ export const Route = createFileRoute("/castillo/$slug")({
     if (!castillo) throw notFound();
     return { castillo };
   },
-  head: ({ loaderData, params }) => ({
-    meta: loaderData
-      ? [
-          { title: `${loaderData.castillo.nombre} — Kdronazo` },
-          { name: "description", content: loaderData.castillo.descripcionBreve },
-          { property: "og:title", content: `${loaderData.castillo.nombre} — Kdronazo` },
-          { property: "og:description", content: loaderData.castillo.descripcionBreve },
-          { property: "og:image", content: loaderData.castillo.imagen },
-          { property: "twitter:image", content: loaderData.castillo.imagen },
-        ]
-      : [],
-    links: [{ rel: "canonical", href: `https://www.kdronazo.com/castillo/${params.slug}` }],
-  }),
+  head: ({ loaderData, params }) => {
+    if (!loaderData) return { meta: [], links: [] };
+    const c = loaderData.castillo;
+    const url = `https://www.kdronazo.com/castillo/${params.slug}`;
+    const title = `${c.nombre}: cómo llegar, historia y visita`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: c.descripcionBreve },
+        { property: "og:title", content: title },
+        { property: "og:description", content: c.descripcionBreve },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "article" },
+        { property: "og:image", content: c.imagen },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: c.imagen },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristAttraction",
+            name: c.nombre,
+            description: c.descripcionBreve,
+            image: c.imagen,
+            url,
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: c.coordenadas[0],
+              longitude: c.coordenadas[1],
+            },
+            address: {
+              "@type": "PostalAddress",
+              addressRegion: c.comunidad,
+              addressLocality: c.provincia,
+            },
+          }),
+        },
+      ],
+    };
+  },
   component: Page,
   notFoundComponent: () => (
     <PageShell>
