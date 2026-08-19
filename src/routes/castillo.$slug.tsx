@@ -1,9 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Youtube, MapPin, ArrowLeft, Navigation } from "lucide-react";
+import { Youtube, MapPin, ArrowLeft, Navigation, Info } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { CastillosCercanos } from "@/components/site/CastillosCercanos";
-import { InformacionPractica } from "@/components/site/InformacionPractica";
 import { InformacionVisita } from "@/components/site/InformacionVisita";
 import { InformacionContacto } from "@/components/site/InformacionContacto";
 import { InformacionDron } from "@/components/site/InformacionDron";
@@ -11,8 +10,13 @@ import { AccesoCastillo } from "@/components/site/AccesoCastillo";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
 import {
+  CASTILLOS,
   getCastilloBySlug,
   getCategoriaInfo,
+  getAccesoInfo,
+  getPrecioInfo,
+  getAparcamientoInfo,
+  NOTA_DRONES,
   toYoutubeWatchUrl,
   esCastilloNuevo,
   getDireccionesUrl,
