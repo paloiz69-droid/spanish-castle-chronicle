@@ -44,17 +44,15 @@ export function InformacionDron({ castillo }: { castillo: Castillo }) {
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-lg border border-border/70 bg-card p-3">
             <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              Municipio
+              Provincia
             </div>
             <div className="mt-0.5 text-sm text-foreground/90">{castillo.provincia}</div>
           </div>
           <div className="rounded-lg border border-border/70 bg-card p-3">
             <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              Provincia / Comunidad
+              Comunidad autónoma
             </div>
-            <div className="mt-0.5 text-sm text-foreground/90">
-              {castillo.provincia}, {castillo.comunidad}
-            </div>
+            <div className="mt-0.5 text-sm text-foreground/90">{castillo.comunidad}</div>
           </div>
           <div className="rounded-lg border border-border/70 bg-card p-3 sm:col-span-2">
             <div className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">

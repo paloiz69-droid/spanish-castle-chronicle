@@ -2141,7 +2141,7 @@ export const CASTILLOS: Castillo[] = [
     estado: "conservado",
     estadoDescripcion: "Conservado y restaurado — torre del homenaje, lienzos y jardines en buen estado",
     descripcionBreve:
-      "Fortaleza-palacio del siglo XV vinculada al poeta Garcilaso de la Vega, alzada sobre un cerro al sur de Madrid.",
+      "El Castillo de Batres, también llamado Palacio de Batres, es una fortaleza del siglo XV ligada a Garcilaso de la Vega al sur de Madrid. Descubre cómo llegar y visitarlo.",
     imagen: batres,
     galeria: [batres2],
     coordenadas: [40.210794, -3.923358],
