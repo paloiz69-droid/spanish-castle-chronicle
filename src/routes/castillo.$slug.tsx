@@ -108,6 +108,13 @@ function Page() {
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
   const nuevo = esCastilloNuevo(castillo);
   const direccionesUrl = getDireccionesUrl(castillo);
+  const acceso = getAccesoInfo(castillo.acceso);
+  const precio = getPrecioInfo(castillo.precio);
+  const aparcamiento = getAparcamientoInfo(castillo.aparcamiento);
+  const [lat, lng] = castillo.coordenadas;
+  const otrosMadrid = CASTILLOS.filter(
+    (c) => c.comunidad === castillo.comunidad && c.slug !== castillo.slug,
+  ).slice(0, 6);
 
   return (
     <PageShell>
