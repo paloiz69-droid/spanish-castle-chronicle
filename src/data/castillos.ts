@@ -1907,18 +1907,18 @@ export const CASTILLOS: Castillo[] = [
     estadoDescripcion:
       "Semirruina — muros y torreones consolidados sobre el cerro que domina la villa",
     descripcionBreve:
-      "Fortaleza de origen almohade alzada sobre un cerro rocoso que domina la villa de Busot y la vega alicantina, con amplias vistas hasta el Mediterráneo.",
+      "Fortaleza almohade en Alicante, el Castillo de Busot (siglos XII-XIII) se alza sobre un cerro con vistas al Mediterráneo. Historia, cómo llegar y visita.",
     imagen: busot,
     coordenadas: [38.485158, -0.417050],
     acceso: "interior",
     precio: "gratuito",
     aparcamiento: "limitado",
     comoLlegar:
-      "Acceso peatonal desde el casco urbano de Busot a través de un camino empedrado que asciende hasta el recinto amurallado.",
+      "Acceso peatonal desde el casco urbano de Busot (Alicante) a través de un camino empedrado que asciende hasta el recinto amurallado del castillo. Aparcamiento limitado en las inmediaciones del pueblo.",
     infoPractica:
-      "Recinto al aire libre de acceso libre. Se recomienda calzado cómodo y precaución en zonas no protegidas.",
+      "Recinto al aire libre de acceso libre y gratuito. Se recomienda calzado cómodo y precaución en las zonas no protegidas del castillo de Busot.",
     historia:
-      "El castillo de Busot, levantado en época almohade entre los siglos XII y XIII, se alza sobre un cerro rocoso que controla el paso natural entre la costa alicantina y el interior. Tras la conquista cristiana pasó por manos de distintos señoríos y formó parte de la línea defensiva del Reino de Valencia frente a los ataques berberiscos. Hoy conserva gran parte de su recinto amurallado, torreones y restos de aljibe, recientemente consolidados.",
+      "El castillo de Busot, levantado en época almohade entre los siglos XII y XIII, se alza sobre un cerro rocoso que controla el paso natural entre la costa de Alicante y el interior. Tras la conquista cristiana pasó por manos de distintos señoríos y formó parte de la línea defensiva del Reino de Valencia frente a los ataques berberiscos. Hoy conserva gran parte de su recinto amurallado, torreones y restos de aljibe, recientemente consolidados.",
     cronologia: [
       { anio: "Siglos XII-XIII", evento: "Construcción de la fortaleza en época almohade." },
       { anio: "Siglo XIII", evento: "Conquista cristiana e integración en el Reino de Valencia." },
