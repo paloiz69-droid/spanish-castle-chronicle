@@ -1914,9 +1914,9 @@ export const CASTILLOS: Castillo[] = [
     precio: "gratuito",
     aparcamiento: "limitado",
     comoLlegar:
-      "El Castillo de Busot se reached a pie desde el casco urbano de Busot (Alicante) por un camino empedrado que asciende hasta el recinto amurallado. Se puede aparcar en las inmediaciones del pueblo y subir en unos 15 minutos.",
+      "Acceso peatonal desde el casco urbano de Busot (Alicante) a través de un camino empedrado que asciende hasta el recinto amurallado del castillo. Aparcamiento limitado en las inmediaciones del pueblo.",
     infoPractica:
-      "Recinto al aire libre de acceso libre y gratuito. Se recomienda calzado cómodo y precaución en zonas no protegidas del castillo de Busot.",
+      "Recinto al aire libre de acceso libre y gratuito. Se recomienda calzado cómodo y precaución en las zonas no protegidas del castillo de Busot.",
     historia:
       "El castillo de Busot, levantado en época almohade entre los siglos XII y XIII, se alza sobre un cerro rocoso que controla el paso natural entre la costa de Alicante y el interior. Tras la conquista cristiana pasó por manos de distintos señoríos y formó parte de la línea defensiva del Reino de Valencia frente a los ataques berberiscos. Hoy conserva gran parte de su recinto amurallado, torreones y restos de aljibe, recientemente consolidados.",
     cronologia: [
