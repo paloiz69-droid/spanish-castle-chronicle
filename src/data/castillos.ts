@@ -1325,14 +1325,18 @@ export const CASTILLOS: Castillo[] = [
     ordenRuinas: 20,
     estadoDescripcion: "En ruinas — torre cilíndrica y lienzos de muralla en pie sobre cerro testigo",
     descripcionBreve:
-      "Fortaleza solitaria encaramada en un cerro testigo en término de Dosbarrios (Toledo), vigía silencioso sobre la llanura manchega.",
+      "El Castillo de Monreal, en Dosbarrios (Toledo), es una fortaleza medieval en ruinas sobre un cerro testigo. Historia, cómo llegar y visita.",
     imagen: monreal,
     coordenadas: [39.828047, -3.545575],
     acceso: "exterior",
     precio: "gratuito",
-    infoPractica: "Acceso limitado al exterior.",
+    aparcamiento: "limitado",
+    comoLlegar:
+      "El Castillo de Monreal se encuentra en el término municipal de Dosbarrios, provincia de Toledo (Castilla-La Mancha), sobre un cerro testigo que domina la llanura manchega. Sus coordenadas GPS son 39.828047, -3.545575.\n\nLa aproximación en coche llega hasta las inmediaciones del cerro, donde se puede estacionar de forma limitada al borde del camino; el vehículo no alcanza la propia entrada del recinto. Desde ese punto, la subida final se realiza a pie por pista de tierra y sendero, con unos 10-15 minutos de caminata en pendiente.\n\nRecomendable calzado de montaña: el itinerario no está acondicionado y no resulta apto para movilidad reducida.",
+    infoPractica:
+      "El Castillo de Monreal es una ruina de acceso libre y gratuito: no hay horarios, taquilla ni visitas guiadas. La visita se limita al exterior del recinto, donde pueden contemplarse la torre cilíndrica y los lienzos de muralla de mampostería que aún quedan en pie; no hay interior visitable ni itinerario señalizado.\n\nAl tratarse de una ruina sin consolidar situada al borde del cerro, conviene mantener distancia de los paramentos, no trepar por los muros y extremar la precaución con niños. El acceso final a pie por sendero en pendiente hace que la visita sea de dificultad moderada.",
     historia:
-      "El castillo de Monreal se alza sobre un espectacular cerro testigo desde el que se domina un amplio territorio manchego. Sus restos conservan parte de la torre cilíndrica y lienzos de muralla de mampostería, testimonio de una fortaleza medieval de origen islámico reaprovechada tras la Reconquista.",
+      "El Castillo de Monreal se alza sobre un espectacular cerro testigo en el término de Dosbarrios (Toledo), desde el que se domina un amplio territorio manchego. Su origen es andalusí, como atalaya defensiva encargada de vigilar el paso por la llanura, y fue reaprovechado tras la Reconquista por la ocupación cristiana antes de perder su función militar y quedar abandonado.\n\nArquitectónicamente conserva parte de una torre cilíndrica y varios lienzos de muralla de mampostería, la fábrica característica de las fortalezas medievales de esta comarca. Hoy se encuentra en estado de ruina, con los restos recortados sobre el perfil del cerro y visibles desde gran distancia, lo que constituye su principal interés: un testimonio de la arquitectura militar medieval toledana en un emplazamiento paisajístico excepcional.",
     cronologia: [
       { anio: "Siglos X-XI", evento: "Origen andalusí como atalaya defensiva." },
       { anio: "Siglos XII-XIII", evento: "Reocupación cristiana tras la Reconquista." },
