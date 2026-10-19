@@ -119,7 +119,7 @@ function Page() {
   return (
     <PageShell>
       <section className="relative isolate h-[60vh] min-h-[420px] overflow-hidden">
-        <img src={castillo.imagen} alt={castillo.nombre} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={castillo.imagen} alt={castillo.altImagen ?? castillo.nombre} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/85" />
         <span
           aria-hidden
@@ -382,7 +382,7 @@ function Page() {
                   className="group relative block aspect-[16/10] overflow-hidden rounded-lg border border-border/70"
                   aria-label={`Ampliar imagen ${i + 1} de ${castillo.nombre}`}
                 >
-                  <img src={src} alt={`${castillo.nombre} ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={src} alt={castillo.altGaleria?.[i] ?? `${castillo.nombre} ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <span
                     aria-hidden
                     className="pointer-events-none absolute bottom-1.5 right-2 select-none rounded bg-black/30 px-1.5 py-0.5 text-[10px] font-medium tracking-wide text-white/90 backdrop-blur-[2px]"
