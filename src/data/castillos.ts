@@ -2244,7 +2244,7 @@ export const CASTILLOS: Castillo[] = [
     categoria: "semirruina",
     estado: "ruinas",
     estadoDescripcion:
-      "Recinto andalusí en semirruina, con lienzos de muralla y restos de dependencias consolidados en lo alto de la Serra d'Irta",
+      "El conjunto conserva murallas, torres, restos arqueológicos y estructuras de distintas etapas históricas, musulmanas y cristianas, en lo alto de la Serra d'Irta. Está declarado Bien de Interés Cultural.",
     descripcionBreve:
       "Castillo de Xivert, fortaleza andalusí y templaria en la Serra d'Irta de Alcalà de Xivert (Castellón): historia, cómo llegar y cómo visitarlo.",
     imagen: xivert,
@@ -2258,7 +2258,7 @@ export const CASTILLOS: Castillo[] = [
     coordenadas: [40.308227, 0.255152],
     // youtubeUrl: pendiente — se añadirá cuando el vídeo esté publicado.
     historia:
-      "El Castillo de Xivert se alza en la Serra d'Irta, sobre el término de Alcalà de Xivert (Castellón). Es una fortaleza de origen andalusí que, tras la conquista cristiana del siglo XIII, pasó a manos de la Orden del Temple y, después de su disolución, a la Orden de Montesa. Con el tiempo la población abandonó el recinto en altura y se trasladó al llano, donde se desarrolló la actual Alcalà de Xivert.",
+      "El Castillo de Xivert se alza en la Serra d'Irta, sobre el término de Alcalà de Xivert (Castellón). Es una fortaleza de origen musulmán, construida entre los siglos X y XI, que formó parte de la red de defensa andalusí del territorio. Su posición elevada le daba un gran valor estratégico: desde lo alto se controlaban la llanura, los caminos y la costa mediterránea.\n\nTras la conquista cristiana, el castillo pasó a manos de la Orden del Temple, que transformó parte de la fortaleza para adaptarla a sus necesidades defensivas y de gobierno. Por eso hoy conviven en el conjunto elementos musulmanes y cristianos de distintas etapas. Después de la disolución del Temple pasó a la Orden de Montesa. Con el tiempo la población abandonó el recinto en altura y se trasladó al llano, donde se desarrolló la actual Alcalà de Xivert.",
     cronologia: [
       { anio: "Época andalusí", evento: "Fortaleza y poblado islámico en lo alto de la Serra d'Irta." },
       { anio: "Siglo XIII", evento: "Conquista cristiana y entrega del castillo a la Orden del Temple." },
@@ -2268,6 +2268,20 @@ export const CASTILLOS: Castillo[] = [
     curiosidades: [
       "Desde su posición en la Serra d'Irta se domina la llanura de Alcalà de Xivert y la costa mediterránea.",
     ],
+    acceso: "exterior",
+    precio: "gratuito",
+    aparcamiento: "disponible",
+    comoLlegar:
+      "Se puede llegar en coche hasta un aparcamiento próximo al Castillo de Xivert. Desde allí, el tramo final se realiza a pie, con un acceso de aproximadamente 15 minutos. Se recomienda llevar calzado cómodo, ya que el terreno es irregular y el entorno es montañoso (Sierra de Irta).\n\nAcceso y aparcamiento: aparcamiento próximo al castillo, tramo final a pie por terreno irregular. No consta oficialmente que el acceso esté adaptado para personas con movilidad reducida.",
+    infoPractica:
+      "Sí, el Castillo de Xivert se puede visitar. Turismo local organiza campañas de visitas guiadas. Para 2026 constan visitas guiadas entre el 14 de junio y el 16 de septiembre, los miércoles y viernes a las 08:45, con punto de encuentro en el parking del Castillo de Xivert. La visita es gratuita y no requiere inscripción previa. Nota: estos horarios son estacionales y pueden cambiar, por lo que conviene consultar con Tourist Info antes de desplazarse. Municipio: Alcalà de Xivert · Provincia: Castellón · Comunidad autónoma: Comunidad Valenciana · Protección: Bien de Interés Cultural · Entorno: Sierra de Irta.",
+    contactoOficial: {
+      telefono: { valor: "964 412 205", tipo: "Tourist Info Alcalà de Xivert / Alcossebre" },
+      telefonoSecundario: { valor: "686 116 117", tipo: "Información turística" },
+      email: "turismo@alcossebre.org",
+      gestor: "Tourist Info Alcalà de Xivert / Alcossebre",
+      notas: "Es recomendable contactar previamente para confirmar horarios, visitas guiadas y posibles cambios de acceso.",
+    },
     fechaPublicacion: "2026-10-19",
   },
 ];
