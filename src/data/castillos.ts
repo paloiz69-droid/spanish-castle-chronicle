@@ -62,6 +62,9 @@ import orgaz from "@/assets/castillos/orgaz.jpg";
 import orgaz2 from "@/assets/castillos/orgaz-2.jpg";
 import orgaz3 from "@/assets/castillos/orgaz-3.jpg";
 import orgaz4 from "@/assets/castillos/orgaz-4.jpg";
+import xivert from "@/assets/castillos/xivert.jpg";
+import xivert2 from "@/assets/castillos/xivert-2.jpg";
+import xivert3 from "@/assets/castillos/xivert-3.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -246,6 +249,12 @@ export interface Castillo {
   descripcionBreve: string;
   imagen: string;
   galeria?: string[];
+  /** Texto ALT opcional de la portada. */
+  altImagen?: string;
+  /** Título SEO opcional. */
+  tituloSeo?: string;
+  /** Textos ALT opcionales de la galería (mismo orden). */
+  altGaleria?: string[];
   coordenadas: [number, number];
   historia: string;
   cronologia: CronologiaEvento[];
@@ -2226,6 +2235,40 @@ export const CASTILLOS: Castillo[] = [
       "Desde el adarve se domina toda la villa y la llanura de los Montes de Toledo al sur.",
     ],
     fechaPublicacion: "2026-07-30",
+  },
+  {
+    slug: "castillo-de-xivert",
+    nombre: "Castillo de Xivert",
+    provincia: "Castellón",
+    comunidad: "Comunidad Valenciana",
+    categoria: "semirruina",
+    estado: "ruinas",
+    estadoDescripcion:
+      "Recinto andalusí en semirruina, con lienzos de muralla y restos de dependencias consolidados en lo alto de la Serra d'Irta",
+    descripcionBreve:
+      "Castillo de Xivert, fortaleza andalusí y templaria en la Serra d'Irta de Alcalà de Xivert (Castellón): historia, cómo llegar y cómo visitarlo.",
+    imagen: xivert,
+    altImagen: "Vista aérea del Castillo de Xivert",
+    tituloSeo: "Castillo de Xivert: historia, visita y cómo llegar",
+    galeria: [xivert2, xivert3],
+    altGaleria: [
+      "Interior del Castillo de Xivert",
+      "Camino de acceso y alrededores del Castillo de Xivert",
+    ],
+    coordenadas: [40.308227, 0.255152],
+    // youtubeUrl: pendiente — se añadirá cuando el vídeo esté publicado.
+    historia:
+      "El Castillo de Xivert se alza en la Serra d'Irta, sobre el término de Alcalà de Xivert (Castellón). Es una fortaleza de origen andalusí que, tras la conquista cristiana del siglo XIII, pasó a manos de la Orden del Temple y, después de su disolución, a la Orden de Montesa. Con el tiempo la población abandonó el recinto en altura y se trasladó al llano, donde se desarrolló la actual Alcalà de Xivert.",
+    cronologia: [
+      { anio: "Época andalusí", evento: "Fortaleza y poblado islámico en lo alto de la Serra d'Irta." },
+      { anio: "Siglo XIII", evento: "Conquista cristiana y entrega del castillo a la Orden del Temple." },
+      { anio: "Siglo XIV", evento: "Tras la disolución del Temple, pasa a la Orden de Montesa." },
+      { anio: "Actualidad", evento: "Recinto en semirruina con restos consolidados." },
+    ],
+    curiosidades: [
+      "Desde su posición en la Serra d'Irta se domina la llanura de Alcalà de Xivert y la costa mediterránea.",
+    ],
+    fechaPublicacion: "2026-10-19",
   },
 ];
 
