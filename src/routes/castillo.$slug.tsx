@@ -37,7 +37,7 @@ export const Route = createFileRoute("/castillo/$slug")({
     if (!loaderData) return { meta: [], links: [] };
     const c = loaderData.castillo;
     const url = `https://www.kdronazo.com/castillo/${params.slug}`;
-    const title = `${c.nombre}: cómo llegar, historia y visita`;
+    const title = c.tituloSeo ?? `${c.nombre}: cómo llegar, historia y visita`;
     return {
       meta: [
         { title },

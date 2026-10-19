@@ -251,6 +251,8 @@ export interface Castillo {
   galeria?: string[];
   /** Texto ALT opcional de la portada. */
   altImagen?: string;
+  /** Título SEO opcional. */
+  tituloSeo?: string;
   /** Textos ALT opcionales de la galería (mismo orden). */
   altGaleria?: string[];
   coordenadas: [number, number];
@@ -2247,6 +2249,7 @@ export const CASTILLOS: Castillo[] = [
       "Castillo de Xivert, fortaleza andalusí y templaria en la Serra d'Irta de Alcalà de Xivert (Castellón): historia, cómo llegar y cómo visitarlo.",
     imagen: xivert,
     altImagen: "Vista aérea del Castillo de Xivert",
+    tituloSeo: "Castillo de Xivert: historia, visita y cómo llegar",
     galeria: [xivert2, xivert3],
     altGaleria: [
       "Interior del Castillo de Xivert",
