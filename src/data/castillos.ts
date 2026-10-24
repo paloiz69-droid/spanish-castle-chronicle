@@ -1462,7 +1462,7 @@ export const CASTILLOS: Castillo[] = [
     precio: "gratuito",
     infoPractica: "Castillo en ruinas.",
     historia:
-      "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Alcarria castellana. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
+      "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Mancha conquense. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
     cronologia: [
       { anio: "Siglo XIV", evento: "Construcción por el linaje de los Luján." },
       { anio: "Siglo XV", evento: "Ampliación con torre albarrana y barbacana." },
@@ -1475,17 +1475,8 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/GBiICgN7Nmo",
     contactoOficial: {
-      telefono: {
-        valor: "+34 949 810 833",
-        tipo: "Oficina de Turismo",
-      },
-      telefonoSecundario: {
-        valor: "+34 949 810 001",
-        tipo: "Ayuntamiento",
-      },
-      email: "turismo@cifuentes.es",
-      webOficial: "https://cifuentes.es/",
-      gestor: "Ayuntamiento de Cifuentes",
+      gestor: "Ayuntamiento de Saelices",
+      notas: "Propiedad privada, en el paraje de Villa Paz junto a la carretera de Saelices a Segóbriga.",
     },
   },
   {
