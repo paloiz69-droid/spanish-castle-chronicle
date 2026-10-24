@@ -54,6 +54,24 @@ export const Route = createFileRoute("/crea-tu-ruta")({
 
 const MAX_PARADAS_TRAMO = 10; // 1 destino + 9 waypoints por URL de Google Maps
 
+const ORDENALES = [
+  "Primera",
+  "Segunda",
+  "Tercera",
+  "Cuarta",
+  "Quinta",
+  "Sexta",
+  "Séptima",
+  "Octava",
+  "Novena",
+  "Décima",
+];
+
+function etiquetaParada(index: number, total: number): string {
+  const base = ORDENALES[index] ? `${ORDENALES[index]} parada` : `Parada ${index + 1}`;
+  return index === total - 1 ? `${base} — Destino final` : base;
+}
+
 const norm = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
@@ -92,30 +110,50 @@ function coord(c: Castillo) {
   return `${c.coordenadas[0]},${c.coordenadas[1]}`;
 }
 
-/** Divide la ruta en tramos que Google Maps puede abrir mediante URL estándar. */
-function construirTramos(paradas: Castillo[], origen: string, volver: boolean) {
-  const puntos: string[] = [];
+interface PuntoRuta {
+  /** Valor que se envía a Google Maps (dirección libre o coordenadas exactas verificadas). */
+  valor: string;
+  /** Nombre legible para el visitante dentro de Kdronazo. */
+  etiqueta: string;
+}
+
+interface TramoRuta {
+  url: string;
+  /** Etiquetas de todos los puntos del tramo, de inicio a fin. */
+  recorrido: string[];
+}
+
+/**
+ * Divide la ruta en tramos que Google Maps puede abrir mediante URL estándar
+ * (formato oficial https://www.google.com/maps/dir/?api=1). Los castillos se
+ * envían como coordenadas exactas verificadas para que Maps no los confunda
+ * con otro lugar homónimo; sus nombres completos se muestran en Kdronazo.
+ * Ninguna parada se elimina: el último punto de un tramo es el origen del siguiente.
+ */
+function construirTramos(paradas: Castillo[], origen: string, volver: boolean): TramoRuta[] {
+  const puntos: PuntoRuta[] = [];
   const origenLimpio = origen.trim();
-  if (origenLimpio) puntos.push(origenLimpio);
-  paradas.forEach((c) => puntos.push(coord(c)));
-  if (volver && origenLimpio) puntos.push(origenLimpio);
+  if (origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  paradas.forEach((c) => puntos.push({ valor: coord(c), etiqueta: c.nombre }));
+  if (volver && origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
   if (puntos.length < 2) return [];
 
-  const tramos: string[] = [];
+  const tramos: TramoRuta[] = [];
   let i = 0;
   while (i < puntos.length - 1) {
     const trozo = puntos.slice(i, i + MAX_PARADAS_TRAMO + 1);
-    const inicio = trozo[0];
-    const fin = trozo[trozo.length - 1];
-    const medios = trozo.slice(1, -1);
     const params = new URLSearchParams({
       api: "1",
-      origin: inicio,
-      destination: fin,
+      origin: trozo[0].valor,
+      destination: trozo[trozo.length - 1].valor,
       travelmode: "driving",
     });
-    if (medios.length) params.set("waypoints", medios.join("|"));
-    tramos.push(`https://www.google.com/maps/dir/?${params.toString()}`);
+    const medios = trozo.slice(1, -1);
+    if (medios.length) params.set("waypoints", medios.map((p) => p.valor).join("|"));
+    tramos.push({
+      url: `https://www.google.com/maps/dir/?${params.toString()}`,
+      recorrido: trozo.map((p) => p.etiqueta),
+    });
     i += trozo.length - 1;
   }
   return tramos;
@@ -193,7 +231,7 @@ function Page() {
     } else {
       setAviso(null);
     }
-    window.open(tramos[0], "_blank", "noopener,noreferrer");
+    window.open(tramos[0].url, "_blank", "noopener,noreferrer");
   }
 
   function onGuardar() {
@@ -382,7 +420,20 @@ function Page() {
                 Aún no has añadido paradas.
               </p>
             ) : (
-              <ol className="mt-4 space-y-2">
+              <ol className="mt-4 space-y-2" aria-label="Itinerario de la ruta">
+                {origen.trim() && (
+                  <li className="flex items-center gap-2 rounded-lg border border-dashed border-border bg-background p-2">
+                    <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-bold text-foreground">
+                      ◉
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium text-foreground">{origen.trim()}</p>
+                      <p className="truncate text-xs font-medium uppercase tracking-wide text-primary">
+                        Origen
+                      </p>
+                    </div>
+                  </li>
+                )}
                 {paradas.map((c, i) => (
                   <li
                     key={c.slug}
@@ -393,7 +444,9 @@ function Page() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-foreground">{c.nombre}</p>
-                      <p className="truncate text-xs text-muted-foreground">{c.provincia}</p>
+                      <p className="truncate text-xs text-muted-foreground">
+                        {etiquetaParada(i, paradas.length)} · {c.provincia}
+                      </p>
                     </div>
                     <button
                       type="button"
@@ -423,6 +476,19 @@ function Page() {
                     </button>
                   </li>
                 ))}
+                {volver && origen.trim() && (
+                  <li className="flex items-center gap-2 rounded-lg border border-dashed border-border bg-background p-2">
+                    <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-bold text-foreground">
+                      ◉
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium text-foreground">{origen.trim()}</p>
+                      <p className="truncate text-xs font-medium uppercase tracking-wide text-primary">
+                        Regreso al origen
+                      </p>
+                    </div>
+                  </li>
+                )}
               </ol>
             )}
 
@@ -469,17 +535,20 @@ function Page() {
                 <p className="font-medium">
                   Ruta dividida en {tramos.length} tramos (límite de Google Maps por enlace):
                 </p>
-                <ul className="mt-2 space-y-1">
+                <ul className="mt-2 space-y-2">
                   {tramos.map((t, i) => (
-                    <li key={t}>
+                    <li key={t.url}>
                       <a
-                        href={t}
+                        href={t.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-primary hover:underline"
                       >
                         <ExternalLink className="h-3 w-3" /> Abrir tramo {i + 1}
                       </a>
+                      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                        {t.recorrido.join(" → ")}
+                      </p>
                     </li>
                   ))}
                 </ul>

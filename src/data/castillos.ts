@@ -1448,21 +1448,21 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-lujan",
     nombre: "Castillo de Luján",
-    provincia: "Guadalajara",
+    provincia: "Cuenca",
     comunidad: "Castilla-La Mancha",
     categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 23,
     estadoDescripcion: "En ruinas parcialmente restauradas — recinto amurallado con torres y almenas reconstruidas",
     descripcionBreve:
-      "Fortaleza señorial de la familia Luján en el despoblado de Luján (Cifuentes, Guadalajara), con su característica torre albarrana en plena Alcarria.",
+      "Fortaleza señorial de la familia Luján en el paraje de Villa Paz (Saelices, Cuenca), con su característica torre albarrana en plena Mancha conquense.",
     imagen: lujan,
     coordenadas: [39.889328, -2.776794],
     acceso: "interior",
     precio: "gratuito",
     infoPractica: "Castillo en ruinas.",
     historia:
-      "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Alcarria castellana. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
+      "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Mancha conquense. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
     cronologia: [
       { anio: "Siglo XIV", evento: "Construcción por el linaje de los Luján." },
       { anio: "Siglo XV", evento: "Ampliación con torre albarrana y barbacana." },
@@ -1475,17 +1475,8 @@ export const CASTILLOS: Castillo[] = [
     ],
     youtubeUrl: "https://youtu.be/GBiICgN7Nmo",
     contactoOficial: {
-      telefono: {
-        valor: "+34 949 810 833",
-        tipo: "Oficina de Turismo",
-      },
-      telefonoSecundario: {
-        valor: "+34 949 810 001",
-        tipo: "Ayuntamiento",
-      },
-      email: "turismo@cifuentes.es",
-      webOficial: "https://cifuentes.es/",
-      gestor: "Ayuntamiento de Cifuentes",
+      gestor: "Ayuntamiento de Saelices",
+      notas: "Propiedad privada, en el paraje de Villa Paz junto a la carretera de Saelices a Segóbriga.",
     },
   },
   {
@@ -1639,14 +1630,14 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-punoenrostro",
     nombre: "Castillo de Puñoenrostro",
-    provincia: "Madrid",
-    comunidad: "Comunidad de Madrid",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
     categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 28,
     estadoDescripcion: "En ruinas — torre del homenaje en pie y recinto amurallado conservado",
     descripcionBreve:
-      "Imponente torre del homenaje con torreones cilíndricos adosados, vigía castellana sobre la campiña al sur de Madrid.",
+      "Imponente torre del homenaje con torreones cilíndricos adosados, vigía castellana sobre la campiña de Seseña, en Toledo.",
     imagen: punoenrostro,
     coordenadas: [40.105872, -3.707317],
     acceso: "restringido",
