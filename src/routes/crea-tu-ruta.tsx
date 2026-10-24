@@ -92,30 +92,50 @@ function coord(c: Castillo) {
   return `${c.coordenadas[0]},${c.coordenadas[1]}`;
 }
 
-/** Divide la ruta en tramos que Google Maps puede abrir mediante URL estándar. */
-function construirTramos(paradas: Castillo[], origen: string, volver: boolean) {
-  const puntos: string[] = [];
+interface PuntoRuta {
+  /** Valor que se envía a Google Maps (dirección libre o coordenadas exactas verificadas). */
+  valor: string;
+  /** Nombre legible para el visitante dentro de Kdronazo. */
+  etiqueta: string;
+}
+
+interface TramoRuta {
+  url: string;
+  /** Etiquetas de todos los puntos del tramo, de inicio a fin. */
+  recorrido: string[];
+}
+
+/**
+ * Divide la ruta en tramos que Google Maps puede abrir mediante URL estándar
+ * (formato oficial https://www.google.com/maps/dir/?api=1). Los castillos se
+ * envían como coordenadas exactas verificadas para que Maps no los confunda
+ * con otro lugar homónimo; sus nombres completos se muestran en Kdronazo.
+ * Ninguna parada se elimina: el último punto de un tramo es el origen del siguiente.
+ */
+function construirTramos(paradas: Castillo[], origen: string, volver: boolean): TramoRuta[] {
+  const puntos: PuntoRuta[] = [];
   const origenLimpio = origen.trim();
-  if (origenLimpio) puntos.push(origenLimpio);
-  paradas.forEach((c) => puntos.push(coord(c)));
-  if (volver && origenLimpio) puntos.push(origenLimpio);
+  if (origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  paradas.forEach((c) => puntos.push({ valor: coord(c), etiqueta: c.nombre }));
+  if (volver && origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
   if (puntos.length < 2) return [];
 
-  const tramos: string[] = [];
+  const tramos: TramoRuta[] = [];
   let i = 0;
   while (i < puntos.length - 1) {
     const trozo = puntos.slice(i, i + MAX_PARADAS_TRAMO + 1);
-    const inicio = trozo[0];
-    const fin = trozo[trozo.length - 1];
-    const medios = trozo.slice(1, -1);
     const params = new URLSearchParams({
       api: "1",
-      origin: inicio,
-      destination: fin,
+      origin: trozo[0].valor,
+      destination: trozo[trozo.length - 1].valor,
       travelmode: "driving",
     });
-    if (medios.length) params.set("waypoints", medios.join("|"));
-    tramos.push(`https://www.google.com/maps/dir/?${params.toString()}`);
+    const medios = trozo.slice(1, -1);
+    if (medios.length) params.set("waypoints", medios.map((p) => p.valor).join("|"));
+    tramos.push({
+      url: `https://www.google.com/maps/dir/?${params.toString()}`,
+      recorrido: trozo.map((p) => p.etiqueta),
+    });
     i += trozo.length - 1;
   }
   return tramos;
