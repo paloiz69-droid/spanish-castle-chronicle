@@ -1455,7 +1455,7 @@ export const CASTILLOS: Castillo[] = [
     ordenRuinas: 23,
     estadoDescripcion: "En ruinas parcialmente restauradas — recinto amurallado con torres y almenas reconstruidas",
     descripcionBreve:
-      "Fortaleza señorial de la familia Luján en el despoblado de Luján (Cifuentes, Guadalajara), con su característica torre albarrana en plena Alcarria.",
+      "Fortaleza señorial de la familia Luján en el paraje de Villa Paz (Saelices, Cuenca), con su característica torre albarrana en plena Mancha conquense.",
     imagen: lujan,
     coordenadas: [39.889328, -2.776794],
     acceso: "interior",
@@ -1646,7 +1646,7 @@ export const CASTILLOS: Castillo[] = [
     ordenRuinas: 28,
     estadoDescripcion: "En ruinas — torre del homenaje en pie y recinto amurallado conservado",
     descripcionBreve:
-      "Imponente torre del homenaje con torreones cilíndricos adosados, vigía castellana sobre la campiña al sur de Madrid.",
+      "Imponente torre del homenaje con torreones cilíndricos adosados, vigía castellana sobre la campiña de Seseña, en Toledo.",
     imagen: punoenrostro,
     coordenadas: [40.105872, -3.707317],
     acceso: "restringido",
