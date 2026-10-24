@@ -420,7 +420,20 @@ function Page() {
                 Aún no has añadido paradas.
               </p>
             ) : (
-              <ol className="mt-4 space-y-2">
+              <ol className="mt-4 space-y-2" aria-label="Itinerario de la ruta">
+                {origen.trim() && (
+                  <li className="flex items-center gap-2 rounded-lg border border-dashed border-border bg-background p-2">
+                    <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-bold text-foreground">
+                      ◉
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium text-foreground">{origen.trim()}</p>
+                      <p className="truncate text-xs font-medium uppercase tracking-wide text-primary">
+                        Origen
+                      </p>
+                    </div>
+                  </li>
+                )}
                 {paradas.map((c, i) => (
                   <li
                     key={c.slug}
@@ -431,7 +444,9 @@ function Page() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium text-foreground">{c.nombre}</p>
-                      <p className="truncate text-xs text-muted-foreground">{c.provincia}</p>
+                      <p className="truncate text-xs text-muted-foreground">
+                        {etiquetaParada(i, paradas.length)} · {c.provincia}
+                      </p>
                     </div>
                     <button
                       type="button"
