@@ -54,6 +54,24 @@ export const Route = createFileRoute("/crea-tu-ruta")({
 
 const MAX_PARADAS_TRAMO = 10; // 1 destino + 9 waypoints por URL de Google Maps
 
+const ORDENALES = [
+  "Primera",
+  "Segunda",
+  "Tercera",
+  "Cuarta",
+  "Quinta",
+  "Sexta",
+  "Séptima",
+  "Octava",
+  "Novena",
+  "Décima",
+];
+
+function etiquetaParada(index: number, total: number): string {
+  const base = ORDENALES[index] ? `${ORDENALES[index]} parada` : `Parada ${index + 1}`;
+  return index === total - 1 ? `${base} — Destino final` : base;
+}
+
 const norm = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
@@ -213,7 +231,7 @@ function Page() {
     } else {
       setAviso(null);
     }
-    window.open(tramos[0], "_blank", "noopener,noreferrer");
+    window.open(tramos[0].url, "_blank", "noopener,noreferrer");
   }
 
   function onGuardar() {
