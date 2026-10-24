@@ -1448,7 +1448,7 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-lujan",
     nombre: "Castillo de Luján",
-    provincia: "Guadalajara",
+    provincia: "Cuenca",
     comunidad: "Castilla-La Mancha",
     categoria: "ruina-avanzada",
     estado: "ruinas",
@@ -1639,8 +1639,8 @@ export const CASTILLOS: Castillo[] = [
   {
     slug: "castillo-de-punoenrostro",
     nombre: "Castillo de Puñoenrostro",
-    provincia: "Madrid",
-    comunidad: "Comunidad de Madrid",
+    provincia: "Toledo",
+    comunidad: "Castilla-La Mancha",
     categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 28,
