@@ -476,6 +476,19 @@ function Page() {
                     </button>
                   </li>
                 ))}
+                {volver && origen.trim() && (
+                  <li className="flex items-center gap-2 rounded-lg border border-dashed border-border bg-background p-2">
+                    <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-bold text-foreground">
+                      ◉
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium text-foreground">{origen.trim()}</p>
+                      <p className="truncate text-xs font-medium uppercase tracking-wide text-primary">
+                        Regreso al origen
+                      </p>
+                    </div>
+                  </li>
+                )}
               </ol>
             )}
 
@@ -522,17 +535,20 @@ function Page() {
                 <p className="font-medium">
                   Ruta dividida en {tramos.length} tramos (límite de Google Maps por enlace):
                 </p>
-                <ul className="mt-2 space-y-1">
+                <ul className="mt-2 space-y-2">
                   {tramos.map((t, i) => (
-                    <li key={t}>
+                    <li key={t.url}>
                       <a
-                        href={t}
+                        href={t.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-primary hover:underline"
                       >
                         <ExternalLink className="h-3 w-3" /> Abrir tramo {i + 1}
                       </a>
+                      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                        {t.recorrido.join(" → ")}
+                      </p>
                     </li>
                   ))}
                 </ul>
