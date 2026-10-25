@@ -1,7 +1,8 @@
 # Documentary thumbnails and mobile planner usability
 
 ## Controlled Google Maps place-opening test
-- [ ] Apply the place-search trial only to La Coracera's planner stop button; verify other legs, manual origin and complete itinerary remain intact.
+- [x] Apply the place-search trial only to La Coracera's planner stop button; verify other legs, manual origin and complete itinerary remain intact.
+- Four URL tests passed; mobile flow Toledo → La Coracera → Orgaz → Toledo checked through the UI. La Coracera alone uses search; Orgaz and return retain Directions; complete itinerary still transmits Toledo. Local storage unchanged, no overflow or JS errors, build OK. Samsung test of the integrated button awaits user review; no live Maps calls or publication.
 - [x] Prepare one isolated La Coracera search link without changing planner navigation or publishing.
 - [x] Verify the local page, official URL parameters and mobile layout; leave live Samsung Maps behavior for user review.
 - Three URL tests passed; local page checked at 412px and 1280px with image rendered, one same-context search link, no overflow or JavaScript errors, and build OK. No Place ID was verified and no live Maps request was made; Samsung place resolution and avoidance of the intermediate screen remain for the user's test.
