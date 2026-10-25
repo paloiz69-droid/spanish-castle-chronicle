@@ -15,13 +15,7 @@ import {
 import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
 import { construirNavegacionInmediata } from "@/lib/planner-navigation";
-import {
-  escribirProgreso,
-  firmaItinerario,
-  leerProgreso,
-  siguienteEtapa,
-  type ProgresoPlanificador,
-} from "@/lib/planner-progress";
+import { escribirProgreso, leerProgreso } from "@/lib/planner-progress";
 import {
   CASTILLOS,
   CATEGORIAS,
@@ -281,10 +275,6 @@ function Page() {
   }, [navegacionInmediata, tramosIndividuales, paradas.length]);
 
   const [progresoCargado, setProgresoCargado] = useState(false);
-  const [ultima, setUltima] = useState<ProgresoPlanificador["ultima"]>(undefined);
-  const firma = firmaItinerario(slugs, origen, volver);
-  const indiceSiguiente = siguienteEtapa(ultima, firma, etapas.length);
-  const indiceUltima = ultima && ultima.firma === firma ? ultima.indice : null;
 
   useEffect(() => {
     const p = leerProgreso();
@@ -293,19 +283,14 @@ function Page() {
       setSlugs(validos);
       setOrigen(p.origen);
       setVolver(p.volver);
-      setUltima(p.ultima);
     }
     setProgresoCargado(true);
   }, []);
 
   useEffect(() => {
     if (!progresoCargado) return;
-    escribirProgreso({ slugs, origen, volver, ultima });
-  }, [progresoCargado, slugs, origen, volver, ultima]);
-
-  function marcarAbierta(indice: number) {
-    setUltima({ indice, firma });
-  }
+    escribirProgreso({ slugs, origen, volver });
+  }, [progresoCargado, slugs, origen, volver]);
 
   const distanciaTotal = useMemo(() => {
     let total = 0;
