@@ -26,5 +26,14 @@
 ## Catalogue documentary thumbnails
 - [x] Inspect existing component and static catalogue; change only frontend files, with no shared backend writes or publication.
 - [x] Reuse the component for all valid documentary URLs with lazy official thumbnails, reserved image space, accessible links and a missing-image fallback.
-- [ ] Verify all catalogue associations, desktop/mobile interaction, missing images, no-video behavior, diagnostics and before/after performance.
-- [ ] Deliver preview review findings without publishing.
+- [x] Verify all catalogue associations, desktop/mobile interaction, missing images, no-video behavior, diagnostics and before/after performance.
+- [x] Deliver preview review findings without publishing.
+
+### Documentary verification results
+- 45 catalogue entries have valid individual IDs; all 45 official thumbnail URLs returned HTTP 200 images. No entries lack video URLs.
+- Browser checked all 45 thumbnail/link associations and absence of iframes. Xivert and Busot links opened the correct YouTube URLs through keyboard activation; Xivert also passed mobile activation at 412px.
+- Desktop hover scale is 1.03; reduced-motion scale is none. Mobile layout remains 16:9 with no horizontal overflow. Simulated image error shows the fallback and retains the correct link.
+- Four identifier tests passed, including missing URL and invalid/channel URL handling. No real no-video catalogue page exists to exercise; no catalogue data was modified to create one.
+- No JavaScript errors; latest preview build OK. Official images load lazily one per viewed castle; sampled image transfers were approximately 21 KB for Xivert and 30 KB for Busot. No player requests or dependencies added.
+- Local before/after DCL samples: Busot 121/126 ms; Xivert 281/91 ms. These are single development-server observations, not production benchmarks; no reliable speed improvement is claimed.
+- No publication or shared backend writes occurred. Public Xivert still lacks the new documentary label and retains baseline script URLs; full text/script equality could not be established due to dynamic rendering, so do not claim byte-identical public output.
