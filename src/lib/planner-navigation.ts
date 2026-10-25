@@ -54,7 +54,7 @@ export function construirNavegacionInmediata(
 ): NavegacionInmediata[] {
   const enlaces = paradas.map((parada, index) => ({
     url: urlLugar(parada),
-    titulo: `Navegar a la parada ${index + 1}`,
+    titulo: `Abrir parada ${index + 1} en Google Maps`,
     hasta: parada.nombre,
   }));
   if (enlaces.length && volver && origen.trim()) {
