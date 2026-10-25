@@ -657,6 +657,14 @@ function Page() {
                           </li>
                         ))}
                       </ul>
+                      <p className="mt-3 flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
+                        <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                        <span>
+                          Puedes consultar cada recorrido desde el origen que hayas elegido. Al
+                          pulsar Iniciar en Google Maps, la navegación GPS puede utilizar tu
+                          ubicación actual.
+                        </span>
+                      </p>
                     </>
                   )}
                 </div>
