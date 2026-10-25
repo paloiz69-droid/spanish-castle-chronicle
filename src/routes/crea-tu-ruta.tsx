@@ -15,7 +15,6 @@ import {
 import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
 import { construirNavegacionInmediata } from "@/lib/planner-navigation";
-import { urlParadaDePrueba } from "@/lib/maps-place-trial";
 import {
   CASTILLOS,
   CATEGORIAS,
@@ -640,31 +639,38 @@ function Page() {
                     <>
                       <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
                       <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                        Los tramos conservan el origen planificado. Solo La Coracera abre su ficha de Google Maps como prueba, sin transmitir ese origen.
+                        Cada parada abre la ficha del castillo en Google Maps. El regreso conserva el origen planificado.
                       </p>
                       <ul className="mt-2 space-y-2">
-                        {tramosIndividuales.map((t) => {
-                          const destino = t.titulo === "Regresar al origen" ? undefined : paradas.find((c) => c.nombre === t.hasta);
-                          const esPruebaLugar = destino?.slug === "castillo-de-la-coracera";
-                          return (
-                          <li key={t.titulo}>
+                        {navegacionInmediata.slice(0, paradas.length).map((n) => (
+                          <li key={n.titulo}>
                             <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
-                              <a href={urlParadaDePrueba(destino?.slug, t.url)} target={esPruebaLugar ? undefined : "_blank"} rel="noopener noreferrer">
+                              <a href={n.url} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                                {t.titulo === "Regresar al origen" ? "Regresar al origen" : t.titulo.replace("Navegar a la parada", "Abrir parada")}
+                                {n.titulo.replace(" en Google Maps", "")}
                               </a>
                             </Button>
-                            <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                              {esPruebaLugar ? `Ficha de ${t.hasta} · San Martín de Valdeiglesias, Madrid` : `${t.desde} → ${t.hasta}`}
-                            </p>
+                            <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">Ficha de {n.hasta}</p>
                           </li>
-                        );
-                        })}
+                        ))}
+                        {tramosIndividuales
+                          .filter((t) => t.titulo === "Regresar al origen")
+                          .map((t) => (
+                            <li key={t.titulo}>
+                              <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
+                                <a href={t.url} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                                  Regresar al origen
+                                </a>
+                              </Button>
+                              <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">{`${t.desde} → ${t.hasta}`}</p>
+                            </li>
+                          ))}
                       </ul>
                       <p className="mt-3 flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
                         <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                         <span>
-                          La ficha de La Coracera no conserva el origen manual al pulsar «Cómo llegar» o «Iniciar»: Google Maps puede utilizar tu ubicación actual. El itinerario planificado de Kdronazo mantiene el origen elegido.
+                          La ficha del castillo no conserva el origen manual: al pulsar «Cómo llegar» o «Iniciar», Google Maps puede utilizar tu ubicación actual. «Calcular mi ruta» mantiene el origen elegido y todas las paradas.
                         </span>
                       </p>
                     </>
