@@ -577,6 +577,32 @@ function Page() {
             >
               <MapIcon className="h-4 w-4" /> Abrir ruta en Google Maps
             </button>
+            {tramosIndividuales.length > 0 && (
+              <div className="mt-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
+                <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
+                <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                  En algunos teléfonos, Google Maps solo muestra la primera parada de una ruta con
+                  varias paradas. Con estos enlaces abres cada desplazamiento por separado.
+                </p>
+                <ul className="mt-2 space-y-2">
+                  {tramosIndividuales.map((t) => (
+                    <li key={t.url}>
+                      <a
+                        href={t.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-2 font-medium text-primary hover:bg-secondary"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" /> {t.titulo}
+                      </a>
+                      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                        {t.desde} → {t.hasta}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {tramos.length > 1 && (
               <div className="mt-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
                 <p className="font-medium">
