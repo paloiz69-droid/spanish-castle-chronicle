@@ -236,6 +236,11 @@ function Page() {
     [paradas, origen, volver],
   );
 
+  const tramosIndividuales = useMemo(
+    () => construirTramosIndividuales(paradas, origen, volver),
+    [paradas, origen, volver],
+  );
+
   const distanciaTotal = useMemo(() => {
     let total = 0;
     for (let i = 1; i < paradas.length; i++) {
