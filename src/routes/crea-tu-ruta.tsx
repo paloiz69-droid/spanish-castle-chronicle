@@ -633,7 +633,7 @@ function Page() {
             </p>
 
             <div className="mt-4 flex flex-col gap-3">
-              {navegacionInmediata.length > 0 && (
+              {tramosIndividuales.length > 0 && (
                 <div className="order-1 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground md:order-2">
                   {tramosIndividuales.length > 0 && (
                     <>
@@ -647,7 +647,7 @@ function Page() {
                             <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
                               <a href={t.url} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                                {t.titulo === "Regresar al origen" ? "Regresar al origen en Google Maps" : `Abrir parada ${i + 1} en Google Maps`}
+                                {t.titulo === "Regresar al origen" ? "Regresar al origen" : t.titulo.replace("Navegar a la parada", "Abrir parada")}
                               </a>
                             </Button>
                             <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
@@ -656,46 +656,8 @@ function Page() {
                           </li>
                         ))}
                       </ul>
-                      <details className="mt-3 border-t border-border pt-3">
-                        <summary className="cursor-pointer font-medium">Consultar tramos planificados</summary>
-                        <ul className="mt-2 space-y-2">
-                          {tramosIndividuales.map((t) => (
-                            <li key={t.titulo}>
-                              <Button asChild variant="link" size="sm" className="h-auto justify-start whitespace-normal p-0 text-xs">
-                                <a href={t.url} target="_blank" rel="noopener noreferrer">
-                                  <ExternalLink className="h-3 w-3" />
-                                  {t.titulo === "Regresar al origen" ? "Consultar regreso planificado" : t.titulo.replace("Navegar a la parada", "Consultar tramo a la parada")}
-                                </a>
-                              </Button>
-                              <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                                {t.desde} → {t.hasta}
-                              </p>
-                            </li>
-                          ))}
-                        </ul>
-                      </details>
                     </>
                   )}
-                  <details className={tramosIndividuales.length > 0 ? "mt-3 border-t border-border pt-3" : ""} open={tramosIndividuales.length === 0}>
-                    <summary className="cursor-pointer font-medium">Opción secundaria: ver solo la ficha del castillo</summary>
-                    <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                      Solo muestra el castillo. Si después pides «Cómo llegar», Google Maps usará tu ubicación actual, no el origen elegido.
-                    </p>
-                    <ul className="mt-2 space-y-2">
-                      {navegacionInmediata
-                        .filter((t) => t.titulo !== "Regresar al origen")
-                        .map((t, i) => (
-                          <li key={t.titulo}>
-                            <Button asChild variant="link" size="sm" className="h-auto justify-start whitespace-normal p-0 text-xs">
-                              <a href={t.url} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink className="h-3 w-3" /> Ver ficha del castillo {i + 1}
-                              </a>
-                            </Button>
-                            <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">{t.hasta}</p>
-                          </li>
-                        ))}
-                    </ul>
-                  </details>
                 </div>
               )}
 
