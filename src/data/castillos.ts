@@ -1453,25 +1453,41 @@ export const CASTILLOS: Castillo[] = [
     categoria: "ruina-avanzada",
     estado: "ruinas",
     ordenRuinas: 23,
-    estadoDescripcion: "En ruinas parcialmente restauradas — recinto amurallado con torres y almenas reconstruidas",
+    estadoDescripcion:
+      "En ruina progresiva — castillo-palacio renacentista incluido en la Lista Roja de Hispania Nostra",
     descripcionBreve:
-      "Fortaleza señorial de la familia Luján en el paraje de Villa Paz (Saelices, Cuenca), con su característica torre albarrana en plena Mancha conquense.",
+      "Castillo-palacio renacentista y plateresco del siglo XVI, también conocido como El Castillejo, en el paraje de Villa Paz (Saelices, Cuenca).",
     imagen: lujan,
     coordenadas: [39.889328, -2.776794],
     acceso: "interior",
     precio: "gratuito",
     infoPractica: "Castillo en ruinas.",
     historia:
-      "El castillo de Luján fue construido como residencia fortificada del linaje de los Luján, una de las grandes familias nobiliarias de la Mancha conquense. Su recinto, de planta rectangular con torres circulares en las esquinas y una torre albarrana adelantada, ha sido parcialmente consolidado en intervenciones recientes.",
+      "El castillo de Luján, conocido también como El Castillejo, es un castillo-palacio renacentista y plateresco construido en el siglo XVI sobre una loma que domina el valle del río Cigüela, a pocos kilómetros del yacimiento romano de Segóbriga. El terreno era una dehesa de la Encomienda de Uclés que la Corona permutó a Gaspar Ramírez de Vargas hacia 1570-1571, a cambio de las salinas de Gormellón en Atienza. Hispania Nostra lo describe como una casa fuerte de planta pentagonal alargada, con muros perimetrales de sillería, foso —salvo en el lado oeste—, seis torreones y una torrecilla que flanquea la puerta del muro norte. Su barrera perimetral, dotada de troneras y cañoneras, estaba adaptada a la artillería, mientras que los matacanes, las ventanas ojivales de ladrillo y las metopas con adornos de flores de cerámica revelan su carácter residencial. Hoy es propiedad privada y figura en la Lista Roja del Patrimonio de Hispania Nostra por su estado de ruina progresiva.",
     cronologia: [
-      { anio: "Siglo XIV", evento: "Construcción por el linaje de los Luján." },
-      { anio: "Siglo XV", evento: "Ampliación con torre albarrana y barbacana." },
-      { anio: "Siglo XIX", evento: "Abandono tras la desamortización." },
-      { anio: "Siglo XXI", evento: "Trabajos de consolidación y restauración parcial." },
+      {
+        anio: "Siglo XVI",
+        evento:
+          "Construcción del castillo-palacio. Las fuentes discrepan sobre la fecha exacta: la Asociación Española de Amigos de los Castillos la sitúa en la primera mitad del siglo y Hispania Nostra, después de 1550.",
+      },
+      {
+        anio: "Hacia 1570-1571",
+        evento:
+          "La Corona permuta la dehesa, hasta entonces de la Encomienda de Uclés, a Gaspar Ramírez de Vargas a cambio de las salinas de Gormellón (Atienza).",
+      },
+      {
+        anio: "2007",
+        evento: "Inclusión en la Lista Roja del Patrimonio de Hispania Nostra.",
+      },
+      {
+        anio: "Actualidad",
+        evento:
+          "Propiedad privada en estado de ruina progresiva, con intervenciones parciales recientes para contener el deterioro.",
+      },
     ],
     curiosidades: [
-      "Su torre albarrana adelantada con almenas decorativas es uno de los rasgos más distintivos.",
-      "Conserva detalles de ladrillo rojizo sobre la mampostería caliza dorada.",
+      "También es conocido como El Castillejo, nombre con el que aparece en buena parte de las fuentes patrimoniales.",
+      "Combina rasgos militares —foso, troneras y cañoneras adaptadas a la artillería— con detalles residenciales platerescos como las ventanas ojivales y las metopas adornadas con flores de cerámica.",
     ],
     youtubeUrl: "https://youtu.be/GBiICgN7Nmo",
     contactoOficial: {
