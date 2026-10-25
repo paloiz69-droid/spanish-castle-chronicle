@@ -2263,7 +2263,7 @@ export const CASTILLOS: Castillo[] = [
       "Camino de acceso y alrededores del Castillo de Xivert",
     ],
     coordenadas: [40.308227, 0.255152],
-    // youtubeUrl: pendiente — se añadirá cuando el vídeo esté publicado.
+    youtubeUrl: "https://youtu.be/E5fFov0byw4",
     historia:
       "El Castillo de Xivert se alza en la Serra d'Irta, sobre el término de Alcalà de Xivert (Castellón). Es una fortaleza de origen musulmán, construida entre los siglos X y XI, que formó parte de la red de defensa andalusí del territorio. Su posición elevada le daba un gran valor estratégico: desde lo alto se controlaban la llanura, los caminos y la costa mediterránea.\n\nTras la conquista cristiana, el castillo pasó a manos de la Orden del Temple, que transformó parte de la fortaleza para adaptarla a sus necesidades defensivas y de gobierno. Por eso hoy conviven en el conjunto elementos musulmanes y cristianos de distintas etapas. Después de la disolución del Temple pasó a la Orden de Montesa. Con el tiempo la población abandonó el recinto en altura y se trasladó al llano, donde se desarrolló la actual Alcalà de Xivert.",
     cronologia: [

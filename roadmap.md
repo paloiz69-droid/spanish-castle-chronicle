@@ -1,5 +1,9 @@
 # Mobile planner usability
 
+## Xivert video
+- [ ] Associate the supplied video with Xivert only and add click-to-load official inline playback.
+- [ ] Verify desktop hover, mobile touch, deferred player loading and unchanged public page.
+
 - [x] Add a mobile planning shortcut with live count, header clearance, visibility management and reduced-motion support.
 - [x] Preserve mobile step-by-step priority and update the requested explanation without changing Maps links.
 - [x] Check selection, saved-route loading, mobile sizes, desktop, Maps URLs and preview diagnostics.
