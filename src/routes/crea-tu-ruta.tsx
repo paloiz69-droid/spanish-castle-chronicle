@@ -15,13 +15,7 @@ import {
 import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
 import { construirNavegacionInmediata } from "@/lib/planner-navigation";
-import {
-  escribirProgreso,
-  firmaItinerario,
-  leerProgreso,
-  siguienteEtapa,
-  type ProgresoPlanificador,
-} from "@/lib/planner-progress";
+import { escribirProgreso, leerProgreso } from "@/lib/planner-progress";
 import {
   CASTILLOS,
   CATEGORIAS,
@@ -281,10 +275,6 @@ function Page() {
   }, [navegacionInmediata, tramosIndividuales, paradas.length]);
 
   const [progresoCargado, setProgresoCargado] = useState(false);
-  const [ultima, setUltima] = useState<ProgresoPlanificador["ultima"]>(undefined);
-  const firma = firmaItinerario(slugs, origen, volver);
-  const indiceSiguiente = siguienteEtapa(ultima, firma, etapas.length);
-  const indiceUltima = ultima && ultima.firma === firma ? ultima.indice : null;
 
   useEffect(() => {
     const p = leerProgreso();
@@ -293,19 +283,14 @@ function Page() {
       setSlugs(validos);
       setOrigen(p.origen);
       setVolver(p.volver);
-      setUltima(p.ultima);
     }
     setProgresoCargado(true);
   }, []);
 
   useEffect(() => {
     if (!progresoCargado) return;
-    escribirProgreso({ slugs, origen, volver, ultima });
-  }, [progresoCargado, slugs, origen, volver, ultima]);
-
-  function marcarAbierta(indice: number) {
-    setUltima({ indice, firma });
-  }
+    escribirProgreso({ slugs, origen, volver });
+  }, [progresoCargado, slugs, origen, volver]);
 
   const distanciaTotal = useMemo(() => {
     let total = 0;
@@ -697,43 +682,17 @@ function Page() {
                       <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
                         Cada parada abre la ficha del castillo en Google Maps. El regreso conserva el origen planificado.
                       </p>
-                      {indiceSiguiente !== null && etapas[indiceSiguiente] ? (
-                        <a
-                          href={etapas[indiceSiguiente].url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => marcarAbierta(indiceSiguiente)}
-                          className="mt-3 flex w-full items-center gap-3 rounded-lg bg-accent px-4 py-3.5 text-accent-foreground shadow-md transition-all hover:bg-accent/90 active:scale-[0.98]"
-                        >
-                          <RouteIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
-                          <span className="min-w-0">
-                            <span className="block text-base font-bold leading-tight">
-                              {etapas[indiceSiguiente].esRegreso
-                                ? "Siguiente: regreso al origen — Abrir en Google Maps"
-                                : `Siguiente parada: ${indiceSiguiente + 1} — Abrir en Google Maps`}
-                            </span>
-                            <span className="mt-0.5 block text-sm leading-snug">{etapas[indiceSiguiente].nombre}</span>
-                          </span>
-                        </a>
-                      ) : (
-                        etapas.length > 0 && (
-                          <p className="mt-3 rounded-md border border-border bg-background p-3 text-sm font-medium">
-                            Ya has abierto todas las etapas. Puedes volver a abrir cualquiera desde la lista.
-                          </p>
-                        )
-                      )}
                       <ul className="mt-3 space-y-2">
-                        {etapas.map((e, i) => (
+                        {etapas.map((e) => (
                           <li key={e.titulo}>
                             <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
-                              <a href={e.url} target="_blank" rel="noopener noreferrer" onClick={() => marcarAbierta(i)}>
+                              <a href={e.url} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                                 {e.titulo}
                               </a>
                             </Button>
                             <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
                               {e.detalle}
-                              {i === indiceUltima && " · Última abierta"}
                             </p>
                           </li>
                         ))}
@@ -741,7 +700,7 @@ function Page() {
                       <p className="mt-3 flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
                         <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                         <span>
-                          La ficha del castillo no conserva el origen manual: al pulsar «Cómo llegar» o «Iniciar», Google Maps puede utilizar tu ubicación actual. Kdronazo recuerda la última parada abierta, no las marca como visitadas.
+                          La ficha del castillo no conserva el origen manual: al pulsar «Cómo llegar» o «Iniciar», Google Maps puede utilizar tu ubicación actual.
                         </span>
                       </p>
                     </>
