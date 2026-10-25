@@ -15,7 +15,6 @@ import {
 import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
 import { construirNavegacionInmediata } from "@/lib/planner-navigation";
-import { urlParadaDePrueba } from "@/lib/maps-place-trial";
 import {
   CASTILLOS,
   CATEGORIAS,
