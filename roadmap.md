@@ -1,5 +1,9 @@
 # Documentary thumbnails and mobile planner usability
 
+## Redundant sidebar video button
+- [x] Hide only the sidebar video button when the shared clickable thumbnail is present; preserve original links and other controls.
+- [ ] Verify desktop/mobile thumbnail activation, missing-image fallback, layout and unchanged public page without publishing.
+
 ## Xivert video
 - [x] Associate the supplied video with Xivert only and add click-to-load official inline playback.
 - [x] Verify desktop hover, mobile touch, deferred player loading and unchanged public page.

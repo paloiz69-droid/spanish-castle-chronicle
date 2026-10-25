@@ -481,7 +481,7 @@ function Page() {
               <Navigation className="h-4 w-4" /> 📍 Cómo llegar
             </a>
           </div>
-          {videoUrl && (
+          {videoUrl && !videoId && (
             <a
               href={videoUrl}
               target="_blank"
