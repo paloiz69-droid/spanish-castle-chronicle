@@ -112,7 +112,16 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
         .map(norm)
         .join(" | ");
       return hay.includes(term);
-    }).slice(0, 12);
+    });
+  }, [q, comunidad, provincia, categoria, acceso, precio]);
+
+  const [mostrarTodos, setMostrarTodos] = useState(false);
+  const LIMITE_RESULTADOS = 12;
+  const visible = mostrarTodos ? results : results.slice(0, LIMITE_RESULTADOS);
+  const ocultos = results.length - visible.length;
+
+  useEffect(() => {
+    setMostrarTodos(false);
   }, [q, comunidad, provincia, categoria, acceso, precio]);
 
   const provincias = useMemo(() => getProvincias(), []);
