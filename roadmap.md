@@ -1,5 +1,10 @@
 # Documentary thumbnails and mobile planner usability
 
+## Current-location GPS navigation
+- [ ] Add separate immediate-navigation links with exact destinations, driving and dir_action=navigate, without a fixed origin.
+- [ ] Preserve planned-leg consultation, complete itinerary, origin, stop order and saved routes.
+- [ ] Run URL tests and desktop/mobile planner checks; offer Samsung review without publishing.
+
 ## Redundant sidebar video button
 - [x] Hide only the sidebar video button when the shared clickable thumbnail is present; preserve original links and other controls.
 - [x] Verify desktop/mobile thumbnail activation, missing-image fallback, layout and unchanged public page without publishing.
