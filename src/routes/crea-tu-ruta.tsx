@@ -123,6 +123,59 @@ interface TramoRuta {
   recorrido: string[];
 }
 
+interface TramoIndividual {
+  url: string;
+  /** Texto del botón, p. ej. «Navegar a la parada 2». */
+  titulo: string;
+  /** Origen y destino legibles del tramo. */
+  desde: string;
+  hasta: string;
+}
+
+function puntosDeRuta(paradas: Castillo[], origen: string, volver: boolean): PuntoRuta[] {
+  const puntos: PuntoRuta[] = [];
+  const origenLimpio = origen.trim();
+  if (origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  paradas.forEach((c) => puntos.push({ valor: coord(c), etiqueta: c.nombre }));
+  if (volver && origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  return puntos;
+}
+
+function urlMapsDir(origen: string, destino: string, medios: string[] = []): string {
+  const params = new URLSearchParams({
+    api: "1",
+    origin: origen,
+    destination: destino,
+    travelmode: "driving",
+  });
+  if (medios.length) params.set("waypoints", medios.join("|"));
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
+}
+
+/**
+ * Un enlace por cada desplazamiento (origen → parada 1, parada 1 → parada 2, …),
+ * pensado para móviles, donde Google Maps puede no admitir varias paradas en un
+ * solo enlace. Cada enlace lleva solo origen y destino, con coordenadas exactas.
+ */
+function construirTramosIndividuales(paradas: Castillo[], origen: string, volver: boolean): TramoIndividual[] {
+  const puntos = puntosDeRuta(paradas, origen, volver);
+  const hayOrigen = origen.trim().length > 0;
+  const tramos: TramoIndividual[] = [];
+  for (let i = 1; i < puntos.length; i++) {
+    const desde = puntos[i - 1];
+    const hasta = puntos[i];
+    const esRegreso = volver && hayOrigen && i === puntos.length - 1;
+    const indiceParada = hayOrigen ? i : i + 1; // número de la parada destino (1 = primera)
+    tramos.push({
+      url: urlMapsDir(desde.valor, hasta.valor),
+      titulo: esRegreso ? "Regresar al origen" : `Navegar a la parada ${indiceParada}`,
+      desde: desde.etiqueta,
+      hasta: hasta.etiqueta,
+    });
+  }
+  return tramos;
+}
+
 /**
  * Divide la ruta en tramos que Google Maps puede abrir mediante URL estándar
  * (formato oficial https://www.google.com/maps/dir/?api=1). Los castillos se
@@ -131,27 +184,16 @@ interface TramoRuta {
  * Ninguna parada se elimina: el último punto de un tramo es el origen del siguiente.
  */
 function construirTramos(paradas: Castillo[], origen: string, volver: boolean): TramoRuta[] {
-  const puntos: PuntoRuta[] = [];
-  const origenLimpio = origen.trim();
-  if (origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
-  paradas.forEach((c) => puntos.push({ valor: coord(c), etiqueta: c.nombre }));
-  if (volver && origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  const puntos = puntosDeRuta(paradas, origen, volver);
   if (puntos.length < 2) return [];
 
   const tramos: TramoRuta[] = [];
   let i = 0;
   while (i < puntos.length - 1) {
     const trozo = puntos.slice(i, i + MAX_PARADAS_TRAMO + 1);
-    const params = new URLSearchParams({
-      api: "1",
-      origin: trozo[0].valor,
-      destination: trozo[trozo.length - 1].valor,
-      travelmode: "driving",
-    });
     const medios = trozo.slice(1, -1);
-    if (medios.length) params.set("waypoints", medios.map((p) => p.valor).join("|"));
     tramos.push({
-      url: `https://www.google.com/maps/dir/?${params.toString()}`,
+      url: urlMapsDir(trozo[0].valor, trozo[trozo.length - 1].valor, medios.map((p) => p.valor)),
       recorrido: trozo.map((p) => p.etiqueta),
     });
     i += trozo.length - 1;
@@ -191,6 +233,11 @@ function Page() {
 
   const tramos = useMemo(
     () => construirTramos(paradas, origen, volver),
+    [paradas, origen, volver],
+  );
+
+  const tramosIndividuales = useMemo(
+    () => construirTramosIndividuales(paradas, origen, volver),
     [paradas, origen, volver],
   );
 
@@ -530,6 +577,32 @@ function Page() {
             >
               <MapIcon className="h-4 w-4" /> Abrir ruta en Google Maps
             </button>
+            {tramosIndividuales.length > 0 && (
+              <div className="mt-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
+                <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
+                <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                  En algunos teléfonos, Google Maps solo muestra la primera parada de una ruta con
+                  varias paradas. Con estos enlaces abres cada desplazamiento por separado.
+                </p>
+                <ul className="mt-2 space-y-2">
+                  {tramosIndividuales.map((t) => (
+                    <li key={t.url}>
+                      <a
+                        href={t.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-2 font-medium text-primary hover:bg-secondary"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" /> {t.titulo}
+                      </a>
+                      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                        {t.desde} → {t.hasta}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {tramos.length > 1 && (
               <div className="mt-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
                 <p className="font-medium">
