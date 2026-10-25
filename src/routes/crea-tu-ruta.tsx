@@ -165,7 +165,7 @@ function construirTramosIndividuales(paradas: Castillo[], origen: string, volver
     const desde = puntos[i - 1];
     const hasta = puntos[i];
     const esRegreso = volver && hayOrigen && i === puntos.length - 1;
-    const indiceParada = hayOrigen ? i : i; // posición de la parada destino dentro de `paradas`
+    const indiceParada = hayOrigen ? i : i + 1; // número de la parada destino (1 = primera)
     tramos.push({
       url: urlMapsDir(desde.valor, hasta.valor),
       titulo: esRegreso ? "Regresar al origen" : `Navegar a la parada ${indiceParada}`,
