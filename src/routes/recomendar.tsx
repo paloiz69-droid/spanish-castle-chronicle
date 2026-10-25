@@ -8,6 +8,10 @@ export const Route = createFileRoute("/recomendar")({
     meta: [
       { title: "Recomienda un castillo — Kdronazo" },
       { name: "description", content: "Propón un castillo para futuros reportajes aéreos del canal Kdronazo." },
+      { property: "og:title", content: "Recomienda un castillo — Kdronazo" },
+      { property: "og:description", content: "Propón un castillo para futuros reportajes aéreos del canal Kdronazo." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.kdronazo.com/recomendar" }],
   }),

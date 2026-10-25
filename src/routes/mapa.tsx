@@ -14,6 +14,8 @@ export const Route = createFileRoute("/mapa")({
       { name: "description", content: "Mapa interactivo con la ubicación de todos los castillos catalogados en Kdronazo." },
       { property: "og:title", content: "Mapa Interactivo — Kdronazo" },
       { property: "og:description", content: "Explora los castillos de España sobre un mapa interactivo." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.kdronazo.com/mapa" }],
   }),

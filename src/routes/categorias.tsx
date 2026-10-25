@@ -9,6 +9,8 @@ export const Route = createFileRoute("/categorias")({
       { name: "description", content: "Clasificación de castillos de España por estado de conservación: conservado, consolidado, semirruina, ruina avanzada y ruina arqueológica." },
       { property: "og:title", content: "Categorías de Castillos — Kdronazo" },
       { property: "og:description", content: "Explora los castillos de España por su nivel real de conservación." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.kdronazo.com/categorias" }],
   }),

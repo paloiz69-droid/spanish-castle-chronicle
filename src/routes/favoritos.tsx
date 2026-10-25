@@ -20,6 +20,8 @@ export const Route = createFileRoute("/favoritos")({
         property: "og:description",
         content: "Tu colección personal de castillos guardados en Kdronazo.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.kdronazo.com/favoritos" }],
   }),
