@@ -123,6 +123,59 @@ interface TramoRuta {
   recorrido: string[];
 }
 
+interface TramoIndividual {
+  url: string;
+  /** Texto del botón, p. ej. «Navegar a la parada 2». */
+  titulo: string;
+  /** Origen y destino legibles del tramo. */
+  desde: string;
+  hasta: string;
+}
+
+function puntosDeRuta(paradas: Castillo[], origen: string, volver: boolean): PuntoRuta[] {
+  const puntos: PuntoRuta[] = [];
+  const origenLimpio = origen.trim();
+  if (origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  paradas.forEach((c) => puntos.push({ valor: coord(c), etiqueta: c.nombre }));
+  if (volver && origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  return puntos;
+}
+
+function urlMapsDir(origen: string, destino: string, medios: string[] = []): string {
+  const params = new URLSearchParams({
+    api: "1",
+    origin: origen,
+    destination: destino,
+    travelmode: "driving",
+  });
+  if (medios.length) params.set("waypoints", medios.join("|"));
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
+}
+
+/**
+ * Un enlace por cada desplazamiento (origen → parada 1, parada 1 → parada 2, …),
+ * pensado para móviles, donde Google Maps puede no admitir varias paradas en un
+ * solo enlace. Cada enlace lleva solo origen y destino, con coordenadas exactas.
+ */
+function construirTramosIndividuales(paradas: Castillo[], origen: string, volver: boolean): TramoIndividual[] {
+  const puntos = puntosDeRuta(paradas, origen, volver);
+  const hayOrigen = origen.trim().length > 0;
+  const tramos: TramoIndividual[] = [];
+  for (let i = 1; i < puntos.length; i++) {
+    const desde = puntos[i - 1];
+    const hasta = puntos[i];
+    const esRegreso = volver && hayOrigen && i === puntos.length - 1;
+    const indiceParada = hayOrigen ? i : i; // posición de la parada destino dentro de `paradas`
+    tramos.push({
+      url: urlMapsDir(desde.valor, hasta.valor),
+      titulo: esRegreso ? "Regresar al origen" : `Navegar a la parada ${indiceParada}`,
+      desde: desde.etiqueta,
+      hasta: hasta.etiqueta,
+    });
+  }
+  return tramos;
+}
+
 /**
  * Divide la ruta en tramos que Google Maps puede abrir mediante URL estándar
  * (formato oficial https://www.google.com/maps/dir/?api=1). Los castillos se
