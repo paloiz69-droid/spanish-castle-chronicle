@@ -362,9 +362,9 @@ function Page() {
         </div>
       )}
 
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
         {/* Selector */}
-        <section aria-labelledby="seleccion-titulo">
+        <section aria-labelledby="seleccion-titulo" className="min-w-0">
           <h2 id="seleccion-titulo" className="font-display text-2xl text-foreground">
             1. Selecciona castillos
           </h2>
@@ -492,7 +492,7 @@ function Page() {
         </section>
 
         {/* Mi ruta */}
-        <aside id="planificacion-ruta" ref={plannerRef} className="lg:sticky lg:top-24 lg:self-start">
+        <aside id="planificacion-ruta" ref={plannerRef} className="min-w-0 lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-xl border border-border bg-card p-4">
             <h2 tabIndex={-1} className="font-display text-2xl text-foreground">2. Mi ruta</h2>
             <p className="mt-1 text-xs text-muted-foreground">
@@ -718,7 +718,7 @@ function Page() {
                 onChange={(e) => setNombreRuta(e.target.value)}
                 placeholder="Nombre de la ruta"
                 aria-label="Nombre de la ruta"
-                className="h-10 flex-1 rounded-md border border-input bg-background px-3 text-sm text-foreground"
+                className="h-10 min-w-0 flex-1 rounded-md border border-input bg-background px-3 text-sm text-foreground"
               />
               <button
                 type="button"
