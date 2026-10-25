@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowDown,
   ArrowUp,
@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
+import { Button } from "@/components/ui/button";
 import {
   CASTILLOS,
   CATEGORIAS,
@@ -210,6 +211,9 @@ function Page() {
   const [volver, setVolver] = useState(false);
   const [nombreRuta, setNombreRuta] = useState("");
   const [aviso, setAviso] = useState<string | null>(null);
+  const plannerRef = useRef<HTMLElement>(null);
+  const [plannerVisible, setPlannerVisible] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(0);
   const rutasGuardadas = useRutasGuardadas();
   const provincias = useMemo(() => getProvincias(), []);
 
@@ -248,6 +252,40 @@ function Page() {
     }
     return Math.round(total);
   }, [paradas]);
+
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
+    const measure = () => setHeaderHeight(header.getBoundingClientRect().height);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const planner = plannerRef.current;
+    if (!planner) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setPlannerVisible(Boolean(entry?.isIntersecting)),
+      { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0 },
+    );
+    observer.observe(planner);
+    return () => observer.disconnect();
+  }, [headerHeight]);
+
+  function irAlPlanificador() {
+    const planner = plannerRef.current;
+    if (!planner) return;
+    const header = document.querySelector("header");
+    const offset = (header?.getBoundingClientRect().height ?? headerHeight) + 16;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({
+      top: window.scrollY + planner.getBoundingClientRect().top - offset,
+      behavior: reducedMotion ? "instant" : "smooth",
+    });
+    planner.querySelector<HTMLElement>("h2")?.focus({ preventScroll: true });
+  }
 
   function toggle(slug: string) {
     setSlugs((prev) =>
@@ -305,9 +343,28 @@ function Page() {
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
+      {paradas.length > 0 && (
+        <div
+          className={`sticky z-40 flex justify-center border-b border-border bg-background px-4 py-2 lg:hidden ${plannerVisible ? "invisible pointer-events-none" : ""}`}
+          style={{ top: headerHeight, paddingLeft: "max(1rem, env(safe-area-inset-left))", paddingRight: "max(1rem, env(safe-area-inset-right))" }}
+        >
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={irAlPlanificador}
+            aria-controls="planificacion-ruta"
+            className="h-11 max-w-full border border-border"
+          >
+            <RouteIcon aria-hidden="true" />
+            <span aria-live="polite" aria-atomic="true">Planificar mi ruta ({paradas.length})</span>
+            <ArrowDown aria-hidden="true" />
+          </Button>
+        </div>
+      )}
+
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
         {/* Selector */}
-        <section aria-labelledby="seleccion-titulo">
+        <section aria-labelledby="seleccion-titulo" className="min-w-0">
           <h2 id="seleccion-titulo" className="font-display text-2xl text-foreground">
             1. Selecciona castillos
           </h2>
@@ -435,9 +492,9 @@ function Page() {
         </section>
 
         {/* Mi ruta */}
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+        <aside id="planificacion-ruta" ref={plannerRef} className="min-w-0 lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-xl border border-border bg-card p-4">
-            <h2 className="font-display text-2xl text-foreground">2. Mi ruta</h2>
+            <h2 tabIndex={-1} className="font-display text-2xl text-foreground">2. Mi ruta</h2>
             <p className="mt-1 text-xs text-muted-foreground">
               Esta ruta es temporal y desaparecerá cuando cierres o recargues la página.
             </p>
@@ -607,7 +664,7 @@ function Page() {
                   <MapIcon className="h-4 w-4" /> Ver itinerario completo en Google Maps
                 </button>
                 <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-                  Consulta todas las paradas del recorrido. La navegación con varias paradas puede
+                  Consulta todas las paradas del recorrido. La navegación multiparada puede
                   no estar disponible en algunos móviles.
                 </p>
               </div>
@@ -661,7 +718,7 @@ function Page() {
                 onChange={(e) => setNombreRuta(e.target.value)}
                 placeholder="Nombre de la ruta"
                 aria-label="Nombre de la ruta"
-                className="h-10 flex-1 rounded-md border border-input bg-background px-3 text-sm text-foreground"
+                className="h-10 min-w-0 flex-1 rounded-md border border-input bg-background px-3 text-sm text-foreground"
               />
               <button
                 type="button"

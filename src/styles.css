@@ -214,6 +214,12 @@
   z-index: 1;
 }
 
+/* Preserve the planner's sticky header above its mobile shortcut. */
+.kd-stone-bg:has(#planificacion-ruta) > header {
+  position: sticky;
+  z-index: 1000;
+}
+
 /* Animaciones suaves de entrada */
 @keyframes kdFadeIn {
   from { opacity: 0; }
