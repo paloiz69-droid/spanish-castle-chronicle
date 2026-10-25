@@ -9,6 +9,7 @@ import { InformacionDron } from "@/components/site/InformacionDron";
 import { AccesoCastillo } from "@/components/site/AccesoCastillo";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
+import { YoutubeVideo } from "@/components/site/YoutubeVideo";
 import {
   CASTILLOS,
   getCastilloBySlug,
@@ -217,6 +218,12 @@ function Page() {
               ))}
             </ul>
           </Section>
+
+          {castillo.slug === "castillo-de-xivert" && videoUrl && (
+            <Section title="Vídeo del Castillo">
+              <YoutubeVideo key={castillo.slug} videoId="E5fFov0byw4" nombre={castillo.nombre} />
+            </Section>
+          )}
 
           {!videoUrl && (
             <Section title="Vídeo del Castillo">
