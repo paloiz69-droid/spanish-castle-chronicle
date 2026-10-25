@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ExternalLink, Info } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
-import { castillos } from "@/data/castillos";
+import { CASTILLOS } from "@/data/castillos";
 import { MAPS_PLACE_TRIAL_URL } from "@/lib/maps-place-trial";
 
 export const Route = createFileRoute("/prueba-google-maps")({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/prueba-google-maps")({
 });
 
 function MapsPlaceTrial() {
-  const castillo = castillos.find((item) => item.slug === "castillo-de-la-coracera");
+  const castillo = CASTILLOS.find((item) => item.slug === "castillo-de-la-coracera");
 
   return (
     <PageShell>
