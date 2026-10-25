@@ -164,16 +164,16 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
           }}
           onFocus={() => setOpen(true)}
           onKeyDown={(e) => {
-            if (!open || results.length === 0) return;
+            if (!open || visible.length === 0) return;
             if (e.key === "ArrowDown") {
               e.preventDefault();
-              setActive((i) => (i + 1) % results.length);
+              setActive((i) => (i + 1) % visible.length);
             } else if (e.key === "ArrowUp") {
               e.preventDefault();
-              setActive((i) => (i - 1 + results.length) % results.length);
+              setActive((i) => (i - 1 + visible.length) % visible.length);
             } else if (e.key === "Enter") {
               e.preventDefault();
-              go(results[active].slug);
+              go(visible[active].slug);
             } else if (e.key === "Escape") {
               setOpen(false);
             }
@@ -300,7 +300,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
                 <div className="px-1 py-3 text-sm text-muted-foreground">Sin resultados con los criterios seleccionados.</div>
               ) : (
                 <ul className="space-y-1">
-                  {results.map((c) => {
+              {visible.map((c) => {
                     const cat = getCategoriaInfo(c.categoria);
                     return (
                       <li key={c.slug}>
@@ -324,8 +324,17 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
                         </Link>
                       </li>
                     );
-                  })}
+              })}
                 </ul>
+              )}
+              {ocultos > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setMostrarTodos(true)}
+                  className="mt-2 w-full rounded border border-border px-2 py-1.5 text-center text-xs font-medium text-primary hover:bg-accent/60"
+                >
+                  Ver todos los resultados ({results.length})
+                </button>
               )}
             </div>
           )}
@@ -342,7 +351,7 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
             </div>
           ) : (
             <ul className="max-h-96 overflow-auto py-1">
-              {results.map((c, i) => {
+              {visible.map((c, i) => {
                 const cat = getCategoriaInfo(c.categoria);
                 return (
                   <li key={c.slug}>
@@ -371,6 +380,15 @@ export function SearchCastillos({ compact = false }: { compact?: boolean }) {
                 );
               })}
             </ul>
+          )}
+          {ocultos > 0 && (
+            <button
+              type="button"
+              onClick={() => setMostrarTodos(true)}
+              className="w-full border-t border-border px-3 py-2 text-center text-xs font-medium text-primary hover:bg-accent/60"
+            >
+              Ver todos los resultados ({results.length})
+            </button>
           )}
         </div>
         </DropdownPortal>
