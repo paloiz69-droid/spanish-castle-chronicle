@@ -10,6 +10,7 @@ import { AccesoCastillo } from "@/components/site/AccesoCastillo";
 import { FavoriteButton } from "@/components/site/FavoriteButton";
 import { Lightbox } from "@/components/site/Lightbox";
 import { YoutubeVideo } from "@/components/site/YoutubeVideo";
+import { getYoutubeVideoId } from "@/lib/youtube";
 import {
   CASTILLOS,
   getCastilloBySlug,
@@ -107,6 +108,7 @@ function Page() {
   const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
   const cat = getCategoriaInfo(castillo.categoria);
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
+  const videoId = getYoutubeVideoId(castillo.youtubeUrl);
   const nuevo = esCastilloNuevo(castillo);
   const direccionesUrl = getDireccionesUrl(castillo);
   const acceso = getAccesoInfo(castillo.acceso);
@@ -219,9 +221,9 @@ function Page() {
             </ul>
           </Section>
 
-          {castillo.slug === "castillo-de-xivert" && videoUrl && (
+          {videoId && videoUrl && (
             <Section title="Vídeo del Castillo">
-              <YoutubeVideo key={castillo.slug} videoId="E5fFov0byw4" nombre={castillo.nombre} />
+              <YoutubeVideo key={videoId} videoId={videoId} videoUrl={videoUrl} nombre={castillo.nombre} />
             </Section>
           )}
 
