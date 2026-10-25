@@ -1460,8 +1460,8 @@ export const CASTILLOS: Castillo[] = [
     imagen: lujan,
     coordenadas: [39.889328, -2.776794],
     acceso: "interior",
-    precio: "gratuito",
-    infoPractica: "Castillo en ruinas.",
+    infoPractica:
+      "El Castillo de Luján es una fortaleza de propiedad privada que figura como visitable en la Asociación Española de Amigos de los Castillos. Durante nuestra visita encontramos el acceso físico abierto y pudimos recorrer la amplia zona central del recinto, desde donde se pueden contemplar y fotografiar sus restos. Al encontrarse en estado de ruina, se recomienda evitar las proximidades de muros deteriorados y comprobar las condiciones de acceso antes de la visita.",
     historia:
       "El castillo de Luján, conocido también como El Castillejo, es un castillo-palacio renacentista y plateresco construido en el siglo XVI sobre una loma que domina el valle del río Cigüela, a pocos kilómetros del yacimiento romano de Segóbriga. El terreno era una dehesa de la Encomienda de Uclés que la Corona permutó a Gaspar Ramírez de Vargas hacia 1570-1571, a cambio de las salinas de Gormellón en Atienza. Hispania Nostra lo describe como una casa fuerte de planta pentagonal alargada, con muros perimetrales de sillería, foso —salvo en el lado oeste—, seis torreones y una torrecilla que flanquea la puerta del muro norte. Su barrera perimetral, dotada de troneras y cañoneras, estaba adaptada a la artillería, mientras que los matacanes, las ventanas ojivales de ladrillo y las metopas con adornos de flores de cerámica revelan su carácter residencial. Hoy es propiedad privada y figura en la Lista Roja del Patrimonio de Hispania Nostra por su estado de ruina progresiva.",
     cronologia: [
