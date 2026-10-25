@@ -9,7 +9,7 @@ const paradas = [
 
 test("each stop opens the castle's place sheet by name, town and province, in order", () => {
   const enlaces = construirNavegacionInmediata(paradas, "Madrid", false);
-  assert.deepEqual(enlaces.map((e) => e.titulo), ["Navegar a la parada 1", "Navegar a la parada 2"]);
+  assert.deepEqual(enlaces.map((e) => e.titulo), ["Abrir parada 1 en Google Maps", "Abrir parada 2 en Google Maps"]);
   const urls = enlaces.map((e) => new URL(e.url));
   for (const u of urls) {
     assert.equal(u.origin + u.pathname, "https://www.google.com/maps/search/");

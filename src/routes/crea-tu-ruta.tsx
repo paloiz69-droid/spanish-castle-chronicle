@@ -635,10 +635,10 @@ function Page() {
             <div className="mt-4 flex flex-col gap-3">
               {navegacionInmediata.length > 0 && (
                 <div className="order-1 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground md:order-2">
-                  <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
+                  <p className="font-medium">Abrir parada en Google Maps (durante el viaje):</p>
                   <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                    Desde tu ubicación actual. Google Maps puede solicitar permisos de ubicación,
-                    mostrar una vista previa o pedir otra acción antes de iniciar la navegación.
+                    Muestra la ficha del castillo en Google Maps; desde allí, sus botones «Cómo llegar»
+                    e «Iniciar» parten de tu ubicación actual. No usa el origen elegido.
                   </p>
                   <ul className="mt-2 space-y-2">
                     {navegacionInmediata.map((t) => (
@@ -649,7 +649,7 @@ function Page() {
                           </a>
                         </Button>
                         <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                          Tu ubicación actual → {t.hasta}
+                          {t.titulo === "Regresar al origen" ? `Tu ubicación actual → ${t.hasta}` : t.hasta}
                         </p>
                       </li>
                     ))}
@@ -684,11 +684,11 @@ function Page() {
                   disabled={tramos.length === 0}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary disabled:opacity-40 md:border-transparent md:bg-primary md:text-primary-foreground md:hover:bg-primary/90"
                 >
-                  <MapIcon className="h-4 w-4" /> Ver itinerario completo en Google Maps
+                  <MapIcon className="h-4 w-4" /> Ver ruta planificada
                 </button>
                 <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-                  Consulta todas las paradas del recorrido. La navegación multiparada puede
-                  no estar disponible en algunos móviles.
+                  Abre en Google Maps el recorrido desde el origen que hayas escrito, con todas las
+                  paradas en orden. La navegación multiparada puede no estar disponible en algunos móviles.
                 </p>
               </div>
 
