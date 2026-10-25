@@ -1,9 +1,9 @@
-# Mobile planner usability
+# Documentary thumbnails and mobile planner usability
 
 ## Xivert video
 - [x] Associate the supplied video with Xivert only and add click-to-load official inline playback.
 - [x] Verify desktop hover, mobile touch, deferred player loading and unchanged public page.
-- [ ] Playback inside the page requires the owner to enable embedding for this video in YouTube Studio; YouTube currently displays “Playback on other websites has been disabled by the video owner”. The existing YouTube links remain usable.
+- [x] Supersede inline playback with standard external YouTube links; embedding permission is no longer needed.
 
 ### Xivert verification
 - Thumbnail identifies Castillo de Xivert; desktop hover and mobile activation passed. The iframe is absent until click and autoplay is disabled.
@@ -22,3 +22,9 @@
 - Latest preview compilation reports build OK.
 - Public page text and script URLs match the pre-edit capture. No publishing action was performed.
 - A physical Samsung and its Google Maps app were not tested. Existing header overflow at the 768px desktop-navigation breakpoint is outside this planner change; narrow-phone overflow checks passed.
+
+## Catalogue documentary thumbnails
+- [x] Inspect existing component and static catalogue; change only frontend files, with no shared backend writes or publication.
+- [x] Reuse the component for all valid documentary URLs with lazy official thumbnails, reserved image space, accessible links and a missing-image fallback.
+- [ ] Verify all catalogue associations, desktop/mobile interaction, missing images, no-video behavior, diagnostics and before/after performance.
+- [ ] Deliver preview review findings without publishing.
