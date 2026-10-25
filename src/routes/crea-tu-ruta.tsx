@@ -5,7 +5,6 @@ import {
   ArrowUp,
   ExternalLink,
   Info,
-  Map as MapIcon,
   Plus,
   Route as RouteIcon,
   Save,
