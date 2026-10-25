@@ -2,7 +2,8 @@
 
 ## Redundant sidebar video button
 - [x] Hide only the sidebar video button when the shared clickable thumbnail is present; preserve original links and other controls.
-- [ ] Verify desktop/mobile thumbnail activation, missing-image fallback, layout and unchanged public page without publishing.
+- [x] Verify desktop/mobile thumbnail activation, missing-image fallback, layout and unchanged public page without publishing.
+- Xivert (1280px) and Busot (412px): three thumbnail click positions opened the correct documentary; sidebar Maps link and top video link retained; missing-image link and gallery open/close passed. No JavaScript errors. Four existing identifier tests passed with Bun; Vitest does not discover this node:test suite. Preview build OK. Public Xivert text and script URLs matched before/after; no publication or dependencies added. No catalogue entry without a valid thumbnail ID exists for a live fallback-button check.
 
 ## Xivert video
 - [x] Associate the supplied video with Xivert only and add click-to-load official inline playback.
