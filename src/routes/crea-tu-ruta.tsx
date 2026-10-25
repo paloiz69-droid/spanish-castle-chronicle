@@ -663,7 +663,7 @@ function Page() {
                             <Button asChild variant="link" size="sm" className="h-auto justify-start whitespace-normal p-0 text-xs">
                               <a href={t.url} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-3 w-3" />
-                                {t.titulo === "Regresar al origen" ? "Consultar regreso planificado" : t.titulo.replace(/^Abrir parada (\d+) en Google Maps$/, "Consultar tramo a la parada $1")}
+                                {t.titulo === "Regresar al origen" ? "Consultar regreso planificado" : t.titulo.replace("Navegar a la parada", "Consultar tramo a la parada")}
                               </a>
                             </Button>
                             <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
