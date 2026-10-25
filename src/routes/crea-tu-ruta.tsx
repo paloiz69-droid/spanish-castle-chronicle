@@ -184,27 +184,16 @@ function construirTramosIndividuales(paradas: Castillo[], origen: string, volver
  * Ninguna parada se elimina: el último punto de un tramo es el origen del siguiente.
  */
 function construirTramos(paradas: Castillo[], origen: string, volver: boolean): TramoRuta[] {
-  const puntos: PuntoRuta[] = [];
-  const origenLimpio = origen.trim();
-  if (origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
-  paradas.forEach((c) => puntos.push({ valor: coord(c), etiqueta: c.nombre }));
-  if (volver && origenLimpio) puntos.push({ valor: origenLimpio, etiqueta: origenLimpio });
+  const puntos = puntosDeRuta(paradas, origen, volver);
   if (puntos.length < 2) return [];
 
   const tramos: TramoRuta[] = [];
   let i = 0;
   while (i < puntos.length - 1) {
     const trozo = puntos.slice(i, i + MAX_PARADAS_TRAMO + 1);
-    const params = new URLSearchParams({
-      api: "1",
-      origin: trozo[0].valor,
-      destination: trozo[trozo.length - 1].valor,
-      travelmode: "driving",
-    });
     const medios = trozo.slice(1, -1);
-    if (medios.length) params.set("waypoints", medios.map((p) => p.valor).join("|"));
     tramos.push({
-      url: `https://www.google.com/maps/dir/?${params.toString()}`,
+      url: urlMapsDir(trozo[0].valor, trozo[trozo.length - 1].valor, medios.map((p) => p.valor)),
       recorrido: trozo.map((p) => p.etiqueta),
     });
     i += trozo.length - 1;
