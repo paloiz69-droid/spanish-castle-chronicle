@@ -647,7 +647,7 @@ function Page() {
                             <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
                               <a href={t.url} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                                {t.titulo === "Regresar al origen" ? "Regresar al origen" : `Abrir parada ${i + 1}`}
+                                {t.titulo === "Regresar al origen" ? "Regresar al origen" : t.titulo.replace("Navegar a la parada", "Abrir parada")}
                               </a>
                             </Button>
                             <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
