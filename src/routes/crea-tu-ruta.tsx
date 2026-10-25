@@ -569,64 +569,74 @@ function Page() {
               orden manual siempre manda.
             </p>
 
-            <button
-              type="button"
-              onClick={abrirEnMaps}
-              disabled={tramos.length === 0}
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-40"
-            >
-              <MapIcon className="h-4 w-4" /> Abrir ruta en Google Maps
-            </button>
-            {tramosIndividuales.length > 0 && (
-              <div className="mt-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
-                <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
-                <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                  En algunos teléfonos, Google Maps solo muestra la primera parada de una ruta con
-                  varias paradas. Con estos enlaces abres cada desplazamiento por separado.
+            <div className="mt-4 flex flex-col gap-3">
+              {tramosIndividuales.length > 0 && (
+                <div className="order-1 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground md:order-2">
+                  <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
+                  <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                    En algunos teléfonos, Google Maps solo muestra la primera parada de una ruta con
+                    varias paradas. Con estos enlaces abres cada desplazamiento por separado.
+                  </p>
+                  <ul className="mt-2 space-y-2">
+                    {tramosIndividuales.map((t) => (
+                      <li key={t.url}>
+                        <a
+                          href={t.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-2 font-medium text-primary hover:bg-secondary"
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" /> {t.titulo}
+                        </a>
+                        <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                          {t.desde} → {t.hasta}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="order-2 md:order-1">
+                <button
+                  type="button"
+                  onClick={abrirEnMaps}
+                  disabled={tramos.length === 0}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary disabled:opacity-40 md:border-transparent md:bg-primary md:text-primary-foreground md:hover:bg-primary/90"
+                >
+                  <MapIcon className="h-4 w-4" /> Ver itinerario completo en Google Maps
+                </button>
+                <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
+                  Consulta todas las paradas del recorrido. La navegación con varias paradas puede
+                  no estar disponible en algunos móviles.
                 </p>
-                <ul className="mt-2 space-y-2">
-                  {tramosIndividuales.map((t) => (
-                    <li key={t.url}>
-                      <a
-                        href={t.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-2 font-medium text-primary hover:bg-secondary"
-                      >
-                        <ExternalLink className="h-3.5 w-3.5" /> {t.titulo}
-                      </a>
-                      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                        {t.desde} → {t.hasta}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            )}
-            {tramos.length > 1 && (
-              <div className="mt-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
-                <p className="font-medium">
-                  Ruta dividida en {tramos.length} tramos (límite de Google Maps por enlace):
-                </p>
-                <ul className="mt-2 space-y-2">
-                  {tramos.map((t, i) => (
-                    <li key={t.url}>
-                      <a
-                        href={t.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-primary hover:underline"
-                      >
-                        <ExternalLink className="h-3 w-3" /> Abrir tramo {i + 1}
-                      </a>
-                      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                        {t.recorrido.join(" → ")}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+
+              {tramos.length > 1 && (
+                <div className="order-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
+                  <p className="font-medium">
+                    Ruta dividida en {tramos.length} tramos (límite de Google Maps por enlace):
+                  </p>
+                  <ul className="mt-2 space-y-2">
+                    {tramos.map((t, i) => (
+                      <li key={t.url}>
+                        <a
+                          href={t.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-primary hover:underline"
+                        >
+                          <ExternalLink className="h-3 w-3" /> Abrir tramo {i + 1}
+                        </a>
+                        <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                          {t.recorrido.join(" → ")}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
             {aviso && (
               <p className="mt-3 rounded-md bg-secondary/60 p-3 text-xs text-foreground" role="status">
                 {aviso}
