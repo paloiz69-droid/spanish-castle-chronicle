@@ -4,3 +4,4 @@
 - Measure the live sticky header for planner scrolling and docking offsets rather than assuming a fixed mobile height, because mobile search and navigation change its height.
 - Use the shared YoutubeVideo component for documentary thumbnails, deriving validated individual IDs from catalogue URLs and opening standard external links without iframes; this avoids player overhead and embedding restrictions.
 - Planner "Abrir parada" buttons use the place-search builder in planner-navigation for every stop; the return leg and "Calcular mi ruta" keep fixed-origin directions. The isolated trial page keeps its own constant, unlisted with noindex.
+- Planner in-progress state and last-opened stop persist under their own localStorage key (planner-progress), keyed by an itinerary signature so reordering resets the next stop; saved routes are never touched.

@@ -558,7 +558,7 @@ function Page() {
           <div className="rounded-xl border border-border bg-card p-4">
             <h2 tabIndex={-1} className="font-display text-2xl text-foreground">2. Mi ruta</h2>
             <p className="mt-1 text-xs text-muted-foreground">
-              Esta ruta es temporal y desaparecerá cuando cierres o recargues la página.
+              Este navegador recuerda la ruta en curso y la última parada abierta. Para conservarla con un nombre, guárdala más abajo.
             </p>
 
             <label className="mt-4 flex flex-col gap-1 text-xs font-medium text-muted-foreground">
