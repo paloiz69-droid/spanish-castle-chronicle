@@ -15,7 +15,6 @@ function urlNavegacion(destino: string): string {
     api: "1",
     destination: destino,
     travelmode: "driving",
-    dir_action: "navigate",
   });
   return `https://www.google.com/maps/dir/?${params.toString()}`;
 }

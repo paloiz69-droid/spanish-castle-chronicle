@@ -20,7 +20,7 @@ test("immediate links request official driving navigation without a fixed origin
     assert.equal(url.origin + url.pathname, "https://www.google.com/maps/dir/");
     assert.equal(url.searchParams.get("api"), "1");
     assert.equal(url.searchParams.get("travelmode"), "driving");
-    assert.equal(url.searchParams.get("dir_action"), "navigate");
+    assert.equal(url.searchParams.get("dir_action"), null);
     assert.equal(url.searchParams.has("origin"), false);
     assert.equal(url.searchParams.has("waypoints"), false);
   }
