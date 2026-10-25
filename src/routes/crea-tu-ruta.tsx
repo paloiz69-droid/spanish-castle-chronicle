@@ -4,7 +4,7 @@ import {
   ArrowDown,
   ArrowUp,
   ExternalLink,
-  Map as MapIcon,
+  Info,
   Plus,
   Route as RouteIcon,
   Save,
@@ -656,6 +656,14 @@ function Page() {
                           </li>
                         ))}
                       </ul>
+                      <p className="mt-3 flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
+                        <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                        <span>
+                          Puedes consultar cada recorrido desde el origen que hayas elegido. Al
+                          pulsar Iniciar en Google Maps, la navegación GPS puede utilizar tu
+                          ubicación actual.
+                        </span>
+                      </p>
                     </>
                   )}
                 </div>
@@ -666,9 +674,9 @@ function Page() {
                   type="button"
                   onClick={abrirEnMaps}
                   disabled={tramos.length === 0}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary disabled:opacity-40 md:border-transparent md:bg-primary md:text-primary-foreground md:hover:bg-primary/90"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3.5 text-base font-bold text-accent-foreground shadow-md transition-all hover:bg-accent/90 active:scale-[0.98] disabled:opacity-40 md:py-3"
                 >
-                  <MapIcon className="h-4 w-4" /> Ver ruta planificada
+                  <RouteIcon className="h-5 w-5" /> Calcular mi ruta
                 </button>
                 <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
                   Abre en Google Maps el recorrido desde el origen que hayas escrito, con todas las
