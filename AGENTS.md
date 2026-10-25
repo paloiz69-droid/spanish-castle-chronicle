@@ -3,3 +3,4 @@
 - Keep planner navigation UI in the existing route; use the browser-safe planner-navigation helper for current-location GPS URLs, separate from the unchanged fixed-origin planned-leg and complete-itinerary builders and localStorage persistence, so navigation cannot overwrite the planned route.
 - Measure the live sticky header for planner scrolling and docking offsets rather than assuming a fixed mobile height, because mobile search and navigation change its height.
 - Use the shared YoutubeVideo component for documentary thumbnails, deriving validated individual IDs from catalogue URLs and opening standard external links without iframes; this avoids player overhead and embedding restrictions.
+- Keep controlled Google Maps alternatives on an isolated, unlisted test route with noindex metadata; this lets the user test on a phone without changing planner links or saved routes.

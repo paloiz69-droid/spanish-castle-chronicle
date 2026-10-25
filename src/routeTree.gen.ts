@@ -14,6 +14,7 @@ import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CreaTuRutaRouteImport } from './routes/crea-tu-ruta'
 import { Route as FavoritosRouteImport } from './routes/favoritos'
 import { Route as MapaRouteImport } from './routes/mapa'
+import { Route as PruebaGoogleMapsRouteImport } from './routes/prueba-google-maps'
 import { Route as RecomendarRouteImport } from './routes/recomendar'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as CastilloSlugRouteImport } from './routes/castillo.$slug'
@@ -44,6 +45,11 @@ const MapaRoute = MapaRouteImport.update({
   path: '/mapa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PruebaGoogleMapsRoute = PruebaGoogleMapsRouteImport.update({
+  id: '/prueba-google-maps',
+  path: '/prueba-google-maps',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecomendarRoute = RecomendarRouteImport.update({
   id: '/recomendar',
   path: '/recomendar',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/crea-tu-ruta': typeof CreaTuRutaRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
+  '/prueba-google-maps': typeof PruebaGoogleMapsRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/crea-tu-ruta': typeof CreaTuRutaRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
+  '/prueba-google-maps': typeof PruebaGoogleMapsRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/crea-tu-ruta': typeof CreaTuRutaRoute
   '/favoritos': typeof FavoritosRoute
   '/mapa': typeof MapaRoute
+  '/prueba-google-maps': typeof PruebaGoogleMapsRoute
   '/recomendar': typeof RecomendarRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/castillo/$slug': typeof CastilloSlugRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/crea-tu-ruta'
     | '/favoritos'
     | '/mapa'
+    | '/prueba-google-maps'
     | '/recomendar'
     | '/sitemap.xml'
     | '/castillo/$slug'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/crea-tu-ruta'
     | '/favoritos'
     | '/mapa'
+    | '/prueba-google-maps'
     | '/recomendar'
     | '/sitemap.xml'
     | '/castillo/$slug'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/crea-tu-ruta'
     | '/favoritos'
     | '/mapa'
+    | '/prueba-google-maps'
     | '/recomendar'
     | '/sitemap.xml'
     | '/castillo/$slug'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   CreaTuRutaRoute: typeof CreaTuRutaRoute
   FavoritosRoute: typeof FavoritosRoute
   MapaRoute: typeof MapaRoute
+  PruebaGoogleMapsRoute: typeof PruebaGoogleMapsRoute
   RecomendarRoute: typeof RecomendarRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CastilloSlugRoute: typeof CastilloSlugRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MapaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/prueba-google-maps': {
+      id: '/prueba-google-maps'
+      path: '/prueba-google-maps'
+      fullPath: '/prueba-google-maps'
+      preLoaderRoute: typeof PruebaGoogleMapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recomendar': {
       id: '/recomendar'
       path: '/recomendar'
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   CreaTuRutaRoute: CreaTuRutaRoute,
   FavoritosRoute: FavoritosRoute,
   MapaRoute: MapaRoute,
+  PruebaGoogleMapsRoute: PruebaGoogleMapsRoute,
   RecomendarRoute: RecomendarRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   CastilloSlugRoute: CastilloSlugRoute,
