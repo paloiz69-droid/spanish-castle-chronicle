@@ -641,57 +641,57 @@ function Page() {
                       <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
                         Cada parada abre la ficha del castillo en Google Maps. El regreso conserva el origen planificado.
                       </p>
-                      <ul className="mt-2 space-y-2">
-                        {navegacionInmediata.slice(0, paradas.length).map((n) => (
-                          <li key={n.titulo}>
+                      {indiceSiguiente !== null && etapas[indiceSiguiente] ? (
+                        <a
+                          href={etapas[indiceSiguiente].url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => marcarAbierta(indiceSiguiente)}
+                          className="mt-3 flex w-full items-center gap-3 rounded-lg bg-accent px-4 py-3.5 text-accent-foreground shadow-md transition-all hover:bg-accent/90 active:scale-[0.98]"
+                        >
+                          <RouteIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
+                          <span className="min-w-0">
+                            <span className="block text-base font-bold leading-tight">
+                              {etapas[indiceSiguiente].esRegreso
+                                ? "Siguiente: regreso al origen — Abrir en Google Maps"
+                                : `Siguiente parada: ${indiceSiguiente + 1} — Abrir en Google Maps`}
+                            </span>
+                            <span className="mt-0.5 block text-sm leading-snug">{etapas[indiceSiguiente].nombre}</span>
+                          </span>
+                        </a>
+                      ) : (
+                        etapas.length > 0 && (
+                          <p className="mt-3 rounded-md border border-border bg-background p-3 text-sm font-medium">
+                            Ya has abierto todas las etapas. Puedes volver a abrir cualquiera desde la lista.
+                          </p>
+                        )
+                      )}
+                      <ul className="mt-3 space-y-2">
+                        {etapas.map((e, i) => (
+                          <li key={e.titulo}>
                             <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
-                              <a href={n.url} target="_blank" rel="noopener noreferrer">
+                              <a href={e.url} target="_blank" rel="noopener noreferrer" onClick={() => marcarAbierta(i)}>
                                 <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                                {n.titulo.replace(" en Google Maps", "")}
+                                {e.titulo}
                               </a>
                             </Button>
-                            <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">Ficha de {n.hasta}</p>
+                            <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                              {e.detalle}
+                              {i === indiceUltima && " · Última abierta"}
+                            </p>
                           </li>
                         ))}
-                        {tramosIndividuales
-                          .filter((t) => t.titulo === "Regresar al origen")
-                          .map((t) => (
-                            <li key={t.titulo}>
-                              <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
-                                <a href={t.url} target="_blank" rel="noopener noreferrer">
-                                  <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                                  Regresar al origen
-                                </a>
-                              </Button>
-                              <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">{`${t.desde} → ${t.hasta}`}</p>
-                            </li>
-                          ))}
                       </ul>
                       <p className="mt-3 flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
                         <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                         <span>
-                          La ficha del castillo no conserva el origen manual: al pulsar «Cómo llegar» o «Iniciar», Google Maps puede utilizar tu ubicación actual. «Calcular mi ruta» mantiene el origen elegido y todas las paradas.
+                          La ficha del castillo no conserva el origen manual: al pulsar «Cómo llegar» o «Iniciar», Google Maps puede utilizar tu ubicación actual. Kdronazo recuerda la última parada abierta, no las marca como visitadas.
                         </span>
                       </p>
                     </>
                   )}
                 </div>
               )}
-
-              <div className="order-2 md:order-1">
-                <button
-                  type="button"
-                  onClick={abrirEnMaps}
-                  disabled={tramos.length === 0}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3.5 text-base font-bold text-accent-foreground shadow-md transition-all hover:bg-accent/90 active:scale-[0.98] disabled:opacity-40 md:py-3"
-                >
-                  <RouteIcon className="h-5 w-5" /> Calcular mi ruta
-                </button>
-                <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-                  Abre en Google Maps el recorrido desde el origen que hayas escrito, con todas las
-                  paradas en orden. La navegación multiparada puede no estar disponible en algunos móviles.
-                </p>
-              </div>
 
               {tramos.length > 1 && (
                 <div className="order-3 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground">
