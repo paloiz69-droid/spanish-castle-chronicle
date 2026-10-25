@@ -15,6 +15,7 @@ import {
 import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
 import { construirNavegacionInmediata } from "@/lib/planner-navigation";
+import { urlParadaDePrueba } from "@/lib/maps-place-trial";
 import {
   CASTILLOS,
   CATEGORIAS,
@@ -639,29 +640,31 @@ function Page() {
                     <>
                       <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
                       <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                        Cada tramo sale del origen que has escrito o del castillo anterior, nunca de tu ubicación GPS.
+                        Los tramos conservan el origen planificado. Solo La Coracera abre su ficha de Google Maps como prueba, sin transmitir ese origen.
                       </p>
                       <ul className="mt-2 space-y-2">
-                        {tramosIndividuales.map((t, i) => (
+                        {tramosIndividuales.map((t) => {
+                          const destino = t.titulo === "Regresar al origen" ? undefined : paradas.find((c) => c.nombre === t.hasta);
+                          const esPruebaLugar = destino?.slug === "castillo-de-la-coracera";
+                          return (
                           <li key={t.titulo}>
                             <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
-                              <a href={t.url} target="_blank" rel="noopener noreferrer">
+                              <a href={urlParadaDePrueba(destino?.slug, t.url)} target={esPruebaLugar ? undefined : "_blank"} rel="noopener noreferrer">
                                 <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                                 {t.titulo === "Regresar al origen" ? "Regresar al origen" : t.titulo.replace("Navegar a la parada", "Abrir parada")}
                               </a>
                             </Button>
                             <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                              {t.desde} → {t.hasta}
+                              {esPruebaLugar ? `Ficha de ${t.hasta} · San Martín de Valdeiglesias, Madrid` : `${t.desde} → ${t.hasta}`}
                             </p>
                           </li>
-                        ))}
+                        );
+                        })}
                       </ul>
                       <p className="mt-3 flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
                         <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                         <span>
-                          Puedes consultar cada recorrido desde el origen que hayas elegido. Al
-                          pulsar Iniciar en Google Maps, la navegación GPS puede utilizar tu
-                          ubicación actual.
+                          La ficha de La Coracera no conserva el origen manual al pulsar «Cómo llegar» o «Iniciar»: Google Maps puede utilizar tu ubicación actual. El itinerario planificado de Kdronazo mantiene el origen elegido.
                         </span>
                       </p>
                     </>
