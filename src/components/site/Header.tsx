@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Youtube, Instagram, Heart } from "lucide-react";
+import { Menu, X, Youtube, Instagram, Heart, Route as RouteIcon } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-kdronazo.jpeg";
 import { CATEGORIAS } from "@/data/castillos";
@@ -64,16 +64,27 @@ export function Header() {
           <SearchCastillos />
         </div>
         <nav className="hidden flex-shrink-0 items-center gap-1 md:flex">
-          {navLinks.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="rounded-md px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
-              activeProps={{ className: "bg-secondary text-foreground" }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {navLinks.map((l) =>
+            l.to === "/crea-tu-ruta" ? (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background shadow-sm transition-transform hover:scale-[1.04] active:scale-95"
+                activeProps={{ className: "ring-2 ring-primary ring-offset-2 ring-offset-background" }}
+              >
+                <RouteIcon className="h-4 w-4" /> Crea tu ruta
+              </Link>
+            ) : (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="rounded-md px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
+                activeProps={{ className: "bg-secondary text-foreground" }}
+              >
+                {l.label}
+              </Link>
+            ),
+          )}
         </nav>
         <button
           onClick={() => setOpen((o) => !o)}
@@ -107,8 +118,12 @@ export function Header() {
             <Link to="/mapa" onClick={() => setOpen(false)} className="mt-1 rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
               🗺️ Mapa Interactivo
             </Link>
-            <Link to="/crea-tu-ruta" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
-              🧭 Crea tu ruta
+            <Link
+              to="/crea-tu-ruta"
+              onClick={() => setOpen(false)}
+              className="mb-1 mt-2 flex items-center justify-center gap-2 rounded-xl bg-foreground px-4 py-4 text-base font-bold text-background shadow-md transition-transform active:scale-[0.98]"
+            >
+              <RouteIcon className="h-5 w-5" /> Crea tu ruta
             </Link>
             <Link to="/favoritos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm text-foreground/90 hover:bg-secondary">
               <Heart className="mr-1 inline h-4 w-4" /> Mis favoritos
