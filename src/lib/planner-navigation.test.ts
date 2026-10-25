@@ -22,7 +22,6 @@ test("immediate links request official driving navigation without a fixed origin
     assert.equal(url.searchParams.get("travelmode"), "driving");
     assert.equal(url.searchParams.get("dir_action"), null);
     assert.equal(url.searchParams.has("origin"), false);
-    assert.equal(url.searchParams.has("origin"), false);
     assert.equal(url.searchParams.has("waypoints"), false);
   }
 });
