@@ -635,35 +635,19 @@ function Page() {
             <div className="mt-4 flex flex-col gap-3">
               {navegacionInmediata.length > 0 && (
                 <div className="order-1 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground md:order-2">
-                  <p className="font-medium">Abrir parada en Google Maps (durante el viaje):</p>
-                  <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                    Muestra la ficha del castillo en Google Maps; desde allí, sus botones «Cómo llegar»
-                    e «Iniciar» parten de tu ubicación actual. No usa el origen elegido.
-                  </p>
-                  <ul className="mt-2 space-y-2">
-                    {navegacionInmediata.map((t) => (
-                      <li key={t.titulo}>
-                        <Button asChild variant="outline" size="sm" className="max-w-full text-xs text-primary">
-                          <a href={t.url} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-3.5 w-3.5" /> {t.titulo}
-                          </a>
-                        </Button>
-                        <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                          {t.titulo === "Regresar al origen" ? `Tu ubicación actual → ${t.hasta}` : t.hasta}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
                   {tramosIndividuales.length > 0 && (
-                    <details className="mt-3 border-t border-border pt-3">
-                      <summary className="cursor-pointer font-medium">Consultar tramos planificados</summary>
+                    <>
+                      <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
+                      <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                        Cada tramo sale del origen que has escrito o del castillo anterior, nunca de tu ubicación GPS.
+                      </p>
                       <ul className="mt-2 space-y-2">
-                        {tramosIndividuales.map((t) => (
+                        {tramosIndividuales.map((t, i) => (
                           <li key={t.titulo}>
-                            <Button asChild variant="link" size="sm" className="h-auto justify-start whitespace-normal p-0 text-xs">
+                            <Button asChild variant="outline" size="sm" className="h-auto max-w-full whitespace-normal text-left text-xs text-primary">
                               <a href={t.url} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink className="h-3 w-3" />
-                                {t.titulo === "Regresar al origen" ? "Consultar regreso planificado" : t.titulo.replace("Navegar a la parada", "Consultar tramo a la parada")}
+                                <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                                {t.titulo === "Regresar al origen" ? "Ver regreso planificado" : `Ver tramo planificado ${i + 1}`}
                               </a>
                             </Button>
                             <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
@@ -672,8 +656,28 @@ function Page() {
                           </li>
                         ))}
                       </ul>
-                    </details>
+                    </>
                   )}
+                  <details className={tramosIndividuales.length > 0 ? "mt-3 border-t border-border pt-3" : ""} open={tramosIndividuales.length === 0}>
+                    <summary className="cursor-pointer font-medium">Abrir ficha del castillo en Google Maps</summary>
+                    <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                      Solo muestra el castillo. Si después pides «Cómo llegar», Google Maps usará tu ubicación actual, no el origen elegido.
+                    </p>
+                    <ul className="mt-2 space-y-2">
+                      {navegacionInmediata
+                        .filter((t) => t.titulo !== "Regresar al origen")
+                        .map((t, i) => (
+                          <li key={t.titulo}>
+                            <Button asChild variant="link" size="sm" className="h-auto justify-start whitespace-normal p-0 text-xs">
+                              <a href={t.url} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="h-3 w-3" /> Abrir ficha: parada {i + 1}
+                              </a>
+                            </Button>
+                            <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">{t.hasta}</p>
+                          </li>
+                        ))}
+                    </ul>
+                  </details>
                 </div>
               )}
 
