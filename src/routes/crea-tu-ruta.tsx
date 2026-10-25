@@ -16,6 +16,13 @@ import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
 import { construirNavegacionInmediata } from "@/lib/planner-navigation";
 import {
+  escribirProgreso,
+  firmaItinerario,
+  leerProgreso,
+  siguienteEtapa,
+  type ProgresoPlanificador,
+} from "@/lib/planner-progress";
+import {
   CASTILLOS,
   CATEGORIAS,
   getCategoriaInfo,
@@ -250,6 +257,55 @@ function Page() {
     () => construirNavegacionInmediata(paradas, origen, volver),
     [paradas, origen, volver],
   );
+
+  /** Etapas de «Navegar paso a paso»: fichas de cada parada y, si procede, el regreso planificado. */
+  const etapas = useMemo(() => {
+    const lista = navegacionInmediata.slice(0, paradas.length).map((n) => ({
+      url: n.url,
+      titulo: n.titulo.replace(" en Google Maps", ""),
+      nombre: n.hasta,
+      detalle: `Ficha de ${n.hasta}`,
+      esRegreso: false,
+    }));
+    const regreso = tramosIndividuales.find((t) => t.titulo === "Regresar al origen");
+    if (regreso && lista.length) {
+      lista.push({
+        url: regreso.url,
+        titulo: "Regresar al origen",
+        nombre: `${regreso.desde} → ${regreso.hasta}`,
+        detalle: `${regreso.desde} → ${regreso.hasta}`,
+        esRegreso: true,
+      });
+    }
+    return lista;
+  }, [navegacionInmediata, tramosIndividuales, paradas.length]);
+
+  const [progresoCargado, setProgresoCargado] = useState(false);
+  const [ultima, setUltima] = useState<ProgresoPlanificador["ultima"]>(undefined);
+  const firma = firmaItinerario(slugs, origen, volver);
+  const indiceSiguiente = siguienteEtapa(ultima, firma, etapas.length);
+  const indiceUltima = ultima && ultima.firma === firma ? ultima.indice : null;
+
+  useEffect(() => {
+    const p = leerProgreso();
+    if (p) {
+      const validos = p.slugs.filter((s) => CASTILLOS.some((c) => c.slug === s));
+      setSlugs(validos);
+      setOrigen(p.origen);
+      setVolver(p.volver);
+      setUltima(p.ultima);
+    }
+    setProgresoCargado(true);
+  }, []);
+
+  useEffect(() => {
+    if (!progresoCargado) return;
+    escribirProgreso({ slugs, origen, volver, ultima });
+  }, [progresoCargado, slugs, origen, volver, ultima]);
+
+  function marcarAbierta(indice: number) {
+    setUltima({ indice, firma });
+  }
 
   const distanciaTotal = useMemo(() => {
     let total = 0;
