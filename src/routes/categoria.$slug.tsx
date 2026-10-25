@@ -26,6 +26,8 @@ export const Route = createFileRoute("/categoria/$slug")({
           { name: "description", content: `${loaderData.cat.label}: ${loaderData.cat.descripcion}` },
           { property: "og:title", content: `${loaderData.cat.emoji} ${loaderData.cat.label} — Kdronazo` },
           { property: "og:description", content: loaderData.cat.descripcion },
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary_large_image" },
         ]
       : [],
     links: [{ rel: "canonical", href: `https://www.kdronazo.com/categoria/${params.slug}` }],

@@ -17,6 +17,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Plataforma documental de castillos de España: fotografía aérea, historia, cronologías y vídeos del canal Kdronazo." },
       { property: "og:title", content: "Kdronazo — Castillos de España" },
       { property: "og:description", content: "Explora castillos conservados y en ruinas a través de fotografía aérea y fichas históricas." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.kdronazo.com/" }],
   }),

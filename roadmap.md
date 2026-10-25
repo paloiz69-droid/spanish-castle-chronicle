@@ -1,5 +1,11 @@
 # Documentary thumbnails and mobile planner usability
 
+## Current-location GPS navigation
+- [x] Add separate immediate-navigation links with exact destinations, driving and dir_action=navigate, without a fixed origin.
+- [x] Preserve planned-leg consultation, complete itinerary, origin, stop order and saved routes.
+- [x] Run URL tests and desktop/mobile planner checks; offer Samsung review without publishing.
+- Four navigation unit tests and four existing YouTube tests passed. Browser checks passed at 1280px and 412px: legacy saved-route readback, every destination, return URL, separate fixed-origin leg URLs, full itinerary, reorder/remove, first stop without origin, unchanged saved storage, no horizontal overflow or JS errors. Screenshots reviewed. Public planner status/title/script URLs match pre-edit baseline; no deployment or shared-data changes. No live Maps requests or physical Samsung GPS test performed; the user must validate Google Maps behavior on an authorized deployed origin. Missing leaf social metadata completed without visual changes.
+
 ## Redundant sidebar video button
 - [x] Hide only the sidebar video button when the shared clickable thumbnail is present; preserve original links and other controls.
 - [x] Verify desktop/mobile thumbnail activation, missing-image fallback, layout and unchanged public page without publishing.

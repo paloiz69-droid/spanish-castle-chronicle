@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { Button } from "@/components/ui/button";
+import { construirNavegacionInmediata } from "@/lib/planner-navigation";
 import {
   CASTILLOS,
   CATEGORIAS,
@@ -242,6 +243,11 @@ function Page() {
 
   const tramosIndividuales = useMemo(
     () => construirTramosIndividuales(paradas, origen, volver),
+    [paradas, origen, volver],
+  );
+
+  const navegacionInmediata = useMemo(
+    () => construirNavegacionInmediata(paradas, origen, volver),
     [paradas, origen, volver],
   );
 
@@ -627,30 +633,47 @@ function Page() {
             </p>
 
             <div className="mt-4 flex flex-col gap-3">
-              {tramosIndividuales.length > 0 && (
+              {navegacionInmediata.length > 0 && (
                 <div className="order-1 rounded-md border border-border bg-secondary/40 p-3 text-xs text-foreground md:order-2">
                   <p className="font-medium">Navegar paso a paso (recomendado en móvil):</p>
                   <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                    En algunos teléfonos, Google Maps solo muestra la primera parada de una ruta con
-                    varias paradas. Con estos enlaces abres cada desplazamiento por separado.
+                    Desde tu ubicación actual. Google Maps puede solicitar permisos de ubicación,
+                    mostrar una vista previa o pedir otra acción antes de iniciar la navegación.
                   </p>
                   <ul className="mt-2 space-y-2">
-                    {tramosIndividuales.map((t) => (
-                      <li key={t.url}>
-                        <a
-                          href={t.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-2 font-medium text-primary hover:bg-secondary"
-                        >
-                          <ExternalLink className="h-3.5 w-3.5" /> {t.titulo}
-                        </a>
+                    {navegacionInmediata.map((t) => (
+                      <li key={t.titulo}>
+                        <Button asChild variant="outline" size="sm" className="max-w-full text-xs text-primary">
+                          <a href={t.url} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-3.5 w-3.5" /> {t.titulo}
+                          </a>
+                        </Button>
                         <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
-                          {t.desde} → {t.hasta}
+                          Tu ubicación actual → {t.hasta}
                         </p>
                       </li>
                     ))}
                   </ul>
+                  {tramosIndividuales.length > 0 && (
+                    <details className="mt-3 border-t border-border pt-3">
+                      <summary className="cursor-pointer font-medium">Consultar tramos planificados</summary>
+                      <ul className="mt-2 space-y-2">
+                        {tramosIndividuales.map((t) => (
+                          <li key={t.titulo}>
+                            <Button asChild variant="link" size="sm" className="h-auto justify-start whitespace-normal p-0 text-xs">
+                              <a href={t.url} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="h-3 w-3" />
+                                {t.titulo === "Regresar al origen" ? "Consultar regreso planificado" : t.titulo.replace("Navegar a la parada", "Consultar tramo a la parada")}
+                              </a>
+                            </Button>
+                            <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                              {t.desde} → {t.hasta}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  )}
                 </div>
               )}
 
