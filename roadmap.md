@@ -1,5 +1,9 @@
 # Documentary thumbnails and mobile planner usability
 
+## Controlled Google Maps place-opening test
+- [ ] Prepare one isolated La Coracera search link without changing planner navigation or publishing.
+- [ ] Verify the local page, official URL parameters and mobile layout; leave live Samsung Maps behavior for user review.
+
 ## Current-location GPS navigation
 - [x] Add separate immediate-navigation links with exact destinations, driving and dir_action=navigate, without a fixed origin.
 - [x] Preserve planned-leg consultation, complete itinerary, origin, stop order and saved routes.
