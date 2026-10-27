@@ -2,6 +2,7 @@ import { Plane, MapPin, Info, AlertTriangle, ScrollText } from "lucide-react";
 import {
   AVISO_LEGAL_DRON,
   getEntornoDronInfo,
+  NOTA_DRONES,
   type Castillo,
 } from "@/data/castillos";
 import { getVueloDronInfo } from "@/data/castillos-extra";
@@ -87,7 +88,10 @@ export function InformacionDron({ castillo }: { castillo: Castillo }) {
         {/* Aviso legal */}
         <div className="flex items-start gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground/85">
           <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600" />
-          <p>{AVISO_LEGAL_DRON}</p>
+          <div>
+            <p>{castillo.notaDrones ?? NOTA_DRONES}</p>
+            <p className="mt-2">{AVISO_LEGAL_DRON}</p>
+          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,8 @@
-import { MapPin, Info } from "lucide-react";
+import { MapPin } from "lucide-react";
 import {
   getAccesoInfo,
   getPrecioInfo,
   getAparcamientoInfo,
-  NOTA_DRONES,
   type Castillo,
 } from "@/data/castillos";
 
@@ -114,10 +113,6 @@ export function InformacionPractica({ castillo }: { castillo: Castillo }) {
           </div>
         )}
 
-        <div className="flex items-start gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground/85">
-          <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600" />
-          <p>{castillo.notaDrones ?? NOTA_DRONES}</p>
-        </div>
       </div>
     </section>
   );
