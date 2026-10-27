@@ -45,8 +45,8 @@ export function InformacionPractica({ castillo }: { castillo: Castillo }) {
     precio ||
     aparcamiento ||
     castillo.comoLlegar ||
-    castillo.infoPractica ||
-    castillo.notaDrones;
+    castillo.infoPractica;
+
 
   // Si todavía no hay datos prácticos cargados, no mostramos la sección.
   if (!tieneAlgo) return null;
