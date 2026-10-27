@@ -33,7 +33,6 @@ import type {
   InformacionVisita as VisitaInfo,
   ServiciosVisita,
 } from "@/data/castillos";
-import { getDireccionesUrl } from "@/data/castillos";
 
 function Field({
   icon: Icon,
@@ -123,7 +122,6 @@ export function InformacionVisita({ castillo }: { castillo: Castillo }) {
     return null;
   }
 
-  const direccionesUrl = getDireccionesUrl(castillo);
 
   return (
     <section>
@@ -217,16 +215,6 @@ export function InformacionVisita({ castillo }: { castillo: Castillo }) {
                 </span>
               }
             />
-            <div className="sm:col-span-2">
-              <a
-                href={direccionesUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-transform hover:scale-[1.02]"
-              >
-                <Navigation className="h-4 w-4" /> Cómo llegar
-              </a>
-            </div>
           </Group>
         )}
 

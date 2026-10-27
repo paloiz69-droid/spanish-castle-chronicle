@@ -7,10 +7,14 @@ import {
 import { getVueloDronInfo } from "@/data/castillos-extra";
 
 export function InformacionDron({ castillo }: { castillo: Castillo }) {
-  const dron = getVueloDronInfo(castillo.slug);
-  if (!dron) return null;
+  const dron = getVueloDronInfo(castillo.slug) ?? {
+    entorno: "no-concluyente" as const,
+    justificacion:
+      "Todavía no se ha realizado el análisis específico del entorno de este castillo. Antes de volar, comprueba las zonas geográficas UAS y la posible existencia de entorno urbano en las inmediaciones.",
+    notas: undefined as string | undefined,
+  };
 
-  const info = getEntornoDronInfo(dron.entorno);
+  const info = getEntornoDronInfo(dron.entorno) ?? getEntornoDronInfo("no-concluyente");
   if (!info) return null;
 
   const [lat, lng] = castillo.coordenadas;

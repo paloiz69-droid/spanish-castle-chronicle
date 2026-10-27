@@ -176,14 +176,6 @@ function Page() {
             <Youtube className="h-4 w-4" /> 📺 Ver vídeo de este castillo
           </a>
         ) : null}
-        <a
-          href={direccionesUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-transform hover:scale-[1.02]"
-        >
-          <Navigation className="h-4 w-4" /> 📍 Cómo llegar
-        </a>
         <FavoriteButton variant="pill" slug={castillo.slug} nombre={castillo.nombre} />
       </div>
       {videoUrl && (
@@ -472,14 +464,6 @@ function Page() {
             <h3 className="font-display text-lg">Ubicación</h3>
             <p className="mt-2 text-sm text-foreground/85">{castillo.provincia}</p>
             <p className="text-xs text-muted-foreground">{castillo.comunidad}</p>
-            <a
-              href={direccionesUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
-            >
-              <Navigation className="h-4 w-4" /> 📍 Cómo llegar
-            </a>
           </div>
           {videoUrl && !videoId && (
             <a
