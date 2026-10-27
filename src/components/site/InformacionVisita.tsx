@@ -33,7 +33,6 @@ import type {
   InformacionVisita as VisitaInfo,
   ServiciosVisita,
 } from "@/data/castillos";
-import { getDireccionesUrl } from "@/data/castillos";
 
 function Field({
   icon: Icon,
@@ -123,7 +122,6 @@ export function InformacionVisita({ castillo }: { castillo: Castillo }) {
     return null;
   }
 
-  const direccionesUrl = getDireccionesUrl(castillo);
 
   return (
     <section>
