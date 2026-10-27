@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Youtube, MapPin, ArrowLeft, Navigation, Info } from "lucide-react";
+import { Youtube, MapPin, ArrowLeft, Navigation } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
 import { CastillosCercanos } from "@/components/site/CastillosCercanos";
@@ -18,7 +18,6 @@ import {
   getAccesoInfo,
   getPrecioInfo,
   getAparcamientoInfo,
-  NOTA_DRONES,
   toYoutubeWatchUrl,
   esCastilloNuevo,
   getDireccionesUrl,
@@ -358,10 +357,6 @@ function Page() {
               {castillo.infoPractica && (
                 <p className="text-base leading-relaxed text-foreground/85">{castillo.infoPractica}</p>
               )}
-              <div className="flex items-start gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground/85">
-                <Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600" />
-                <p>{castillo.notaDrones ?? NOTA_DRONES}</p>
-              </div>
             </div>
           </Section>
 
