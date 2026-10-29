@@ -38,7 +38,6 @@ import chinchon from "@/assets/castillos/chinchon.jpg";
 import busot from "@/assets/castillos/busot.jpg";
 import alcazarSegovia2 from "@/assets/castillos/alcazar-segovia-2.jpg";
 import alcazarSegovia3 from "@/assets/castillos/alcazar-segovia-3.jpg";
-import consuegra2 from "@/assets/castillos/consuegra-2.jpg";
 import cullera2 from "@/assets/castillos/cullera-2.jpg";
 import escalona2 from "@/assets/castillos/escalona-2.jpg";
 import laAdrada2 from "@/assets/castillos/la-adrada-2.jpg";
@@ -824,7 +823,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza de la Orden de San Juan, dominando la llanura manchega junto a los míticos molinos.",
     imagen: consuegra,
-    galeria: [consuegra2, consuegra3],
+    galeria: [consuegra3],
     coordenadas: [39.453142, -3.608194],
     acceso: "interior",
     precio: "de-pago",
