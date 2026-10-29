@@ -65,6 +65,15 @@ import orgaz4 from "@/assets/castillos/orgaz-4.jpg";
 import xivert from "@/assets/castillos/xivert.jpg";
 import xivert2 from "@/assets/castillos/xivert-2.jpg";
 import xivert3 from "@/assets/castillos/xivert-3.jpg";
+import atienza2 from "@/assets/castillos/atienza-2.jpg";
+import monreal2 from "@/assets/castillos/monreal-2.jpg";
+import cuellar2 from "@/assets/castillos/cuellar-2.jpg";
+import manzanares3 from "@/assets/castillos/manzanares-3.jpg";
+import almonacidDeToledo2 from "@/assets/castillos/almonacid-de-toledo-2.jpg";
+import guadamur2 from "@/assets/castillos/guadamur-2.jpg";
+import fuentiduenaDeTajo2 from "@/assets/castillos/fuentiduena-de-tajo-2.jpg";
+import batres3 from "@/assets/castillos/batres-3.jpg";
+import malpica2 from "@/assets/castillos/malpica-2.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -726,7 +735,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Joya del gótico militar castellano, palacio-fortaleza de los Mendoza al pie de La Pedriza.",
     imagen: manzanares,
-    galeria: [manzanares2],
+    galeria: [manzanares2, manzanares3],
     coordenadas: [40.727172, -3.862008],
     acceso: "restringido",
     precio: "no-visitable",
@@ -767,6 +776,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza señorial del siglo XV, una de las más bellas y completas de Castilla.",
     imagen: guadamur,
+    galeria: [guadamur, guadamur2],
     coordenadas: [39.810278, -4.146364],
     acceso: "interior",
     precio: "de-pago",
@@ -962,6 +972,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Palacio-fortaleza de los duques de Alburquerque, mezcla de gótico, mudéjar y renacimiento.",
     imagen: cuellar,
+    galeria: [cuellar, cuellar2],
     coordenadas: [41.400958, -4.320008],
     acceso: "interior",
     precio: "de-pago",
@@ -1004,6 +1015,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Singular fortaleza-palacio de origen árabe sobre el Tajo, con perfil neogótico restaurado.",
     imagen: malpica,
+    galeria: [malpica, malpica2],
     coordenadas: [39.896044, -4.545083],
     acceso: "restringido",
     precio: "no-visitable",
@@ -1336,6 +1348,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "El Castillo de Monreal, en Dosbarrios (Toledo), es una fortaleza medieval en ruinas sobre un cerro testigo. Historia, cómo llegar y visita.",
     imagen: monreal,
+    galeria: [monreal, monreal2],
     coordenadas: [39.828047, -3.545575],
     acceso: "exterior",
     precio: "gratuito",
@@ -1625,6 +1638,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza medieval encaramada sobre un cerro que domina la llanura toledana, escenario de la batalla de Almonacid de 1809.",
     imagen: almonacidDeToledo,
+    galeria: [almonacidDeToledo, almonacidDeToledo2],
     coordenadas: [39.748736, -3.851814],
     acceso: "exterior",
     precio: "gratuito",
@@ -1734,6 +1748,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Restos de una fortaleza musulmana sobre un cerro junto al Tajo, llave del paso entre Castilla y la Meseta sur.",
     imagen: fuentiduenaDeTajo,
+    galeria: [fuentiduenaDeTajo, fuentiduenaDeTajo2],
     coordenadas: [40.121831, -3.163164],
     acceso: "exterior",
     precio: "gratuito",
@@ -2017,6 +2032,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza medieval encaramada sobre un peñón calizo que domina la villa serrana de Atienza, en el norte de Guadalajara.",
     imagen: atienza1,
+    galeria: [atienza1, atienza2],
     coordenadas: [41.200303, -2.874139],
     acceso: "exterior",
     precio: "gratuito",
@@ -2163,7 +2179,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Castillo de Batres, también llamado Palacio de Batres: fortaleza del siglo XV de Garcilaso de la Vega al sur de Madrid. Cómo llegar y visitarlo.",
     imagen: batres,
-    galeria: [batres2],
+    galeria: [batres2, batres3],
     coordenadas: [40.210794, -3.923358],
     acceso: "restringido",
     precio: "no-visitable",
