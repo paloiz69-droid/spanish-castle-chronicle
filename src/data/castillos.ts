@@ -74,6 +74,9 @@ import guadamur2 from "@/assets/castillos/guadamur-2.jpg";
 import fuentiduenaDeTajo2 from "@/assets/castillos/fuentiduena-de-tajo-2.jpg";
 import batres3 from "@/assets/castillos/batres-3.jpg";
 import malpica2 from "@/assets/castillos/malpica-2.jpg";
+import consuegra3 from "@/assets/castillos/consuegra-3.jpg";
+import arevalo2 from "@/assets/castillos/arevalo-2.jpg";
+import penafiel2 from "@/assets/castillos/penafiel-2.jpg";
 import heroImg from "@/assets/hero-kdronazo.jpg";
 
 export type EstadoCastillo = "conservado" | "ruinas";
@@ -821,7 +824,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza de la Orden de San Juan, dominando la llanura manchega junto a los míticos molinos.",
     imagen: consuegra,
-    galeria: [consuegra2],
+    galeria: [consuegra2, consuegra3],
     coordenadas: [39.453142, -3.608194],
     acceso: "interior",
     precio: "de-pago",
@@ -1519,6 +1522,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza mudéjar de planta poligonal en la confluencia de los ríos Adaja y Arevalillo, símbolo histórico de la villa de Arévalo.",
     imagen: arevalo,
+    galeria: [arevalo2],
     coordenadas: [41.069672, -4.720714],
     acceso: "interior",
     precio: "de-pago",
@@ -1900,6 +1904,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza alargada en forma de barco sobre un cerro, símbolo de la Ribera del Duero y hoy Museo Provincial del Vino.",
     imagen: penafiel,
+    galeria: [penafiel2],
     coordenadas: [41.596783, -4.114247],
     acceso: "interior",
     precio: "de-pago",
