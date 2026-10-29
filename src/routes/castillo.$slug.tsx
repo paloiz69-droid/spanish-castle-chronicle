@@ -104,7 +104,9 @@ export const Route = createFileRoute("/castillo/$slug")({
 function Page() {
   const { castillo } = Route.useLoaderData() as { castillo: Castillo };
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const galeria = castillo.galeria?.length ? castillo.galeria : [castillo.imagen];
+  const galeria = castillo.galeria?.length
+    ? [castillo.imagen, ...castillo.galeria.filter((g) => g !== castillo.imagen)]
+    : [castillo.imagen];
   const cat = getCategoriaInfo(castillo.categoria);
   const videoUrl = toYoutubeWatchUrl(castillo.youtubeUrl);
   const videoId = getYoutubeVideoId(castillo.youtubeUrl);
