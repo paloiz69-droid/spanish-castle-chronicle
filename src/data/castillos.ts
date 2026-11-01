@@ -8,8 +8,11 @@ import cullera from "@/assets/castillos/cullera.jpg";
 import forna from "@/assets/castillos/forna.jpg";
 import forna2 from "@/assets/castillos/forna-2.jpg";
 import gormaz from "@/assets/castillos/gormaz.jpg";
+import gormaz2 from "@/assets/castillos/gormaz-2.jpg";
+import gormaz3 from "@/assets/castillos/gormaz-3.jpg";
 import guadamur from "@/assets/castillos/guadamur.jpg";
 import jadraque from "@/assets/castillos/jadraque.jpg";
+import jadraque2 from "@/assets/castillos/jadraque-2.jpg";
 import manzanares from "@/assets/castillos/manzanares.jpg";
 import sanServando from "@/assets/castillos/san-servando.jpg";
 import torija from "@/assets/castillos/torija.jpg";
@@ -43,7 +46,9 @@ import fuentiduenaDeTajo from "@/assets/castillos/fuentiduena-de-tajo.jpg";
 import bairen from "@/assets/castillos/bairen.jpg";
 import bairen2 from "@/assets/castillos/bairen-2.jpg";
 import pioz from "@/assets/castillos/pioz.jpg";
+import pioz2 from "@/assets/castillos/pioz-2.jpg";
 import chinchon from "@/assets/castillos/chinchon.jpg";
+import chinchon2 from "@/assets/castillos/chinchon-2.jpg";
 import busot from "@/assets/castillos/busot.jpg";
 import busot2 from "@/assets/castillos/busot-2.jpg";
 import alcazarSegovia2 from "@/assets/castillos/alcazar-segovia-2.jpg";
@@ -578,6 +583,7 @@ export const CASTILLOS: Castillo[] = [
       "El Cid Campeador fue su alcaide.",
     ],
     youtubeUrl: "https://youtu.be/H-NqnJ-A3j4",
+    galeria: [gormaz2, gormaz3],
   },
   {
     slug: "castillo-de-jadraque",
@@ -608,6 +614,7 @@ export const CASTILLOS: Castillo[] = [
       "Ortega y Gasset escribió sobre la belleza geométrica del emplazamiento.",
     ],
     youtubeUrl: "https://youtu.be/41pA4KYrEvo",
+    galeria: [jadraque2],
     contactoOficial: {
       telefono: {
         valor: "+34 949 89 00 00",
@@ -1747,6 +1754,7 @@ export const CASTILLOS: Castillo[] = [
       "Su sillería caliza dorada brilla espectacularmente al sol del atardecer.",
     ],
     youtubeUrl: "https://youtu.be/kFPQuG1_D9Y",
+    galeria: [pioz2],
     contactoOficial: {
       telefono: {
         valor: "+34 949 272 076",
@@ -1901,6 +1909,7 @@ export const CASTILLOS: Castillo[] = [
       "Junto al castillo nuevo perviven aún restos de la torre del antiguo castillo medieval.",
     ],
     youtubeUrl: "https://youtu.be/SMaBqz4T-C8",
+    galeria: [chinchon2],
     contactoOficial: {
       telefono: {
         valor: "+34 91 893 53 23",
