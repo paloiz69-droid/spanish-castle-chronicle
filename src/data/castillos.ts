@@ -3,6 +3,7 @@ import aulencia2 from "@/assets/castillos/aulencia-2.jpg";
 import berlanga from "@/assets/castillos/berlanga.jpg";
 import berlanga2 from "@/assets/castillos/berlanga-2.jpg";
 import castrojeriz from "@/assets/castillos/castrojeriz.jpg";
+import castrojeriz2 from "@/assets/castillos/castrojeriz-2.jpg";
 import consuegra from "@/assets/castillos/consuegra.jpg";
 import cullera from "@/assets/castillos/cullera.jpg";
 import forna from "@/assets/castillos/forna.jpg";
@@ -19,6 +20,7 @@ import torija from "@/assets/castillos/torija.jpg";
 import cuellar from "@/assets/castillos/cuellar.jpg";
 import malpica from "@/assets/castillos/malpica.jpg";
 import maqueda from "@/assets/castillos/maqueda.jpg";
+import maqueda2 from "@/assets/castillos/maqueda-2.jpg";
 import escalona from "@/assets/castillos/escalona.jpg";
 import penasNegras from "@/assets/castillos/penas-negras.jpg";
 import laMota from "@/assets/castillos/la-mota.jpg";
@@ -26,6 +28,7 @@ import laCoracera from "@/assets/castillos/la-coracera.jpg";
 import alcazarSegovia from "@/assets/castillos/alcazar-segovia.jpg";
 import villaviciosaOdon from "@/assets/castillos/villaviciosa-odon.jpg";
 import magalia from "@/assets/castillos/magalia.jpg";
+import magalia2 from "@/assets/castillos/magalia-2.jpg";
 import monreal from "@/assets/castillos/monreal.jpg";
 import pueblaAlmenara from "@/assets/castillos/puebla-de-almenara.jpg";
 import oreja from "@/assets/castillos/oreja.jpg";
@@ -696,6 +699,7 @@ export const CASTILLOS: Castillo[] = [
       "El terremoto de Lisboa de 1755 derribó parte de sus muros.",
     ],
     youtubeUrl: "https://youtu.be/8dw4ZnMqFWg",
+    galeria: [castrojeriz2],
     contactoOficial: {
       telefono: {
         valor: "+34 947 378 588",
@@ -1089,6 +1093,7 @@ export const CASTILLOS: Castillo[] = [
       "Sirvió como cuartel de la Guardia Civil durante décadas.",
     ],
     youtubeUrl: "https://youtu.be/XZMaYGGpWN8",
+    galeria: [maqueda2],
     contactoOficial: {
       telefono: {
         valor: "+34 925 790 001",
@@ -1311,6 +1316,7 @@ export const CASTILLOS: Castillo[] = [
       "Combina arquitectura militar y residencial en un solo conjunto.",
     ],
     youtubeUrl: "https://youtu.be/sA92aGowI3E",
+    galeria: [magalia2],
     contactoOficial: {
       webOficial: "https://magalia.inaem.gob.es/",
       reservasUrl: "https://lasnavasdelmarques.es/venta-entradas",
