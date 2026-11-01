@@ -1,5 +1,6 @@
 import aulencia from "@/assets/castillos/aulencia.jpg";
 import berlanga from "@/assets/castillos/berlanga.jpg";
+import berlanga2 from "@/assets/castillos/berlanga-2.jpg";
 import castrojeriz from "@/assets/castillos/castrojeriz.jpg";
 import consuegra from "@/assets/castillos/consuegra.jpg";
 import cullera from "@/assets/castillos/cullera.jpg";
@@ -23,7 +24,9 @@ import magalia from "@/assets/castillos/magalia.jpg";
 import monreal from "@/assets/castillos/monreal.jpg";
 import pueblaAlmenara from "@/assets/castillos/puebla-de-almenara.jpg";
 import oreja from "@/assets/castillos/oreja.jpg";
+import oreja2 from "@/assets/castillos/oreja-2.jpg";
 import lujan from "@/assets/castillos/lujan.jpg";
+import lujan2 from "@/assets/castillos/lujan-2.jpg";
 import arevalo from "@/assets/castillos/arevalo.jpg";
 import sanSilvestre from "@/assets/castillos/san-silvestre.jpg";
 import villalba from "@/assets/castillos/villalba.jpg";
@@ -36,6 +39,7 @@ import bairen from "@/assets/castillos/bairen.jpg";
 import pioz from "@/assets/castillos/pioz.jpg";
 import chinchon from "@/assets/castillos/chinchon.jpg";
 import busot from "@/assets/castillos/busot.jpg";
+import busot2 from "@/assets/castillos/busot-2.jpg";
 import alcazarSegovia2 from "@/assets/castillos/alcazar-segovia-2.jpg";
 import alcazarSegovia3 from "@/assets/castillos/alcazar-segovia-3.jpg";
 import cullera2 from "@/assets/castillos/cullera-2.jpg";
@@ -621,6 +625,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente fortaleza renacentista con doble recinto amurallado abrazando la villa medieval.",
     imagen: berlanga,
+    galeria: [berlanga2],
     coordenadas: [41.464969, -2.856825],
     acceso: "interior",
     precio: "de-pago",
@@ -1433,6 +1438,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza medieval colgada sobre los cortados del río Tajo, llave estratégica entre Toledo y la meseta sur durante la Reconquista.",
     imagen: oreja,
+    galeria: [oreja2],
     coordenadas: [40.039083, -3.498369],
     acceso: "exterior",
     precio: "gratuito",
@@ -1473,6 +1479,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Castillo-palacio renacentista y plateresco del siglo XVI, también conocido como El Castillejo, en el paraje de Villa Paz (Saelices, Cuenca).",
     imagen: lujan,
+    galeria: [lujan2],
     coordenadas: [39.889328, -2.776794],
     acceso: "interior",
     infoPractica:
@@ -1944,6 +1951,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza almohade en Alicante, el Castillo de Busot (siglos XII-XIII) se alza sobre un cerro con vistas al Mediterráneo. Historia, cómo llegar y visita.",
     imagen: busot,
+    galeria: [busot2],
     coordenadas: [38.485158, -0.417050],
     acceso: "interior",
     precio: "gratuito",
