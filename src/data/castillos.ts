@@ -1,10 +1,12 @@
 import aulencia from "@/assets/castillos/aulencia.jpg";
+import aulencia2 from "@/assets/castillos/aulencia-2.jpg";
 import berlanga from "@/assets/castillos/berlanga.jpg";
 import berlanga2 from "@/assets/castillos/berlanga-2.jpg";
 import castrojeriz from "@/assets/castillos/castrojeriz.jpg";
 import consuegra from "@/assets/castillos/consuegra.jpg";
 import cullera from "@/assets/castillos/cullera.jpg";
 import forna from "@/assets/castillos/forna.jpg";
+import forna2 from "@/assets/castillos/forna-2.jpg";
 import gormaz from "@/assets/castillos/gormaz.jpg";
 import guadamur from "@/assets/castillos/guadamur.jpg";
 import jadraque from "@/assets/castillos/jadraque.jpg";
@@ -29,13 +31,17 @@ import lujan from "@/assets/castillos/lujan.jpg";
 import lujan2 from "@/assets/castillos/lujan-2.jpg";
 import arevalo from "@/assets/castillos/arevalo.jpg";
 import sanSilvestre from "@/assets/castillos/san-silvestre.jpg";
+import sanSilvestre2 from "@/assets/castillos/san-silvestre-2.jpg";
 import villalba from "@/assets/castillos/villalba.jpg";
+import villalba2 from "@/assets/castillos/villalba-2.jpg";
 import penafiel from "@/assets/castillos/penafiel.jpg";
 import galveDeSorbe from "@/assets/castillos/galve-de-sorbe.jpg";
 import almonacidDeToledo from "@/assets/castillos/almonacid-de-toledo.jpg";
 import punoenrostro from "@/assets/castillos/punoenrostro.jpg";
+import punoenrostro2 from "@/assets/castillos/punoenrostro-2.jpg";
 import fuentiduenaDeTajo from "@/assets/castillos/fuentiduena-de-tajo.jpg";
 import bairen from "@/assets/castillos/bairen.jpg";
+import bairen2 from "@/assets/castillos/bairen-2.jpg";
 import pioz from "@/assets/castillos/pioz.jpg";
 import chinchon from "@/assets/castillos/chinchon.jpg";
 import busot from "@/assets/castillos/busot.jpg";
@@ -514,6 +520,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza medieval sobre el valle del río Aulencia, testigo solitario de las tierras altas de Villanueva de la Cañada.",
     imagen: aulencia,
+    galeria: [aulencia2],
     coordenadas: [40.443894, -3.9553],
     acceso: "exterior",
     precio: "gratuito",
@@ -706,6 +713,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza palacio de origen árabe en el corazón de la Marina Alta valenciana.",
     imagen: forna,
+    galeria: [forna2],
     coordenadas: [38.87225, -0.170867],
     acceso: "exterior",
     precio: "gratuito",
@@ -1567,6 +1575,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Restos de una fortaleza extremeña inmersa en un mar de olivos, con poderosos lienzos de tapial que aún desafían el paso del tiempo.",
     imagen: villalba,
+    galeria: [villalba2],
     coordenadas: [39.912106, -4.537592],
     acceso: "interior",
     precio: "gratuito",
@@ -1608,6 +1617,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza castellana en el despoblado de San Silvestre (término municipal de Toledo), con cubos circulares almenados sobre la llanura.",
     imagen: sanSilvestre,
+    galeria: [sanSilvestre2],
     coordenadas: [40.068083, -4.305439],
     acceso: "exterior",
     precio: "gratuito",
@@ -1679,6 +1689,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Imponente torre del homenaje con torreones cilíndricos adosados, vigía castellana sobre la campiña de Seseña, en Toledo.",
     imagen: punoenrostro,
+    galeria: [punoenrostro2],
     coordenadas: [40.105872, -3.707317],
     acceso: "restringido",
     precio: "no-visitable",
@@ -1833,6 +1844,7 @@ export const CASTILLOS: Castillo[] = [
     descripcionBreve:
       "Fortaleza andalusí sobre el monte Montdúver, escenario de la legendaria batalla en la que combatió El Cid en 1097.",
     imagen: bairen,
+    galeria: [bairen2],
     coordenadas: [38.995506, -0.185931],
     acceso: "interior",
     precio: "gratuito",
